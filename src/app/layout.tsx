@@ -17,6 +17,7 @@ import { LeadFormProvider } from "@/context/LeadFormContext";
 import LeadFormModal from "@/components/LeadFormModal";
 import { LoadScript } from "@react-google-maps/api";
 import { usePathname } from "next/navigation";
+import GlobalPreloader from "@/components/GlobalPreloader";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -47,6 +48,8 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${poppins.variable} font-inter antialiased`}
       >
+        {/* Global preloader overlay */}
+        <GlobalPreloader />
         <LeadFormProvider>
            <LoadScript
           googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || "AIzaSyAOPCNlHy1wcVmr7Srt_1ic9EqEStBSMm4"}
