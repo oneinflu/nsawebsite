@@ -242,7 +242,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
       {/* Progress Bar */}
       <div className="fixed top-0 left-0 w-full h-1 bg-gray-200 z-50">
         <div 
-          className="h-full bg-blue-600 transition-all duration-300"
+          className="h-full bg-red-600 transition-all duration-300"
           style={{ width: `${scrollProgress}%` }}
         />
       </div>
@@ -256,9 +256,9 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
               
               {/* Breadcrumb */}
               <nav className="flex items-center space-x-2 text-sm text-gray-500">
-                <a href="/blogs" className="hover:text-blue-600 transition-colors">Learn</a>
+                <a href="/blogs" className="hover:text-red-600 transition-colors">Learn</a>
                 <ChevronRight className="w-4 h-4" />
-                <span className="text-blue-600 font-medium">{article.category}</span>
+                <span className="text-red-600 font-medium">{article.category}</span>
               </nav>
             </div>
 
@@ -280,7 +280,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
             <div className="sticky top-24">
               <div className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm">
                 <h3 className="font-semibold text-gray-900 mb-4 flex items-center">
-                  <BookOpen className="w-5 h-5 mr-2 text-blue-600" />
+                  <BookOpen className="w-5 h-5 mr-2 text-red-600" />
                   Table of Contents
                 </h3>
                 <nav className="space-y-1">
@@ -290,7 +290,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
                       href={`#${item.id}`}
                       className={`block text-sm py-2 px-3 rounded-lg transition-all duration-200 ${
                         activeSection === item.id
-                          ? 'bg-blue-50 text-blue-700 font-medium border-l-2 border-blue-600'
+                          ? 'bg-red-50 text-red-700 font-medium border-l-2 border-red-600'
                           : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
                       }`}
                       style={{ paddingLeft: `${item.level * 8 + 12}px` }}
@@ -343,7 +343,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
                         <div className="flex items-center space-x-2">
                           <h3 className="font-semibold text-gray-900">{article.author.name}</h3>
                           <span className="text-sm text-gray-400">•</span>
-                          <span className="text-sm text-blue-600 font-medium">{article.author.role}</span>
+                          <span className="text-sm text-red-600 font-medium">{article.author.role}</span>
                         </div>
                         <div className="flex items-center space-x-4 text-sm text-gray-500">
                           <span>{article.publishDate}</span>
@@ -368,7 +368,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
                       className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                         isFollowingAuthor
                           ? 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                          : 'bg-blue-600 text-white hover:bg-blue-700 shadow-sm'
+                          : 'bg-red-600 text-white hover:bg-red-700 shadow-sm'
                       }`}
                     >
                       {isFollowingAuthor ? 'Following' : 'Follow Author'}
@@ -401,26 +401,26 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
                     </p>
 
                     {/* Key Takeaways Callout */}
-                    <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-blue-500 p-6 my-8 rounded-r-lg">
+                    <div className="bg-gradient-to-r from-red-50 to-indigo-50 border-l-4 border-red-500 p-6 my-8 rounded-r-lg">
                       <div className="flex items-start">
-                        <Lightbulb className="w-6 h-6 text-blue-600 mt-1 mr-3 flex-shrink-0" />
+                        <Lightbulb className="w-6 h-6 text-red-600 mt-1 mr-3 flex-shrink-0" />
                         <div>
-                          <h4 className="text-lg font-semibold text-blue-900 mb-3">Key Takeaways</h4>
-                          <ul className="space-y-2 text-blue-800">
+                          <h4 className="text-lg font-semibold text-red-900 mb-3">Key Takeaways</h4>
+                          <ul className="space-y-2 text-red-800">
                             <li className="flex items-start">
-                              <CheckCircle className="w-4 h-4 mt-1 mr-2 text-blue-600 flex-shrink-0" />
+                              <CheckCircle className="w-4 h-4 mt-1 mr-2 text-red-600 flex-shrink-0" />
                               CPA license requires 150 credit hours of education
                             </li>
                             <li className="flex items-start">
-                              <CheckCircle className="w-4 h-4 mt-1 mr-2 text-blue-600 flex-shrink-0" />
+                              <CheckCircle className="w-4 h-4 mt-1 mr-2 text-red-600 flex-shrink-0" />
                               Pass rate for CPA exam is approximately 50%
                             </li>
                             <li className="flex items-start">
-                              <CheckCircle className="w-4 h-4 mt-1 mr-2 text-blue-600 flex-shrink-0" />
+                              <CheckCircle className="w-4 h-4 mt-1 mr-2 text-red-600 flex-shrink-0" />
                               Average salary increase of 25-30% after CPA certification
                             </li>
                             <li className="flex items-start">
-                              <CheckCircle className="w-4 h-4 mt-1 mr-2 text-blue-600 flex-shrink-0" />
+                              <CheckCircle className="w-4 h-4 mt-1 mr-2 text-red-600 flex-shrink-0" />
                               License must be maintained through continuing education
                             </li>
                           </ul>
@@ -443,7 +443,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
                       <h4 className="font-semibold text-gray-900 mb-6 text-center">Credit Hour Requirements by State</h4>
                       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                         <div className="bg-white p-6 rounded-lg text-center shadow-sm border border-gray-100">
-                          <div className="text-3xl font-bold text-blue-600 mb-2">42</div>
+                          <div className="text-3xl font-bold text-red-600 mb-2">42</div>
                           <div className="text-sm text-gray-600 font-medium">States require 150 hours</div>
                         </div>
                         <div className="bg-white p-6 rounded-lg text-center shadow-sm border border-gray-100">
@@ -543,27 +543,27 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
                   </div>
 
                   {/* Context Links */}
-                  <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-6 my-8 border border-blue-200">
-                    <h4 className="font-semibold text-blue-900 mb-4 flex items-center">
+                  <div className="bg-gradient-to-r from-red-50 to-indigo-50 rounded-xl p-6 my-8 border border-red-200">
+                    <h4 className="font-semibold text-red-900 mb-4 flex items-center">
                       <Globe className="w-5 h-5 mr-2" />
                       Related CPA Resources
                     </h4>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <a href="/cpa-us/fees" className="flex items-center space-x-3 p-4 bg-white rounded-lg hover:bg-blue-50 transition-all duration-200 border border-blue-100 hover:border-blue-300 group">
-                        <DollarSign className="w-5 h-5 text-blue-600 group-hover:scale-110 transition-transform" />
+                      <a href="/cpa-us/fees" className="flex items-center space-x-3 p-4 bg-white rounded-lg hover:bg-red-50 transition-all duration-200 border border-red-100 hover:border-red-300 group">
+                        <DollarSign className="w-5 h-5 text-red-600 group-hover:scale-110 transition-transform" />
                         <div className="flex-1">
-                          <div className="font-medium text-blue-900">CPA Fees & ROI</div>
-                          <div className="text-sm text-blue-700">Complete cost breakdown</div>
+                          <div className="font-medium text-red-900">CPA Fees & ROI</div>
+                          <div className="text-sm text-red-700">Complete cost breakdown</div>
                         </div>
-                        <ExternalLink className="w-4 h-4 text-blue-600 opacity-0 group-hover:opacity-100 transition-opacity" />
+                        <ExternalLink className="w-4 h-4 text-red-600 opacity-0 group-hover:opacity-100 transition-opacity" />
                       </a>
-                      <a href="/cpa-us/state-boards" className="flex items-center space-x-3 p-4 bg-white rounded-lg hover:bg-blue-50 transition-all duration-200 border border-blue-100 hover:border-blue-300 group">
-                        <MapPin className="w-5 h-5 text-blue-600 group-hover:scale-110 transition-transform" />
+                      <a href="/cpa-us/state-boards" className="flex items-center space-x-3 p-4 bg-white rounded-lg hover:bg-red-50 transition-all duration-200 border border-red-100 hover:border-red-300 group">
+                        <MapPin className="w-5 h-5 text-red-600 group-hover:scale-110 transition-transform" />
                         <div className="flex-1">
-                          <div className="font-medium text-blue-900">State Board Requirements</div>
-                          <div className="text-sm text-blue-700">Find your state&apos;s rules</div>
+                          <div className="font-medium text-red-900">State Board Requirements</div>
+                          <div className="text-sm text-red-700">Find your state&apos;s rules</div>
                         </div>
-                        <ExternalLink className="w-4 h-4 text-blue-600 opacity-0 group-hover:opacity-100 transition-opacity" />
+                        <ExternalLink className="w-4 h-4 text-red-600 opacity-0 group-hover:opacity-100 transition-opacity" />
                       </a>
                     </div>
                   </div>
@@ -579,7 +579,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
                     exit={{ opacity: 0, y: -20 }}
                     className="mx-8 mb-8"
                   >
-                    <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-700 rounded-xl p-6 text-white relative overflow-hidden">
+                    <div className="bg-gradient-to-r from-red-600 via-purple-600 to-red-700 rounded-xl p-6 text-white relative overflow-hidden">
                       <div className="absolute inset-0 bg-black opacity-10"></div>
                       <div className="relative flex items-center justify-between">
                         <div className="flex-1">
@@ -587,8 +587,8 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
                             <Download className="w-6 h-6 mr-2" />
                             Download the Complete CPA Syllabus (PDF)
                           </h3>
-                          <p className="text-blue-100 mb-4">Get the detailed breakdown of all four exam sections, study timeline, and recommended resources.</p>
-                          <div className="flex items-center space-x-4 text-sm text-blue-200">
+                          <p className="text-red-100 mb-4">Get the detailed breakdown of all four exam sections, study timeline, and recommended resources.</p>
+                          <div className="flex items-center space-x-4 text-sm text-red-200">
                             <span className="flex items-center">
                               <CheckCircle className="w-4 h-4 mr-1" />
                               40+ pages
@@ -603,7 +603,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
                             </span>
                           </div>
                         </div>
-                        <button className="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-all duration-200 flex items-center space-x-2 shadow-lg hover:shadow-xl transform hover:scale-105">
+                        <button className="bg-white text-red-600 px-6 py-3 rounded-lg font-semibold hover:bg-red-50 transition-all duration-200 flex items-center space-x-2 shadow-lg hover:shadow-xl transform hover:scale-105">
                           <Download className="w-5 h-5" />
                           <span>Download Free</span>
                         </button>
@@ -634,7 +634,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
               </section>
 
               {/* Author Box */}
-              <div className="p-8 border-t border-gray-100 bg-gradient-to-r from-gray-50 to-blue-50">
+              <div className="p-8 border-t border-gray-100 bg-gradient-to-r from-gray-50 to-red-50">
                 <div className="flex items-start space-x-6">
                   <img
                     src={article.author.avatar}
@@ -649,13 +649,13 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
                         className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                           isFollowingAuthor
                             ? 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-                            : 'bg-blue-600 text-white hover:bg-blue-700 shadow-sm'
+                            : 'bg-red-600 text-white hover:bg-red-700 shadow-sm'
                         }`}
                       >
                         {isFollowingAuthor ? 'Following' : 'Follow'}
                       </button>
                     </div>
-                    <p className="text-blue-600 font-medium mb-2">{article.author.role}</p>
+                    <p className="text-red-600 font-medium mb-2">{article.author.role}</p>
                     <p className="text-gray-700 mb-4 leading-relaxed">{article.author.bio}</p>
                     
                     <div className="flex items-center space-x-6 text-sm text-gray-600 mb-4">
@@ -675,17 +675,17 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
 
                     <div className="flex items-center space-x-4">
                       {article.author.socialLinks.linkedin && (
-                        <a href={article.author.socialLinks.linkedin} className="text-gray-600 hover:text-blue-600 transition-colors">
+                        <a href={article.author.socialLinks.linkedin} className="text-gray-600 hover:text-red-600 transition-colors">
                           <Linkedin className="w-5 h-5" />
                         </a>
                       )}
                       {article.author.socialLinks.twitter && (
-                        <a href={article.author.socialLinks.twitter} className="text-gray-600 hover:text-blue-400 transition-colors">
+                        <a href={article.author.socialLinks.twitter} className="text-gray-600 hover:text-red-400 transition-colors">
                           <Twitter className="w-5 h-5" />
                         </a>
                       )}
                       {article.author.officeHours && (
-                        <a href={article.author.officeHours} className="text-sm text-blue-600 hover:text-blue-800 font-medium transition-colors flex items-center">
+                        <a href={article.author.officeHours} className="text-sm text-red-600 hover:text-red-800 font-medium transition-colors flex items-center">
                           <Calendar className="w-4 h-4 mr-1" />
                           Book Office Hours →
                         </a>
@@ -700,7 +700,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
                 <div className="p-8 border-t border-gray-100">
                   <div className="flex items-center justify-between">
                     {article.series.prevArticle ? (
-                      <a href={`/blog/${article.series.prevArticle.slug}`} className="flex items-center space-x-2 text-blue-600 hover:text-blue-800 transition-colors group">
+                      <a href={`/blog/${article.series.prevArticle.slug}`} className="flex items-center space-x-2 text-red-600 hover:text-red-800 transition-colors group">
                         <ChevronLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
                         <div>
                           <div className="text-sm text-gray-500">Previous</div>
@@ -717,7 +717,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
                     </div>
 
                     {article.series.nextArticle ? (
-                      <a href={`/blog/${article.series.nextArticle.slug}`} className="flex items-center space-x-2 text-blue-600 hover:text-blue-800 text-right transition-colors group">
+                      <a href={`/blog/${article.series.nextArticle.slug}`} className="flex items-center space-x-2 text-red-600 hover:text-red-800 text-right transition-colors group">
                         <div>
                           <div className="text-sm text-gray-500">Next</div>
                           <div className="font-medium">{article.series.nextArticle.title}</div>
@@ -734,7 +734,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
               {/* Related Articles */}
               <div className="p-8 border-t border-gray-100">
                 <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center">
-                  <BookOpen className="w-5 h-5 mr-2 text-blue-600" />
+                  <BookOpen className="w-5 h-5 mr-2 text-red-600" />
                   Related Reads
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -742,10 +742,10 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
                     <a
                       key={index}
                       href={`/blog/${related.slug}`}
-                      className="block p-4 border border-gray-200 rounded-lg hover:border-blue-300 hover:shadow-md transition-all duration-200 group"
+                      className="block p-4 border border-gray-200 rounded-lg hover:border-red-300 hover:shadow-md transition-all duration-200 group"
                     >
-                      <div className="text-sm text-blue-600 font-medium mb-1">{related.category}</div>
-                      <h4 className="font-semibold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">{related.title}</h4>
+                      <div className="text-sm text-red-600 font-medium mb-1">{related.category}</div>
+                      <h4 className="font-semibold text-gray-900 mb-2 group-hover:text-red-600 transition-colors">{related.title}</h4>
                       <div className="text-sm text-gray-500 flex items-center">
                         <Clock className="w-4 h-4 mr-1" />
                         {related.readTime}
@@ -759,11 +759,11 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
               <div className="p-8 border-t border-gray-100">
                 <div className="flex items-center justify-between mb-6">
                   <h3 className="text-xl font-bold text-gray-900 flex items-center">
-                    <MessageSquare className="w-5 h-5 mr-2 text-blue-600" />
+                    <MessageSquare className="w-5 h-5 mr-2 text-red-600" />
                     Comments ({comments.length})
                   </h3>
                   <select
-                    className="text-sm border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="text-sm border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-red-500 focus:border-transparent"
                   >
                     <option value="all">All Comments</option>
                     <option value="questions">Questions Only</option>
@@ -780,7 +780,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
                         value={newComment}
                         onChange={(e) => setNewComment(e.target.value)}
                         placeholder="Share your thoughts or ask a question..."
-                        className="w-full p-3 border border-gray-300 rounded-lg resize-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                        className="w-full p-3 border border-gray-300 rounded-lg resize-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
                         rows={3}
                       />
                       <div className="flex items-center justify-between mt-2">
@@ -790,7 +790,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
                         <button
                           onClick={addComment}
                           disabled={!newComment.trim()}
-                          className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 flex items-center space-x-2"
+                          className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 flex items-center space-x-2"
                         >
                           <MessageCircle className="w-4 h-4" />
                           <span>Post Comment</span>
@@ -818,11 +818,11 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
                         </div>
                         <p className="text-gray-700 mb-3 leading-relaxed">{comment.content}</p>
                         <div className="flex items-center space-x-4 text-sm">
-                          <button className="flex items-center space-x-1 text-gray-500 hover:text-blue-600 transition-colors">
+                          <button className="flex items-center space-x-1 text-gray-500 hover:text-red-600 transition-colors">
                             <ThumbsUp className="w-4 h-4" />
                             <span>{comment.likes}</span>
                           </button>
-                          <button className="text-gray-500 hover:text-blue-600 transition-colors">Reply</button>
+                          <button className="text-gray-500 hover:text-red-600 transition-colors">Reply</button>
                           {comment.replies > 0 && (
                             <span className="text-gray-500">{comment.replies} replies</span>
                           )}
@@ -859,7 +859,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
                     onClick={() => setIsSaved(!isSaved)}
                     className={`w-full flex items-center justify-center space-x-2 p-3 rounded-lg transition-all duration-200 ${
                       isSaved
-                        ? 'bg-blue-50 text-blue-600 border border-blue-200'
+                        ? 'bg-red-50 text-red-600 border border-red-200'
                         : 'bg-gray-50 text-gray-600 hover:bg-gray-100 border border-gray-200'
                     }`}
                   >
@@ -951,7 +951,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
             >
               <div className="flex items-center justify-between mb-6">
                 <h3 className="font-semibold text-gray-900 flex items-center">
-                  <BookOpen className="w-5 h-5 mr-2 text-blue-600" />
+                  <BookOpen className="w-5 h-5 mr-2 text-red-600" />
                   Table of Contents
                 </h3>
                 <button
@@ -1018,7 +1018,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
               className="bg-white rounded-xl p-8 max-w-md w-full shadow-2xl"
             >
               <div className="text-center">
-                <Bookmark className="w-12 h-12 text-blue-600 mx-auto mb-4" />
+                <Bookmark className="w-12 h-12 text-red-600 mx-auto mb-4" />
                 <h3 className="text-xl font-bold text-gray-900 mb-2">
                   Save This Guide & Get the Checklist
                 </h3>
@@ -1027,7 +1027,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
                   CPA preparation checklist sent to your email.
                 </p>
                 <div className="space-y-3">
-                  <button className="w-full bg-blue-600 text-white py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors flex items-center justify-center space-x-2">
+                  <button className="w-full bg-red-600 text-white py-3 rounded-lg font-medium hover:bg-red-700 transition-colors flex items-center justify-center space-x-2">
                     <Download className="w-5 h-5" />
                     <span>Save & Get Checklist</span>
                   </button>
@@ -1063,7 +1063,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
             >
               {/* Author Profile Header */}
               <div className="relative">
-                <div className="h-32 bg-gradient-to-r from-blue-600 to-purple-600"></div>
+                <div className="h-32 bg-gradient-to-r from-red-600 to-purple-600"></div>
                 <button
                   onClick={() => setShowAuthorProfile(false)}
                   className="absolute top-4 right-4 p-2 text-white hover:bg-white hover:bg-opacity-20 rounded-lg transition-colors"
@@ -1083,14 +1083,14 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
                 <div className="flex items-start justify-between mb-4">
                   <div>
                     <h2 className="text-2xl font-bold text-gray-900">{article.author.name}</h2>
-                    <p className="text-blue-600 font-medium text-lg">{article.author.role}</p>
+                    <p className="text-red-600 font-medium text-lg">{article.author.role}</p>
                   </div>
                   <button
                     onClick={() => setIsFollowingAuthor(!isFollowingAuthor)}
                     className={`px-6 py-2 rounded-lg font-medium transition-all duration-200 ${
                       isFollowingAuthor
                         ? 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-                        : 'bg-blue-600 text-white hover:bg-blue-700'
+                        : 'bg-red-600 text-white hover:bg-red-700'
                     }`}
                   >
                     {isFollowingAuthor ? 'Following' : 'Follow'}
@@ -1118,17 +1118,17 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
                 {/* Social Links */}
                 <div className="flex items-center space-x-4 mb-6">
                   {article.author.socialLinks.linkedin && (
-                    <a href={article.author.socialLinks.linkedin} className="p-2 text-gray-600 hover:text-blue-600 transition-colors">
+                    <a href={article.author.socialLinks.linkedin} className="p-2 text-gray-600 hover:text-red-600 transition-colors">
                       <Linkedin className="w-6 h-6" />
                     </a>
                   )}
                   {article.author.socialLinks.twitter && (
-                    <a href={article.author.socialLinks.twitter} className="p-2 text-gray-600 hover:text-blue-400 transition-colors">
+                    <a href={article.author.socialLinks.twitter} className="p-2 text-gray-600 hover:text-red-400 transition-colors">
                       <Twitter className="w-6 h-6" />
                     </a>
                   )}
                   {article.author.officeHours && (
-                    <a href={article.author.officeHours} className="flex items-center space-x-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                    <a href={article.author.officeHours} className="flex items-center space-x-2 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors">
                       <Calendar className="w-5 h-5" />
                       <span>Book Office Hours</span>
                     </a>
@@ -1143,7 +1143,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
                       <a
                         key={index}
                         href={`/blog/${guide.slug}`}
-                        className="block p-3 border border-gray-200 rounded-lg hover:border-blue-300 hover:bg-blue-50 transition-all"
+                        className="block p-3 border border-gray-200 rounded-lg hover:border-red-300 hover:bg-red-50 transition-all"
                       >
                         <div className="font-medium text-gray-900">{guide.title}</div>
                         <div className="text-sm text-gray-500 flex items-center mt-1">

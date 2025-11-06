@@ -73,7 +73,7 @@ const ACCAGlobalSalaryROI = () => {
 
  
   return (
-    <section className="py-20 bg-gradient-to-br from-green-50 to-blue-50">
+    <section className="py-20 bg-gradient-to-br from-green-50 to-red-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -84,9 +84,9 @@ const ACCAGlobalSalaryROI = () => {
           className="text-center mb-16"
         >
           <div className="flex items-center justify-center mb-6">
-            <GlobeAltIcon className="w-12 h-12 text-blue-600 mr-4" />
+            <GlobeAltIcon className="w-12 h-12 text-red-600 mr-4" />
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
-              Global <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-blue-600">Salary & ROI</span>
+              Global <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-red-600">Salary & ROI</span>
             </h2>
           </div>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -110,8 +110,8 @@ const ACCAGlobalSalaryROI = () => {
               onClick={() => setActiveRegion(region)}
               className={`px-6 py-3 rounded-xl font-bold text-lg transition-all duration-300 ${
                 activeRegion === region
-                  ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg'
-                  : 'bg-white text-gray-700 border border-gray-300 hover:border-blue-500'
+                  ? 'bg-gradient-to-r from-red-600 to-purple-600 text-white shadow-lg'
+                  : 'bg-white text-gray-700 border border-gray-300 hover:border-red-500'
               }`}
             >
               {regions[region as keyof typeof regions].flag} {region}
@@ -143,7 +143,7 @@ const ACCAGlobalSalaryROI = () => {
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.4, delay: index * 0.1 }}
-                    className="flex items-center justify-between p-4 bg-gradient-to-r from-green-50 to-blue-50 rounded-xl border border-green-200"
+                    className="flex items-center justify-between p-4 bg-gradient-to-r from-green-50 to-red-50 rounded-xl border border-green-200"
                   >
                     <div>
                       <div className="font-bold text-gray-900">{item.role}</div>
@@ -160,11 +160,11 @@ const ACCAGlobalSalaryROI = () => {
                 ))}
               </div>
 
-              <div className="mt-6 p-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl text-white text-center">
+              <div className="mt-6 p-4 bg-gradient-to-r from-red-600 to-purple-600 rounded-xl text-white text-center">
                 <div className="text-3xl font-bold mb-1">
                   {regions[activeRegion as keyof typeof regions].averageIncrease}
                 </div>
-                <div className="text-blue-100">Average Salary Increase</div>
+                <div className="text-red-100">Average Salary Increase</div>
               </div>
             </div>
 
@@ -173,7 +173,7 @@ const ACCAGlobalSalaryROI = () => {
               {/* Top Roles */}
               <div className="bg-white rounded-3xl p-8 shadow-lg border border-gray-200">
                 <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
-                  <TrendingUp className="w-8 h-8 text-blue-600 mr-3" />
+                  <TrendingUp className="w-8 h-8 text-red-600 mr-3" />
                   Top Hiring Roles
                 </h3>
                 
@@ -184,7 +184,7 @@ const ACCAGlobalSalaryROI = () => {
                       initial={{ opacity: 0, scale: 0.9 }}
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ duration: 0.4, delay: index * 0.1 }}
-                      className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl p-4 border border-blue-200 text-center"
+                      className="bg-gradient-to-r from-red-50 to-purple-50 rounded-xl p-4 border border-red-200 text-center"
                     >
                       <div className="font-bold text-gray-900 text-sm">{role}</div>
                     </motion.div>
@@ -206,7 +206,7 @@ const ACCAGlobalSalaryROI = () => {
                       className={`flex items-center mb-4 ${index === 0 ? 'text-yellow-600' : 'text-gray-700'}`}
                     >
                       <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-white mr-4 ${
-                        index === 0 ? 'bg-yellow-500' : 'bg-blue-500'
+                        index === 0 ? 'bg-yellow-500' : 'bg-red-500'
                       }`}>
                         {regions[activeRegion as keyof typeof regions].salaryRanges.length - index}
                       </div>

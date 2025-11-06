@@ -67,20 +67,20 @@ const FinalCTA = () => {
   return (
     <section 
       ref={ref}
-      className="relative py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 overflow-hidden"
+      className="relative py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-900 via-red-900 to-slate-800 overflow-hidden"
     >
       {/* Dramatic Background Effects */}
       <div className="absolute inset-0">
         {/* Animated Gradient Mesh */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 via-purple-600/20 to-pink-600/20 animate-pulse" />
+        <div className="absolute inset-0 bg-gradient-to-br from-red-600/20 via-purple-600/20 to-pink-600/20 animate-pulse" />
         
         {/* Floating Orbs */}
-        <div className="absolute top-10 left-10 w-32 h-32 bg-blue-500/30 rounded-full blur-2xl animate-bounce" />
+        <div className="absolute top-10 left-10 w-32 h-32 bg-red-500/30 rounded-full blur-2xl animate-bounce" />
         <div className="absolute top-20 right-20 w-48 h-48 bg-purple-500/30 rounded-full blur-3xl animate-pulse delay-1000" />
         <div className="absolute bottom-20 left-1/4 w-40 h-40 bg-pink-500/30 rounded-full blur-2xl animate-bounce delay-500" />
         
         {/* Radial Gradient */}
-        <div className="absolute inset-0 bg-radial-gradient from-transparent via-blue-900/10 to-slate-900/50" />
+        <div className="absolute inset-0 bg-radial-gradient from-transparent via-red-900/10 to-slate-900/50" />
       </div>
 
       <div className="relative max-w-7xl mx-auto">
@@ -100,7 +100,7 @@ const FinalCTA = () => {
               whileHover={{ scale: 1.05 }}
               className="relative group"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-xl blur-lg group-hover:blur-xl transition-all duration-300" />
+              <div className="absolute inset-0 bg-gradient-to-r from-red-500/20 to-purple-500/20 rounded-xl blur-lg group-hover:blur-xl transition-all duration-300" />
               <div className="relative bg-slate-800/80 backdrop-blur-xl rounded-xl p-4 border border-slate-700/50 text-center">
                 <div className="text-2xl mb-2">{stat.icon}</div>
                 <div className="text-2xl lg:text-3xl font-bold text-white mb-1">{stat.number}</div>
@@ -131,7 +131,7 @@ const FinalCTA = () => {
             variants={itemVariants}
             className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight"
           >
-            <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-red-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
               Become One of the
             </span>
             <br />
@@ -146,7 +146,7 @@ const FinalCTA = () => {
             className="text-xl lg:text-2xl text-slate-300 max-w-4xl mx-auto mb-8 leading-relaxed"
           >
             Join India&apos;s most prestigious scholarship program. 
-            <span className="text-blue-400 font-semibold"> ₹90,000 scholarship</span> awaits the 
+            <span className="text-red-400 font-semibold"> ₹90,000 scholarship</span> awaits the 
             <span className="text-purple-400 font-semibold"> ambitious few</span> who dare to dream global.
           </motion.p>
 
@@ -183,10 +183,10 @@ const FinalCTA = () => {
             <motion.button
               whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(59, 130, 246, 0.4)" }}
               whileTap={{ scale: 0.95 }}
-              className="relative group px-12 py-6 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-bold text-xl rounded-2xl overflow-hidden"
+              className="relative group px-12 py-6 bg-gradient-to-r from-red-500 to-purple-600 text-white font-bold text-xl rounded-2xl overflow-hidden"
             >
               {/* Button Background Animation */}
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute inset-0 bg-gradient-to-r from-red-600 to-purple-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               
               {/* Ripple Effect */}
               <div className="absolute inset-0 bg-white/20 rounded-full scale-0 group-hover:scale-150 transition-transform duration-500" />

@@ -32,7 +32,7 @@ export default function CPAHero() {
   ];
 
   return (
-    <section className="relative min-h-screen bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900 overflow-hidden">
+    <section className="relative min-h-screen bg-gradient-to-br from-red-900 via-red-800 to-indigo-900 overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
         {/* Animated background pattern */}
@@ -114,7 +114,7 @@ export default function CPAHero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
-                className="text-xl lg:text-2xl font-semibold text-blue-100"
+                className="text-xl lg:text-2xl font-semibold text-red-100"
               >
                 (CPA – USA)
               </motion.div>
@@ -125,7 +125,7 @@ export default function CPAHero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
-              className="text-lg lg:text-xl text-blue-100 leading-relaxed"
+              className="text-lg lg:text-xl text-red-100 leading-relaxed"
             >
               Work in USA, UAE, India & More • Global Recognition • Premium Salaries
             </motion.p>
@@ -146,7 +146,7 @@ export default function CPAHero() {
                   className="flex items-center gap-3"
                 >
                   <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0" />
-                  <span className="text-blue-100">{benefit}</span>
+                  <span className="text-red-100">{benefit}</span>
                 </motion.div>
               ))}
             </motion.div>
@@ -194,7 +194,7 @@ export default function CPAHero() {
                 <MessageCircle className="w-4 h-4" />
                 WhatsApp Query Assistant
               </motion.button>
-              <span className="text-blue-200 text-sm">Quick replies guaranteed</span>
+              <span className="text-red-200 text-sm">Quick replies guaranteed</span>
             </motion.div>
           </motion.div>
 
@@ -215,7 +215,7 @@ export default function CPAHero() {
                       initial={{ height: 0 }}
                       animate={{ height: `${height}%` }}
                       transition={{ delay: 1 + index * 0.1, duration: 0.6 }}
-                      className="bg-gradient-to-t from-blue-400 to-blue-200 rounded-t-lg"
+                      className="bg-gradient-to-t from-red-400 to-red-200 rounded-t-lg"
                       style={{ width: '20px' }}
                     />
                   ))}
@@ -233,7 +233,7 @@ export default function CPAHero() {
                 className="bg-white rounded-xl p-4 mb-6 shadow-lg"
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center">
+                  <div className="w-12 h-12 bg-red-600 rounded-lg flex items-center justify-center">
                     <Award className="w-6 h-6 text-white" />
                   </div>
                   <div>
@@ -339,21 +339,21 @@ export default function CPAHero() {
               <input
                 type="text"
                 placeholder="Your Name"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 outline-none"
               />
               <input
                 type="email"
                 placeholder="Email Address"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 outline-none"
               />
               <input
                 type="tel"
                 placeholder="Phone Number"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 outline-none"
               />
               <button
                 type="submit"
-                className="w-full bg-blue-600 text-white font-bold py-3 rounded-lg hover:bg-blue-700 transition-colors"
+                className="w-full bg-red-600 text-white font-bold py-3 rounded-lg hover:bg-red-700 transition-colors"
               >
                 Book Free Session
               </button>

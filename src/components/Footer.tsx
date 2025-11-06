@@ -81,12 +81,12 @@ export default function Footer() {
           className="border-b border-gray-800"
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-            <div className="bg-gradient-to-r from-blue-900 to-indigo-900 rounded-2xl p-8 text-center border border-blue-800">
+            <div className="bg-gradient-to-r from-red-900 to-indigo-900 rounded-2xl p-8 text-center border border-red-800">
               <div className="flex items-center justify-center mb-4">
                 <span className="text-3xl mr-3">📩</span>
                 <h3 className="text-2xl font-bold">Download the Ultimate Guide to Global Finance Careers</h3>
               </div>
-              <p className="text-blue-200 mb-6 text-lg">
+              <p className="text-red-200 mb-6 text-lg">
                 Free PDF: CMA vs CPA vs ACCA Comparison Guide (Worth ₹999)
               </p>
               <motion.button
@@ -116,7 +116,7 @@ export default function Footer() {
             >
               <div className="mb-6">
                 <div className="flex items-center mb-4">
-                  <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center mr-3">
+                  <div className="w-10 h-10 bg-gradient-to-r from-red-500 to-indigo-600 rounded-lg flex items-center justify-center mr-3">
                     <span className="text-white font-bold text-lg">N</span>
                   </div>
                   <span className="text-xl font-bold">NorthStar Academy</span>
@@ -288,7 +288,7 @@ export default function Footer() {
                     key={index}
                     href={social.href}
                     whileHover={{ scale: 1.2, y: -2 }}
-                    className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-blue-600 transition-all duration-300"
+                    className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-red-600 transition-all duration-300"
                   >
                     <span className="sr-only">{social.name}</span>
                     {social.icon === 'linkedin' && (
@@ -367,19 +367,19 @@ export default function Footer() {
                 <input
                   type="text"
                   placeholder="Full Name"
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
                 />
                 <input
                   type="email"
                   placeholder="Email Address"
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
                 />
                 <input
                   type="tel"
                   placeholder="Phone Number"
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
                 />
-                <select className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                <select className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent">
                   <option>Current Education Level</option>
                   <option>12th Pass</option>
                   <option>Graduate</option>

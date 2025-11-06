@@ -236,7 +236,7 @@ export default function StateBoardWizard() {
     const recommendedBoards = getRecommendedBoards()
     
     return (
-      <section className="py-20 bg-gradient-to-br from-blue-50 to-indigo-50">
+      <section className="py-20 bg-gradient-to-br from-red-50 to-indigo-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -263,13 +263,13 @@ export default function StateBoardWizard() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: index * 0.2 }}
                 className={`bg-white rounded-2xl p-6 shadow-lg border-2 ${
-                  index === 0 ? 'border-blue-500 ring-4 ring-blue-100' : 'border-slate-200'
+                  index === 0 ? 'border-red-500 ring-4 ring-red-100' : 'border-slate-200'
                 }`}
               >
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex items-center gap-4">
                     {index === 0 && (
-                      <div className="bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-bold">
+                      <div className="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold">
                         #1 RECOMMENDED
                       </div>
                     )}
@@ -316,7 +316,7 @@ export default function StateBoardWizard() {
                     <ul className="space-y-2">
                       {board.benefits.map((benefit, benefitIndex) => (
                         <li key={benefitIndex} className="flex items-center gap-2 text-slate-600">
-                          <StarIcon className="w-4 h-4 text-blue-500 flex-shrink-0" />
+                          <StarIcon className="w-4 h-4 text-red-500 flex-shrink-0" />
                           {benefit}
                         </li>
                       ))}
@@ -331,12 +331,12 @@ export default function StateBoardWizard() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8 }}
-            className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-8 text-white text-center"
+            className="bg-gradient-to-r from-red-600 to-indigo-600 rounded-2xl p-8 text-white text-center"
           >
             <h3 className="text-2xl font-bold mb-4">
               Need Expert Guidance on State Board Selection?
             </h3>
-            <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
+            <p className="text-red-100 mb-6 max-w-2xl mx-auto">
               Our CPA advisors have helped 1000+ students choose the right state board. 
               Get personalized guidance based on your specific situation.
             </p>
@@ -344,7 +344,7 @@ export default function StateBoardWizard() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
                 onClick={() => setShowContactModal(true)}
-                className="bg-white text-blue-600 px-8 py-4 rounded-xl font-semibold hover:shadow-xl transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2"
+                className="bg-white text-red-600 px-8 py-4 rounded-xl font-semibold hover:shadow-xl transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2"
               >
                 <PhoneIcon className="w-5 h-5" />
                 Talk to CPA Advisor
@@ -352,7 +352,7 @@ export default function StateBoardWizard() {
               
               <button
                 onClick={resetWizard}
-                className="border-2 border-white text-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-blue-600 transition-all duration-300 flex items-center justify-center gap-2"
+                className="border-2 border-white text-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-red-600 transition-all duration-300 flex items-center justify-center gap-2"
               >
                 <ArrowPathIcon className="w-5 h-5" />
                 Retake Quiz
@@ -372,7 +372,7 @@ export default function StateBoardWizard() {
                 className="bg-white rounded-2xl p-8 max-w-md w-full shadow-2xl"
               >
                 <div className="text-center mb-6">
-                  <PhoneIcon className="w-16 h-16 text-blue-600 mx-auto mb-4" />
+                  <PhoneIcon className="w-16 h-16 text-red-600 mx-auto mb-4" />
                   <h3 className="text-2xl font-bold text-slate-800 mb-2">
                     Get Expert CPA Guidance
                   </h3>
@@ -385,14 +385,14 @@ export default function StateBoardWizard() {
                   <input
                     type="text"
                     placeholder="Your Full Name"
-                    className="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
                   />
                   <input
                     type="tel"
                     placeholder="Phone Number"
-                    className="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
                   />
-                  <select className="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                  <select className="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent">
                     <option value="">Preferred Time to Call</option>
                     <option value="morning">Morning (9 AM - 12 PM)</option>
                     <option value="afternoon">Afternoon (12 PM - 5 PM)</option>
@@ -400,7 +400,7 @@ export default function StateBoardWizard() {
                   </select>
                   <button
                     type="submit"
-                    className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-3 px-6 rounded-lg font-semibold hover:shadow-lg transition-all duration-300"
+                    className="w-full bg-gradient-to-r from-red-600 to-indigo-600 text-white py-3 px-6 rounded-lg font-semibold hover:shadow-lg transition-all duration-300"
                   >
                     Schedule Call Back
                   </button>
@@ -429,7 +429,7 @@ export default function StateBoardWizard() {
   }
 
   return (
-    <section className="py-20 bg-gradient-to-br from-slate-50 to-blue-50">
+    <section className="py-20 bg-gradient-to-br from-slate-50 to-red-50">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
@@ -437,7 +437,7 @@ export default function StateBoardWizard() {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium mb-4"
+            className="inline-flex items-center gap-2 bg-red-100 text-red-800 px-4 py-2 rounded-full text-sm font-medium mb-4"
           >
             <MapPinIcon className="w-4 h-4" />
             State Board Selection Wizard
@@ -479,7 +479,7 @@ export default function StateBoardWizard() {
           </div>
           <div className="w-full bg-slate-200 rounded-full h-2">
             <motion.div
-              className="bg-gradient-to-r from-blue-500 to-indigo-500 h-2 rounded-full"
+              className="bg-gradient-to-r from-red-500 to-indigo-500 h-2 rounded-full"
               initial={{ width: 0 }}
               animate={{ width: `${((currentStep + 1) / wizardSteps.length) * 100}%` }}
               transition={{ duration: 0.5 }}
@@ -511,11 +511,11 @@ export default function StateBoardWizard() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.1 }}
                     onClick={() => handleAnswer(option.id)}
-                    className="w-full p-6 text-left border-2 border-slate-200 rounded-xl hover:border-blue-500 hover:bg-blue-50 transition-all duration-300 group"
+                    className="w-full p-6 text-left border-2 border-slate-200 rounded-xl hover:border-red-500 hover:bg-red-50 transition-all duration-300 group"
                   >
                     <div className="flex items-center gap-4">
-                      <div className="bg-blue-100 p-3 rounded-lg group-hover:bg-blue-200 transition-colors">
-                        <IconComponent className="w-6 h-6 text-blue-600" />
+                      <div className="bg-red-100 p-3 rounded-lg group-hover:bg-red-200 transition-colors">
+                        <IconComponent className="w-6 h-6 text-red-600" />
                       </div>
                       <div className="flex-1">
                         <h4 className="font-semibold text-slate-800 mb-1">
@@ -527,7 +527,7 @@ export default function StateBoardWizard() {
                           </p>
                         )}
                       </div>
-                      <ChevronRightIcon className="w-5 h-5 text-slate-400 group-hover:text-blue-500 transition-colors" />
+                      <ChevronRightIcon className="w-5 h-5 text-slate-400 group-hover:text-red-500 transition-colors" />
                     </div>
                   </motion.button>
                 )

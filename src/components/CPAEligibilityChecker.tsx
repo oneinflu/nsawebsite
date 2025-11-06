@@ -168,7 +168,7 @@ export default function CPAEligibilityChecker() {
   }
 
   return (
-    <section className="py-20 bg-gradient-to-br from-blue-50 to-indigo-50">
+    <section className="py-20 bg-gradient-to-br from-red-50 to-indigo-50">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -176,7 +176,7 @@ export default function CPAEligibilityChecker() {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium mb-4"
+            className="inline-flex items-center gap-2 bg-red-100 text-red-800 px-4 py-2 rounded-full text-sm font-medium mb-4"
           >
             <DocumentCheckIcon className="w-4 h-4" />
             Eligibility Assessment
@@ -211,13 +211,13 @@ export default function CPAEligibilityChecker() {
                   <span className="text-sm font-medium text-slate-600">
                     Question {currentStep + 1} of {questions.length}
                   </span>
-                  <span className="text-sm font-medium text-blue-600">
+                  <span className="text-sm font-medium text-red-600">
                     {Math.round(getProgressPercentage())}% Complete
                   </span>
                 </div>
                 <div className="w-full bg-slate-200 rounded-full h-2">
                   <motion.div
-                    className="bg-gradient-to-r from-blue-500 to-indigo-500 h-2 rounded-full"
+                    className="bg-gradient-to-r from-red-500 to-indigo-500 h-2 rounded-full"
                     initial={{ width: 0 }}
                     animate={{ width: `${getProgressPercentage()}%` }}
                     transition={{ duration: 0.5 }}
@@ -247,13 +247,13 @@ export default function CPAEligibilityChecker() {
                         transition={{ delay: index * 0.1 }}
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
-                        className="w-full p-4 text-left border-2 border-slate-200 rounded-xl hover:border-blue-300 hover:bg-blue-50 transition-all duration-300 group"
+                        className="w-full p-4 text-left border-2 border-slate-200 rounded-xl hover:border-red-300 hover:bg-red-50 transition-all duration-300 group"
                       >
                         <div className="flex items-center justify-between">
-                          <span className="font-medium text-slate-800 group-hover:text-blue-800">
+                          <span className="font-medium text-slate-800 group-hover:text-red-800">
                             {option.label}
                           </span>
-                          <ArrowRightIcon className="w-5 h-5 text-slate-400 group-hover:text-blue-500 transform group-hover:translate-x-1 transition-all duration-300" />
+                          <ArrowRightIcon className="w-5 h-5 text-slate-400 group-hover:text-red-500 transform group-hover:translate-x-1 transition-all duration-300" />
                         </div>
                       </motion.button>
                     ))}
@@ -293,7 +293,7 @@ export default function CPAEligibilityChecker() {
 
                     <button
                       onClick={() => setShowLeadForm(true)}
-                      className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                      className="bg-gradient-to-r from-red-600 to-indigo-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
                     >
                       Get Personalized Guidance
                     </button>
@@ -319,7 +319,7 @@ export default function CPAEligibilityChecker() {
                             <ul className="space-y-1">
                               {result.nextSteps.map((step, index) => (
                                 <li key={index} className="flex items-start gap-2 text-slate-600">
-                                  <span className="text-blue-500 font-bold">{index + 1}.</span>
+                                  <span className="text-red-500 font-bold">{index + 1}.</span>
                                   <span>{step}</span>
                                 </li>
                               ))}
@@ -330,11 +330,11 @@ export default function CPAEligibilityChecker() {
                     </div>
 
                     {/* Lead Capture Form */}
-                    <div className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl p-8 text-white">
+                    <div className="bg-gradient-to-r from-red-600 to-indigo-600 rounded-xl p-8 text-white">
                       <div className="text-center mb-6">
                         <SparklesIcon className="w-12 h-12 mx-auto mb-4 opacity-80" />
                         <h3 className="text-2xl font-bold mb-2">Get Your Personalized CPA Roadmap</h3>
-                        <p className="text-blue-100">
+                        <p className="text-red-100">
                           Our CPA experts will create a customized plan based on your eligibility results
                         </p>
                       </div>
@@ -347,7 +347,7 @@ export default function CPAEligibilityChecker() {
                               type="text"
                               placeholder="Your Full Name"
                               required
-                              className="w-full pl-10 pr-4 py-3 bg-white text-slate-900 rounded-lg focus:ring-2 focus:ring-blue-300 focus:outline-none"
+                              className="w-full pl-10 pr-4 py-3 bg-white text-slate-900 rounded-lg focus:ring-2 focus:ring-red-300 focus:outline-none"
                             />
                           </div>
                           <div className="relative">
@@ -356,7 +356,7 @@ export default function CPAEligibilityChecker() {
                               type="tel"
                               placeholder="Phone Number"
                               required
-                              className="w-full pl-10 pr-4 py-3 bg-white text-slate-900 rounded-lg focus:ring-2 focus:ring-blue-300 focus:outline-none"
+                              className="w-full pl-10 pr-4 py-3 bg-white text-slate-900 rounded-lg focus:ring-2 focus:ring-red-300 focus:outline-none"
                             />
                           </div>
                         </div>
@@ -367,20 +367,20 @@ export default function CPAEligibilityChecker() {
                             type="email"
                             placeholder="Email Address"
                             required
-                            className="w-full pl-10 pr-4 py-3 bg-white text-slate-900 rounded-lg focus:ring-2 focus:ring-blue-300 focus:outline-none"
+                            className="w-full pl-10 pr-4 py-3 bg-white text-slate-900 rounded-lg focus:ring-2 focus:ring-red-300 focus:outline-none"
                           />
                         </div>
 
                         <button
                           type="submit"
-                          className="w-full bg-white text-blue-600 py-4 px-6 rounded-lg font-bold text-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                          className="w-full bg-white text-red-600 py-4 px-6 rounded-lg font-bold text-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
                         >
                           Get My Personalized CPA Roadmap
                         </button>
                       </form>
 
                       <div className="text-center mt-4">
-                        <p className="text-sm text-blue-100">
+                        <p className="text-sm text-red-100">
                           ✅ Free consultation • ✅ Personalized guidance • ✅ No spam, ever
                         </p>
                       </div>
@@ -400,23 +400,23 @@ export default function CPAEligibilityChecker() {
                       Our CPA experts will contact you within 24 hours with your personalized roadmap and next steps.
                     </p>
 
-                    <div className="bg-blue-50 rounded-xl p-6 mb-8">
+                    <div className="bg-red-50 rounded-xl p-6 mb-8">
                       <h4 className="font-bold text-slate-900 mb-4">What happens next?</h4>
                       <div className="space-y-3 text-left">
                         <div className="flex items-center gap-3">
-                          <div className="bg-blue-600 text-white w-6 h-6 rounded-full flex items-center justify-center text-sm font-bold">1</div>
+                          <div className="bg-red-600 text-white w-6 h-6 rounded-full flex items-center justify-center text-sm font-bold">1</div>
                           <span className="text-slate-700">Expert review of your eligibility results</span>
                         </div>
                         <div className="flex items-center gap-3">
-                          <div className="bg-blue-600 text-white w-6 h-6 rounded-full flex items-center justify-center text-sm font-bold">2</div>
+                          <div className="bg-red-600 text-white w-6 h-6 rounded-full flex items-center justify-center text-sm font-bold">2</div>
                           <span className="text-slate-700">Personalized CPA roadmap creation</span>
                         </div>
                         <div className="flex items-center gap-3">
-                          <div className="bg-blue-600 text-white w-6 h-6 rounded-full flex items-center justify-center text-sm font-bold">3</div>
+                          <div className="bg-red-600 text-white w-6 h-6 rounded-full flex items-center justify-center text-sm font-bold">3</div>
                           <span className="text-slate-700">One-on-one consultation call</span>
                         </div>
                         <div className="flex items-center gap-3">
-                          <div className="bg-blue-600 text-white w-6 h-6 rounded-full flex items-center justify-center text-sm font-bold">4</div>
+                          <div className="bg-red-600 text-white w-6 h-6 rounded-full flex items-center justify-center text-sm font-bold">4</div>
                           <span className="text-slate-700">Enrollment guidance and support</span>
                         </div>
                       </div>
@@ -448,7 +448,7 @@ export default function CPAEligibilityChecker() {
               <span className="text-sm">5000+ Students Assessed</span>
             </div>
             <div className="flex items-center gap-2">
-              <ClockIcon className="w-5 h-5 text-blue-500" />
+              <ClockIcon className="w-5 h-5 text-red-500" />
               <span className="text-sm">2-Minute Assessment</span>
             </div>
             <div className="flex items-center gap-2">

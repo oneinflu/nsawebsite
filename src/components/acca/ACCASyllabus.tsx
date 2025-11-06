@@ -67,8 +67,8 @@ const ACCASyllabus = () => {
       title: 'Applied Knowledge',
       subtitle: 'Foundation Level - 3 Papers',
       description: 'Build fundamental business and accounting knowledge',
-      color: 'from-blue-500 to-cyan-500',
-      bgColor: 'from-blue-50 to-cyan-50',
+      color: 'from-red-500 to-cyan-500',
+      bgColor: 'from-red-50 to-cyan-50',
       subjects: [
         {
           code: 'BT',
@@ -349,9 +349,9 @@ const ACCASyllabus = () => {
           className="text-center mb-16"
         >
           <div className="flex items-center justify-center mb-6">
-            <BookOpenIcon className="w-12 h-12 text-blue-600 mr-4" />
+            <BookOpenIcon className="w-12 h-12 text-red-600 mr-4" />
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
-              ACCA <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Syllabus & Levels</span>
+              ACCA <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-purple-600">Syllabus & Levels</span>
             </h2>
           </div>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -432,7 +432,7 @@ const ACCASyllabus = () => {
                                       </span>
                                     )}
                                     {'isOption' in subject && subject.isOption && (
-                                      <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs font-medium">
+                                      <span className="bg-red-100 text-red-800 px-2 py-1 rounded-full text-xs font-medium">
                                         Option
                                       </span>
                                     )}
@@ -447,10 +447,10 @@ const ACCASyllabus = () => {
                                 <div className="grid grid-cols-2 gap-4">
                                   <div className="bg-white rounded-lg p-3 border border-gray-200">
                                     <div className="flex items-center mb-1">
-                                      <ClockIcon className="w-4 h-4 text-blue-600 mr-2" />
+                                      <ClockIcon className="w-4 h-4 text-red-600 mr-2" />
                                       <span className="text-sm font-medium text-gray-700">Study Hours</span>
                                     </div>
-                                    <div className="text-lg font-bold text-blue-600">{subject.studyHours}</div>
+                                    <div className="text-lg font-bold text-red-600">{subject.studyHours}</div>
                                   </div>
                                   <div className="bg-white rounded-lg p-3 border border-gray-200">
                                     <div className="flex items-center mb-1">
@@ -464,9 +464,9 @@ const ACCASyllabus = () => {
                                 </div>
 
                                 {/* Exam Format */}
-                                <div className="bg-blue-50 rounded-lg p-3 border border-blue-200">
-                                  <div className="text-sm font-medium text-blue-800 mb-1">Exam Format</div>
-                                  <div className="text-sm text-blue-700">{subject.examFormat}</div>
+                                <div className="bg-red-50 rounded-lg p-3 border border-red-200">
+                                  <div className="text-sm font-medium text-red-800 mb-1">Exam Format</div>
+                                  <div className="text-sm text-red-700">{subject.examFormat}</div>
                                 </div>
 
                                 {/* Practical Skills */}
@@ -475,7 +475,7 @@ const ACCASyllabus = () => {
                                   <ul className="space-y-1">
                                     {subject.practicalSkills.map((skill, skillIndex) => (
                                       <li key={skillIndex} className="flex items-start text-sm text-gray-700">
-                                        <div className="w-1.5 h-1.5 bg-blue-500 rounded-full mt-2 mr-2 flex-shrink-0"></div>
+                                        <div className="w-1.5 h-1.5 bg-red-500 rounded-full mt-2 mr-2 flex-shrink-0"></div>
                                         {skill}
                                       </li>
                                     ))}
@@ -487,10 +487,10 @@ const ACCASyllabus = () => {
                         </div>
 
                         {/* Level Summary */}
-                        <div className="mt-8 bg-gradient-to-r from-gray-50 to-blue-50 rounded-xl p-6 border border-gray-200">
+                        <div className="mt-8 bg-gradient-to-r from-gray-50 to-red-50 rounded-xl p-6 border border-gray-200">
                           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
                             <div>
-                              <div className="text-2xl font-bold text-blue-600">{level.subjects.length}</div>
+                              <div className="text-2xl font-bold text-red-600">{level.subjects.length}</div>
                               <div className="text-sm text-gray-600">Papers</div>
                             </div>
                             <div>
@@ -527,18 +527,18 @@ const ACCASyllabus = () => {
           transition={{ duration: 0.6 }}
           className="text-center mt-16"
         >
-          <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-3xl p-8 md:p-12 text-white">
+          <div className="bg-gradient-to-r from-red-600 to-purple-600 rounded-3xl p-8 md:p-12 text-white">
             <h3 className="text-2xl md:text-3xl font-bold mb-4">
               Get Complete ACCA Syllabus Guide
             </h3>
-            <p className="text-blue-100 text-lg mb-8 max-w-2xl mx-auto">
+            <p className="text-red-100 text-lg mb-8 max-w-2xl mx-auto">
               Download detailed syllabus with study tips, exam strategies, and recommended study schedules
             </p>
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={handleDownloadSyllabus}
-              className="bg-white text-blue-600 px-8 py-4 rounded-xl font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 inline-flex items-center"
+              className="bg-white text-red-600 px-8 py-4 rounded-xl font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 inline-flex items-center"
             >
               <DocumentArrowDownIcon className="w-6 h-6 mr-3" />
               Download Full Syllabus
@@ -582,7 +582,7 @@ const ACCASyllabus = () => {
                       placeholder="Full Name"
                       value={leadFormData.name}
                       onChange={(e) => setLeadFormData({...leadFormData, name: e.target.value})}
-                      className="w-full p-4 border border-gray-300 rounded-xl focus:border-blue-500 focus:outline-none"
+                      className="w-full p-4 border border-gray-300 rounded-xl focus:border-red-500 focus:outline-none"
                       required
                     />
                   </div>
@@ -592,7 +592,7 @@ const ACCASyllabus = () => {
                       placeholder="Phone Number"
                       value={leadFormData.phone}
                       onChange={(e) => setLeadFormData({...leadFormData, phone: e.target.value})}
-                      className="w-full p-4 border border-gray-300 rounded-xl focus:border-blue-500 focus:outline-none"
+                      className="w-full p-4 border border-gray-300 rounded-xl focus:border-red-500 focus:outline-none"
                       required
                     />
                   </div>
@@ -602,14 +602,14 @@ const ACCASyllabus = () => {
                       placeholder="Email Address"
                       value={leadFormData.email}
                       onChange={(e) => setLeadFormData({...leadFormData, email: e.target.value})}
-                      className="w-full p-4 border border-gray-300 rounded-xl focus:border-blue-500 focus:outline-none"
+                      className="w-full p-4 border border-gray-300 rounded-xl focus:border-red-500 focus:outline-none"
                       required
                     />
                   </div>
                   
                   <button
                     type="submit"
-                    className="w-full py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-bold text-lg hover:shadow-lg transition-all duration-300"
+                    className="w-full py-4 bg-gradient-to-r from-red-600 to-purple-600 text-white rounded-xl font-bold text-lg hover:shadow-lg transition-all duration-300"
                   >
                     Download Syllabus Guide
                   </button>

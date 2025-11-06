@@ -37,7 +37,7 @@ const salaryRegions: SalaryRegion[] = [
     companies: ['Goldman Sachs', 'JP Morgan', 'HDFC Bank', 'ICICI Bank', 'Kotak Mahindra'],
     description: 'Growing financial hub with increasing CFA demand',
     coordinates: { x: 70, y: 45 },
-    color: 'from-blue-500 to-cyan-500'
+    color: 'from-red-500 to-cyan-500'
   },
   {
     id: 'uae',
@@ -131,13 +131,13 @@ export default function CFAGlobalSalaryMap() {
 
   if (!isClient) {
     return (
-      <section className="py-20 bg-gradient-to-br from-slate-900 to-blue-900">
+      <section className="py-20 bg-gradient-to-br from-slate-900 to-red-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-white mb-4">
               Global CFA Salary Comparison
             </h2>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto">
+            <p className="text-xl text-red-100 max-w-3xl mx-auto">
               Explore CFA compensation across major financial hubs worldwide
             </p>
           </div>
@@ -147,10 +147,10 @@ export default function CFAGlobalSalaryMap() {
   }
 
   return (
-    <section className="py-20 bg-gradient-to-br from-slate-900 to-blue-900 relative overflow-hidden">
+    <section className="py-20 bg-gradient-to-br from-slate-900 to-red-900 relative overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-20 left-10 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl animate-pulse"></div>
+        <div className="absolute top-20 left-10 w-96 h-96 bg-red-500 rounded-full mix-blend-multiply filter blur-3xl animate-pulse"></div>
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl animate-pulse delay-1000"></div>
       </div>
 
@@ -166,7 +166,7 @@ export default function CFAGlobalSalaryMap() {
           <h2 className="text-4xl font-bold text-white mb-4">
             Global CFA Salary Comparison
           </h2>
-          <p className="text-xl text-blue-100 max-w-3xl mx-auto">
+          <p className="text-xl text-red-100 max-w-3xl mx-auto">
             Explore CFA compensation across major financial hubs worldwide
           </p>
         </motion.div>
@@ -182,7 +182,7 @@ export default function CFAGlobalSalaryMap() {
             </h3>
             
             {/* Simplified World Map SVG */}
-            <div className="relative w-full h-96 bg-gradient-to-br from-blue-900/50 to-purple-900/50 rounded-2xl overflow-hidden">
+            <div className="relative w-full h-96 bg-gradient-to-br from-red-900/50 to-purple-900/50 rounded-2xl overflow-hidden">
               {/* World Map Background */}
               <svg 
                 viewBox="0 0 100 60" 
@@ -251,7 +251,7 @@ export default function CFAGlobalSalaryMap() {
                       >
                         <div className="text-gray-900">
                           <h4 className="font-bold text-lg mb-2 flex items-center">
-                            <GlobeAltIcon className="w-5 h-5 mr-2 text-blue-600" />
+                            <GlobeAltIcon className="w-5 h-5 mr-2 text-red-600" />
                             {region.name}
                           </h4>
                           
@@ -272,7 +272,7 @@ export default function CFAGlobalSalaryMap() {
                               {region.companies.slice(0, 3).map((company) => (
                                 <span
                                   key={company}
-                                  className="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded-full"
+                                  className="text-xs bg-red-100 text-red-800 px-2 py-1 rounded-full"
                                 >
                                   {company}
                                 </span>
@@ -329,13 +329,13 @@ export default function CFAGlobalSalaryMap() {
                   <div className="text-2xl font-bold text-green-400 mb-1">
                     {region.salary}
                   </div>
-                  <p className="text-sm text-blue-100">
+                  <p className="text-sm text-red-100">
                     {region.description}
                   </p>
                 </div>
 
                 <div className="space-y-2">
-                  <div className="text-sm text-blue-100 font-medium">Top Companies:</div>
+                  <div className="text-sm text-red-100 font-medium">Top Companies:</div>
                   {region.companies.slice(0, 2).map((company) => (
                     <div key={company} className="text-xs text-gray-300 flex items-center">
                       <BuildingOfficeIcon className="w-3 h-3 mr-1" />
@@ -353,17 +353,17 @@ export default function CFAGlobalSalaryMap() {
           className="text-center"
           variants={itemVariants}
         >
-          <div className="bg-gradient-to-r from-blue-600/20 to-purple-600/20 backdrop-blur-sm rounded-3xl p-8 border border-white/20">
+          <div className="bg-gradient-to-r from-red-600/20 to-purple-600/20 backdrop-blur-sm rounded-3xl p-8 border border-white/20">
             <h3 className="text-2xl font-bold text-white mb-4">
               Get the Complete 2025 Salary Guide
             </h3>
-            <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
+            <p className="text-red-100 mb-6 max-w-2xl mx-auto">
               Download our comprehensive PDF guide with detailed salary data, career progression paths, and market insights across 50+ countries.
             </p>
             
             <motion.button
               onClick={() => setShowLeadForm(true)}
-              className="group bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 flex items-center space-x-2 mx-auto"
+              className="group bg-gradient-to-r from-red-600 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 flex items-center space-x-2 mx-auto"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -412,7 +412,7 @@ export default function CFAGlobalSalaryMap() {
                     required
                     value={formData.name}
                     onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
                     placeholder="Enter your full name"
                   />
                 </div>
@@ -426,7 +426,7 @@ export default function CFAGlobalSalaryMap() {
                     required
                     value={formData.email}
                     onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
                     placeholder="Enter your email"
                   />
                 </div>
@@ -439,7 +439,7 @@ export default function CFAGlobalSalaryMap() {
                     type="tel"
                     value={formData.phone}
                     onChange={(e) => setFormData(prev => ({ ...prev, phone: e.target.value }))}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
                     placeholder="Enter your phone number"
                   />
                 </div>
@@ -451,7 +451,7 @@ export default function CFAGlobalSalaryMap() {
                   <select
                     value={formData.country}
                     onChange={(e) => setFormData(prev => ({ ...prev, country: e.target.value }))}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
                   >
                     <option value="">Select your country</option>
                     <option value="india">India</option>
@@ -464,7 +464,7 @@ export default function CFAGlobalSalaryMap() {
 
                 <motion.button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-300"
+                  className="w-full bg-gradient-to-r from-red-600 to-purple-600 text-white py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-300"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >

@@ -19,7 +19,7 @@ const ACCAHero = () => {
     {
       icon: CheckCircleIcon,
       text: "ACCA Global Qualification",
-      color: "from-blue-500 to-blue-600"
+      color: "from-red-500 to-red-600"
     },
     {
       icon: GlobeAltIcon,
@@ -43,7 +43,7 @@ const ACCAHero = () => {
       level: "Knowledge",
       description: "Foundation papers covering business fundamentals",
       papers: ["BT", "MA", "FA"],
-      color: "from-blue-400 to-blue-600",
+      color: "from-red-400 to-red-600",
       position: "top"
     },
     {
@@ -75,10 +75,10 @@ const ACCAHero = () => {
   
 
   return (
-    <section className="relative min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 overflow-hidden">
+    <section className="relative min-h-screen bg-gradient-to-br from-red-50 via-indigo-50 to-purple-50 overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob"></div>
+        <div className="absolute top-20 left-10 w-72 h-72 bg-red-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob"></div>
         <div className="absolute top-40 right-10 w-72 h-72 bg-purple-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-2000"></div>
         <div className="absolute -bottom-8 left-20 w-72 h-72 bg-indigo-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-4000"></div>
       </div>
@@ -96,11 +96,11 @@ const ACCAHero = () => {
             <motion.div  className="space-y-4">
               <h1 className="text-4xl md:text-6xl font-bold text-gray-900 leading-tight">
                 Become a Globally Recognized{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-purple-600">
                   Chartered Accountant
                 </span>
                 <br />
-                <span className="text-2xl md:text-3xl text-blue-600 font-medium">(ACCA – UK)</span>
+                <span className="text-2xl md:text-3xl text-red-600 font-medium">(ACCA – UK)</span>
               </h1>
               <p className="text-xl md:text-2xl text-gray-600 leading-relaxed">
                 Flexible journey with worldwide career opportunities in finance, audit, taxation & consulting.
@@ -130,7 +130,7 @@ const ACCAHero = () => {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center justify-center"
+                  className="bg-gradient-to-r from-red-600 to-purple-600 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center justify-center"
                 >
                   <PhoneIcon className="w-6 h-6 mr-3" />
                   Book Free Counselling
@@ -140,7 +140,7 @@ const ACCAHero = () => {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="bg-white text-blue-600 border-2 border-blue-600 px-8 py-4 rounded-xl font-bold text-lg hover:bg-blue-50 transition-all duration-300 flex items-center justify-center"
+                  className="bg-white text-red-600 border-2 border-red-600 px-8 py-4 rounded-xl font-bold text-lg hover:bg-red-50 transition-all duration-300 flex items-center justify-center"
                 >
                   <DocumentCheckIcon className="w-6 h-6 mr-3" />
                   Check Exemptions
@@ -150,7 +150,7 @@ const ACCAHero = () => {
               {/* Tertiary CTA */}
               <motion.button
                 whileHover={{ scale: 1.02 }}
-                className="text-gray-600 hover:text-blue-600 font-medium flex items-center transition-colors duration-300"
+                className="text-gray-600 hover:text-red-600 font-medium flex items-center transition-colors duration-300"
               >
                 <PlayIcon className="w-5 h-5 mr-2" />
                 Watch Student Success Stories
@@ -161,7 +161,7 @@ const ACCAHero = () => {
             <motion.div  className="flex items-center space-x-6 pt-4">
               <div className="flex -space-x-2">
                 {[1, 2, 3, 4].map((i) => (
-                  <div key={i} className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 border-2 border-white flex items-center justify-center">
+                  <div key={i} className="w-10 h-10 rounded-full bg-gradient-to-br from-red-400 to-purple-500 border-2 border-white flex items-center justify-center">
                     <span className="text-white text-xs font-bold">A</span>
                   </div>
                 ))}

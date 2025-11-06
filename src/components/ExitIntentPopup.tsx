@@ -260,8 +260,8 @@ export default function ExitIntentPopup() {
                 Your Career Guide is being prepared!
               </p>
               
-              <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 mb-4">
-                <p className="text-sm text-blue-800">
+              <div className="bg-red-50 border border-red-200 rounded-xl p-4 mb-4">
+                <p className="text-sm text-red-800">
                   📱 You&apos;ll receive the guide on WhatsApp within 2 minutes
                 </p>
               </div>

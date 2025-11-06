@@ -70,8 +70,8 @@ const CIASyllabus = () => {
       ],
       examFormat: '125 questions, 2.5 hours',
       passingScore: '600/800 points',
-      color: 'from-blue-500 to-indigo-600',
-      bgColor: 'from-blue-50 to-indigo-50',
+      color: 'from-red-500 to-indigo-600',
+      bgColor: 'from-red-50 to-indigo-50',
       icon: BookOpenIcon
     },
     {
@@ -166,7 +166,7 @@ const CIASyllabus = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+    <section className="py-20 bg-gradient-to-br from-gray-50 to-red-50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -176,13 +176,13 @@ const CIASyllabus = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <div className="inline-flex items-center bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium mb-6">
+          <div className="inline-flex items-center bg-red-100 text-red-800 px-4 py-2 rounded-full text-sm font-medium mb-6">
             <AcademicCapIcon className="w-4 h-4 mr-2" />
             CIA Certification Syllabus
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             CIA 3-Part Structure
-            <span className="block text-blue-600 mt-2">Easy Clarity</span>
+            <span className="block text-red-600 mt-2">Easy Clarity</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Master internal auditing through a structured 3-part journey. Each part builds your expertise 
@@ -214,7 +214,7 @@ const CIASyllabus = () => {
               <p className="text-gray-600 mb-4">{part.subtitle}</p>
               <div className="space-y-2 text-sm">
                 <div className="flex items-center text-gray-700">
-                  <ClockIcon className="w-4 h-4 mr-2 text-blue-500" />
+                  <ClockIcon className="w-4 h-4 mr-2 text-red-500" />
                   {part.studyHours}
                 </div>
                 <div className="flex items-center text-gray-700">
@@ -288,13 +288,13 @@ const CIASyllabus = () => {
                         {/* What You Learn */}
                         <div>
                           <h4 className="text-lg font-bold text-gray-900 mb-4 flex items-center">
-                            <BookOpenIcon className="w-5 h-5 mr-2 text-blue-500" />
+                            <BookOpenIcon className="w-5 h-5 mr-2 text-red-500" />
                             What You Learn
                           </h4>
                           <ul className="space-y-2">
                             {part.whatYouLearn.map((topic, idx) => (
                               <li key={idx} className="flex items-start">
-                                <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                                <div className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
                                 <span className="text-gray-700 text-sm">{topic}</span>
                               </li>
                             ))}
@@ -373,23 +373,23 @@ const CIASyllabus = () => {
           transition={{ duration: 0.6 }}
           className="text-center mt-16"
         >
-          <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-3xl p-8 md:p-12 text-white">
+          <div className="bg-gradient-to-r from-red-600 to-purple-600 rounded-3xl p-8 md:p-12 text-white">
             <h3 className="text-2xl md:text-3xl font-bold mb-4">
               Download CIA Syllabus & Study Plan
             </h3>
-            <p className="text-blue-100 text-lg mb-8 max-w-2xl mx-auto">
+            <p className="text-red-100 text-lg mb-8 max-w-2xl mx-auto">
               Get detailed syllabus breakdown, study schedules, exam strategies, and preparation tips for all 3 parts
             </p>
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={handleDownloadSyllabus}
-              className="bg-white text-blue-600 px-8 py-4 rounded-xl font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 inline-flex items-center"
+              className="bg-white text-red-600 px-8 py-4 rounded-xl font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 inline-flex items-center"
             >
               <DocumentArrowDownIcon className="w-6 h-6 mr-3" />
               Download Complete Study Guide 🚀
             </motion.button>
-            <div className="mt-4 text-blue-100 text-sm">
+            <div className="mt-4 text-red-100 text-sm">
               ✅ Part-wise study hours ✅ Difficulty breakdown ✅ Role impact analysis
             </div>
           </div>
@@ -431,7 +431,7 @@ const CIASyllabus = () => {
                       placeholder="Full Name"
                       value={leadFormData.name}
                       onChange={(e) => setLeadFormData({...leadFormData, name: e.target.value})}
-                      className="w-full p-4 border border-gray-300 rounded-xl focus:border-blue-500 focus:outline-none"
+                      className="w-full p-4 border border-gray-300 rounded-xl focus:border-red-500 focus:outline-none"
                       required
                     />
                   </div>
@@ -441,7 +441,7 @@ const CIASyllabus = () => {
                       placeholder="Phone Number"
                       value={leadFormData.phone}
                       onChange={(e) => setLeadFormData({...leadFormData, phone: e.target.value})}
-                      className="w-full p-4 border border-gray-300 rounded-xl focus:border-blue-500 focus:outline-none"
+                      className="w-full p-4 border border-gray-300 rounded-xl focus:border-red-500 focus:outline-none"
                       required
                     />
                   </div>
@@ -451,14 +451,14 @@ const CIASyllabus = () => {
                       placeholder="Email Address"
                       value={leadFormData.email}
                       onChange={(e) => setLeadFormData({...leadFormData, email: e.target.value})}
-                      className="w-full p-4 border border-gray-300 rounded-xl focus:border-blue-500 focus:outline-none"
+                      className="w-full p-4 border border-gray-300 rounded-xl focus:border-red-500 focus:outline-none"
                       required
                     />
                   </div>
                   
                   <button
                     type="submit"
-                    className="w-full py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-bold text-lg hover:shadow-lg transition-all duration-300"
+                    className="w-full py-4 bg-gradient-to-r from-red-600 to-purple-600 text-white rounded-xl font-bold text-lg hover:shadow-lg transition-all duration-300"
                   >
                     Download Study Guide
                   </button>

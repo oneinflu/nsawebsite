@@ -30,9 +30,9 @@ const WhyCFA = () => {
         "Cross-border career mobility",
         "International networking opportunities"
       ],
-      color: "from-blue-600 to-blue-700",
-      bgColor: "from-blue-50 to-blue-100",
-      borderColor: "border-blue-200"
+      color: "from-red-600 to-red-700",
+      bgColor: "from-red-50 to-red-100",
+      borderColor: "border-red-200"
     },
     {
       icon: ChartBarIcon,
@@ -109,11 +109,11 @@ const WhyCFA = () => {
 
   if (!isClient) {
     return (
-      <section className="py-20 bg-gradient-to-br from-slate-50 to-blue-50">
+      <section className="py-20 bg-gradient-to-br from-slate-50 to-red-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Why CFA <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">(US)?</span>
+              Why CFA <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-purple-600">(US)?</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Positioning for Ambition — Join the Elite Global Tribe
@@ -125,10 +125,10 @@ const WhyCFA = () => {
   }
 
   return (
-    <section className="py-20 bg-gradient-to-br from-slate-50 to-blue-50 relative overflow-hidden">
+    <section className="py-20 bg-gradient-to-br from-slate-50 to-red-50 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
+        <div className="absolute top-20 left-10 w-72 h-72 bg-red-300 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
         <div className="absolute top-40 right-10 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"></div>
         <div className="absolute bottom-20 left-1/2 w-72 h-72 bg-indigo-300 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-4000"></div>
       </div>
@@ -146,7 +146,7 @@ const WhyCFA = () => {
             variants={itemVariants}
             className="text-4xl md:text-5xl font-bold text-gray-900 mb-6"
           >
-            Why CFA <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">(US)?</span>
+            Why CFA <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-purple-600">(US)?</span>
           </motion.h2>
           <motion.p 
             variants={itemVariants}
@@ -282,9 +282,9 @@ const WhyCFA = () => {
                 }}
                 className="group"
               >
-                <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300 hover:border-blue-300">
+                <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300 hover:border-red-300">
                   <div className="text-center">
-                    <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
+                    <div className="w-16 h-16 bg-gradient-to-br from-red-600 to-purple-600 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
                       <span className="text-white font-bold text-lg">{company.logo}</span>
                     </div>
                     <h4 className="font-bold text-gray-900 text-sm mb-1">{company.name}</h4>
@@ -298,7 +298,7 @@ const WhyCFA = () => {
           {/* Bottom CTA Hint */}
           <motion.div
             variants={itemVariants}
-            className="mt-12 inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+            className="mt-12 inline-flex items-center px-6 py-3 bg-gradient-to-r from-red-600 to-purple-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
           >
             <BuildingOffice2Icon className="w-5 h-5 mr-2" />
             <span className="font-semibold">Ready to join the elite? Start your CFA journey</span>

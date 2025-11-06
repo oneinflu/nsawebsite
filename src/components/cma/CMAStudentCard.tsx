@@ -26,9 +26,9 @@ export default function CMAStudentCard({ name, imageSrc, content, part1Score, pa
         <p className="text-sm font-semibold text-slate-900 leading-tight">{name}</p>
         <p className="text-xs text-slate-600 mt-0.5">{content}</p>
         <div className="mt-2 flex items-center gap-2">
-          <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200">
+          <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-semibold bg-red-50 text-red-700 border border-red-200">
             {part1Score}
-            <span className="ml-1 text-[10px] text-blue-600">Part 1</span>
+            <span className="ml-1 text-[10px] text-red-600">Part 1</span>
           </span>
           <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-semibold bg-indigo-50 text-indigo-700 border border-indigo-200">
             {part2Score}

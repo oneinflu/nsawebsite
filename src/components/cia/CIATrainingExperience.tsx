@@ -25,8 +25,8 @@ const CIATrainingExperience = () => {
       title: 'Live Mentorship',
       description: 'Personal guidance from CIA-certified professionals',
       icon: UserGroupIcon,
-      color: 'from-blue-500 to-blue-600',
-      bgColor: 'bg-blue-50',
+      color: 'from-red-500 to-red-600',
+      bgColor: 'bg-red-50',
       emotion: 'Guided',
       uxElement: {
         type: 'mentor',
@@ -180,7 +180,7 @@ const CIATrainingExperience = () => {
                 </div>
               </div>
             </div>
-            <blockquote className="text-sm text-gray-700 italic border-l-4 border-blue-500 pl-4">
+            <blockquote className="text-sm text-gray-700 italic border-l-4 border-red-500 pl-4">
               &quot;{uxElement.content.quote}&quot;
             </blockquote>
           </div>
@@ -195,10 +195,10 @@ const CIATrainingExperience = () => {
                 <div className="text-sm text-gray-600">Overall Score</div>
                 <div className="text-xs text-green-600">{uxElement.content.improvement} this week</div>
               </div>
-              <div className="bg-blue-50 rounded-lg p-4 text-center">
-                <div className="text-2xl font-bold text-blue-600">{uxElement.content.predictedScore}</div>
+              <div className="bg-red-50 rounded-lg p-4 text-center">
+                <div className="text-2xl font-bold text-red-600">{uxElement.content.predictedScore}</div>
                 <div className="text-sm text-gray-600">Predicted Score</div>
-                <div className="text-xs text-blue-600">{uxElement.content.readinessLevel} readiness</div>
+                <div className="text-xs text-red-600">{uxElement.content.readinessLevel} readiness</div>
               </div>
             </div>
             <div className="space-y-2">
@@ -222,11 +222,11 @@ const CIATrainingExperience = () => {
                 <div key={idx} className={`flex ${msg.sender === 'student' ? 'justify-end' : 'justify-start'}`}>
                   <div className={`max-w-xs px-4 py-2 rounded-2xl text-sm ${
                     msg.sender === 'student' 
-                      ? 'bg-blue-500 text-white' 
+                      ? 'bg-red-500 text-white' 
                       : 'bg-gray-100 text-gray-900'
                   }`}>
                     <p>{msg.text}</p>
-                    <p className={`text-xs mt-1 ${msg.sender === 'student' ? 'text-blue-100' : 'text-gray-500'}`}>
+                    <p className={`text-xs mt-1 ${msg.sender === 'student' ? 'text-red-100' : 'text-gray-500'}`}>
                       {msg.time}
                     </p>
                   </div>
@@ -305,7 +305,7 @@ const CIATrainingExperience = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-slate-50 to-blue-50">
+    <section className="py-20 bg-gradient-to-br from-slate-50 to-red-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -315,18 +315,18 @@ const CIATrainingExperience = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <div className="inline-flex items-center bg-gradient-to-r from-blue-100 to-purple-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium mb-6">
+          <div className="inline-flex items-center bg-gradient-to-r from-red-100 to-purple-100 text-red-800 px-4 py-2 rounded-full text-sm font-medium mb-6">
             <StarIcon className="w-4 h-4 mr-2" />
             NorthStar Training Experience
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             Why We Win —
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 mt-2">
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-purple-600 mt-2">
               Training Excellence
             </span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            <span className="font-semibold text-blue-600">Guided</span> + 
+            <span className="font-semibold text-red-600">Guided</span> + 
             <span className="font-semibold text-green-600 mx-2">Practical</span> + 
             <span className="font-semibold text-purple-600">Real-world</span> approach to CIA success
           </p>
@@ -351,7 +351,7 @@ const CIATrainingExperience = () => {
               >
                 <div className={`bg-white rounded-2xl p-6 shadow-lg border-2 transition-all duration-300 ${
                   activeFeature === index 
-                    ? 'border-blue-500 shadow-xl' 
+                    ? 'border-red-500 shadow-xl' 
                     : 'border-gray-200 hover:border-gray-300'
                 }`}>
                   <div className="flex items-start space-x-4">
@@ -362,7 +362,7 @@ const CIATrainingExperience = () => {
                       <div className="flex items-center space-x-3 mb-2">
                         <h3 className="text-xl font-bold text-gray-900">{feature.title}</h3>
                         <span className={`px-3 py-1 rounded-full text-xs font-medium ${
-                          feature.emotion === 'Guided' ? 'bg-blue-100 text-blue-600' :
+                          feature.emotion === 'Guided' ? 'bg-red-100 text-red-600' :
                           feature.emotion === 'Practical' ? 'bg-green-100 text-green-600' :
                           'bg-purple-100 text-purple-600'
                         }`}>
@@ -403,9 +403,9 @@ const CIATrainingExperience = () => {
               
               {renderUXElement(trainingFeatures[activeFeature])}
               
-              <div className="bg-gradient-to-r from-gray-900 to-blue-900 rounded-2xl p-6 text-white text-center">
+              <div className="bg-gradient-to-r from-gray-900 to-red-900 rounded-2xl p-6 text-white text-center">
                 <h5 className="font-bold mb-2">Experience This Live</h5>
-                <p className="text-blue-200 text-sm mb-4">
+                <p className="text-red-200 text-sm mb-4">
                   Join our next demo session to see these features in action
                 </p>
                 <button className="bg-gradient-to-r from-yellow-400 to-orange-500 text-gray-900 px-6 py-3 rounded-xl font-bold text-sm hover:shadow-lg transition-all duration-300 flex items-center space-x-2 mx-auto">
@@ -444,7 +444,7 @@ const CIATrainingExperience = () => {
             </div>
             
             <div className="text-center">
-              <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-gradient-to-r from-red-500 to-red-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <UserGroupIcon className="w-8 h-8 text-white" />
               </div>
               <div className="text-3xl font-bold text-gray-900 mb-2">2,500+</div>

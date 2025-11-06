@@ -23,7 +23,7 @@ export default function CMAStudyPlanner() {
       duration: '9 Months',
       hoursPerWeek: '15-20 hours',
       description: 'Balanced approach for working professionals',
-      color: 'from-blue-500 to-indigo-500',
+      color: 'from-red-500 to-indigo-500',
       icon: '⚖️',
       suitableFor: ['Working professionals', 'Balanced lifestyle', 'Steady progress']
     },
@@ -66,7 +66,7 @@ export default function CMAStudyPlanner() {
 
   const studyResources = [
     { icon: PlayCircleIcon, title: 'Video Lectures', description: '200+ hours of comprehensive video content', color: 'text-red-600 bg-red-50' },
-    { icon: BookOpenIcon, title: 'Study Materials', description: 'IMA-aligned textbooks and practice guides', color: 'text-blue-600 bg-blue-50' },
+    { icon: BookOpenIcon, title: 'Study Materials', description: 'IMA-aligned textbooks and practice guides', color: 'text-red-600 bg-red-50' },
     { icon: DocumentTextIcon, title: 'Practice Tests', description: '1000+ practice questions with explanations', color: 'text-green-600 bg-green-50' },
     { icon: CalendarIcon, title: 'Live Sessions', description: 'Weekly live classes and doubt clearing', color: 'text-purple-600 bg-purple-50' }
   ];
@@ -86,7 +86,7 @@ export default function CMAStudyPlanner() {
         >
           <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
             CMA{' '}
-            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-red-600 to-indigo-600 bg-clip-text text-transparent">
               Study Planner
             </span>
           </h2>
@@ -115,8 +115,8 @@ export default function CMAStudyPlanner() {
                 onClick={() => setSelectedPlan(key)}
                 className={`cursor-pointer rounded-xl p-6 border-2 transition-all duration-300 ${
                   selectedPlan === key
-                    ? 'border-blue-500 bg-blue-50 shadow-lg'
-                    : 'border-slate-200 bg-white hover:border-blue-300 hover:shadow-md'
+                    ? 'border-red-500 bg-red-50 shadow-lg'
+                    : 'border-slate-200 bg-white hover:border-red-300 hover:shadow-md'
                 }`}
               >
                 <div className="text-center">
@@ -159,8 +159,8 @@ export default function CMAStudyPlanner() {
                 onClick={() => setSelectedPart(1)}
                 className={`px-6 py-3 rounded-lg font-semibold transition-all duration-300 ${
                   selectedPart === 1
-                    ? 'bg-blue-600 text-white shadow-lg'
-                    : 'text-slate-600 hover:text-blue-600 hover:bg-blue-50'
+                    ? 'bg-red-600 text-white shadow-lg'
+                    : 'text-slate-600 hover:text-red-600 hover:bg-red-50'
                 }`}
               >
                 Part 1: Financial Planning & Analytics
@@ -169,8 +169,8 @@ export default function CMAStudyPlanner() {
                 onClick={() => setSelectedPart(2)}
                 className={`px-6 py-3 rounded-lg font-semibold transition-all duration-300 ${
                   selectedPart === 2
-                    ? 'bg-blue-600 text-white shadow-lg'
-                    : 'text-slate-600 hover:text-blue-600 hover:bg-blue-50'
+                    ? 'bg-red-600 text-white shadow-lg'
+                    : 'text-slate-600 hover:text-red-600 hover:bg-red-50'
                 }`}
               >
                 Part 2: Strategic Financial Management
@@ -219,7 +219,7 @@ export default function CMAStudyPlanner() {
                     className="flex items-start p-4 bg-slate-50 rounded-lg"
                   >
                     <div className="flex-shrink-0 w-24 text-center">
-                      <div className="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-lg mx-auto mb-2">
+                      <div className="w-12 h-12 bg-red-600 text-white rounded-full flex items-center justify-center font-bold text-lg mx-auto mb-2">
                         {index + 1}
                       </div>
                       <div className="text-sm font-semibold text-slate-600">{item.week}</div>
@@ -234,7 +234,7 @@ export default function CMAStudyPlanner() {
                         {item.activities.map((activity, actIndex) => (
                           <span
                             key={actIndex}
-                            className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium"
+                            className="px-3 py-1 bg-red-100 text-red-700 rounded-full text-sm font-medium"
                           >
                             {activity}
                           </span>
@@ -284,7 +284,7 @@ export default function CMAStudyPlanner() {
           transition={{ duration: 0.6, delay: 0.5 }}
           className="text-center"
         >
-          <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8 md:p-12">
+          <div className="bg-gradient-to-r from-red-50 to-indigo-50 rounded-2xl p-8 md:p-12">
             <h3 className="text-3xl font-bold text-slate-900 mb-4">
               Ready to Start Your CMA Journey?
             </h3>
@@ -296,14 +296,14 @@ export default function CMAStudyPlanner() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-4 rounded-lg font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300"
+                className="bg-gradient-to-r from-red-600 to-indigo-600 text-white px-8 py-4 rounded-lg font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300"
               >
                 Get My Study Plan
               </motion.button>
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="border-2 border-blue-600 text-blue-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-50 transition-all duration-300"
+                className="border-2 border-red-600 text-red-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-red-50 transition-all duration-300"
               >
                 Book Free Consultation
               </motion.button>

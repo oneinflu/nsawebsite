@@ -18,8 +18,8 @@ const CIAEligibility = () => {
       title: 'Study',
       description: 'Prepare for CIA exams',
       icon: AcademicCapIcon,
-      color: 'from-blue-500 to-blue-600',
-      bgColor: 'bg-blue-50',
+      color: 'from-red-500 to-red-600',
+      bgColor: 'bg-red-50',
       duration: '6-12 months',
       details: [
         'No prior experience required',
@@ -82,7 +82,7 @@ const CIAEligibility = () => {
       icon: ClockIcon,
       title: 'Experience After Exams',
       description: 'Gain the required 2 years of experience after passing all exam parts',
-      color: 'text-blue-600 bg-blue-100'
+      color: 'text-red-600 bg-red-100'
     },
     {
       icon: AcademicCapIcon,
@@ -169,7 +169,7 @@ const CIAEligibility = () => {
           <div className="hidden md:block">
             <div className="relative">
               {/* Timeline Line */}
-              <div className="absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 via-green-500 via-purple-500 to-orange-500 rounded-full transform -translate-y-1/2"></div>
+              <div className="absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-red-500 via-green-500 via-purple-500 to-orange-500 rounded-full transform -translate-y-1/2"></div>
               
               {/* Timeline Steps */}
               <div className="grid grid-cols-4 gap-8 relative">
@@ -268,7 +268,7 @@ const CIAEligibility = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="text-center">
-              <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mx-auto mb-4">
+              <div className="w-12 h-12 bg-gradient-to-r from-red-500 to-red-600 rounded-xl flex items-center justify-center mx-auto mb-4">
                 <AcademicCapIcon className="w-6 h-6 text-white" />
               </div>
               <h4 className="font-bold text-gray-900 mb-2">Start Immediately</h4>

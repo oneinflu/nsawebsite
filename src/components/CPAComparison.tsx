@@ -31,8 +31,8 @@ const CPAComparison = () => {
     CPA: {
       name: 'CPA (Certified Public Accountant)',
       fullName: 'Certified Public Accountant',
-      color: 'from-blue-600 to-blue-700',
-      bgColor: 'from-blue-50 to-blue-100',
+      color: 'from-red-600 to-red-700',
+      bgColor: 'from-red-50 to-red-100',
       logo: '🇺🇸',
       winner: true
     },
@@ -218,10 +218,10 @@ const CPAComparison = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50 relative overflow-hidden">
+    <section className="py-20 bg-gradient-to-br from-gray-50 to-red-50 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 left-10 w-96 h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
+        <div className="absolute top-20 left-10 w-96 h-96 bg-red-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse delay-1000"></div>
       </div>
 
@@ -232,7 +232,7 @@ const CPAComparison = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-2 rounded-full text-sm font-medium mb-6"
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-red-600 to-purple-600 text-white px-4 py-2 rounded-full text-sm font-medium mb-6"
           >
             <Target className="w-4 h-4" />
             SEO-Optimized Comparison Guide
@@ -246,7 +246,7 @@ const CPAComparison = () => {
             className="text-4xl md:text-5xl font-bold text-gray-900 mb-6"
           >
             CPA vs CMA vs ACCA: 
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"> Complete Comparison</span>
+            <span className="bg-gradient-to-r from-red-600 to-purple-600 bg-clip-text text-transparent"> Complete Comparison</span>
           </motion.h2>
           
           <motion.p
@@ -268,7 +268,7 @@ const CPAComparison = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => setShowQuiz(true)}
-            className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:shadow-lg transition-all duration-300"
+            className="bg-gradient-to-r from-red-600 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:shadow-lg transition-all duration-300"
           >
             <div className="flex items-center gap-2">
               Help me choose → 30 sec quiz
@@ -282,7 +282,7 @@ const CPAComparison = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl p-8 text-white mb-12"
+          className="bg-gradient-to-r from-red-600 to-red-700 rounded-2xl p-8 text-white mb-12"
         >
           <div className="text-center">
             <div className="text-6xl mb-4">🏆</div>
@@ -342,7 +342,7 @@ const CPAComparison = () => {
                       className="grid grid-cols-4 gap-4 bg-white rounded-xl p-4 shadow-md hover:shadow-lg transition-all duration-300"
                     >
                       <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg flex items-center justify-center">
+                        <div className="w-10 h-10 bg-gradient-to-r from-red-500 to-purple-500 rounded-lg flex items-center justify-center">
                           <Icon className="w-5 h-5 text-white" />
                         </div>
                         <div>
@@ -425,7 +425,7 @@ const CPAComparison = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => setShowQuiz(true)}
-            className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-12 py-4 rounded-xl font-semibold text-xl hover:shadow-lg transition-all duration-300"
+            className="bg-gradient-to-r from-red-600 to-purple-600 text-white px-12 py-4 rounded-xl font-semibold text-xl hover:shadow-lg transition-all duration-300"
           >
             <div className="flex items-center gap-3">
               <Target className="w-6 h-6" />
@@ -473,7 +473,7 @@ const CPAComparison = () => {
                     </div>
                     <div className="w-full bg-gray-200 rounded-full h-2">
                       <div 
-                        className="bg-gradient-to-r from-blue-500 to-purple-500 h-2 rounded-full transition-all duration-300"
+                        className="bg-gradient-to-r from-red-500 to-purple-500 h-2 rounded-full transition-all duration-300"
                         style={{ width: `${((currentQuestion + 1) / quizQuestions.length) * 100}%` }}
                       ></div>
                     </div>
@@ -490,7 +490,7 @@ const CPAComparison = () => {
                           whileHover={{ scale: 1.02 }}
                           whileTap={{ scale: 0.98 }}
                           onClick={() => handleQuizAnswer(option.value)}
-                          className="w-full text-left p-4 border-2 border-gray-200 rounded-xl hover:border-blue-500 hover:bg-blue-50 transition-all duration-300"
+                          className="w-full text-left p-4 border-2 border-gray-200 rounded-xl hover:border-red-500 hover:bg-red-50 transition-all duration-300"
                         >
                           {option.text}
                         </motion.button>
@@ -516,7 +516,7 @@ const CPAComparison = () => {
                     </button>
                     <button
                       onClick={() => setShowQuiz(false)}
-                      className="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl hover:shadow-lg transition-all duration-300"
+                      className="px-6 py-3 bg-gradient-to-r from-red-600 to-purple-600 text-white rounded-xl hover:shadow-lg transition-all duration-300"
                     >
                       Start {quizResult} Journey
                     </button>

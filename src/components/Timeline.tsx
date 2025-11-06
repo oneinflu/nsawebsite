@@ -116,7 +116,7 @@ const Timeline = () => {
       case 'completed':
         return 'from-green-500 to-emerald-600';
       case 'current':
-        return 'from-blue-500 to-purple-600';
+        return 'from-red-500 to-purple-600';
       case 'upcoming':
         return 'from-slate-400 to-slate-500';
       default:
@@ -140,11 +140,11 @@ const Timeline = () => {
   return (
     <section 
       ref={ref}
-      className="relative py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50 overflow-hidden"
+      className="relative py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-50 via-red-50 to-purple-50 overflow-hidden"
     >
       {/* Background Elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 left-10 w-64 h-64 bg-blue-200/30 rounded-full blur-3xl" />
+        <div className="absolute top-20 left-10 w-64 h-64 bg-red-200/30 rounded-full blur-3xl" />
         <div className="absolute bottom-20 right-10 w-80 h-80 bg-purple-200/30 rounded-full blur-3xl" />
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-pink-200/20 rounded-full blur-3xl" />
       </div>
@@ -157,19 +157,19 @@ const Timeline = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-full border border-blue-200 mb-6">
+          <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-red-500/10 to-purple-500/10 rounded-full border border-red-200 mb-6">
             <span className="text-2xl">📅</span>
-            <span className="text-blue-700 font-semibold text-lg">Application Timeline</span>
+            <span className="text-red-700 font-semibold text-lg">Application Timeline</span>
           </div>
           
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-800 mb-6">
             Your Journey to
-            <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent"> Success</span>
+            <span className="bg-gradient-to-r from-red-600 via-purple-600 to-pink-600 bg-clip-text text-transparent"> Success</span>
           </h2>
           
           <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
             Follow these key milestones to secure your spot among the 
-            <span className="text-blue-600 font-semibold"> Super 300</span> scholarship recipients.
+            <span className="text-red-600 font-semibold"> Super 300</span> scholarship recipients.
           </p>
         </motion.div>
 
@@ -185,14 +185,14 @@ const Timeline = () => {
               initial={{ width: "0%" }}
               animate={isInView ? { width: "40%" } : { width: "0%" }}
               transition={{ duration: 2, delay: 0.5 }}
-              className="h-full bg-gradient-to-r from-blue-500 to-purple-600 rounded-full"
+              className="h-full bg-gradient-to-r from-red-500 to-purple-600 rounded-full"
             />
           </div>
           <div className="absolute -top-1 left-[40%] transform -translate-x-1/2">
             <motion.div
               animate={{ scale: [1, 1.2, 1] }}
               transition={{ duration: 2, repeat: Infinity }}
-              className="w-4 h-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full border-4 border-white shadow-lg"
+              className="w-4 h-4 bg-gradient-to-r from-red-500 to-purple-600 rounded-full border-4 border-white shadow-lg"
             />
           </div>
         </motion.div>
@@ -215,7 +215,7 @@ const Timeline = () => {
                 <motion.div
                   whileHover={{ scale: 1.02 }}
                   className={`relative group p-8 bg-white/80 backdrop-blur-xl rounded-2xl border border-slate-200 shadow-lg hover:shadow-xl transition-all duration-300 ${
-                    activeStep === index ? 'ring-2 ring-blue-500 bg-gradient-to-br from-blue-50 to-purple-50' : ''
+                    activeStep === index ? 'ring-2 ring-red-500 bg-gradient-to-br from-red-50 to-purple-50' : ''
                   }`}
                 >
                   {/* Status Badge */}
@@ -243,7 +243,7 @@ const Timeline = () => {
                         transition={{ duration: 0.5, delay: detailIndex * 0.1 }}
                         className="flex items-center gap-3 text-sm text-slate-600"
                       >
-                        <div className="w-2 h-2 bg-blue-500 rounded-full" />
+                        <div className="w-2 h-2 bg-red-500 rounded-full" />
                         <span>{detail}</span>
                       </motion.div>
                     ))}
@@ -254,7 +254,7 @@ const Timeline = () => {
                     <motion.div
                       initial={{ opacity: 0, scale: 0.8 }}
                       animate={{ opacity: 1, scale: 1 }}
-                      className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-2xl blur-xl -z-10"
+                      className="absolute inset-0 bg-gradient-to-r from-red-500/10 to-purple-500/10 rounded-2xl blur-xl -z-10"
                     />
                   )}
                 </motion.div>
@@ -273,7 +273,7 @@ const Timeline = () => {
                     <motion.div
                       animate={{ scale: [1, 1.5, 1], opacity: [0.5, 0, 0.5] }}
                       transition={{ duration: 2, repeat: Infinity }}
-                      className="absolute inset-0 rounded-full bg-blue-500"
+                      className="absolute inset-0 rounded-full bg-red-500"
                     />
                   )}
                 </motion.div>
@@ -297,7 +297,7 @@ const Timeline = () => {
           transition={{ duration: 0.8, delay: 1 }}
           className="text-center mt-16"
         >
-          <div className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-2xl p-8 border border-blue-200">
+          <div className="bg-gradient-to-r from-red-500/10 to-purple-500/10 rounded-2xl p-8 border border-red-200">
             <h3 className="text-2xl font-bold text-slate-800 mb-4">
               Don&apos;t Miss Your Chance!
             </h3>
@@ -308,7 +308,7 @@ const Timeline = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-bold text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+              className="px-8 py-4 bg-gradient-to-r from-red-500 to-purple-600 text-white font-bold text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
             >
               Apply Now - Limited Time
             </motion.button>

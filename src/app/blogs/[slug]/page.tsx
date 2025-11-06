@@ -999,7 +999,7 @@ export default async function ArticlePageRoute({ params }: PageProps) {
           <p className="text-gray-600 mb-8">The article you&apos;re looking for doesn&apos;t exist.</p>
           <a 
             href="/blogs" 
-            className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
+            className="bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 transition-colors"
           >
             Back to Blog Hub
           </a>

@@ -75,7 +75,7 @@ export default function PricingROI() {
         'Priority Support'
       ],
       cta: 'Enroll with EMI',
-      ctaStyle: 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:from-blue-700 hover:to-indigo-700',
+      ctaStyle: 'bg-gradient-to-r from-red-600 to-indigo-600 text-white hover:from-red-700 hover:to-indigo-700',
       popular: true
     },
     {
@@ -113,7 +113,7 @@ export default function PricingROI() {
   ]
 
   return (
-    <section className="py-20 bg-gradient-to-br from-slate-50 via-white to-blue-50">
+    <section className="py-20 bg-gradient-to-br from-slate-50 via-white to-red-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Investment Value Headline */}
         <motion.div 
@@ -122,7 +122,7 @@ export default function PricingROI() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl font-bold bg-gradient-to-r from-gray-900 via-blue-900 to-indigo-900 bg-clip-text text-transparent mb-6">
+          <h2 className="text-5xl font-bold bg-gradient-to-r from-gray-900 via-red-900 to-indigo-900 bg-clip-text text-transparent mb-6">
             Invest Once. Grow for a Lifetime.
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -152,12 +152,12 @@ export default function PricingROI() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
                 className={`relative bg-white rounded-2xl shadow-xl p-8 border-2 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 ${
-                  tier.popular ? 'border-blue-500 ring-4 ring-blue-100' : 'border-gray-200'
+                  tier.popular ? 'border-red-500 ring-4 ring-red-100' : 'border-gray-200'
                 }`}
               >
                 {tier.popular && (
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <span className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-2 rounded-full text-sm font-semibold">
+                    <span className="bg-gradient-to-r from-red-600 to-indigo-600 text-white px-6 py-2 rounded-full text-sm font-semibold">
                       Most Popular
                     </span>
                   </div>
@@ -280,7 +280,7 @@ export default function PricingROI() {
           viewport={{ once: true }}
           className="text-center"
         >
-          <div className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-3xl p-12 text-white">
+          <div className="bg-gradient-to-r from-red-600 to-indigo-600 rounded-3xl p-12 text-white">
             <h3 className="text-3xl font-bold mb-4">
               Ready to Transform Your Career?
             </h3>
@@ -291,11 +291,11 @@ export default function PricingROI() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <button 
                 onClick={() => setShowModal(true)}
-                className="bg-white text-blue-600 px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-50 transition-all duration-300 shadow-lg hover:shadow-xl"
+                className="bg-white text-red-600 px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-50 transition-all duration-300 shadow-lg hover:shadow-xl"
               >
                 Get Your Personalized Pricing & EMI Plan →
               </button>
-              <button className="border-2 border-white text-white px-6 py-3 rounded-xl font-semibold hover:bg-white hover:text-blue-600 transition-all duration-300">
+              <button className="border-2 border-white text-white px-6 py-3 rounded-xl font-semibold hover:bg-white hover:text-red-600 transition-all duration-300">
                 Talk to an Advisor on WhatsApp
               </button>
             </div>
@@ -327,19 +327,19 @@ export default function PricingROI() {
                 <input
                   type="text"
                   placeholder="Full Name"
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
                 />
                 <input
                   type="email"
                   placeholder="Email Address"
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
                 />
                 <input
                   type="tel"
                   placeholder="Phone Number"
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
                 />
-                <select className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                <select className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent">
                   <option>Select Course Interest</option>
                   <option>CMA</option>
                   <option>CPA</option>
@@ -347,7 +347,7 @@ export default function PricingROI() {
                 </select>
                 <button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-3 px-6 rounded-lg font-semibold hover:from-blue-700 hover:to-indigo-700 transition-all duration-300"
+                  className="w-full bg-gradient-to-r from-red-600 to-indigo-600 text-white py-3 px-6 rounded-lg font-semibold hover:from-red-700 hover:to-indigo-700 transition-all duration-300"
                 >
                   Get My Personalized Plan
                 </button>

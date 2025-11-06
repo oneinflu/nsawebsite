@@ -45,7 +45,7 @@ const Eligibility = () => {
         'Strong academic performance record'
       ],
       highlight: 'Perfect for ambitious students',
-      color: 'from-blue-500 to-cyan-400'
+      color: 'from-red-500 to-cyan-400'
     },
     {
       id: 'professionals',
@@ -80,11 +80,11 @@ const Eligibility = () => {
   return (
     <section 
       ref={ref}
-      className="relative py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 overflow-hidden"
+      className="relative py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-900 via-red-900 to-slate-800 overflow-hidden"
     >
       {/* Background Effects */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute top-20 left-10 w-72 h-72 bg-red-500/10 rounded-full blur-3xl animate-pulse" />
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
       </div>
 
@@ -100,14 +100,14 @@ const Eligibility = () => {
             initial={{ scale: 0.8, opacity: 0 }}
             animate={isInView ? { scale: 1, opacity: 1 } : { scale: 0.8, opacity: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full border border-blue-400/30 mb-6"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-red-500/20 to-purple-500/20 rounded-full border border-red-400/30 mb-6"
           >
             <span className="text-2xl">🎯</span>
-            <span className="text-blue-300 font-medium">Who Can Apply</span>
+            <span className="text-red-300 font-medium">Who Can Apply</span>
           </motion.div>
 
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-            <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-red-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
               Are You Eligible?
             </span>
           </h2>
@@ -137,7 +137,7 @@ const Eligibility = () => {
               className="group relative"
             >
               {/* Card Background with Gradient Border */}
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-r from-red-500/20 via-purple-500/20 to-pink-500/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500" />
               
               <div className="relative bg-slate-800/80 backdrop-blur-xl rounded-2xl p-8 border border-slate-700/50 group-hover:border-slate-600/70 transition-all duration-500 h-full">
                 {/* Profile Icon & Title */}
@@ -169,7 +169,7 @@ const Eligibility = () => {
                       transition={{ duration: 0.5, delay: 0.1 * idx }}
                       className="flex items-start gap-3"
                     >
-                      <div className="w-2 h-2 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full mt-2 flex-shrink-0" />
+                      <div className="w-2 h-2 bg-gradient-to-r from-red-400 to-purple-400 rounded-full mt-2 flex-shrink-0" />
                       <span className="text-slate-300 text-sm leading-relaxed">
                         {criterion}
                       </span>
@@ -187,7 +187,7 @@ const Eligibility = () => {
                 </div>
 
                 {/* Hover Effect Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-purple-500/5 to-pink-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-br from-red-500/5 via-purple-500/5 to-pink-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
             </motion.div>
           ))}
@@ -204,7 +204,7 @@ const Eligibility = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-xl hover:from-blue-600 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl"
+              className="px-8 py-4 bg-gradient-to-r from-red-500 to-purple-600 text-white font-semibold rounded-xl hover:from-red-600 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl"
             >
               Check Your Eligibility Now
             </motion.button>

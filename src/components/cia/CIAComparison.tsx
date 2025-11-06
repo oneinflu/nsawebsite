@@ -24,13 +24,13 @@ const CIAComparison = () => {
     'Audit Specialization': {
       CIA: { value: '✅', score: 10, detail: 'Deep internal audit expertise', color: 'text-green-600' },
       CA: { value: 'Medium', score: 6, detail: 'General audit knowledge', color: 'text-yellow-600' },
-      CPA: { value: 'High', score: 8, detail: 'External audit focus', color: 'text-blue-600' },
+      CPA: { value: 'High', score: 8, detail: 'External audit focus', color: 'text-red-600' },
       CMA: { value: 'Low', score: 3, detail: 'Limited audit content', color: 'text-red-600' }
     },
     'Duration': {
       CIA: { value: 'Short', score: 9, detail: '6-12 months', color: 'text-green-600' },
       CA: { value: 'Very Long', score: 2, detail: '3-5 years', color: 'text-red-600' },
-      CPA: { value: 'Medium', score: 7, detail: '12-18 months', color: 'text-blue-600' },
+      CPA: { value: 'Medium', score: 7, detail: '12-18 months', color: 'text-red-600' },
       CMA: { value: 'Short', score: 9, detail: '6-12 months', color: 'text-green-600' }
     },
     'Global Acceptance': {
@@ -42,14 +42,14 @@ const CIAComparison = () => {
     'Career Focus': {
       CIA: { value: 'Internal Audit', score: 10, detail: 'Risk & compliance specialist', color: 'text-green-600' },
       CA: { value: 'General Practice', score: 6, detail: 'Broad accounting practice', color: 'text-yellow-600' },
-      CPA: { value: 'Public Accounting', score: 8, detail: 'External audit & tax', color: 'text-blue-600' },
-      CMA: { value: 'Management', score: 7, detail: 'Cost & management accounting', color: 'text-blue-600' }
+      CPA: { value: 'Public Accounting', score: 8, detail: 'External audit & tax', color: 'text-red-600' },
+      CMA: { value: 'Management', score: 7, detail: 'Cost & management accounting', color: 'text-red-600' }
     },
     'Salary Potential': {
       CIA: { value: '$75K - $140K', score: 8, detail: 'High-demand niche', color: 'text-green-600' },
       CA: { value: '$35K - $80K', score: 5, detail: 'India market rates', color: 'text-yellow-600' },
       CPA: { value: '$85K - $150K', score: 9, detail: 'Highest overall', color: 'text-green-600' },
-      CMA: { value: '$65K - $120K', score: 7, detail: 'Management roles', color: 'text-blue-600' }
+      CMA: { value: '$65K - $120K', score: 7, detail: 'Management roles', color: 'text-red-600' }
     },
     'Experience Requirement': {
       CIA: { value: '2 Years', score: 8, detail: 'Flexible timing', color: 'text-green-600' },
@@ -74,7 +74,7 @@ const CIAComparison = () => {
       icon: Globe,
       title: 'Highest Global Recognition',
       description: 'Accepted in 190+ countries worldwide',
-      color: 'from-blue-500 to-cyan-600'
+      color: 'from-red-500 to-cyan-600'
     },
     {
       icon: Clock,
@@ -91,7 +91,7 @@ const CIAComparison = () => {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-slate-50 via-white to-blue-50">
+    <section className="py-20 bg-gradient-to-br from-slate-50 via-white to-red-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -101,7 +101,7 @@ const CIAComparison = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
-            <span className="bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-green-600 to-red-600 bg-clip-text text-transparent">
               CIA vs Other Certifications
             </span>
           </h2>
@@ -235,7 +235,7 @@ const CIAComparison = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-3xl p-8 text-white text-center"
+          className="bg-gradient-to-r from-red-600 to-purple-600 rounded-3xl p-8 text-white text-center"
         >
           <div className="max-w-3xl mx-auto">
             <div className="text-5xl mb-6">🎯</div>
@@ -249,7 +249,7 @@ const CIAComparison = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-white text-blue-600 px-8 py-4 rounded-xl font-bold text-lg hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-3"
+                className="bg-white text-red-600 px-8 py-4 rounded-xl font-bold text-lg hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-3"
               >
                 <ChartBar className="w-6 h-6" />
                 Take Career Path Quiz
@@ -259,7 +259,7 @@ const CIAComparison = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="border-2 border-white text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white hover:text-blue-600 transition-all duration-300 flex items-center justify-center gap-3"
+                className="border-2 border-white text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white hover:text-red-600 transition-all duration-300 flex items-center justify-center gap-3"
               >
                 <Users className="w-6 h-6" />
                 Talk to Career Expert

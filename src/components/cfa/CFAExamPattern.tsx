@@ -59,7 +59,7 @@ const flowSteps: FlowStep[] = [
     title: 'Registration',
     description: 'Register for your CFA exam level',
     icon: DocumentTextIcon,
-    color: 'from-blue-500 to-cyan-500'
+    color: 'from-red-500 to-cyan-500'
   },
   {
     id: 'study',
@@ -144,7 +144,7 @@ export default function CFAExamPattern() {
 
   if (!isClient) {
     return (
-      <section className="py-20 bg-gradient-to-br from-slate-50 to-blue-50">
+      <section className="py-20 bg-gradient-to-br from-slate-50 to-red-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
@@ -160,10 +160,10 @@ export default function CFAExamPattern() {
   }
 
   return (
-    <section className="py-20 bg-gradient-to-br from-slate-50 to-blue-50 relative overflow-hidden">
+    <section className="py-20 bg-gradient-to-br from-slate-50 to-red-50 relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
+        <div className="absolute top-20 left-10 w-72 h-72 bg-red-500 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
         <div className="absolute top-40 right-10 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-1000"></div>
         <div className="absolute bottom-20 left-1/2 w-72 h-72 bg-pink-500 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-2000"></div>
       </div>
@@ -198,7 +198,7 @@ export default function CFAExamPattern() {
                 <motion.div
                   className={`relative p-6 rounded-2xl backdrop-blur-sm border transition-all duration-500 ${
                     activeStep === index
-                      ? 'bg-white/90 border-blue-300 shadow-xl scale-105'
+                      ? 'bg-white/90 border-red-300 shadow-xl scale-105'
                       : 'bg-white/60 border-gray-200 shadow-lg'
                   }`}
                   animate={{
@@ -260,7 +260,7 @@ export default function CFAExamPattern() {
               <div className="overflow-x-auto">
                 <table className="w-full">
                   <thead>
-                    <tr className="bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+                    <tr className="bg-gradient-to-r from-red-600 to-purple-600 text-white">
                       <th className="px-6 py-4 text-left font-semibold">Exam</th>
                       <th className="px-6 py-4 text-left font-semibold">Frequency</th>
                       <th className="px-6 py-4 text-left font-semibold">Duration</th>
@@ -271,7 +271,7 @@ export default function CFAExamPattern() {
                     {examLevels.map((exam, index) => (
                       <motion.tr
                         key={exam.level}
-                        className={`border-b border-gray-100 hover:bg-blue-50/50 transition-colors ${
+                        className={`border-b border-gray-100 hover:bg-red-50/50 transition-colors ${
                           index % 2 === 0 ? 'bg-gray-50/30' : 'bg-white/50'
                         }`}
                         initial={{ opacity: 0, x: -20 }}
@@ -286,7 +286,7 @@ export default function CFAExamPattern() {
                         <td className="px-6 py-4 text-gray-700 font-medium">{exam.frequency}</td>
                         <td className="px-6 py-4 text-gray-700 font-medium">{exam.duration}</td>
                         <td className="px-6 py-4">
-                          <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
+                          <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-red-100 text-red-800">
                             {exam.format}
                           </span>
                         </td>
@@ -347,7 +347,7 @@ export default function CFAExamPattern() {
               {/* Center Content */}
               <div className="absolute inset-0 flex flex-col items-center justify-center">
                 <motion.div
-                  className="text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
+                  className="text-5xl font-bold bg-gradient-to-r from-red-600 to-purple-600 bg-clip-text text-transparent"
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
                   transition={{ delay: 1, duration: 0.5 }}
@@ -363,7 +363,7 @@ export default function CFAExamPattern() {
 
             {/* CTA Button */}
             <motion.button
-              className="group bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 flex items-center space-x-2"
+              className="group bg-gradient-to-r from-red-600 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 flex items-center space-x-2"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -392,7 +392,7 @@ export default function CFAExamPattern() {
               transition={{ delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <div className="text-3xl font-bold text-blue-600 mb-2">{stat.value}</div>
+              <div className="text-3xl font-bold text-red-600 mb-2">{stat.value}</div>
               <div className="font-semibold text-gray-900 mb-1">{stat.label}</div>
               <div className="text-sm text-gray-600">{stat.description}</div>
             </motion.div>

@@ -23,8 +23,8 @@ const WhyACCA = () => {
         "Global mobility for career opportunities",
         "International networking opportunities"
       ],
-      color: "from-blue-500 to-cyan-500",
-      bgColor: "from-blue-50 to-cyan-50"
+      color: "from-red-500 to-cyan-500",
+      bgColor: "from-red-50 to-cyan-50"
     },
     {
       icon: AcademicCapIcon,
@@ -94,7 +94,7 @@ const WhyACCA = () => {
   
 
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+    <section className="py-20 bg-gradient-to-br from-gray-50 to-red-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -105,7 +105,7 @@ const WhyACCA = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Why <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">ACCA (UK)?</span>
+            Why <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-purple-600">ACCA (UK)?</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Unlock global opportunities with the world&apos;s most recognized accounting qualification
@@ -146,7 +146,7 @@ const WhyACCA = () => {
                 <ul className="space-y-3">
                   {feature.details.map((detail, detailIndex) => (
                     <li key={detailIndex} className="flex items-start">
-                      <div className="w-2 h-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                      <div className="w-2 h-2 bg-gradient-to-r from-red-500 to-purple-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
                       <span className="text-gray-700 text-sm">{detail}</span>
                     </li>
                   ))}
@@ -188,10 +188,10 @@ const WhyACCA = () => {
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: index * 0.2 }}
-                    className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-6 text-center border border-blue-100 hover:shadow-lg transition-all duration-300"
+                    className="bg-gradient-to-br from-red-50 to-purple-50 rounded-2xl p-6 text-center border border-red-100 hover:shadow-lg transition-all duration-300"
                   >
                     <div className={`w-16 h-16 rounded-full bg-gradient-to-r ${
-                      index === 0 ? 'from-blue-500 to-cyan-500' :
+                      index === 0 ? 'from-red-500 to-cyan-500' :
                       index === 1 ? 'from-purple-500 to-pink-500' :
                       index === 2 ? 'from-green-500 to-emerald-500' :
                       'from-orange-500 to-red-500'
@@ -207,7 +207,7 @@ const WhyACCA = () => {
                   {/* Arrow */}
                   {index < careerPath.length - 1 && (
                     <div className="hidden md:block absolute top-1/2 -right-2 transform -translate-y-1/2 z-10">
-                      <ArrowRightIcon className="w-6 h-6 text-blue-500" />
+                      <ArrowRightIcon className="w-6 h-6 text-red-500" />
                     </div>
                   )}
                 </div>
@@ -217,7 +217,7 @@ const WhyACCA = () => {
             {/* Mobile Arrows */}
             <div className="md:hidden flex flex-col items-center space-y-4 absolute left-1/2 transform -translate-x-1/2 top-0 h-full justify-evenly">
               {[1, 2, 3].map((_, index) => (
-                <ArrowRightIcon key={index} className="w-6 h-6 text-blue-500 transform rotate-90" />
+                <ArrowRightIcon key={index} className="w-6 h-6 text-red-500 transform rotate-90" />
               ))}
             </div>
           </div>
@@ -227,7 +227,7 @@ const WhyACCA = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 inline-flex items-center"
+              className="bg-gradient-to-r from-red-600 to-purple-600 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 inline-flex items-center"
             >
               Start Your ACCA Journey
               <ArrowRightIcon className="w-5 h-5 ml-2" />

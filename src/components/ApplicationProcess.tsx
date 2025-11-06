@@ -46,8 +46,8 @@ const ApplicationProcess = () => {
         'Career goals & aspirations',
         'Contact details'
       ],
-      color: 'from-blue-500 to-cyan-400',
-      bgColor: 'from-blue-500/10 to-cyan-400/10'
+      color: 'from-red-500 to-cyan-400',
+      bgColor: 'from-red-500/10 to-cyan-400/10'
     },
     {
       id: 2,
@@ -86,11 +86,11 @@ const ApplicationProcess = () => {
   return (
     <section 
       ref={ref}
-      className="relative py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 overflow-hidden"
+      className="relative py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-900 via-red-900 to-slate-800 overflow-hidden"
     >
       {/* Background Effects */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 right-10 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute top-20 right-10 w-80 h-80 bg-red-500/10 rounded-full blur-3xl animate-pulse" />
         <div className="absolute bottom-20 left-10 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
       </div>
 
@@ -106,14 +106,14 @@ const ApplicationProcess = () => {
             initial={{ scale: 0.8, opacity: 0 }}
             animate={isInView ? { scale: 1, opacity: 1 } : { scale: 0.8, opacity: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full border border-blue-400/30 mb-6"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-red-500/20 to-purple-500/20 rounded-full border border-red-400/30 mb-6"
           >
             <span className="text-2xl">🚀</span>
-            <span className="text-blue-300 font-medium">Simple Process</span>
+            <span className="text-red-300 font-medium">Simple Process</span>
           </motion.div>
 
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-            <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-red-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
               How to Apply
             </span>
           </h2>
@@ -132,7 +132,7 @@ const ApplicationProcess = () => {
           className="relative"
         >
           {/* Timeline Line */}
-          <div className="hidden lg:block absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-blue-500 via-purple-500 to-amber-500 rounded-full" />
+          <div className="hidden lg:block absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-red-500 via-purple-500 to-amber-500 rounded-full" />
 
           {/* Steps */}
           <div className="space-y-16 lg:space-y-24">
@@ -255,7 +255,7 @@ const ApplicationProcess = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-xl hover:from-blue-600 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl"
+              className="px-8 py-4 bg-gradient-to-r from-red-500 to-purple-600 text-white font-semibold rounded-xl hover:from-red-600 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl"
             >
               Start Your Application
             </motion.button>

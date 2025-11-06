@@ -106,7 +106,7 @@ export default function FAQ() {
   })).filter(category => category.questions.length > 0)
 
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50">
+    <section className="py-20 bg-gradient-to-br from-gray-50 via-white to-red-50">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div 
@@ -129,7 +129,7 @@ export default function FAQ() {
               placeholder="Type anything… eligibility, attempts, fees…"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full px-6 py-4 text-lg border-2 border-gray-200 rounded-2xl focus:border-blue-500 focus:ring-4 focus:ring-blue-100 focus:outline-none transition-all duration-300"
+              className="w-full px-6 py-4 text-lg border-2 border-gray-200 rounded-2xl focus:border-red-500 focus:ring-4 focus:ring-red-100 focus:outline-none transition-all duration-300"
             />
             <svg className="absolute right-4 top-1/2 transform -translate-y-1/2 w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -156,7 +156,7 @@ export default function FAQ() {
                 <div className="flex items-center">
                   <span className="text-2xl mr-4">{category.icon}</span>
                   <h3 className="text-xl font-bold text-gray-900">{category.category}</h3>
-                  <span className="ml-3 bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm font-medium">
+                  <span className="ml-3 bg-red-100 text-red-600 px-3 py-1 rounded-full text-sm font-medium">
                     {category.questions.length} questions
                   </span>
                 </div>
@@ -232,9 +232,9 @@ export default function FAQ() {
           viewport={{ once: true }}
           className="mt-16 text-center"
         >
-          <div className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-8 text-white">
+          <div className="bg-gradient-to-r from-red-600 to-indigo-600 rounded-2xl p-8 text-white">
             <h3 className="text-2xl font-bold mb-4">Didn&apos;t find what you need?</h3>
-            <p className="text-blue-100 mb-6 text-lg">
+            <p className="text-red-100 mb-6 text-lg">
               You won&apos;t get stuck. We&apos;re here to help with personalized guidance.
             </p>
             

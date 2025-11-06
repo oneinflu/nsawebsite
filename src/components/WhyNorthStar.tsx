@@ -79,7 +79,7 @@ const WhyNorthStar: React.FC = () => {
 
   const proofChips = [
     { icon: StarIcon, text: 'Ranked #1 CMA Mentor in India', color: 'text-yellow-600 bg-yellow-50 border-yellow-200' },
-    { icon: UserGroupIcon, text: '25,000+ Students Trained', color: 'text-blue-600 bg-blue-50 border-blue-200' },
+    { icon: UserGroupIcon, text: '25,000+ Students Trained', color: 'text-red-600 bg-red-50 border-red-200' },
     { icon: TrophyIcon, text: 'National & Global Rank Holders', color: 'text-purple-600 bg-purple-50 border-purple-200' },
     { icon: CheckIcon, text: '98% Pass Rate', color: 'text-green-600 bg-green-50 border-green-200' },
     { icon: AcademicCapIcon, text: 'One Mentor System', color: 'text-indigo-600 bg-indigo-50 border-indigo-200' }
@@ -113,7 +113,7 @@ const WhyNorthStar: React.FC = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-slate-50 via-white to-blue-50 relative overflow-hidden">
+    <section className="py-20 bg-gradient-to-br from-slate-50 via-white to-red-50 relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
@@ -129,29 +129,29 @@ const WhyNorthStar: React.FC = () => {
             <div className="space-y-4">
               <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 leading-tight">
                 Same Global Certification.
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 block">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-purple-600 block">
                   Smarter Path to Achieve It.
                 </span>
               </h2>
               
               <div className="text-lg text-slate-600 leading-relaxed space-y-2">
                 <p>You don&apos;t become <span className="font-semibold">reseller-certified</span>.</p>
-                <p>You become <span className="font-semibold text-blue-600">CMA (US) / CPA (US) / ACCA (UK)</span> certified</p>
+                <p>You become <span className="font-semibold text-red-600">CMA (US) / CPA (US) / ACCA (UK)</span> certified</p>
                 <p>by <span className="font-semibold">IMA / AICPA / ACCA Global</span> — no matter where you study.</p>
               </div>
             </div>
 
             {/* Crystal Clear Message */}
-            <div className="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-lg">
+            <div className="bg-red-50 border-l-4 border-red-500 p-6 rounded-r-lg">
               <div className="flex items-start space-x-3">
                 <div className="flex-shrink-0">
-                  <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
+                  <div className="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center">
                     <span className="text-white font-bold text-sm">!</span>
                   </div>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-blue-900 mb-2">Crystal Clear Truth</h3>
-                  <p className="text-blue-800">The certificate you receive will NEVER have any institute name on it. Only the official certification body (IMA/AICPA/ACCA) appears.</p>
+                  <h3 className="font-semibold text-red-900 mb-2">Crystal Clear Truth</h3>
+                  <p className="text-red-800">The certificate you receive will NEVER have any institute name on it. Only the official certification body (IMA/AICPA/ACCA) appears.</p>
                 </div>
               </div>
             </div>
@@ -166,10 +166,10 @@ const WhyNorthStar: React.FC = () => {
               onMouseLeave={handleMouseLeave}
             >
               {/* CMA Certificate */}
-              <div className="bg-white rounded-xl shadow-2xl p-8 mb-6 border-2 border-slate-200 hover:border-blue-300 transition-all duration-300">
+              <div className="bg-white rounded-xl shadow-2xl p-8 mb-6 border-2 border-slate-200 hover:border-red-300 transition-all duration-300">
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center space-x-3">
-                    <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center">
+                    <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center">
                       <AcademicCapIcon className="w-6 h-6 text-white" />
                     </div>
                     <div>
@@ -178,7 +178,7 @@ const WhyNorthStar: React.FC = () => {
                     </div>
                   </div>
                   <div className="text-right">
-                    <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-700 rounded-lg flex items-center justify-center">
+                    <div className="w-16 h-16 bg-gradient-to-br from-red-500 to-red-700 rounded-lg flex items-center justify-center">
                       <span className="text-white font-bold text-xs">IMA</span>
                     </div>
                   </div>
@@ -346,7 +346,7 @@ const WhyNorthStar: React.FC = () => {
         <div className="text-center">
           <button 
             onClick={scrollToResults}
-            className="group bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold py-4 px-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+            className="group bg-gradient-to-r from-red-600 to-purple-600 hover:from-red-700 hover:to-purple-700 text-white font-bold py-4 px-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
           >
             <span className="flex items-center space-x-2">
               <span>Prove It To Me → Show Student Results</span>

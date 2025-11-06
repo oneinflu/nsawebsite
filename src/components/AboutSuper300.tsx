@@ -50,8 +50,8 @@ const AboutSuper300 = () => {
       icon: "🎯", 
       label: "300 Students Only",
       subtext: "Pan-India Selection",
-      gradient: "from-blue-400 to-indigo-500",
-      glow: "shadow-blue-500/25"
+      gradient: "from-red-400 to-indigo-500",
+      glow: "shadow-red-500/25"
     },
     {
       icon: "🌍",
@@ -378,7 +378,7 @@ const AboutSuper300 = () => {
 
               {/* Orbital Data Points */}
               {[
-                { icon: "📊", label: "₹30 Cr", sublabel: "Total Value", angle: 0, color: "from-blue-400 to-cyan-400" },
+                { icon: "📊", label: "₹30 Cr", sublabel: "Total Value", angle: 0, color: "from-red-400 to-cyan-400" },
                 { icon: "🚀", label: "95%", sublabel: "Success Rate", angle: 90, color: "from-green-400 to-emerald-400" },
                 { icon: "💡", label: "50+", sublabel: "Countries", angle: 180, color: "from-yellow-400 to-amber-400" },
                 { icon: "⚡", label: "1000+", sublabel: "Alumni", angle: 270, color: "from-purple-400 to-pink-400" }
@@ -510,7 +510,7 @@ const AboutSuper300 = () => {
                 title: "The Vision",
                 content: "In 2019, we launched the Super 300 Scholarship Program with a bold vision: to democratize access to world-class education for India's brightest minds.",
                 icon: "🎯",
-                color: "from-blue-400 to-purple-500"
+                color: "from-red-400 to-purple-500"
               },
               {
                 title: "The Reality",

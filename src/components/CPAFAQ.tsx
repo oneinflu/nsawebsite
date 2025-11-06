@@ -32,7 +32,7 @@ const CPAFAQ = () => {
       id: 'recognition',
       title: 'CPA Recognition',
       icon: Globe,
-      color: 'from-blue-500 to-blue-600',
+      color: 'from-red-500 to-red-600',
       description: 'Global acceptance and credibility'
     },
     {
@@ -242,10 +242,10 @@ const CPAFAQ = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50 relative overflow-hidden">
+    <section className="py-20 bg-gradient-to-br from-gray-50 to-red-50 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 left-10 w-96 h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
+        <div className="absolute top-20 left-10 w-96 h-96 bg-red-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse delay-1000"></div>
       </div>
 
@@ -256,7 +256,7 @@ const CPAFAQ = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-2 rounded-full text-sm font-medium mb-6"
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-red-600 to-purple-600 text-white px-4 py-2 rounded-full text-sm font-medium mb-6"
           >
             <HelpCircle className="w-4 h-4" />
             CPA-Specific FAQ
@@ -270,7 +270,7 @@ const CPAFAQ = () => {
             className="text-4xl md:text-5xl font-bold text-gray-900 mb-6"
           >
             Frequently Asked Questions
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"> About CPA</span>
+            <span className="bg-gradient-to-r from-red-600 to-purple-600 bg-clip-text text-transparent"> About CPA</span>
           </motion.h2>
           
           <motion.p
@@ -297,7 +297,7 @@ const CPAFAQ = () => {
               placeholder="Search FAQs..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-transparent"
             />
           </motion.div>
         </div>
@@ -321,7 +321,7 @@ const CPAFAQ = () => {
                   onClick={() => setActiveCategory(category.id)}
                   className={`p-6 rounded-2xl text-left transition-all duration-300 ${
                     isActive 
-                      ? 'bg-white shadow-lg border-2 border-blue-500' 
+                      ? 'bg-white shadow-lg border-2 border-red-500' 
                       : 'bg-white shadow-md hover:shadow-lg border-2 border-gray-100'
                   }`}
                 >
@@ -330,7 +330,7 @@ const CPAFAQ = () => {
                   </div>
                   <h3 className="text-lg font-bold text-gray-900 mb-2">{category.title}</h3>
                   <p className="text-sm text-gray-600">{category.description}</p>
-                  <div className="mt-3 text-sm text-blue-600 font-medium">
+                  <div className="mt-3 text-sm text-red-600 font-medium">
                     {getFilteredFAQs(category.id).length} questions
                   </div>
                 </motion.button>
@@ -389,7 +389,7 @@ const CPAFAQ = () => {
                           {faq.tags.map((tag, tagIndex) => (
                             <span
                               key={tagIndex}
-                              className="px-3 py-1 bg-blue-100 text-blue-700 text-sm rounded-full"
+                              className="px-3 py-1 bg-red-100 text-red-700 text-sm rounded-full"
                             >
                               {tag}
                             </span>
@@ -420,7 +420,7 @@ const CPAFAQ = () => {
             viewport={{ once: true }}
             className="bg-white rounded-xl p-6 shadow-md text-center"
           >
-            <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mx-auto mb-4">
+            <div className="w-12 h-12 bg-gradient-to-r from-red-500 to-red-600 rounded-xl flex items-center justify-center mx-auto mb-4">
               <Globe className="w-6 h-6 text-white" />
             </div>
             <div className="text-2xl font-bold text-gray-900 mb-2">180+</div>
@@ -475,7 +475,7 @@ const CPAFAQ = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white text-center"
+          className="mt-16 bg-gradient-to-r from-red-600 to-purple-600 rounded-2xl p-8 text-white text-center"
         >
           <h3 className="text-2xl font-bold mb-4">Still Have Questions?</h3>
           <p className="text-lg opacity-90 mb-6">
@@ -485,7 +485,7 @@ const CPAFAQ = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-white text-blue-600 px-8 py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300"
+              className="bg-white text-red-600 px-8 py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300"
             >
               <div className="flex items-center gap-2">
                 <Users className="w-5 h-5" />
@@ -495,7 +495,7 @@ const CPAFAQ = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="border-2 border-white text-white px-8 py-3 rounded-xl font-semibold hover:bg-white hover:text-blue-600 transition-all duration-300"
+              className="border-2 border-white text-white px-8 py-3 rounded-xl font-semibold hover:bg-white hover:text-red-600 transition-all duration-300"
             >
               <div className="flex items-center gap-2">
                 <BookOpen className="w-5 h-5" />

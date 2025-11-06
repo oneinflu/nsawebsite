@@ -106,7 +106,7 @@ const ACCAPlacementOutcomes = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-blue-50 to-indigo-100">
+    <section className="py-20 bg-gradient-to-br from-red-50 to-indigo-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -117,9 +117,9 @@ const ACCAPlacementOutcomes = () => {
           className="text-center mb-16"
         >
           <div className="flex items-center justify-center mb-6">
-            <BuildingOfficeIcon className="w-12 h-12 text-blue-600 mr-4" />
+            <BuildingOfficeIcon className="w-12 h-12 text-red-600 mr-4" />
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
-              Placement <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Outcomes</span>
+              Placement <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-purple-600">Outcomes</span>
             </h2>
           </div>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
@@ -156,7 +156,7 @@ const ACCAPlacementOutcomes = () => {
                 {[...companies, ...companies].map((company, index) => (
                   <div
                     key={index}
-                    className="flex-shrink-0 text-2xl font-bold text-gray-600 hover:text-blue-600 transition-colors duration-300"
+                    className="flex-shrink-0 text-2xl font-bold text-gray-600 hover:text-red-600 transition-colors duration-300"
                   >
                     {company}
                   </div>
@@ -191,14 +191,14 @@ const ACCAPlacementOutcomes = () => {
                 {/* Student Info */}
                 <div>
                   <div className="flex items-center mb-6">
-                    <div className="w-20 h-20 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white font-bold text-2xl mr-6">
+                    <div className="w-20 h-20 bg-gradient-to-r from-red-500 to-purple-500 rounded-full flex items-center justify-center text-white font-bold text-2xl mr-6">
                       {successStories[activeTestimonial].name.split(' ').map(n => n[0]).join('')}
                     </div>
                     <div>
                       <h4 className="text-xl font-bold text-gray-900">
                         {successStories[activeTestimonial].name}
                       </h4>
-                      <p className="text-blue-600 font-medium">
+                      <p className="text-red-600 font-medium">
                         {successStories[activeTestimonial].role}
                       </p>
                       <p className="text-gray-600">
@@ -214,11 +214,11 @@ const ACCAPlacementOutcomes = () => {
                       </div>
                       <div className="text-sm text-green-700">Package</div>
                     </div>
-                    <div className="bg-blue-50 rounded-xl p-4 border border-blue-200">
-                      <div className="text-lg font-bold text-blue-600">
+                    <div className="bg-red-50 rounded-xl p-4 border border-red-200">
+                      <div className="text-lg font-bold text-red-600">
                         {successStories[activeTestimonial].score}
                       </div>
-                      <div className="text-sm text-blue-700">Qualification</div>
+                      <div className="text-sm text-red-700">Qualification</div>
                     </div>
                   </div>
 
@@ -228,7 +228,7 @@ const ACCAPlacementOutcomes = () => {
 
                   <button
                     onClick={() => openVideoModal(activeTestimonial)}
-                    className="inline-flex items-center bg-blue-600 text-white px-6 py-3 rounded-xl font-medium hover:bg-blue-700 transition-colors duration-300"
+                    className="inline-flex items-center bg-red-600 text-white px-6 py-3 rounded-xl font-medium hover:bg-red-700 transition-colors duration-300"
                   >
                     <PlayIcon className="w-5 h-5 mr-2" />
                     Watch Video Story
@@ -262,7 +262,7 @@ const ACCAPlacementOutcomes = () => {
                     key={index}
                     onClick={() => setActiveTestimonial(index)}
                     className={`w-3 h-3 rounded-full transition-colors duration-300 ${
-                      index === activeTestimonial ? 'bg-blue-600' : 'bg-gray-300'
+                      index === activeTestimonial ? 'bg-red-600' : 'bg-gray-300'
                     }`}
                   />
                 ))}
@@ -300,7 +300,7 @@ const ACCAPlacementOutcomes = () => {
                 className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300"
               >
                 <div className="flex items-center mb-4">
-                  <DocumentTextIcon className="w-8 h-8 text-blue-600 mr-3" />
+                  <DocumentTextIcon className="w-8 h-8 text-red-600 mr-3" />
                   <div>
                     <h4 className="font-bold text-gray-900">{offer.company}</h4>
                     <p className="text-sm text-gray-600">{offer.date}</p>
@@ -381,7 +381,7 @@ const ACCAPlacementOutcomes = () => {
                   <p className="text-gray-600 mb-4">
                     Watch how {successStories[activeVideo].name} transformed their career with NorthStar
                   </p>
-                  <button className="bg-blue-600 text-white px-6 py-3 rounded-xl font-medium hover:bg-blue-700 transition-colors duration-300">
+                  <button className="bg-red-600 text-white px-6 py-3 rounded-xl font-medium hover:bg-red-700 transition-colors duration-300">
                     Play Video
                   </button>
                 </div>

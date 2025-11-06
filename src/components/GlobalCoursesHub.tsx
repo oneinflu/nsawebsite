@@ -247,7 +247,7 @@ const GlobalCoursesHub: React.FC = () => {
         </div>
         
         {/* Floating Geometric Shapes */}
-        <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-blue-100 to-indigo-200 rounded-full opacity-20 blur-xl"></div>
+        <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-red-100 to-indigo-200 rounded-full opacity-20 blur-xl"></div>
         <div className="absolute top-40 right-20 w-24 h-24 bg-gradient-to-br from-purple-100 to-pink-200 rounded-full opacity-20 blur-lg"></div>
         <div className="absolute bottom-32 left-1/4 w-40 h-40 bg-gradient-to-br from-green-100 to-emerald-200 rounded-full opacity-15 blur-2xl"></div>
         <div className="absolute bottom-20 right-1/3 w-28 h-28 bg-gradient-to-br from-orange-100 to-yellow-200 rounded-full opacity-20 blur-xl"></div>
@@ -261,7 +261,7 @@ const GlobalCoursesHub: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-4 py-2 rounded-full text-sm font-medium mb-6"
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-red-600 to-indigo-600 text-white px-4 py-2 rounded-full text-sm font-medium mb-6"
           >
             <AcademicCapIcon className="w-4 h-4" />
             Professional Certification Hub
@@ -275,7 +275,7 @@ const GlobalCoursesHub: React.FC = () => {
             className="text-4xl md:text-5xl font-bold text-gray-900 mb-6"
           >
             Master Global Finance &{' '}
-            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-red-600 to-indigo-600 bg-clip-text text-transparent">
               Accounting Certifications
             </span>
           </motion.h2>
@@ -303,7 +303,7 @@ const GlobalCoursesHub: React.FC = () => {
               <span className="font-medium">4.8/5 Certified Training Rating</span>
             </div>
             <div className="flex items-center gap-2">
-              <UserGroupIcon className="w-5 h-5 text-blue-500" />
+              <UserGroupIcon className="w-5 h-5 text-red-500" />
               <span className="font-medium">15,000+ Certified Professionals</span>
             </div>
             <div className="flex items-center gap-2">
@@ -327,8 +327,8 @@ const GlobalCoursesHub: React.FC = () => {
                 onClick={() => setActiveCategory(category.id)}
                 className={`flex items-center gap-2 px-6 py-3 rounded-full font-medium transition-all duration-300 ${
                   activeCategory === category.id
-                    ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg shadow-blue-500/25'
-                    : 'bg-white text-gray-600 hover:text-blue-600 hover:bg-blue-50 border border-gray-200'
+                    ? 'bg-gradient-to-r from-red-600 to-indigo-600 text-white shadow-lg shadow-red-500/25'
+                    : 'bg-white text-gray-600 hover:text-red-600 hover:bg-red-50 border border-gray-200'
                 }`}
               >
                 <Icon className="w-4 h-4" />
@@ -355,7 +355,7 @@ const GlobalCoursesHub: React.FC = () => {
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.4, delay: index * 0.1 }}
                   onClick={() => handleCourseClick(course)}
-                  className="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer border border-gray-100 hover:border-blue-200 relative overflow-hidden"
+                  className="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer border border-gray-100 hover:border-red-200 relative overflow-hidden"
                 >
                   {/* Badge */}
                   {course.badge && (
@@ -365,13 +365,13 @@ const GlobalCoursesHub: React.FC = () => {
                   )}
 
                   {/* Course Icon */}
-                  <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-red-500 to-indigo-600 rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-300">
                     <Icon className="w-8 h-8 text-white" />
                   </div>
 
                   {/* Course Info */}
                   <div className="mb-6">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-2 group-hover:text-red-600 transition-colors">
                       {course.title}
                     </h3>
                     <p className="text-gray-600 mb-4">{course.subtitle}</p>
@@ -396,7 +396,7 @@ const GlobalCoursesHub: React.FC = () => {
                     <div className="mb-4">
                       <div className="flex flex-wrap gap-2 mb-3">
                         {course.skills?.slice(0, 2).map((skill, index) => (
-                          <span key={index} className="px-2 py-1 bg-blue-50 text-blue-700 text-xs font-medium rounded-md border border-blue-200">
+                          <span key={index} className="px-2 py-1 bg-red-50 text-red-700 text-xs font-medium rounded-md border border-red-200">
                             {skill}
                           </span>
                         ))}
@@ -409,10 +409,10 @@ const GlobalCoursesHub: React.FC = () => {
 
                   {/* CTA */}
                   <div className="flex items-center justify-between">
-                    <span className="text-blue-600 font-medium group-hover:text-blue-700">
+                    <span className="text-red-600 font-medium group-hover:text-red-700">
                       Learn More
                     </span>
-                    <ChevronRightIcon className="w-5 h-5 text-blue-600 group-hover:translate-x-1 transition-transform" />
+                    <ChevronRightIcon className="w-5 h-5 text-red-600 group-hover:translate-x-1 transition-transform" />
                   </div>
                 </motion.div>
               );
@@ -428,24 +428,24 @@ const GlobalCoursesHub: React.FC = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="mt-20 text-center"
         >
-          <div className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-3xl p-12 text-white relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-600/90 to-indigo-600/90"></div>
+          <div className="bg-gradient-to-r from-red-600 to-indigo-600 rounded-3xl p-12 text-white relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-r from-red-600/90 to-indigo-600/90"></div>
             <div className="relative z-10">
               <h3 className="text-3xl md:text-4xl font-bold mb-4">
                 Ready to Transform Your Career?
               </h3>
-              <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+              <p className="text-xl text-red-100 mb-8 max-w-2xl mx-auto">
                 Join thousands of professionals who have accelerated their careers with our globally recognized certifications.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   href="#contact"
-                  className="inline-flex items-center gap-2 bg-white text-blue-600 px-8 py-4 rounded-full font-semibold hover:bg-blue-50 transition-colors"
+                  className="inline-flex items-center gap-2 bg-white text-red-600 px-8 py-4 rounded-full font-semibold hover:bg-red-50 transition-colors"
                 >
                   Start Your Journey
                   <ArrowUpRightIcon className="w-5 h-5" />
                 </Link>
-                <button className="inline-flex items-center gap-2 border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-blue-600 transition-colors">
+                <button className="inline-flex items-center gap-2 border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-red-600 transition-colors">
                   <PlayIcon className="w-5 h-5" />
                   Watch Success Stories
                 </button>
@@ -476,7 +476,7 @@ const GlobalCoursesHub: React.FC = () => {
               {/* Modal Header */}
               <div className="flex items-start justify-between mb-6">
                 <div className="flex items-center gap-4">
-                  <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl">
+                  <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-red-500 to-indigo-600 rounded-2xl">
                     <selectedCourse.icon className="w-8 h-8 text-white" />
                   </div>
                   <div>
@@ -517,8 +517,8 @@ const GlobalCoursesHub: React.FC = () => {
                   <h4 className="text-lg font-semibold text-gray-900 mb-3">Skills You&apos;ll Master</h4>
                   <div className="grid grid-cols-2 gap-2">
                     {selectedCourse.skills?.map((skill, index) => (
-                      <div key={index} className="flex items-center gap-2 p-2 bg-blue-50 rounded-lg">
-                        <CheckIcon className="w-4 h-4 text-blue-600 flex-shrink-0" />
+                      <div key={index} className="flex items-center gap-2 p-2 bg-red-50 rounded-lg">
+                        <CheckIcon className="w-4 h-4 text-red-600 flex-shrink-0" />
                         <span className="text-sm text-gray-700">{skill}</span>
                       </div>
                     ))}
@@ -575,7 +575,7 @@ const GlobalCoursesHub: React.FC = () => {
                     </div>
                     <Link
                       href={`/${selectedCourse.slug}`}
-                      className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-3 rounded-full font-semibold hover:shadow-lg transition-all"
+                      className="inline-flex items-center gap-2 bg-gradient-to-r from-red-600 to-indigo-600 text-white px-6 py-3 rounded-full font-semibold hover:shadow-lg transition-all"
                     >
                       Learn More
                       <ArrowUpRightIcon className="w-5 h-5" />

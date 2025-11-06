@@ -74,7 +74,7 @@ export default function CPAFeesROI() {
   }
 
   return (
-    <section className="py-20 bg-gradient-to-br from-green-50 to-blue-50">
+    <section className="py-20 bg-gradient-to-br from-green-50 to-red-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -119,7 +119,7 @@ export default function CPAFeesROI() {
               onClick={() => setActiveTab('breakdown')}
               className={`px-6 py-3 rounded-lg font-semibold transition-all duration-300 ${
                 activeTab === 'breakdown'
-                  ? 'bg-blue-600 text-white shadow-md'
+                  ? 'bg-red-600 text-white shadow-md'
                   : 'text-slate-600 hover:bg-slate-50'
               }`}
             >
@@ -129,7 +129,7 @@ export default function CPAFeesROI() {
               onClick={() => setActiveTab('emi')}
               className={`px-6 py-3 rounded-lg font-semibold transition-all duration-300 ${
                 activeTab === 'emi'
-                  ? 'bg-blue-600 text-white shadow-md'
+                  ? 'bg-red-600 text-white shadow-md'
                   : 'text-slate-600 hover:bg-slate-50'
               }`}
             >
@@ -139,7 +139,7 @@ export default function CPAFeesROI() {
               onClick={() => setActiveTab('comparison')}
               className={`px-6 py-3 rounded-lg font-semibold transition-all duration-300 ${
                 activeTab === 'comparison'
-                  ? 'bg-blue-600 text-white shadow-md'
+                  ? 'bg-red-600 text-white shadow-md'
                   : 'text-slate-600 hover:bg-slate-50'
               }`}
             >
@@ -161,8 +161,8 @@ export default function CPAFeesROI() {
               {/* Fee Structure */}
               <div className="bg-white rounded-2xl shadow-xl p-8">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="bg-blue-100 p-3 rounded-lg">
-                    <BanknotesIcon className="w-6 h-6 text-blue-600" />
+                  <div className="bg-red-100 p-3 rounded-lg">
+                    <BanknotesIcon className="w-6 h-6 text-red-600" />
                   </div>
                   <h3 className="text-2xl font-bold text-slate-900">Complete Fee Structure</h3>
                 </div>
@@ -194,13 +194,13 @@ export default function CPAFeesROI() {
                     </div>
                   </div>
 
-                  <div className="flex justify-between items-center p-4 bg-blue-50 rounded-lg border-2 border-blue-200">
+                  <div className="flex justify-between items-center p-4 bg-red-50 rounded-lg border-2 border-red-200">
                     <div>
                       <p className="font-semibold text-slate-800">NorthStar CPA Coaching</p>
                       <p className="text-sm text-slate-600">Complete program + materials</p>
                     </div>
                     <div className="text-right">
-                      <p className="font-bold text-lg text-blue-600">
+                      <p className="font-bold text-lg text-red-600">
                         {formatCurrency(feeBreakdown.coaching)}
                       </p>
                       <p className="text-sm text-green-600">Best value in market</p>
@@ -225,7 +225,7 @@ export default function CPAFeesROI() {
               </div>
 
               {/* ROI Highlight */}
-              <div className="bg-gradient-to-br from-green-600 to-blue-600 rounded-2xl shadow-xl p-8 text-white">
+              <div className="bg-gradient-to-br from-green-600 to-red-600 rounded-2xl shadow-xl p-8 text-white">
                 <div className="text-center mb-8">
                   <ArrowTrendingUpIcon className="w-16 h-16 mx-auto mb-4 opacity-80" />
                   <h3 className="text-3xl font-bold mb-2">Return on Investment</h3>
@@ -317,7 +317,7 @@ export default function CPAFeesROI() {
                 </div>
 
                 {/* Selected EMI Details */}
-                <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-xl p-6 mb-8">
+                <div className="bg-gradient-to-r from-green-50 to-red-50 rounded-xl p-6 mb-8">
                   <div className="grid md:grid-cols-3 gap-6 text-center">
                     <div>
                       <p className="text-sm text-slate-600 mb-1">Monthly EMI</p>
@@ -333,7 +333,7 @@ export default function CPAFeesROI() {
                     </div>
                     <div>
                       <p className="text-sm text-slate-600 mb-1">Interest Rate</p>
-                      <p className="text-2xl font-bold text-blue-600">
+                      <p className="text-2xl font-bold text-red-600">
                         {emiOptions.find(opt => opt.months === selectedEMI)?.interest || 0}%
                       </p>
                     </div>
@@ -365,19 +365,19 @@ export default function CPAFeesROI() {
                   <div className="space-y-4">
                     <h4 className="font-semibold text-slate-800 mb-3">Quick Approval</h4>
                     <div className="flex items-center gap-2">
-                      <ClockIcon className="w-5 h-5 text-blue-500" />
+                      <ClockIcon className="w-5 h-5 text-red-500" />
                       <span className="text-slate-600">2-minute application</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <ClockIcon className="w-5 h-5 text-blue-500" />
+                      <ClockIcon className="w-5 h-5 text-red-500" />
                       <span className="text-slate-600">Instant approval</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <ClockIcon className="w-5 h-5 text-blue-500" />
+                      <ClockIcon className="w-5 h-5 text-red-500" />
                       <span className="text-slate-600">Start learning immediately</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <ClockIcon className="w-5 h-5 text-blue-500" />
+                      <ClockIcon className="w-5 h-5 text-red-500" />
                       <span className="text-slate-600">No income proof required</span>
                     </div>
                   </div>
@@ -385,7 +385,7 @@ export default function CPAFeesROI() {
 
                 <button
                   onClick={() => setShowEMIModal(true)}
-                  className="w-full bg-gradient-to-r from-green-600 to-blue-600 text-white py-4 px-8 rounded-xl font-semibold text-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                  className="w-full bg-gradient-to-r from-green-600 to-red-600 text-white py-4 px-8 rounded-xl font-semibold text-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
                 >
                   Request EMI Plan - Get Instant Approval
                 </button>
@@ -547,7 +547,7 @@ export default function CPAFeesROI() {
                 </div>
 
                 {/* Lifetime Earnings Comparison */}
-                <div className="mt-12 bg-gradient-to-r from-purple-50 to-blue-50 rounded-xl p-8">
+                <div className="mt-12 bg-gradient-to-r from-purple-50 to-red-50 rounded-xl p-8">
                   <h4 className="text-2xl font-bold text-center text-slate-900 mb-8">
                     Lifetime Earnings Comparison (30-year career)
                   </h4>
@@ -562,7 +562,7 @@ export default function CPAFeesROI() {
                     </div>
                     
                     <div className="text-center">
-                      <div className="bg-gradient-to-r from-green-500 to-blue-500 rounded-lg p-6 text-white">
+                      <div className="bg-gradient-to-r from-green-500 to-red-500 rounded-lg p-6 text-white">
                         <p className="text-lg font-semibold mb-2">With CPA (Global)</p>
                         <p className="text-4xl font-bold">₹18.5 Cr</p>
                         <p className="text-sm opacity-90 mt-2">Average lifetime earnings</p>
@@ -587,9 +587,9 @@ export default function CPAFeesROI() {
           transition={{ delay: 0.5 }}
           className="text-center mt-12"
         >
-          <div className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-8 text-white">
+          <div className="bg-gradient-to-r from-red-600 to-indigo-600 rounded-2xl p-8 text-white">
             <h3 className="text-2xl font-bold mb-4">Ready to Transform Your Career?</h3>
-            <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
+            <p className="text-red-100 mb-6 max-w-2xl mx-auto">
               Join 5000+ professionals who chose NorthStar for their CPA journey. 
               Get personalized guidance and flexible payment options.
             </p>
@@ -597,13 +597,13 @@ export default function CPAFeesROI() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
                 onClick={() => setShowEMIModal(true)}
-                className="bg-white text-blue-600 px-8 py-4 rounded-xl font-semibold hover:shadow-xl transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2"
+                className="bg-white text-red-600 px-8 py-4 rounded-xl font-semibold hover:shadow-xl transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2"
               >
                 <CreditCardIcon className="w-5 h-5" />
                 Request EMI Plan
               </button>
               
-              <button className="border-2 border-white text-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-blue-600 transition-all duration-300 flex items-center justify-center gap-2">
+              <button className="border-2 border-white text-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-red-600 transition-all duration-300 flex items-center justify-center gap-2">
                 <PhoneIcon className="w-5 h-5" />
                 Talk to Advisor
               </button>
@@ -657,7 +657,7 @@ export default function CPAFeesROI() {
                 </select>
                 <button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-green-600 to-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:shadow-lg transition-all duration-300"
+                  className="w-full bg-gradient-to-r from-green-600 to-red-600 text-white py-3 px-6 rounded-lg font-semibold hover:shadow-lg transition-all duration-300"
                 >
                   Get Instant EMI Approval
                 </button>

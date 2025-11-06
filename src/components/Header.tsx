@@ -262,7 +262,7 @@ const Header: React.FC = () => {
                     className="h-10 w-auto"
                   />
                   <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-indigo-400/20 rounded-lg opacity-0"
+                    className="absolute inset-0 bg-gradient-to-r from-red-400/20 to-indigo-400/20 rounded-lg opacity-0"
                     whileHover={{ opacity: 1 }}
                     transition={{ duration: 0.3 }}
                   />
@@ -276,7 +276,7 @@ const Header: React.FC = () => {
               <div className="relative">
                 <motion.button
                   onClick={() => handleMenuToggle('courses')}
-                  className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 transition-colors font-medium py-2 px-1 relative group"
+                  className="flex items-center space-x-1 text-gray-700 hover:text-red-600 transition-colors font-medium py-2 px-1 relative group"
                   whileHover={{ scale: 1.05 }}
                 >
                   <AcademicCapIcon className="w-4 h-4" />
@@ -288,7 +288,7 @@ const Header: React.FC = () => {
                     <ChevronDownIcon className="w-4 h-4" />
                   </motion.div>
                   <motion.div
-                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 to-indigo-500 origin-left"
+                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-red-500 to-indigo-500 origin-left"
                     initial={{ scaleX: 0 }}
                     whileHover={{ scaleX: 1 }}
                     transition={{ duration: 0.3 }}
@@ -300,7 +300,7 @@ const Header: React.FC = () => {
               <div className="relative">
                 <motion.button
                   onClick={() => handleMenuToggle('careers')}
-                  className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 transition-colors font-medium py-2 px-1 relative group"
+                  className="flex items-center space-x-1 text-gray-700 hover:text-red-600 transition-colors font-medium py-2 px-1 relative group"
                   whileHover={{ scale: 1.05 }}
                 >
                   <BriefcaseIcon className="w-4 h-4" />
@@ -312,7 +312,7 @@ const Header: React.FC = () => {
                     <ChevronDownIcon className="w-4 h-4" />
                   </motion.div>
                   <motion.div
-                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 to-indigo-500 origin-left"
+                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-red-500 to-indigo-500 origin-left"
                     initial={{ scaleX: 0 }}
                     whileHover={{ scaleX: 1 }}
                     transition={{ duration: 0.3 }}
@@ -324,7 +324,7 @@ const Header: React.FC = () => {
               <div className="relative">
                 <motion.button
                   onClick={() => handleMenuToggle('resources')}
-                  className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 transition-colors font-medium py-2 px-1 relative group"
+                  className="flex items-center space-x-1 text-gray-700 hover:text-red-600 transition-colors font-medium py-2 px-1 relative group"
                   whileHover={{ scale: 1.05 }}
                 >
                   <DocumentTextIcon className="w-4 h-4" />
@@ -336,7 +336,7 @@ const Header: React.FC = () => {
                     <ChevronDownIcon className="w-4 h-4" />
                   </motion.div>
                   <motion.div
-                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 to-indigo-500 origin-left"
+                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-red-500 to-indigo-500 origin-left"
                     initial={{ scaleX: 0 }}
                     whileHover={{ scaleX: 1 }}
                     transition={{ duration: 0.3 }}
@@ -348,7 +348,7 @@ const Header: React.FC = () => {
               <div className="relative">
                 <motion.button
                   onClick={() => handleMenuToggle('about')}
-                  className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 transition-colors font-medium py-2 px-1 relative group"
+                  className="flex items-center space-x-1 text-gray-700 hover:text-red-600 transition-colors font-medium py-2 px-1 relative group"
                   whileHover={{ scale: 1.05 }}
                 >
                   <InformationCircleIcon className="w-4 h-4" />
@@ -360,7 +360,7 @@ const Header: React.FC = () => {
                     <ChevronDownIcon className="w-4 h-4" />
                   </motion.div>
                   <motion.div
-                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 to-indigo-500 origin-left"
+                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-red-500 to-indigo-500 origin-left"
                     initial={{ scaleX: 0 }}
                     whileHover={{ scaleX: 1 }}
                     transition={{ duration: 0.3 }}
@@ -388,7 +388,7 @@ const Header: React.FC = () => {
               {/* Primary CTA */}
               <Link
                 href="/book-counselling"
-                className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium transition-colors duration-200 text-sm"
+                className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium transition-colors duration-200 text-sm"
               >
                 Book Free Call
               </Link>
@@ -397,7 +397,7 @@ const Header: React.FC = () => {
               <motion.button
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
-                className="hidden sm:flex items-center justify-center w-10 h-10 rounded-full border-2 border-gray-300 hover:border-blue-500 text-gray-600 hover:text-blue-600 transition-colors"
+                className="hidden sm:flex items-center justify-center w-10 h-10 rounded-full border-2 border-gray-300 hover:border-red-500 text-gray-600 hover:text-red-600 transition-colors"
               >
                 <UserIcon className="w-4 h-4" />
               </motion.button>
@@ -405,7 +405,7 @@ const Header: React.FC = () => {
               {/* Mobile menu button */}
               <motion.button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="lg:hidden flex items-center justify-center w-10 h-10 text-gray-700 hover:text-blue-600 focus:outline-none rounded-lg hover:bg-gray-100"
+                className="lg:hidden flex items-center justify-center w-10 h-10 text-gray-700 hover:text-red-600 focus:outline-none rounded-lg hover:bg-gray-100"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -436,7 +436,7 @@ const Header: React.FC = () => {
                   <div className="grid grid-cols-4 gap-8">
                     {megaMenuData.courses.map((category, idx) => (
                       <div key={idx} className="space-y-4">
-                        <h3 className="font-semibold text-gray-900 text-lg border-b border-blue-200 pb-2">
+                        <h3 className="font-semibold text-gray-900 text-lg border-b border-red-200 pb-2">
                           {category.category}
                         </h3>
                         <div className="space-y-3">
@@ -449,16 +449,16 @@ const Header: React.FC = () => {
                             >
                               <Link
                                 href={course.href}
-                                className="block p-3 rounded-lg hover:bg-blue-50 transition-colors group"
+                                className="block p-3 rounded-lg hover:bg-red-50 transition-colors group"
                               >
                                 <div className="flex items-center space-x-3">
                                   <span className="text-2xl">{course.flag}</span>
                                   <div>
                                     <div className="flex items-center space-x-2">
-                                      <span className="font-semibold text-gray-900 group-hover:text-blue-600">
+                                      <span className="font-semibold text-gray-900 group-hover:text-red-600">
                                         {course.name}
                                       </span>
-                                      <span className="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">
+                                      <span className="text-xs bg-red-100 text-red-800 px-2 py-1 rounded">
                                         {course.logo}
                                       </span>
                                     </div>
@@ -501,17 +501,17 @@ const Header: React.FC = () => {
                               <p className="text-sm font-semibold text-green-800">Avg Salary</p>
                               <p className="text-xs text-green-600">{hoveredCourse.avgSalary}</p>
                             </div>
-                            <div className="text-center p-3 bg-blue-50 rounded-lg">
-                              <CalendarDaysIcon className="w-6 h-6 text-blue-600 mx-auto mb-1" />
-                              <p className="text-sm font-semibold text-blue-800">Duration</p>
-                              <p className="text-xs text-blue-600">{hoveredCourse.duration}</p>
+                            <div className="text-center p-3 bg-red-50 rounded-lg">
+                              <CalendarDaysIcon className="w-6 h-6 text-red-600 mx-auto mb-1" />
+                              <p className="text-sm font-semibold text-red-800">Duration</p>
+                              <p className="text-xs text-red-600">{hoveredCourse.duration}</p>
                             </div>
                           </div>
 
                           <motion.button
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-2 px-4 rounded-lg font-semibold text-sm"
+                            className="w-full bg-gradient-to-r from-red-600 to-indigo-600 text-white py-2 px-4 rounded-lg font-semibold text-sm"
                           >
                             Book Free Counselling
                           </motion.button>
@@ -528,7 +528,7 @@ const Header: React.FC = () => {
                   <div className="grid grid-cols-3 gap-8">
                     {megaMenuData.careers.map((category, idx) => (
                       <div key={idx} className="space-y-4">
-                        <h3 className="font-semibold text-gray-900 text-lg border-b border-blue-200 pb-2">
+                        <h3 className="font-semibold text-gray-900 text-lg border-b border-red-200 pb-2">
                           {category.category}
                         </h3>
                         <div className="space-y-2">
@@ -536,7 +536,7 @@ const Header: React.FC = () => {
                             <Link
                               key={itemIdx}
                               href={item.href}
-                              className="block p-2 rounded-lg hover:bg-blue-50 text-gray-700 hover:text-blue-600 transition-colors"
+                              className="block p-2 rounded-lg hover:bg-red-50 text-gray-700 hover:text-red-600 transition-colors"
                             >
                               {item.name}
                             </Link>
@@ -550,7 +550,7 @@ const Header: React.FC = () => {
                     <motion.button
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-3 rounded-xl font-semibold"
+                      className="bg-gradient-to-r from-red-600 to-indigo-600 text-white px-8 py-3 rounded-xl font-semibold"
                     >
                       Get Personalized Career Plan →
                     </motion.button>
@@ -565,7 +565,7 @@ const Header: React.FC = () => {
                     <div className="col-span-3 grid grid-cols-2 gap-8">
                       {megaMenuData.resources.slice(0, 4).map((category, idx) => (
                         <div key={idx} className="space-y-4">
-                          <h3 className="font-semibold text-gray-900 text-lg border-b border-blue-200 pb-2">
+                          <h3 className="font-semibold text-gray-900 text-lg border-b border-red-200 pb-2">
                             {category.category}
                           </h3>
                           <div className="space-y-2">
@@ -573,7 +573,7 @@ const Header: React.FC = () => {
                               <Link
                                 key={itemIdx}
                                 href={item.href}
-                                className="flex items-center space-x-2 p-2 rounded-lg hover:bg-blue-50 text-gray-700 hover:text-blue-600 transition-colors"
+                                className="flex items-center space-x-2 p-2 rounded-lg hover:bg-red-50 text-gray-700 hover:text-red-600 transition-colors"
                               >
                                 {item.icon && <item.icon className="w-4 h-4" />}
                                 <span>{item.name}</span>
@@ -599,7 +599,7 @@ const Header: React.FC = () => {
                               href={item.href}
                               className="flex items-center space-x-3 p-3 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow"
                             >
-                              <item.icon className="w-6 h-6 text-blue-600" />
+                              <item.icon className="w-6 h-6 text-red-600" />
                               <div>
                                 <p className="font-semibold text-gray-900 text-sm">
                                   {item.title}
@@ -619,36 +619,36 @@ const Header: React.FC = () => {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
                   <div className="grid grid-cols-2 gap-8">
                     <div className="space-y-4">
-                      <h3 className="font-semibold text-gray-900 text-lg border-b border-blue-200 pb-2">
+                      <h3 className="font-semibold text-gray-900 text-lg border-b border-red-200 pb-2">
                         Company
                       </h3>
                       <div className="space-y-2">
-                        <Link href="/about" className="block p-2 rounded-lg hover:bg-blue-50 text-gray-700 hover:text-blue-600 transition-colors">
+                        <Link href="/about" className="block p-2 rounded-lg hover:bg-red-50 text-gray-700 hover:text-red-600 transition-colors">
                           About NorthStar Academy
                         </Link>
-                        <Link href="/mentors" className="block p-2 rounded-lg hover:bg-blue-50 text-gray-700 hover:text-blue-600 transition-colors">
+                        <Link href="/mentors" className="block p-2 rounded-lg hover:bg-red-50 text-gray-700 hover:text-red-600 transition-colors">
                           Mentors & Team
                         </Link>
-                        <Link href="/success-stories" className="block p-2 rounded-lg hover:bg-blue-50 text-gray-700 hover:text-blue-600 transition-colors">
+                        <Link href="/success-stories" className="block p-2 rounded-lg hover:bg-red-50 text-gray-700 hover:text-red-600 transition-colors">
                           Success Stories
                         </Link>
-                        <Link href="/testimonials" className="block p-2 rounded-lg hover:bg-blue-50 text-gray-700 hover:text-blue-600 transition-colors">
+                        <Link href="/testimonials" className="block p-2 rounded-lg hover:bg-red-50 text-gray-700 hover:text-red-600 transition-colors">
                           Testimonials
                         </Link>
-                        <Link href="/contact" className="block p-2 rounded-lg hover:bg-blue-50 text-gray-700 hover:text-blue-600 transition-colors">
+                        <Link href="/contact" className="block p-2 rounded-lg hover:bg-red-50 text-gray-700 hover:text-red-600 transition-colors">
                           Contact Us
                         </Link>
                       </div>
                     </div>
                     
-                    <div className="bg-blue-50 rounded-xl p-6">
-                      <h4 className="font-bold text-blue-900 mb-3">Why Students Trust Us</h4>
-                      <p className="text-blue-700 text-sm mb-4">
+                    <div className="bg-red-50 rounded-xl p-6">
+                      <h4 className="font-bold text-red-900 mb-3">Why Students Trust Us</h4>
+                      <p className="text-red-700 text-sm mb-4">
                         Join 10,000+ successful professionals who chose NorthStar Academy for their career transformation.
                       </p>
                       <Link
                         href="/why-trust-us"
-                        className="inline-flex items-center text-blue-600 hover:text-blue-800 font-semibold text-sm"
+                        className="inline-flex items-center text-red-600 hover:text-red-800 font-semibold text-sm"
                       >
                         Learn More →
                       </Link>
@@ -708,7 +708,7 @@ const Header: React.FC = () => {
                           <Link
                             key={idx}
                             href={course.href}
-                            className="block py-2 text-gray-700 hover:text-blue-600"
+                            className="block py-2 text-gray-700 hover:text-red-600"
                             onClick={() => setIsMobileMenuOpen(false)}
                           >
                             <div className="flex items-center space-x-2">
@@ -724,13 +724,13 @@ const Header: React.FC = () => {
 
                   {/* Other Menu Items */}
                   <div className="space-y-4">
-                    <Link href="/careers" className="block py-2 font-medium text-gray-900 hover:text-blue-600">
+                    <Link href="/careers" className="block py-2 font-medium text-gray-900 hover:text-red-600">
                       Careers
                     </Link>
-                    <Link href="/resources" className="block py-2 font-medium text-gray-900 hover:text-blue-600">
+                    <Link href="/resources" className="block py-2 font-medium text-gray-900 hover:text-red-600">
                       Resources
                     </Link>
-                    <Link href="/about" className="block py-2 font-medium text-gray-900 hover:text-blue-600">
+                    <Link href="/about" className="block py-2 font-medium text-gray-900 hover:text-red-600">
                       About
                     </Link>
                   </div>
@@ -739,7 +739,7 @@ const Header: React.FC = () => {
                   <div className="space-y-4 pt-6 border-t border-gray-200">
                     <Link
                       href="/book-counselling"
-                      className="block w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-center py-3 px-4 rounded-xl font-semibold"
+                      className="block w-full bg-gradient-to-r from-red-600 to-indigo-600 text-white text-center py-3 px-4 rounded-xl font-semibold"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
                       Book Free Counselling
@@ -760,7 +760,7 @@ const Header: React.FC = () => {
                       
                       <a
                         href="tel:+1234567890"
-                        className="flex items-center space-x-2 text-blue-600 hover:text-blue-700"
+                        className="flex items-center space-x-2 text-red-600 hover:text-red-700"
                       >
                         <PhoneIcon className="w-5 h-5" />
                         <span>Call</span>

@@ -42,8 +42,8 @@ const Hero: React.FC = () => {
       duration: '6-9 months',
       format: '2 parts',
       authority: 'IMA (Institute of Management Accountants)',
-      color: 'text-blue-600',
-      bgColor: 'bg-blue-50 border-blue-200',
+      color: 'text-red-600',
+      bgColor: 'bg-red-50 border-red-200',
       description: 'Strategic financial management and decision-making',
       parts: 'Part 1: Financial Planning • Part 2: Strategic Financial Management'
     },
@@ -131,7 +131,7 @@ const Hero: React.FC = () => {
   const currentCert = certifications[selectedCertification];
 
   return (
-    <div className="relative min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 overflow-hidden">
+    <div className="relative min-h-screen bg-gradient-to-br from-slate-50 via-red-50 to-indigo-100 overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23e0e7ff%22%20fill-opacity%3D%220.3%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%221%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-40"></div>
       
@@ -153,7 +153,7 @@ const Hero: React.FC = () => {
             {/* 2️⃣ Core Headline */}
             <div className="space-y-4">
               <h1 className="text-4xl lg:text-6xl font-bold leading-tight">
-                <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-red-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent">
                   Become a Globally Certified
                 </span>
                 <br />
@@ -176,19 +176,19 @@ const Hero: React.FC = () => {
             {/* 4️⃣ Guided CTA Funnel */}
             <div className="space-y-4">
               <div className="flex flex-col sm:flex-row gap-4">
-                <button className="flex-1 bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:shadow-lg transform hover:scale-105 transition-all duration-200 flex items-center justify-center space-x-2">
+                <button className="flex-1 bg-gradient-to-r from-red-600 to-indigo-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:shadow-lg transform hover:scale-105 transition-all duration-200 flex items-center justify-center space-x-2">
                   <span>Book Free Counselling</span>
                   <ChevronRightIcon className="w-5 h-5" />
                 </button>
               </div>
               
               <div className="flex flex-col sm:flex-row gap-4">
-                <button className="flex-1 bg-white border-2 border-slate-200 text-slate-700 px-6 py-3 rounded-xl font-medium hover:border-blue-300 hover:shadow-md transition-all duration-200 flex items-center justify-center space-x-2">
+                <button className="flex-1 bg-white border-2 border-slate-200 text-slate-700 px-6 py-3 rounded-xl font-medium hover:border-red-300 hover:shadow-md transition-all duration-200 flex items-center justify-center space-x-2">
                   <AcademicCapIcon className="w-5 h-5" />
                   <span>Find My Best Course</span>
                 </button>
                 
-                <button className="flex-1 bg-white border-2 border-slate-200 text-slate-700 px-6 py-3 rounded-xl font-medium hover:border-blue-300 hover:shadow-md transition-all duration-200 flex items-center justify-center space-x-2">
+                <button className="flex-1 bg-white border-2 border-slate-200 text-slate-700 px-6 py-3 rounded-xl font-medium hover:border-red-300 hover:shadow-md transition-all duration-200 flex items-center justify-center space-x-2">
                   <PlayIcon className="w-5 h-5" />
                   <span>Watch 100+ Success Stories</span>
                 </button>
@@ -198,7 +198,7 @@ const Hero: React.FC = () => {
             {/* 5️⃣ Statistics Row */}
             <div className="grid grid-cols-3 gap-6 py-6">
               <div className="text-center">
-                <div className="text-2xl lg:text-3xl font-bold text-blue-600">
+                <div className="text-2xl lg:text-3xl font-bold text-red-600">
                   {animatedStats.students.toLocaleString()}+
                 </div>
                 <div className="text-sm text-slate-600">Students</div>
@@ -224,7 +224,7 @@ const Hero: React.FC = () => {
                 <span>₹3,999 EMI</span>
               </div>
               <div className="flex items-center space-x-2">
-                <BriefcaseIcon className="w-5 h-5 text-blue-600" />
+                <BriefcaseIcon className="w-5 h-5 text-red-600" />
                 <span>Big 4 Placement Assistance</span>
               </div>
               <div className="flex items-center space-x-2">
@@ -304,12 +304,12 @@ const Hero: React.FC = () => {
               </div>
 
               {/* Big 4 Careers */}
-              <div className="absolute -top-8 -right-8 bg-blue-100 border border-blue-200 rounded-lg p-3 shadow-xl animate-float-slow pointer-events-auto z-40">
+              <div className="absolute -top-8 -right-8 bg-red-100 border border-red-200 rounded-lg p-3 shadow-xl animate-float-slow pointer-events-auto z-40">
                 <div className="flex items-center space-x-2">
-                  <BriefcaseIcon className="w-4 h-4 text-blue-600" />
+                  <BriefcaseIcon className="w-4 h-4 text-red-600" />
                   <div className="text-xs">
-                    <div className="font-medium text-blue-800">Big 4 & MNC Careers</div>
-                    <div className="text-blue-600">Deloitte • EY • KPMG • PwC</div>
+                    <div className="font-medium text-red-800">Big 4 & MNC Careers</div>
+                    <div className="text-red-600">Deloitte • EY • KPMG • PwC</div>
                   </div>
                 </div>
               </div>
@@ -358,7 +358,7 @@ const Hero: React.FC = () => {
                     onClick={() => handleLocationSelect(location.id)}
                     className={`p-3 rounded-lg border-2 transition-all duration-200 text-center ${
                       selectedLocation === location.id
-                        ? 'border-blue-500 bg-blue-50'
+                        ? 'border-red-500 bg-red-50'
                         : 'border-slate-200 hover:border-slate-300 hover:bg-slate-50'
                     }`}
                   >
@@ -369,12 +369,12 @@ const Hero: React.FC = () => {
               </div>
               
               {selectedLocation && (
-                <div className="mt-4 p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border border-blue-200">
+                <div className="mt-4 p-4 bg-gradient-to-r from-red-50 to-indigo-50 rounded-lg border border-red-200">
                   <div className="text-center">
-                    <div className="text-lg font-semibold text-blue-800">
+                    <div className="text-lg font-semibold text-red-800">
                       Expected Salary: {locations[selectedLocation].salary}
                     </div>
-                    <div className="text-sm text-blue-600 mt-1">
+                    <div className="text-sm text-red-600 mt-1">
                       &quot;This career changes my future&quot;
                     </div>
                   </div>
@@ -426,7 +426,7 @@ const Hero: React.FC = () => {
               </button>
             </div>
             <div className="space-y-4">
-              <div className="text-center p-6 bg-gradient-to-r from-green-50 to-blue-50 rounded-xl">
+              <div className="text-center p-6 bg-gradient-to-r from-green-50 to-red-50 rounded-xl">
                 <div className="text-3xl mb-2">{locations[selectedLocation].flag}</div>
                 <div className="text-xl font-semibold text-slate-800">{locations[selectedLocation].name}</div>
                 <div className="text-lg text-green-600 font-medium">{locations[selectedLocation].salary}</div>
@@ -434,12 +434,12 @@ const Hero: React.FC = () => {
               
               <div className="text-center">
                 <p className="text-slate-600 mb-4">Investment: ₹3,999/month for 6-9 months</p>
-                <p className="text-lg font-semibold text-blue-600">ROI: 300-500% within 2 years</p>
+                <p className="text-lg font-semibold text-red-600">ROI: 300-500% within 2 years</p>
               </div>
               
               <button 
                 onClick={() => setShowROIModal(false)}
-                className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-200"
+                className="w-full bg-gradient-to-r from-red-600 to-indigo-600 text-white py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-200"
               >
                 Start My Journey Now
               </button>

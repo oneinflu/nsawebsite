@@ -55,7 +55,7 @@ const Super300Hero = () => {
       size: 100 + (i % 4) * 50,
       duration: 15 + i * 2,
       delay: i * 1.5,
-      color: i % 3 === 0 ? 'bg-blue-200/20' : i % 3 === 1 ? 'bg-amber-200/20' : 'bg-purple-200/20'
+      color: i % 3 === 0 ? 'bg-red-200/20' : i % 3 === 1 ? 'bg-amber-200/20' : 'bg-purple-200/20'
     })),
     particles: Array.from({ length: 25 }, (_, i) => ({
       id: i,
@@ -84,8 +84,8 @@ const Super300Hero = () => {
       ],
       duration: 25 + i * 5,
       delay: i * 3,
-      color: i % 2 === 0 ? 'bg-blue-400/40' : 'bg-amber-400/40',
-      glowColor: i % 2 === 0 ? 'bg-blue-400/10' : 'bg-amber-400/10'
+      color: i % 2 === 0 ? 'bg-red-400/40' : 'bg-amber-400/40',
+      glowColor: i % 2 === 0 ? 'bg-red-400/10' : 'bg-amber-400/10'
     })),
     sparkles: Array.from({ length: 20 }, (_, i) => ({
       id: i,
@@ -144,7 +144,7 @@ const Super300Hero = () => {
             duration: 3,
             ease: [0.25, 0.46, 0.45, 0.94]
           }}
-          className="absolute inset-0 bg-gradient-radial from-amber-200/20 via-blue-200/10 to-transparent"
+          className="absolute inset-0 bg-gradient-radial from-amber-200/20 via-red-200/10 to-transparent"
         />
 
         {/* Pulsing Light Rays */}
@@ -283,7 +283,7 @@ const Super300Hero = () => {
             <div 
               className={`
                 w-12 h-12 rounded-lg shadow-2xl
-                ${i % 3 === 0 ? 'bg-gradient-to-br from-blue-400/20 to-blue-600/30' : 
+                ${i % 3 === 0 ? 'bg-gradient-to-br from-red-400/20 to-red-600/30' : 
                   i % 3 === 1 ? 'bg-gradient-to-br from-amber-400/20 to-amber-600/30' : 
                   'bg-gradient-to-br from-purple-400/20 to-purple-600/30'}
                 backdrop-blur-sm border border-white/10
@@ -348,7 +348,7 @@ const Super300Hero = () => {
               ease: "easeOut",
               delay: particle.delay
             }}
-            className="absolute w-1 h-1 bg-gradient-to-t from-blue-400 to-amber-400 rounded-full"
+            className="absolute w-1 h-1 bg-gradient-to-t from-red-400 to-amber-400 rounded-full"
           />
         ))}
 
@@ -394,7 +394,7 @@ const Super300Hero = () => {
               delay: i * 2
             }}
             className={`absolute border-2 ${
-              i % 3 === 0 ? 'rounded-full border-blue-300/30' : 
+              i % 3 === 0 ? 'rounded-full border-red-300/30' : 
               i % 3 === 1 ? 'rounded-lg border-amber-300/30' : 
               'rounded-none rotate-45 border-purple-300/30'
             }`}
@@ -449,7 +449,7 @@ const Super300Hero = () => {
               ease: "easeInOut",
               delay: shape.delay
             }}
-            className="absolute w-4 h-4 border-2 border-blue-300/20 rounded-sm"
+            className="absolute w-4 h-4 border-2 border-red-300/20 rounded-sm"
             style={{
               left: shape.x,
               top: shape.y,
@@ -470,7 +470,7 @@ const Super300Hero = () => {
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
           transition={{ duration: 2, ease: "easeOut", delay: 0.5 }}
-          className="absolute bottom-1/3 right-0 w-24 h-px bg-gradient-to-l from-transparent via-blue-200 to-transparent"
+          className="absolute bottom-1/3 right-0 w-24 h-px bg-gradient-to-l from-transparent via-red-200 to-transparent"
         />
       </div>
 
@@ -526,7 +526,7 @@ const Super300Hero = () => {
                   type: "spring",
                   stiffness: 200
                 }}
-                className="px-3 py-1 bg-blue-50 border border-blue-200 rounded-full text-sm font-medium text-blue-700 flex items-center space-x-1"
+                className="px-3 py-1 bg-red-50 border border-red-200 rounded-full text-sm font-medium text-red-700 flex items-center space-x-1"
               >
                 <span>🎓</span>
                 <span>Mentor-Led</span>
@@ -723,9 +723,9 @@ const Super300Hero = () => {
                 <span className="text-lg">🔒</span>
                 <span className="font-semibold text-gray-700">300 Seats Only</span>
               </div>
-              <div className="flex items-center space-x-2 px-4 py-2 bg-blue-50 border border-blue-200 rounded-full">
+              <div className="flex items-center space-x-2 px-4 py-2 bg-red-50 border border-red-200 rounded-full">
                 <span className="text-lg">🎓</span>
-                <span className="font-semibold text-blue-700">Mentor-Led</span>
+                <span className="font-semibold text-red-700">Mentor-Led</span>
               </div>
             </motion.div>
 
@@ -810,7 +810,7 @@ const Super300Hero = () => {
               className="flex items-center space-x-6 pt-4"
             >
               <div className="flex items-center space-x-3">
-                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center text-white font-bold">
+                <div className="w-12 h-12 bg-gradient-to-br from-red-500 to-red-600 rounded-full flex items-center justify-center text-white font-bold">
                   IS
                 </div>
                 <div>
@@ -918,7 +918,7 @@ const Super300Hero = () => {
                 repeat: Infinity,
                 ease: "easeInOut"
               }}
-              className="absolute -top-6 -right-6 w-14 h-14 bg-gradient-to-br from-blue-100 to-blue-200 rounded-full shadow-lg flex items-center justify-center cursor-pointer"
+              className="absolute -top-6 -right-6 w-14 h-14 bg-gradient-to-br from-red-100 to-red-200 rounded-full shadow-lg flex items-center justify-center cursor-pointer"
               onClick={() => setShowLeadForm(true)}
             >
               <span className="text-lg">🎯</span>

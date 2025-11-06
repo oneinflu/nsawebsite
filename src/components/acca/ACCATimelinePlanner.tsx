@@ -27,8 +27,8 @@ const ACCATimelinePlanner = () => {
       description: 'Get up to 9 paper exemptions based on your existing qualifications',
       duration: '1-2 weeks',
       icon: ShieldCheckIcon,
-      color: 'from-blue-500 to-cyan-500',
-      bgColor: 'from-blue-50 to-cyan-50',
+      color: 'from-red-500 to-cyan-500',
+      bgColor: 'from-red-50 to-cyan-50',
       tasks: [
         'Submit qualification documents',
         'ACCA assessment review',
@@ -187,7 +187,7 @@ const ACCATimelinePlanner = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+    <section className="py-20 bg-gradient-to-br from-gray-50 to-red-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -198,9 +198,9 @@ const ACCATimelinePlanner = () => {
           className="text-center mb-16"
         >
           <div className="flex items-center justify-center mb-6">
-            <ClockIcon className="w-12 h-12 text-blue-600 mr-4" />
+            <ClockIcon className="w-12 h-12 text-red-600 mr-4" />
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
-              Your ACCA <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Journey Map</span>
+              Your ACCA <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-purple-600">Journey Map</span>
             </h2>
           </div>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
@@ -211,11 +211,11 @@ const ACCATimelinePlanner = () => {
           <div className="max-w-2xl mx-auto">
             <div className="flex justify-between items-center mb-4">
               <span className="text-sm font-medium text-gray-700">Journey Progress</span>
-              <span className="text-sm font-bold text-blue-600">{Math.round(getProgressPercentage())}% Complete</span>
+              <span className="text-sm font-bold text-red-600">{Math.round(getProgressPercentage())}% Complete</span>
             </div>
             <div className="w-full bg-gray-200 rounded-full h-3">
               <motion.div
-                className="bg-gradient-to-r from-blue-500 to-purple-500 h-3 rounded-full"
+                className="bg-gradient-to-r from-red-500 to-purple-500 h-3 rounded-full"
                 initial={{ width: 0 }}
                 animate={{ width: `${getProgressPercentage()}%` }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
@@ -227,7 +227,7 @@ const ACCATimelinePlanner = () => {
         {/* Journey Timeline */}
         <div className="relative">
           {/* Timeline Line */}
-          <div className="absolute left-8 md:left-1/2 transform md:-translate-x-0.5 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-200 via-purple-200 to-green-200"></div>
+          <div className="absolute left-8 md:left-1/2 transform md:-translate-x-0.5 top-0 bottom-0 w-1 bg-gradient-to-b from-red-200 via-purple-200 to-green-200"></div>
 
           {/* Journey Steps */}
           <div className="space-y-12">
@@ -282,7 +282,7 @@ const ACCATimelinePlanner = () => {
                         </h3>
                         <p className="text-sm text-gray-600">{step.subtitle}</p>
                       </div>
-                      <div className="flex items-center text-blue-600">
+                      <div className="flex items-center text-red-600">
                         <ClockIcon className="w-4 h-4 mr-1" />
                         <span className="text-sm font-medium">{step.duration}</span>
                       </div>
@@ -320,7 +320,7 @@ const ACCATimelinePlanner = () => {
                               <ul className="space-y-2">
                                 {step.tasks.map((task, taskIndex) => (
                                   <li key={taskIndex} className="flex items-start text-gray-700">
-                                    <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                                    <div className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
                                     {task}
                                   </li>
                                 ))}
@@ -356,34 +356,34 @@ const ACCATimelinePlanner = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mt-20 bg-gradient-to-r from-blue-600 to-purple-600 rounded-3xl p-8 md:p-12 text-white text-center"
+          className="mt-20 bg-gradient-to-r from-red-600 to-purple-600 rounded-3xl p-8 md:p-12 text-white text-center"
         >
           <h3 className="text-2xl md:text-3xl font-bold mb-4">
             🎓 Your ACCA Journey Awaits
           </h3>
-          <p className="text-blue-100 text-lg mb-8 max-w-2xl mx-auto">
+          <p className="text-red-100 text-lg mb-8 max-w-2xl mx-auto">
             With proper planning and support, you can complete your ACCA qualification in 3-4 years while gaining valuable work experience
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
             <div className="bg-white/10 rounded-2xl p-6 backdrop-blur-sm">
               <div className="text-3xl font-bold mb-2">13</div>
-              <div className="text-blue-100">Total Papers</div>
+              <div className="text-red-100">Total Papers</div>
             </div>
             <div className="bg-white/10 rounded-2xl p-6 backdrop-blur-sm">
               <div className="text-3xl font-bold mb-2">3-4</div>
-              <div className="text-blue-100">Years Duration</div>
+              <div className="text-red-100">Years Duration</div>
             </div>
             <div className="bg-white/10 rounded-2xl p-6 backdrop-blur-sm">
               <div className="text-3xl font-bold mb-2">180+</div>
-              <div className="text-blue-100">Countries Recognition</div>
+              <div className="text-red-100">Countries Recognition</div>
             </div>
           </div>
 
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="bg-white text-blue-600 px-8 py-4 rounded-xl font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 inline-flex items-center"
+            className="bg-white text-red-600 px-8 py-4 rounded-xl font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 inline-flex items-center"
           >
             <PlayIcon className="w-6 h-6 mr-3" />
             Start Your ACCA Journey

@@ -20,7 +20,7 @@ const SelectionBenefits = () => {
       id: 'educational',
       title: 'Educational Excellence',
       icon: '🎓',
-      color: 'from-blue-500 to-purple-600'
+      color: 'from-red-500 to-purple-600'
     },
     {
       id: 'career',
@@ -187,11 +187,11 @@ const SelectionBenefits = () => {
   return (
     <section 
       ref={ref}
-      className="relative py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900 overflow-hidden"
+      className="relative py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-900 via-red-900 to-purple-900 overflow-hidden"
     >
       {/* Background Effects */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 left-10 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute top-20 left-10 w-96 h-96 bg-red-500/20 rounded-full blur-3xl animate-pulse" />
         <div className="absolute bottom-20 right-10 w-80 h-80 bg-purple-500/20 rounded-full blur-3xl animate-pulse delay-1000" />
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-pink-500/10 rounded-full blur-3xl" />
       </div>
@@ -210,7 +210,7 @@ const SelectionBenefits = () => {
           </div>
           
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-            <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-red-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
               Unmatched Value
             </span>
             <br />
@@ -219,7 +219,7 @@ const SelectionBenefits = () => {
           
           <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
             Your scholarship unlocks a comprehensive ecosystem designed to 
-            <span className="text-blue-400 font-semibold"> transform your career</span> and 
+            <span className="text-red-400 font-semibold"> transform your career</span> and 
             <span className="text-purple-400 font-semibold"> accelerate your success</span>.
           </p>
         </motion.div>
@@ -329,7 +329,7 @@ const SelectionBenefits = () => {
               </div>
               
               <div className="text-center">
-                <div className="text-4xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent mb-2">
+                <div className="text-4xl font-bold bg-gradient-to-r from-red-400 to-purple-500 bg-clip-text text-transparent mb-2">
                   ₹2,50,000
                 </div>
                 <div className="text-slate-400">Course & Materials Value</div>
@@ -345,7 +345,7 @@ const SelectionBenefits = () => {
 
             <div className="text-slate-300 text-lg">
               You receive <span className="text-green-400 font-bold">₹90,000 scholarship</span> + 
-              <span className="text-blue-400 font-bold"> ₹2,50,000 worth of premium education</span> + 
+              <span className="text-red-400 font-bold"> ₹2,50,000 worth of premium education</span> + 
               <span className="text-purple-400 font-bold"> lifetime career support</span>
             </div>
           </div>

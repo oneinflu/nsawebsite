@@ -100,9 +100,9 @@ const ACCAExemptionsChecker = () => {
           className="text-center mb-12"
         >
           <div className="flex items-center justify-center mb-6">
-            <DocumentCheckIcon className="w-12 h-12 text-blue-600 mr-4" />
+            <DocumentCheckIcon className="w-12 h-12 text-red-600 mr-4" />
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
-              ACCA <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Exemptions Checker</span>
+              ACCA <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-purple-600">Exemptions Checker</span>
             </h2>
           </div>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -142,8 +142,8 @@ const ACCAExemptionsChecker = () => {
                         onClick={() => setSelectedQualification(qual.value)}
                         className={`p-4 rounded-xl border-2 transition-all duration-300 ${
                           selectedQualification === qual.value
-                            ? 'border-blue-500 bg-blue-50 text-blue-700'
-                            : 'border-gray-200 hover:border-blue-300 text-gray-700'
+                            ? 'border-red-500 bg-red-50 text-red-700'
+                            : 'border-gray-200 hover:border-red-300 text-gray-700'
                         }`}
                       >
                         <div className="font-medium">{qual.label}</div>
@@ -186,7 +186,7 @@ const ACCAExemptionsChecker = () => {
                     disabled={!selectedQualification || !experience}
                     className={`px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 ${
                       selectedQualification && experience
-                        ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-xl hover:shadow-2xl'
+                        ? 'bg-gradient-to-r from-red-600 to-purple-600 text-white shadow-xl hover:shadow-2xl'
                         : 'bg-gray-300 text-gray-500 cursor-not-allowed'
                     }`}
                   >
@@ -209,7 +209,7 @@ const ACCAExemptionsChecker = () => {
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
                   transition={{ duration: 0.5, delay: 0.2 }}
-                  className="w-24 h-24 bg-gradient-to-r from-green-400 to-blue-500 rounded-full flex items-center justify-center mx-auto"
+                  className="w-24 h-24 bg-gradient-to-r from-green-400 to-red-500 rounded-full flex items-center justify-center mx-auto"
                 >
                   <CheckCircleIcon className="w-12 h-12 text-white" />
                 </motion.div>
@@ -219,20 +219,20 @@ const ACCAExemptionsChecker = () => {
                   <h3 className="text-3xl font-bold text-gray-900 mb-4">
                     Great News! 🎉
                   </h3>
-                  <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-2xl p-6 border border-green-200">
+                  <div className="bg-gradient-to-r from-green-50 to-red-50 rounded-2xl p-6 border border-green-200">
                     <div className="text-2xl font-bold text-green-600 mb-2">
                       You get {result?.exemptions} exemptions!
                     </div>
                     <div className="text-lg text-gray-700">
-                      Start at <span className="font-bold text-blue-600">{result?.startingLevel}</span> level
+                      Start at <span className="font-bold text-red-600">{result?.startingLevel}</span> level
                     </div>
                   </div>
                 </div>
 
                 {/* Detailed Breakdown */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  <div className="bg-blue-50 rounded-xl p-6 border border-blue-200">
-                    <div className="text-3xl font-bold text-blue-600">{result?.exemptions}</div>
+                  <div className="bg-red-50 rounded-xl p-6 border border-red-200">
+                    <div className="text-3xl font-bold text-red-600">{result?.exemptions}</div>
                     <div className="text-gray-700">Papers Exempted</div>
                   </div>
                   <div className="bg-purple-50 rounded-xl p-6 border border-purple-200">
@@ -251,14 +251,14 @@ const ACCAExemptionsChecker = () => {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     onClick={handleGetReport}
-                    className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 w-full md:w-auto"
+                    className="bg-gradient-to-r from-red-600 to-purple-600 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 w-full md:w-auto"
                   >
                     Get Detailed Exemption Report
                     <ArrowRightIcon className="w-5 h-5 ml-2 inline" />
                   </motion.button>
                   
                   <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                    <button className="flex items-center justify-center text-blue-600 hover:text-blue-700 font-medium">
+                    <button className="flex items-center justify-center text-red-600 hover:text-red-700 font-medium">
                       <PhoneIcon className="w-5 h-5 mr-2" />
                       Call for Free Counselling
                     </button>
@@ -313,7 +313,7 @@ const ACCAExemptionsChecker = () => {
                       placeholder="Full Name"
                       value={leadFormData.name}
                       onChange={(e) => setLeadFormData({...leadFormData, name: e.target.value})}
-                      className="w-full p-4 border border-gray-300 rounded-xl focus:border-blue-500 focus:outline-none"
+                      className="w-full p-4 border border-gray-300 rounded-xl focus:border-red-500 focus:outline-none"
                       required
                     />
                   </div>
@@ -323,7 +323,7 @@ const ACCAExemptionsChecker = () => {
                       placeholder="Phone Number"
                       value={leadFormData.phone}
                       onChange={(e) => setLeadFormData({...leadFormData, phone: e.target.value})}
-                      className="w-full p-4 border border-gray-300 rounded-xl focus:border-blue-500 focus:outline-none"
+                      className="w-full p-4 border border-gray-300 rounded-xl focus:border-red-500 focus:outline-none"
                       required
                     />
                   </div>
@@ -333,7 +333,7 @@ const ACCAExemptionsChecker = () => {
                       placeholder="Email Address"
                       value={leadFormData.email}
                       onChange={(e) => setLeadFormData({...leadFormData, email: e.target.value})}
-                      className="w-full p-4 border border-gray-300 rounded-xl focus:border-blue-500 focus:outline-none"
+                      className="w-full p-4 border border-gray-300 rounded-xl focus:border-red-500 focus:outline-none"
                       required
                     />
                   </div>
@@ -348,7 +348,7 @@ const ACCAExemptionsChecker = () => {
                     </button>
                     <button
                       type="submit"
-                      className="flex-1 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-medium hover:shadow-lg"
+                      className="flex-1 py-3 bg-gradient-to-r from-red-600 to-purple-600 text-white rounded-xl font-medium hover:shadow-lg"
                     >
                       Get Report
                     </button>

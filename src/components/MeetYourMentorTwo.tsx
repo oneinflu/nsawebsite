@@ -66,7 +66,7 @@ const MeetYourMentor: React.FC = () => {
       title: 'Indian-Friendly Explanations',
       description: 'Makes tough US concepts simple and relatable for Indian students',
       icon: AcademicCapIcon,
-      color: 'from-blue-500 to-indigo-500'
+      color: 'from-red-500 to-indigo-500'
     },
     {
       title: 'Exam Strategy Expertise',
@@ -153,7 +153,7 @@ const MeetYourMentor: React.FC = () => {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-slate-50 via-white to-blue-50 relative overflow-hidden">
+    <section className="py-20 bg-gradient-to-br from-slate-50 via-white to-red-50 relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
@@ -185,7 +185,7 @@ const MeetYourMentor: React.FC = () => {
                     <TrophyIcon className="w-3 h-3" />
                     <span>Rank Holders Created</span>
                   </div>
-                  <div className="bg-blue-500 text-white px-3 py-1 rounded-full text-xs font-semibold flex items-center space-x-1">
+                  <div className="bg-red-500 text-white px-3 py-1 rounded-full text-xs font-semibold flex items-center space-x-1">
                     <HeartIcon className="w-3 h-3" />
                     <span>Personal Guidance</span>
                   </div>
@@ -197,7 +197,7 @@ const MeetYourMentor: React.FC = () => {
                     onClick={() => setShowIntroVideo(true)}
                     className="bg-white bg-opacity-90 hover:bg-opacity-100 text-slate-700 px-4 py-2 rounded-full text-sm font-medium shadow-lg hover:shadow-xl transition-all duration-300 flex items-center space-x-2 group"
                   >
-                    <PlayIcon className="w-4 h-4 text-blue-600" />
+                    <PlayIcon className="w-4 h-4 text-red-600" />
                     <span>Message from Irfat Sir</span>
                   </button>
                 </div>
@@ -232,14 +232,14 @@ const MeetYourMentor: React.FC = () => {
           <div className="text-center lg:text-left">
             <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-6 leading-tight">
               Learn from India&apos;s Most
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 block">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-purple-600 block">
                 Trusted Global Accounting Mentor
               </span>
             </h2>
 
             <div className="mb-6">
               <h3 className="text-2xl font-bold text-slate-800 mb-2">Mohammed Irfat</h3>
-              <p className="text-lg text-blue-600 font-semibold">
+              <p className="text-lg text-red-600 font-semibold">
                 Certified Global Accounting Expert • 15+ Years Experience
               </p>
             </div>
@@ -253,7 +253,7 @@ const MeetYourMentor: React.FC = () => {
             {/* Quick Stats */}
             <div className="grid grid-cols-3 gap-4 mb-8">
               <div className="text-center p-4 bg-white rounded-xl shadow-sm">
-                <div className="text-2xl font-bold text-blue-600">25,000+</div>
+                <div className="text-2xl font-bold text-red-600">25,000+</div>
                 <div className="text-sm text-slate-600">Students Guided</div>
               </div>
               <div className="text-center p-4 bg-white rounded-xl shadow-sm">
@@ -268,7 +268,7 @@ const MeetYourMentor: React.FC = () => {
 
             <button 
               onClick={() => setShowIntroVideo(true)}
-              className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center space-x-2 mx-auto lg:mx-0"
+              className="bg-gradient-to-r from-red-600 to-purple-600 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center space-x-2 mx-auto lg:mx-0"
             >
               <PlayIcon className="w-5 h-5" />
               <span>Watch Introduction Video</span>
@@ -304,7 +304,7 @@ const MeetYourMentor: React.FC = () => {
 
         {/* Emotional Quote Strip */}
         <div className="mb-20">
-          <div className={`text-center py-16 px-8 bg-gradient-to-r from-slate-900 to-blue-900 rounded-3xl relative overflow-hidden transition-all duration-1000 ${quoteVisible ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'}`}>
+          <div className={`text-center py-16 px-8 bg-gradient-to-r from-slate-900 to-red-900 rounded-3xl relative overflow-hidden transition-all duration-1000 ${quoteVisible ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'}`}>
             {/* Background Pattern */}
             <div className="absolute inset-0 opacity-10">
               <div className="absolute inset-0" style={{
@@ -320,7 +320,7 @@ const MeetYourMentor: React.FC = () => {
                   transform your life
                 </span>.&quot;
               </p>
-              <cite className="text-lg text-blue-200 font-medium">— Mohammed Irfat</cite>
+              <cite className="text-lg text-red-200 font-medium">— Mohammed Irfat</cite>
             </blockquote>
           </div>
         </div>
@@ -351,13 +351,13 @@ const MeetYourMentor: React.FC = () => {
                   {/* Play Button Overlay */}
                   <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <div className="w-16 h-16 bg-white bg-opacity-90 rounded-full flex items-center justify-center">
-                      <PlayIcon className="w-8 h-8 text-blue-600 ml-1" />
+                      <PlayIcon className="w-8 h-8 text-red-600 ml-1" />
                     </div>
                   </div>
 
                   {/* Course Badge */}
                   <div className="absolute top-4 left-4">
-                    <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                    <span className="bg-red-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
                       {video.course}
                     </span>
                   </div>
@@ -375,8 +375,8 @@ const MeetYourMentor: React.FC = () => {
                   <h4 className="font-bold text-slate-900 mb-2">{video.studentName}</h4>
                   <p className="text-slate-600 mb-3">{video.title}</p>
                   <div className="flex items-center justify-between">
-                    <span className="text-sm text-blue-600 font-medium">{video.company}</span>
-                    <button className="text-blue-600 hover:text-blue-700 font-medium text-sm flex items-center space-x-1 group-hover:translate-x-1 transition-transform duration-300">
+                    <span className="text-sm text-red-600 font-medium">{video.company}</span>
+                    <button className="text-red-600 hover:text-red-700 font-medium text-sm flex items-center space-x-1 group-hover:translate-x-1 transition-transform duration-300">
                       <span>Watch Story</span>
                       <PlayIcon className="w-4 h-4" />
                     </button>
@@ -389,7 +389,7 @@ const MeetYourMentor: React.FC = () => {
 
         {/* How Mentorship Works */}
         <div className="mb-16">
-          <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-3xl p-8 text-center">
+          <div className="bg-gradient-to-r from-red-50 to-purple-50 rounded-3xl p-8 text-center">
             <h3 className="text-2xl font-bold text-slate-900 mb-8">How Mentorship Works</h3>
             
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-6">
@@ -398,7 +398,7 @@ const MeetYourMentor: React.FC = () => {
                 return (
                   <div key={index} className="text-center">
                     <div className="w-16 h-16 bg-white rounded-2xl shadow-lg flex items-center justify-center mx-auto mb-3">
-                      <IconComponent className="w-8 h-8 text-blue-600" />
+                      <IconComponent className="w-8 h-8 text-red-600" />
                     </div>
                     <p className="text-sm font-medium text-slate-700">{feature.text}</p>
                   </div>
@@ -414,16 +414,16 @@ const MeetYourMentor: React.FC = () => {
 
         {/* Primary CTA */}
         <div className="text-center">
-          <div className="bg-gradient-to-r from-slate-900 to-blue-900 rounded-3xl p-12 text-white">
+          <div className="bg-gradient-to-r from-slate-900 to-red-900 rounded-3xl p-12 text-white">
             <h3 className="text-3xl font-bold mb-4">Ready to Learn Under Irfat Sir?</h3>
-            <p className="text-xl text-blue-200 mb-8">Join thousands of successful students who transformed their careers</p>
+            <p className="text-xl text-red-200 mb-8">Join thousands of successful students who transformed their careers</p>
             
             <button className="bg-gradient-to-r from-yellow-400 to-orange-500 text-slate-900 px-10 py-4 rounded-2xl font-bold text-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center space-x-2 mx-auto mb-4">
               <CalendarDaysIcon className="w-5 h-5" />
               <span>Book Free Counselling with Irfat Sir</span>
             </button>
             
-            <p className="text-sm text-blue-200">
+            <p className="text-sm text-red-200">
               <span className="inline-flex items-center space-x-1">
                 <ClockIcon className="w-4 h-4" />
                 <span>Limited mentorship slots available per batch</span>
@@ -460,7 +460,7 @@ const MeetYourMentor: React.FC = () => {
               </p>
               <button 
                 onClick={() => setShowIntroVideo(false)}
-                className="bg-blue-600 text-white px-6 py-2 rounded-xl font-semibold hover:bg-blue-700 transition-colors duration-300"
+                className="bg-red-600 text-white px-6 py-2 rounded-xl font-semibold hover:bg-red-700 transition-colors duration-300"
               >
                 Start Your Journey
               </button>

@@ -111,7 +111,7 @@ const Super300TrustBand = () => {
             <span>98% Placement Rate</span>
           </div>
           <div className="flex items-center space-x-2">
-            <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
+            <div className="w-2 h-2 bg-red-400 rounded-full animate-pulse"></div>
             <span>₹12L Average Package</span>
           </div>
           <div className="flex items-center space-x-2">

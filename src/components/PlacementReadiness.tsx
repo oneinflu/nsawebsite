@@ -29,8 +29,8 @@ const PlacementReadiness = () => {
       title: 'Resume Building',
       icon: FileText,
       description: 'ATS-optimized resume with CPA credentials',
-      color: 'from-blue-500 to-blue-600',
-      bgColor: 'from-blue-50 to-blue-100',
+      color: 'from-red-500 to-red-600',
+      bgColor: 'from-red-50 to-red-100',
       details: [
         'CPA-specific resume templates',
         'ATS optimization for Big 4',
@@ -155,10 +155,10 @@ const PlacementReadiness = () => {
   }, []);
 
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50 relative overflow-hidden">
+    <section className="py-20 bg-gradient-to-br from-gray-50 to-red-50 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 left-10 w-96 h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
+        <div className="absolute top-20 left-10 w-96 h-96 bg-red-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse delay-1000"></div>
       </div>
 
@@ -169,7 +169,7 @@ const PlacementReadiness = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-2 rounded-full text-sm font-medium mb-6"
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-red-600 to-purple-600 text-white px-4 py-2 rounded-full text-sm font-medium mb-6"
           >
             <Target className="w-4 h-4" />
             Big 4 Focused Placement Program
@@ -183,7 +183,7 @@ const PlacementReadiness = () => {
             className="text-4xl md:text-5xl font-bold text-gray-900 mb-6"
           >
             Placement Readiness: 
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"> Big 4 Focus</span>
+            <span className="bg-gradient-to-r from-red-600 to-purple-600 bg-clip-text text-transparent"> Big 4 Focus</span>
           </motion.h2>
           
           <motion.p
@@ -224,7 +224,7 @@ const PlacementReadiness = () => {
                   )}
                   
                   <div className={`relative z-10 bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border-2 ${
-                    isActive ? 'border-blue-500' : 'border-gray-100'
+                    isActive ? 'border-red-500' : 'border-gray-100'
                   }`}>
                     <div className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${step.color} flex items-center justify-center mb-4 mx-auto`}>
                       <Icon className="w-8 h-8 text-white" />
@@ -243,7 +243,7 @@ const PlacementReadiness = () => {
                         initial={{ width: 0 }}
                         animate={{ width: '100%' }}
                         transition={{ duration: 4 }}
-                        className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-b-2xl"
+                        className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-red-500 to-purple-500 rounded-b-2xl"
                       />
                     )}
                   </div>
@@ -385,7 +385,7 @@ const PlacementReadiness = () => {
                   whileHover={{ scale: 1.05 }}
                   onClick={() => setCurrentVideoIndex(index)}
                   className={`cursor-pointer rounded-xl overflow-hidden border-2 transition-all duration-300 ${
-                    currentVideoIndex === index ? 'border-blue-500' : 'border-gray-200'
+                    currentVideoIndex === index ? 'border-red-500' : 'border-gray-200'
                   }`}
                 >
                   <div className="relative aspect-video">
@@ -413,7 +413,7 @@ const PlacementReadiness = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white text-center"
+          className="bg-gradient-to-r from-red-600 to-purple-600 rounded-2xl p-8 text-white text-center"
         >
           <div className="max-w-3xl mx-auto">
             <h3 className="text-2xl font-bold mb-4">
@@ -426,7 +426,7 @@ const PlacementReadiness = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-white text-blue-600 px-8 py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300"
+                className="bg-white text-red-600 px-8 py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300"
               >
                 <div className="flex items-center gap-2">
                   <Briefcase className="w-5 h-5" />
@@ -436,7 +436,7 @@ const PlacementReadiness = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="border-2 border-white text-white px-8 py-3 rounded-xl font-semibold hover:bg-white hover:text-blue-600 transition-all duration-300"
+                className="border-2 border-white text-white px-8 py-3 rounded-xl font-semibold hover:bg-white hover:text-red-600 transition-all duration-300"
               >
                 <div className="flex items-center gap-2">
                   <Users className="w-5 h-5" />

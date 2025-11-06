@@ -282,10 +282,10 @@ export default function CPASyllabus() {
   const getColorClasses = (color: string) => {
     const colors = {
       blue: {
-        bg: 'bg-blue-50',
-        border: 'border-blue-200',
-        text: 'text-blue-600',
-        button: 'bg-blue-600 hover:bg-blue-700'
+        bg: 'bg-red-50',
+        border: 'border-red-200',
+        text: 'text-red-600',
+        button: 'bg-red-600 hover:bg-red-700'
       },
       green: {
         bg: 'bg-green-50',
@@ -310,7 +310,7 @@ export default function CPASyllabus() {
   }
 
   return (
-    <section className="py-20 bg-gradient-to-br from-slate-50 to-blue-50">
+    <section className="py-20 bg-gradient-to-br from-slate-50 to-red-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -399,7 +399,7 @@ export default function CPASyllabus() {
                         </div>
                         
                         <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-lg shadow-sm">
-                          <ClockIcon className="w-5 h-5 text-blue-500" />
+                          <ClockIcon className="w-5 h-5 text-red-500" />
                           <div>
                             <p className="text-xs text-slate-500">Study Time</p>
                             <p className="font-semibold text-sm text-slate-700">{section.studyHours}</p>
@@ -495,18 +495,18 @@ export default function CPASyllabus() {
           transition={{ duration: 0.8, delay: 0.5 }}
           className="text-center mt-12"
         >
-          <div className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-8 text-white">
+          <div className="bg-gradient-to-r from-red-600 to-indigo-600 rounded-2xl p-8 text-white">
             <div className="max-w-2xl mx-auto">
               <AcademicCapIcon className="w-12 h-12 mx-auto mb-4 opacity-80" />
               <h3 className="text-2xl font-bold mb-4">Get Complete CPA Syllabus & Study Plan</h3>
-              <p className="text-blue-100 mb-6">
+              <p className="text-red-100 mb-6">
                 Download our comprehensive 50-page CPA study guide with detailed syllabus, exam tips, and personalized study timeline
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <button
                   onClick={() => setShowLeadModal(true)}
-                  className="group bg-white text-blue-600 px-8 py-4 rounded-xl font-semibold hover:shadow-xl transition-all duration-300 transform hover:scale-105 flex items-center gap-2"
+                  className="group bg-white text-red-600 px-8 py-4 rounded-xl font-semibold hover:shadow-xl transition-all duration-300 transform hover:scale-105 flex items-center gap-2"
                 >
                   <DocumentArrowDownIcon className="w-5 h-5" />
                   Download Full Syllabus
@@ -518,7 +518,7 @@ export default function CPASyllabus() {
                   </motion.div>
                 </button>
                 
-                <div className="flex items-center gap-2 text-blue-100 text-sm">
+                <div className="flex items-center gap-2 text-red-100 text-sm">
                   <CheckCircleIcon className="w-4 h-4" />
                   <span>Free Download • No Spam • Instant Access</span>
                 </div>
@@ -539,7 +539,7 @@ export default function CPASyllabus() {
               className="bg-white rounded-2xl p-8 max-w-md w-full shadow-2xl"
             >
               <div className="text-center mb-6">
-                <DocumentArrowDownIcon className="w-16 h-16 text-blue-600 mx-auto mb-4" />
+                <DocumentArrowDownIcon className="w-16 h-16 text-red-600 mx-auto mb-4" />
                 <h3 className="text-2xl font-bold text-slate-800 mb-2">
                   Download CPA Complete Guide
                 </h3>
@@ -552,21 +552,21 @@ export default function CPASyllabus() {
                 <input
                   type="text"
                   placeholder="Your Full Name"
-                  className="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
                 />
                 <input
                   type="email"
                   placeholder="Email Address"
-                  className="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
                 />
                 <input
                   type="tel"
                   placeholder="Phone Number"
-                  className="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
                 />
                 <button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-3 px-6 rounded-lg font-semibold hover:shadow-lg transition-all duration-300"
+                  className="w-full bg-gradient-to-r from-red-600 to-indigo-600 text-white py-3 px-6 rounded-lg font-semibold hover:shadow-lg transition-all duration-300"
                 >
                   Download Now (Free)
                 </button>

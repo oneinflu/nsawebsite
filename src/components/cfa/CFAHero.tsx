@@ -38,7 +38,7 @@ const CFAHero = () => {
     {
       icon: ShieldCheckIcon,
       text: "CFA Institute (USA)",
-      color: "from-blue-600 to-blue-700"
+      color: "from-red-600 to-red-700"
     },
     {
       icon: TrophyIcon,
@@ -58,7 +58,7 @@ const CFAHero = () => {
   ];
 
   const cfaLevels = [
-    { level: "Level I", focus: "Investment Tools", color: "from-blue-500 to-blue-600" },
+    { level: "Level I", focus: "Investment Tools", color: "from-red-500 to-red-600" },
     { level: "Level II", focus: "Asset Valuation", color: "from-green-500 to-green-600" },
     { level: "Level III", focus: "Portfolio Management", color: "from-purple-500 to-purple-600" },
     { level: "Charterholder", focus: "Global Recognition", color: "from-amber-500 to-amber-600" }
@@ -99,9 +99,9 @@ const CFAHero = () => {
   // Fallback for non-client rendering
   if (!isClient) {
     return (
-      <section className="relative min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-amber-50 overflow-hidden">
+      <section className="relative min-h-screen bg-gradient-to-br from-red-50 via-purple-50 to-amber-50 overflow-hidden">
         <div className="absolute inset-0">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-30"></div>
+          <div className="absolute top-20 left-10 w-72 h-72 bg-red-200 rounded-full mix-blend-multiply filter blur-xl opacity-30"></div>
           <div className="absolute top-40 right-10 w-72 h-72 bg-purple-200 rounded-full mix-blend-multiply filter blur-xl opacity-30"></div>
           <div className="absolute -bottom-8 left-20 w-72 h-72 bg-amber-200 rounded-full mix-blend-multiply filter blur-xl opacity-30"></div>
         </div>
@@ -111,7 +111,7 @@ const CFAHero = () => {
               <div className="space-y-4">
                 <h1 className="text-4xl md:text-6xl font-bold text-gray-900 leading-tight">
                   Become a Chartered Financial Analyst{' '}
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-purple-600">
                     (CFA – USA)
                   </span>
                 </h1>
@@ -130,10 +130,10 @@ const CFAHero = () => {
   }
 
   return (
-    <section className="relative min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-amber-50 overflow-hidden">
+    <section className="relative min-h-screen bg-gradient-to-br from-red-50 via-purple-50 to-amber-50 overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob"></div>
+        <div className="absolute top-20 left-10 w-72 h-72 bg-red-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob"></div>
         <div className="absolute top-40 right-10 w-72 h-72 bg-purple-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-2000"></div>
         <div className="absolute -bottom-8 left-20 w-72 h-72 bg-amber-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-4000"></div>
       </div>
@@ -151,7 +151,7 @@ const CFAHero = () => {
             <motion.div variants={itemVariants} className="space-y-4">
               <h1 className="text-4xl md:text-6xl font-bold text-gray-900 leading-tight">
                 Become a Chartered Financial Analyst{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-purple-600">
                   (CFA – USA)
                 </span>
               </h1>
@@ -185,7 +185,7 @@ const CFAHero = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="w-full sm:w-auto bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 inline-flex items-center justify-center"
+                className="w-full sm:w-auto bg-gradient-to-r from-red-600 to-purple-600 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 inline-flex items-center justify-center"
               >
                 <PhoneIcon className="w-6 h-6 mr-3" />
                 Book Free Counselling
@@ -195,7 +195,7 @@ const CFAHero = () => {
               <div className="flex flex-col sm:flex-row gap-4">
                 <motion.button
                   whileHover={{ scale: 1.02 }}
-                  className="bg-white text-blue-600 border-2 border-blue-600 px-6 py-3 rounded-xl font-semibold hover:bg-blue-50 transition-all duration-300 inline-flex items-center justify-center"
+                  className="bg-white text-red-600 border-2 border-red-600 px-6 py-3 rounded-xl font-semibold hover:bg-red-50 transition-all duration-300 inline-flex items-center justify-center"
                 >
                   <DocumentArrowDownIcon className="w-5 h-5 mr-2" />
                   Download CFA Roadmap
@@ -203,7 +203,7 @@ const CFAHero = () => {
 
                 <motion.button
                   whileHover={{ scale: 1.02 }}
-                  className="text-gray-600 hover:text-blue-600 font-medium flex items-center justify-center transition-colors duration-300"
+                  className="text-gray-600 hover:text-red-600 font-medium flex items-center justify-center transition-colors duration-300"
                 >
                   <PlayIcon className="w-5 h-5 mr-2" />
                   Watch Success Stories
@@ -215,7 +215,7 @@ const CFAHero = () => {
             <motion.div variants={itemVariants} className="flex items-center space-x-6 pt-4">
               <div className="flex -space-x-2">
                 {[1, 2, 3, 4].map((i) => (
-                  <div key={i} className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 border-2 border-white flex items-center justify-center">
+                  <div key={i} className="w-10 h-10 rounded-full bg-gradient-to-br from-red-400 to-purple-500 border-2 border-white flex items-center justify-center">
                     <span className="text-white text-xs font-bold">C</span>
                   </div>
                 ))}
@@ -240,7 +240,7 @@ const CFAHero = () => {
               className="relative bg-gradient-to-br from-white to-gray-50 rounded-3xl p-8 shadow-2xl border border-gray-200"
             >
               <div className="text-center mb-8">
-                <div className="w-20 h-20 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-20 h-20 bg-gradient-to-r from-red-600 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
                   <TrophyIcon className="w-10 h-10 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">CFA Charter Journey</h3>
@@ -254,7 +254,7 @@ const CFAHero = () => {
                     key={index}
                     className={`p-4 rounded-xl border-2 transition-all duration-500 ${
                       currentLevel === index 
-                        ? 'border-blue-500 bg-blue-50 shadow-lg' 
+                        ? 'border-red-500 bg-red-50 shadow-lg' 
                         : currentLevel > index 
                           ? 'border-green-500 bg-green-50' 
                           : 'border-gray-200 bg-white'
@@ -282,16 +282,16 @@ const CFAHero = () => {
               </div>
 
               {/* Salary Trajectory */}
-              <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl p-6">
+              <div className="bg-gradient-to-r from-red-50 to-purple-50 rounded-xl p-6">
                 <div className="flex items-center mb-4">
-                  <ChartBarIcon className="w-6 h-6 text-blue-600 mr-2" />
+                  <ChartBarIcon className="w-6 h-6 text-red-600 mr-2" />
                   <h4 className="font-bold text-gray-900">Salary Trajectory</h4>
                 </div>
                 <div className="space-y-3">
                   {salaryProgression.map((item, index) => (
                     <div key={index} className="flex justify-between items-center">
                       <span className="text-sm text-gray-700">{item.role}</span>
-                      <span className="font-bold text-blue-600">{item.salary}</span>
+                      <span className="font-bold text-red-600">{item.salary}</span>
                     </div>
                   ))}
                 </div>

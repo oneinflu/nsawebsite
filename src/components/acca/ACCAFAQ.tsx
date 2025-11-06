@@ -149,7 +149,7 @@ const ACCAFAQ = () => {
 
   const getCategoryColor = (color: string) => {
     const colors = {
-      blue: 'text-blue-600 bg-blue-50 border-blue-200',
+      blue: 'text-red-600 bg-red-50 border-red-200',
       green: 'text-green-600 bg-green-50 border-green-200',
       purple: 'text-purple-600 bg-purple-50 border-purple-200',
       orange: 'text-orange-600 bg-orange-50 border-orange-200',
@@ -159,7 +159,7 @@ const ACCAFAQ = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+    <section className="py-20 bg-gradient-to-br from-gray-50 to-red-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -170,9 +170,9 @@ const ACCAFAQ = () => {
           className="text-center mb-16"
         >
           <div className="flex items-center justify-center mb-6">
-            <QuestionMarkCircleIcon className="w-12 h-12 text-blue-600 mr-4" />
+            <QuestionMarkCircleIcon className="w-12 h-12 text-red-600 mr-4" />
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
-              Frequently Asked <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Questions</span>
+              Frequently Asked <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-purple-600">Questions</span>
             </h2>
           </div>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -269,12 +269,12 @@ const ACCAFAQ = () => {
           transition={{ duration: 0.6 }}
           className="mt-16 text-center"
         >
-          <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-3xl p-8 md:p-12 text-white">
-            <ChatBubbleLeftRightIcon className="w-16 h-16 mx-auto mb-6 text-blue-200" />
+          <div className="bg-gradient-to-r from-red-600 to-purple-600 rounded-3xl p-8 md:p-12 text-white">
+            <ChatBubbleLeftRightIcon className="w-16 h-16 mx-auto mb-6 text-red-200" />
             <h3 className="text-2xl md:text-3xl font-bold mb-4">
               Still Have Questions?
             </h3>
-            <p className="text-blue-100 text-lg mb-8 max-w-2xl mx-auto">
+            <p className="text-red-100 text-lg mb-8 max-w-2xl mx-auto">
               Our ACCA experts are here to help! Get personalized answers to all your queries.
             </p>
             
@@ -282,7 +282,7 @@ const ACCAFAQ = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-white text-blue-600 px-8 py-4 rounded-xl font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 inline-flex items-center justify-center"
+                className="bg-white text-red-600 px-8 py-4 rounded-xl font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 inline-flex items-center justify-center"
               >
                 <ChatBubbleLeftRightIcon className="w-5 h-5 mr-2" />
                 Live Chat with Expert
@@ -290,14 +290,14 @@ const ACCAFAQ = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white hover:text-blue-600 transition-all duration-300 inline-flex items-center justify-center"
+                className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white hover:text-red-600 transition-all duration-300 inline-flex items-center justify-center"
               >
                 <PhoneIcon className="w-5 h-5 mr-2" />
                 Schedule a Call
               </motion.button>
             </div>
 
-            <div className="mt-8 text-blue-200 text-sm">
+            <div className="mt-8 text-red-200 text-sm">
               💬 Average response time: Under 2 minutes | 📞 Free consultation available
             </div>
           </div>

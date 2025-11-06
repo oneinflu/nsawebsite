@@ -202,7 +202,7 @@ export default function CFADecisionHelper() {
 
   if (!isClient) {
     return (
-      <section className="py-20 bg-gradient-to-br from-blue-50 to-indigo-100">
+      <section className="py-20 bg-gradient-to-br from-red-50 to-indigo-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
@@ -218,10 +218,10 @@ export default function CFADecisionHelper() {
   }
 
   return (
-    <section className="py-20 bg-gradient-to-br from-blue-50 to-indigo-100 relative overflow-hidden">
+    <section className="py-20 bg-gradient-to-br from-red-50 to-indigo-100 relative overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-20 left-10 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl animate-pulse"></div>
+        <div className="absolute top-20 left-10 w-96 h-96 bg-red-500 rounded-full mix-blend-multiply filter blur-3xl animate-pulse"></div>
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-indigo-500 rounded-full mix-blend-multiply filter blur-3xl animate-pulse delay-1000"></div>
       </div>
 
@@ -251,7 +251,7 @@ export default function CFADecisionHelper() {
             <div className="overflow-x-auto">
               <table className="w-full">
                 <thead>
-                  <tr className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white">
+                  <tr className="bg-gradient-to-r from-red-600 to-indigo-600 text-white">
                     <th className="px-6 py-4 text-left font-semibold">Feature</th>
                     <th className="px-6 py-4 text-center font-semibold">CFA</th>
                     <th className="px-6 py-4 text-center font-semibold">MBA</th>
@@ -266,7 +266,7 @@ export default function CFADecisionHelper() {
                       <tr key={row.feature} className={index % 2 === 0 ? 'bg-gray-50' : 'bg-white'}>
                         <td className="px-6 py-4 font-medium text-gray-900">
                           <div className="flex items-center space-x-3">
-                            <Icon className="w-5 h-5 text-blue-600" />
+                            <Icon className="w-5 h-5 text-red-600" />
                             <span>{row.feature}</span>
                           </div>
                         </td>
@@ -322,7 +322,7 @@ export default function CFADecisionHelper() {
           className="text-center"
           variants={itemVariants}
         >
-          <div className="bg-gradient-to-r from-blue-600/10 to-indigo-600/10 backdrop-blur-sm rounded-3xl p-8 border border-blue-200">
+          <div className="bg-gradient-to-r from-red-600/10 to-indigo-600/10 backdrop-blur-sm rounded-3xl p-8 border border-red-200">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">
               Not sure which suits you?
             </h3>
@@ -332,7 +332,7 @@ export default function CFADecisionHelper() {
             
             <motion.button
               onClick={() => setShowQuiz(true)}
-              className="group bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-4 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 flex items-center space-x-2 mx-auto"
+              className="group bg-gradient-to-r from-red-600 to-indigo-600 text-white px-8 py-4 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 flex items-center space-x-2 mx-auto"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -384,7 +384,7 @@ export default function CFADecisionHelper() {
                     </div>
                     <div className="w-full bg-gray-200 rounded-full h-2">
                       <div 
-                        className="bg-gradient-to-r from-blue-600 to-indigo-600 h-2 rounded-full transition-all duration-300"
+                        className="bg-gradient-to-r from-red-600 to-indigo-600 h-2 rounded-full transition-all duration-300"
                         style={{ width: `${((currentQuestion + 1) / quizQuestions.length) * 100}%` }}
                       ></div>
                     </div>
@@ -401,7 +401,7 @@ export default function CFADecisionHelper() {
                         <motion.button
                           key={index}
                           onClick={() => handleQuizAnswer(index)}
-                          className="w-full text-left p-4 border border-gray-200 rounded-lg hover:border-blue-300 hover:bg-blue-50 transition-all duration-200"
+                          className="w-full text-left p-4 border border-gray-200 rounded-lg hover:border-red-300 hover:bg-red-50 transition-all duration-200"
                           whileHover={{ scale: 1.02 }}
                           whileTap={{ scale: 0.98 }}
                         >
@@ -439,7 +439,7 @@ export default function CFADecisionHelper() {
                     </motion.button>
                     <motion.button
                       onClick={resetQuiz}
-                      className="px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg font-medium hover:shadow-lg transition-all duration-300"
+                      className="px-6 py-3 bg-gradient-to-r from-red-600 to-indigo-600 text-white rounded-lg font-medium hover:shadow-lg transition-all duration-300"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >

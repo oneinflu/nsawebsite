@@ -138,12 +138,12 @@ export default function CFAEligibility() {
         >
           {/* Header */}
           <motion.div variants={itemVariants} className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-600 px-4 py-2 rounded-full text-sm font-medium mb-6">
+            <div className="inline-flex items-center gap-2 bg-red-50 text-red-600 px-4 py-2 rounded-full text-sm font-medium mb-6">
               <span className="text-2xl">4️⃣</span>
               <span>Eligibility & Requirements</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
-              Who Can Pursue <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">CFA?</span>
+              Who Can Pursue <span className="bg-gradient-to-r from-red-600 to-purple-600 bg-clip-text text-transparent">CFA?</span>
             </h2>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto">
               Discover if you meet the requirements and see if you&apos;re an ideal candidate for the CFA program
@@ -154,9 +154,9 @@ export default function CFAEligibility() {
           <div className="grid lg:grid-cols-2 gap-12 mb-16">
             {/* Left Column - Eligibility Requirements */}
             <motion.div variants={itemVariants}>
-              <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8 h-full">
+              <div className="bg-gradient-to-br from-red-50 to-indigo-50 rounded-3xl p-8 h-full">
                 <div className="flex items-center gap-3 mb-8">
-                  <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center">
+                  <div className="w-12 h-12 bg-red-500 rounded-xl flex items-center justify-center">
                     <CheckCircleIcon className="w-6 h-6 text-white" />
                   </div>
                   <div>
@@ -169,10 +169,10 @@ export default function CFAEligibility() {
                   {eligibilityRequirements.map((requirement) => {
                     const IconComponent = requirement.icon;
                     return (
-                      <div key={requirement.id} className="bg-white rounded-2xl p-6 shadow-sm border border-blue-100">
+                      <div key={requirement.id} className="bg-white rounded-2xl p-6 shadow-sm border border-red-100">
                         <div className="flex items-start gap-4">
-                          <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                            <IconComponent className="w-5 h-5 text-blue-600" />
+                          <div className="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <IconComponent className="w-5 h-5 text-red-600" />
                           </div>
                           <div>
                             <h4 className="font-semibold text-slate-900 mb-2">{requirement.title}</h4>
@@ -231,7 +231,7 @@ export default function CFAEligibility() {
           {/* Micro CTA */}
           <motion.div variants={itemVariants} className="text-center">
             <div className="bg-gradient-to-r from-slate-900 to-slate-700 rounded-2xl p-8 text-white relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20" />
+              <div className="absolute inset-0 bg-gradient-to-r from-red-600/20 to-purple-600/20" />
               <div className="relative z-10">
                 <h3 className="text-2xl md:text-3xl font-bold mb-4">
                   Not Sure if You&apos;re Eligible?
@@ -243,7 +243,7 @@ export default function CFAEligibility() {
                   onClick={() => setShowEligibilityModal(true)}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="bg-gradient-to-r from-blue-500 to-purple-500 text-white font-bold py-4 px-8 rounded-xl hover:from-blue-600 hover:to-purple-600 transition-all duration-200 flex items-center gap-3 mx-auto shadow-lg"
+                  className="bg-gradient-to-r from-red-500 to-purple-500 text-white font-bold py-4 px-8 rounded-xl hover:from-red-600 hover:to-purple-600 transition-all duration-200 flex items-center gap-3 mx-auto shadow-lg"
                 >
                   <GlobeAltIcon className="w-6 h-6" />
                   Check Eligibility Instantly
@@ -290,7 +290,7 @@ export default function CFAEligibility() {
                     required
                     value={formData.name}
                     onChange={(e) => setFormData({...formData, name: e.target.value})}
-                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
                     placeholder="Enter your full name"
                   />
                 </div>
@@ -302,7 +302,7 @@ export default function CFAEligibility() {
                     required
                     value={formData.email}
                     onChange={(e) => setFormData({...formData, email: e.target.value})}
-                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
                     placeholder="Enter your email"
                   />
                 </div>
@@ -314,7 +314,7 @@ export default function CFAEligibility() {
                     required
                     value={formData.phone}
                     onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
                     placeholder="Enter your phone number"
                   />
                 </div>
@@ -325,7 +325,7 @@ export default function CFAEligibility() {
                     required
                     value={formData.education}
                     onChange={(e) => setFormData({...formData, education: e.target.value})}
-                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
                   >
                     <option value="">Select your education</option>
                     <option value="final-year">Final year graduation</option>
@@ -342,7 +342,7 @@ export default function CFAEligibility() {
                     required
                     value={formData.experience}
                     onChange={(e) => setFormData({...formData, experience: e.target.value})}
-                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
                   >
                     <option value="">Select your experience</option>
                     <option value="fresher">Fresher (0 years)</option>
@@ -354,7 +354,7 @@ export default function CFAEligibility() {
 
                 <button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-blue-500 to-purple-500 text-white font-bold py-3 px-6 rounded-lg hover:from-blue-600 hover:to-purple-600 transition-all duration-200"
+                  className="w-full bg-gradient-to-r from-red-500 to-purple-500 text-white font-bold py-3 px-6 rounded-lg hover:from-red-600 hover:to-purple-600 transition-all duration-200"
                 >
                   Check My Eligibility
                 </button>

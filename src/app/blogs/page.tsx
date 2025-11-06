@@ -51,7 +51,7 @@ const GlobalFinanceHub = () => {
       thumbnail: '/api/placeholder/400/250',
       duration: '12 min read',
       difficulty: 'Beginner',
-      color: 'from-blue-500 to-blue-600'
+      color: 'from-red-500 to-red-600'
     },
     {
       id: 'career-uae',
@@ -80,7 +80,7 @@ const GlobalFinanceHub = () => {
       title: "I'm a B.Com student",
       icon: GraduationCap,
       description: 'Exploring finance career options',
-      color: 'from-blue-500 to-blue-600'
+      color: 'from-red-500 to-red-600'
     },
     {
       id: 'working',
@@ -151,7 +151,7 @@ const GlobalFinanceHub = () => {
       title: 'Country Career Explorer',
       description: 'Find opportunities worldwide',
       icon: Globe,
-      color: 'from-blue-500 to-blue-600',
+      color: 'from-red-500 to-red-600',
       completionTime: '3 min'
     },
     {
@@ -217,12 +217,12 @@ const GlobalFinanceHub = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-red-50">
       {/* Hero Section */}
       <section className="relative py-20 overflow-hidden">
         {/* Background Animation */}
         <div className="absolute inset-0">
-          <div className="absolute top-20 left-10 w-96 h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
+          <div className="absolute top-20 left-10 w-96 h-96 bg-red-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
           <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse delay-1000"></div>
         </div>
 
@@ -232,7 +232,7 @@ const GlobalFinanceHub = () => {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-2 rounded-full text-sm font-medium mb-6"
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-red-600 to-purple-600 text-white px-4 py-2 rounded-full text-sm font-medium mb-6"
             >
               <Sparkles className="w-4 h-4" />
               Global Finance Hub
@@ -245,7 +245,7 @@ const GlobalFinanceHub = () => {
               className="text-5xl md:text-7xl font-bold text-gray-900 mb-6"
             >
               Explore. Learn. Decide.
-              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent block">
+              <span className="bg-gradient-to-r from-red-600 to-purple-600 bg-clip-text text-transparent block">
                 Grow Globally.
               </span>
             </motion.h1>
@@ -279,7 +279,7 @@ const GlobalFinanceHub = () => {
                     repeat: Infinity,
                     repeatType: "reverse"
                   }}
-                  className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl flex items-center justify-center"
+                  className="w-12 h-12 bg-gradient-to-r from-red-500 to-purple-500 rounded-xl flex items-center justify-center"
                 >
                   <Icon className="w-6 h-6 text-white" />
                 </motion.div>
@@ -297,7 +297,7 @@ const GlobalFinanceHub = () => {
                 transition={{ delay: 0.4 + index * 0.1 }}
                 whileHover={{ scale: 1.02, y: -5 }}
                 className={`relative rounded-2xl overflow-hidden cursor-pointer group ${
-                  activeCarousel === index ? 'ring-4 ring-blue-500' : ''
+                  activeCarousel === index ? 'ring-4 ring-red-500' : ''
                 }`}
               >
                 <div className={`h-64 bg-gradient-to-br ${carousel.color} p-6 text-white relative overflow-hidden`}>
@@ -335,7 +335,7 @@ const GlobalFinanceHub = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setShowPersonalization(true)}
-              className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-lg hover:shadow-xl transition-all duration-300"
+              className="bg-gradient-to-r from-red-600 to-purple-600 text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-lg hover:shadow-xl transition-all duration-300"
             >
               Tell us where you are — we&apos;ll build your learning feed
               <Sparkles className="w-5 h-5 ml-2 inline" />
@@ -373,7 +373,7 @@ const GlobalFinanceHub = () => {
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                       onClick={() => handlePersonaSelect(option.id)}
-                      className="p-6 border-2 border-gray-200 rounded-xl text-left hover:border-blue-500 transition-all duration-300"
+                      className="p-6 border-2 border-gray-200 rounded-xl text-left hover:border-red-500 transition-all duration-300"
                     >
                       <div className={`w-12 h-12 bg-gradient-to-r ${option.color} rounded-xl flex items-center justify-center mb-4`}>
                         <Icon className="w-6 h-6 text-white" />
@@ -396,7 +396,7 @@ const GlobalFinanceHub = () => {
             <div key={laneIndex} className="mb-16">
               <div className="flex items-center justify-between mb-8">
                 <h2 className="text-3xl font-bold text-gray-900">{lane.title}</h2>
-                <button className="text-blue-600 font-semibold flex items-center gap-2 hover:gap-3 transition-all duration-300">
+                <button className="text-red-600 font-semibold flex items-center gap-2 hover:gap-3 transition-all duration-300">
                   View All
                   <ChevronRight className="w-5 h-5" />
                 </button>
@@ -449,7 +449,7 @@ const GlobalFinanceHub = () => {
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-6">
               Interactive Tools
-              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"> & Calculators</span>
+              <span className="bg-gradient-to-r from-red-600 to-purple-600 bg-clip-text text-transparent"> & Calculators</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Get instant insights with our smart tools designed for finance professionals
@@ -502,13 +502,13 @@ const GlobalFinanceHub = () => {
       </section>
 
       {/* Success Stories Reel */}
-      <section className="py-20 bg-gradient-to-br from-gray-900 to-blue-900 text-white">
+      <section className="py-20 bg-gradient-to-br from-gray-900 to-red-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-6">
               Big 4 Transformation Stories
             </h2>
-            <p className="text-xl text-blue-200 max-w-3xl mx-auto">
+            <p className="text-xl text-red-200 max-w-3xl mx-auto">
               Real people, real journeys, real success in global finance careers
             </p>
           </div>
@@ -525,18 +525,18 @@ const GlobalFinanceHub = () => {
                 className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 cursor-pointer hover:bg-white/20 transition-all duration-300"
               >
                 <div className="flex items-center gap-4 mb-4">
-                  <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
+                  <div className="w-16 h-16 bg-gradient-to-r from-red-500 to-purple-500 rounded-full"></div>
                   <div>
                     <h3 className="font-bold text-white">{story.name}</h3>
-                    <p className="text-blue-200 text-sm">{story.role}</p>
+                    <p className="text-red-200 text-sm">{story.role}</p>
                   </div>
                 </div>
                 <p className="text-white mb-4 font-medium">{story.story}</p>
                 <div className="flex items-center justify-between text-sm">
-                  <span className="text-blue-200">{story.company}</span>
+                  <span className="text-red-200">{story.company}</span>
                   <span className="text-green-400 font-bold">{story.salary}</span>
                 </div>
-                <div className="mt-2 text-sm text-blue-200">{story.location}</div>
+                <div className="mt-2 text-sm text-red-200">{story.location}</div>
               </motion.div>
             ))}
           </div>
@@ -549,7 +549,7 @@ const GlobalFinanceHub = () => {
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-6">
               Free Resources
-              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"> & Downloads</span>
+              <span className="bg-gradient-to-r from-red-600 to-purple-600 bg-clip-text text-transparent"> & Downloads</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Comprehensive guides, checklists, and templates to accelerate your finance career
@@ -571,7 +571,7 @@ const GlobalFinanceHub = () => {
                 whileHover={{ scale: 1.02, y: -5 }}
                 className="bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer"
               >
-                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl flex items-center justify-center mb-4">
+                <div className="w-12 h-12 bg-gradient-to-r from-red-500 to-purple-500 rounded-xl flex items-center justify-center mb-4">
                   <Download className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="font-bold text-gray-900 mb-2">{resource.title}</h3>
@@ -582,7 +582,7 @@ const GlobalFinanceHub = () => {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300"
+                  className="w-full bg-gradient-to-r from-red-600 to-purple-600 text-white py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300"
                 >
                   Download Free
                 </motion.button>
@@ -593,7 +593,7 @@ const GlobalFinanceHub = () => {
       </section>
 
       {/* Final CTA */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+      <section className="py-20 bg-gradient-to-r from-red-600 to-purple-600 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -603,13 +603,13 @@ const GlobalFinanceHub = () => {
             <h2 className="text-4xl font-bold mb-6">
               Ready for Your Personalized Roadmap?
             </h2>
-            <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+            <p className="text-xl text-red-100 mb-8 max-w-2xl mx-auto">
               Get a custom learning path designed specifically for your career goals and current situation
             </p>
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-white text-blue-600 px-8 py-4 rounded-2xl font-bold text-lg shadow-lg hover:shadow-xl transition-all duration-300"
+              className="bg-white text-red-600 px-8 py-4 rounded-2xl font-bold text-lg shadow-lg hover:shadow-xl transition-all duration-300"
             >
               Get My Personalized Roadmap
               <ArrowRight className="w-5 h-5 ml-2 inline" />

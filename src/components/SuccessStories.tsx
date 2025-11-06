@@ -206,7 +206,7 @@ const SuccessStories: React.FC = () => {
 
   const proofStats: ProofStat[] = [
     { number: '98', label: 'Pass Success Rate', icon: TrophyIcon, color: 'text-yellow-600' },
-    { number: '25000', label: 'Students Empowered', icon: UserGroupIcon, color: 'text-blue-600' },
+    { number: '25000', label: 'Students Empowered', icon: UserGroupIcon, color: 'text-red-600' },
     { number: '200', label: 'Hiring Partnerships', icon: BriefcaseIcon, color: 'text-green-600' },
     { number: '150', label: 'National & Global Rankers', icon: StarIcon, color: 'text-purple-600' },
     { number: '300', label: 'Avg Career Growth Boost', icon: ChartBarIcon, color: 'text-red-600' }
@@ -369,7 +369,7 @@ const SuccessStories: React.FC = () => {
                         {ranker.name}
                       </h4>
                       <div className="flex items-center space-x-2 mb-1">
-                        <div className="bg-gradient-to-r from-green-400 to-blue-500 text-white px-2 py-1 rounded-lg text-xs font-bold">
+                        <div className="bg-gradient-to-r from-green-400 to-red-500 text-white px-2 py-1 rounded-lg text-xs font-bold">
                           {ranker.certification}
                         </div>
                         <span className="text-yellow-300 font-bold text-sm">{ranker.score}</span>
@@ -409,9 +409,9 @@ const SuccessStories: React.FC = () => {
                       <div className="text-green-700 font-bold text-lg">{ranker.score.split('/')[0]}</div>
                       <div className="text-green-600 text-xs font-medium">Score Achieved</div>
                     </div>
-                    <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-3 border border-blue-200/50">
-                      <div className="text-blue-700 font-bold text-lg">{ranker.rank.replace('AIR ', '#')}</div>
-                      <div className="text-blue-600 text-xs font-medium">Global Rank</div>
+                    <div className="bg-gradient-to-r from-red-50 to-indigo-50 rounded-xl p-3 border border-red-200/50">
+                      <div className="text-red-700 font-bold text-lg">{ranker.rank.replace('AIR ', '#')}</div>
+                      <div className="text-red-600 text-xs font-medium">Global Rank</div>
                     </div>
                   </div>
 

@@ -36,9 +36,9 @@ const WhoShouldDoCIA = () => {
       ],
       timeline: "Start during final year",
       salaryRange: "$45K - $65K",
-      color: "from-blue-500 to-blue-600",
-      bgColor: "from-blue-50 to-blue-100",
-      borderColor: "border-blue-200",
+      color: "from-red-500 to-red-600",
+      bgColor: "from-red-50 to-red-100",
+      borderColor: "border-red-200",
       emoji: "🎓"
     },
     {
@@ -170,7 +170,7 @@ const WhoShouldDoCIA = () => {
       {/* Background Elements */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-20 right-10 w-96 h-96 bg-gradient-to-r from-red-200 to-purple-200 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
-        <div className="absolute bottom-20 left-10 w-96 h-96 bg-gradient-to-r from-blue-200 to-green-200 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
+        <div className="absolute bottom-20 left-10 w-96 h-96 bg-gradient-to-r from-red-200 to-green-200 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

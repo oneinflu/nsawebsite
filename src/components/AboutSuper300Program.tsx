@@ -272,7 +272,7 @@ const AboutSuper300Program = () => {
                     animate={isInView ? { opacity: 1, scale: 1 } : {}}
                     transition={{ duration: 0.6, delay: 1.6 }}
                     whileHover={{ scale: 1.05, y: -2 }}
-                    className="bg-white/80 backdrop-blur-sm rounded-2xl p-4 border border-blue-200/50 shadow-lg cursor-pointer group"
+                    className="bg-white/80 backdrop-blur-sm rounded-2xl p-4 border border-red-200/50 shadow-lg cursor-pointer group"
                   >
                     <div className="text-center">
                       <motion.div
@@ -290,9 +290,9 @@ const AboutSuper300Program = () => {
                         <motion.div
                           animate={{ opacity: [0.3, 1, 0.3] }}
                           transition={{ duration: 1.5, repeat: Infinity }}
-                          className="w-2 h-2 bg-blue-500 rounded-full"
+                          className="w-2 h-2 bg-red-500 rounded-full"
                         />
-                        <span className="text-xs text-blue-600 font-semibold">Live Session</span>
+                        <span className="text-xs text-red-600 font-semibold">Live Session</span>
                       </div>
                     </div>
                   </motion.div>
@@ -571,7 +571,7 @@ const AboutSuper300Program = () => {
                 transition={{ duration: 0.6, delay: 3.1 }}
                 className="bg-white rounded-2xl p-4 shadow-lg"
               >
-                <div className="text-2xl font-bold text-blue-600">Examly</div>
+                <div className="text-2xl font-bold text-red-600">Examly</div>
               </motion.div>
             </div>
 

@@ -41,8 +41,8 @@ const careerRoles: CareerRole[] = [
     salaryRange: '₹10–18 LPA',
     topEmployers: ['JP Morgan', 'UBS', 'HSBC'],
     icon: ChartBarIcon,
-    color: 'from-blue-500 to-blue-600',
-    bgColor: 'from-blue-50 to-blue-100'
+    color: 'from-red-500 to-red-600',
+    bgColor: 'from-red-50 to-red-100'
   },
   {
     id: 'investment-banker',
@@ -166,7 +166,7 @@ export default function CFACareerRoles() {
 
   if (!isClient) {
     return (
-      <section className="py-20 bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50">
+      <section className="py-20 bg-gradient-to-br from-slate-50 via-red-50 to-purple-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
@@ -182,7 +182,7 @@ export default function CFACareerRoles() {
   }
 
   return (
-    <section className="py-20 bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50 relative overflow-hidden">
+    <section className="py-20 bg-gradient-to-br from-slate-50 via-red-50 to-purple-50 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.05),transparent_50%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(147,51,234,0.05),transparent_50%)]" />
@@ -201,7 +201,7 @@ export default function CFACareerRoles() {
               <span>Career Impact</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
-              Career &amp; <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Job Roles</span>
+              Career &amp; <span className="bg-gradient-to-r from-red-600 to-purple-600 bg-clip-text text-transparent">Job Roles</span>
             </h2>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto">
               Discover your career trajectory and earning potential with CFA certification
@@ -217,7 +217,7 @@ export default function CFACareerRoles() {
               
               <div className="relative">
                 {/* Progress Line */}
-                <div className="absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-blue-200 via-purple-200 to-amber-200 rounded-full transform -translate-y-1/2 z-0" />
+                <div className="absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-red-200 via-purple-200 to-amber-200 rounded-full transform -translate-y-1/2 z-0" />
                 
                 {/* Career Steps */}
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative z-10">
@@ -237,7 +237,7 @@ export default function CFACareerRoles() {
                       >
                         <div className={`w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center transition-all duration-500 ${
                           isActive 
-                            ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg' 
+                            ? 'bg-gradient-to-r from-red-500 to-purple-500 text-white shadow-lg' 
                             : 'bg-white border-2 border-slate-200 text-slate-400'
                         }`}>
                           <IconComponent className="w-8 h-8" />
@@ -312,7 +312,7 @@ export default function CFACareerRoles() {
           {/* Career Report CTA */}
           <motion.div variants={itemVariants} className="text-center">
             <div className="bg-gradient-to-r from-slate-900 to-slate-700 rounded-2xl p-8 text-white relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20" />
+              <div className="absolute inset-0 bg-gradient-to-r from-red-600/20 to-purple-600/20" />
               <div className="relative z-10">
                 <h3 className="text-2xl md:text-3xl font-bold mb-4">
                   Want the Complete Career Roadmap?
@@ -324,7 +324,7 @@ export default function CFACareerRoles() {
                   onClick={() => setShowCareerModal(true)}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="bg-gradient-to-r from-blue-500 to-purple-500 text-white font-bold py-4 px-8 rounded-xl hover:from-blue-600 hover:to-purple-600 transition-all duration-200 flex items-center gap-3 mx-auto shadow-lg"
+                  className="bg-gradient-to-r from-red-500 to-purple-500 text-white font-bold py-4 px-8 rounded-xl hover:from-red-600 hover:to-purple-600 transition-all duration-200 flex items-center gap-3 mx-auto shadow-lg"
                 >
                   <DocumentArrowDownIcon className="w-6 h-6" />
                   View Global Career Report
@@ -371,7 +371,7 @@ export default function CFACareerRoles() {
                     required
                     value={formData.name}
                     onChange={(e) => setFormData({...formData, name: e.target.value})}
-                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
                     placeholder="Enter your full name"
                   />
                 </div>
@@ -383,7 +383,7 @@ export default function CFACareerRoles() {
                     required
                     value={formData.email}
                     onChange={(e) => setFormData({...formData, email: e.target.value})}
-                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
                     placeholder="Enter your email"
                   />
                 </div>
@@ -395,7 +395,7 @@ export default function CFACareerRoles() {
                     required
                     value={formData.phone}
                     onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
                     placeholder="Enter your phone number"
                   />
                 </div>
@@ -406,7 +406,7 @@ export default function CFACareerRoles() {
                     required
                     value={formData.experience}
                     onChange={(e) => setFormData({...formData, experience: e.target.value})}
-                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
                   >
                     <option value="">Select your experience</option>
                     <option value="fresher">Fresher (0 years)</option>
@@ -422,7 +422,7 @@ export default function CFACareerRoles() {
                     required
                     value={formData.interest}
                     onChange={(e) => setFormData({...formData, interest: e.target.value})}
-                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
                   >
                     <option value="">Select your interest</option>
                     <option value="equity-research">Equity Research</option>
@@ -435,7 +435,7 @@ export default function CFACareerRoles() {
 
                 <button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-blue-500 to-purple-500 text-white font-bold py-3 px-6 rounded-lg hover:from-blue-600 hover:to-purple-600 transition-all duration-200"
+                  className="w-full bg-gradient-to-r from-red-500 to-purple-500 text-white font-bold py-3 px-6 rounded-lg hover:from-red-600 hover:to-purple-600 transition-all duration-200"
                 >
                   Download Career Report (PDF)
                 </button>

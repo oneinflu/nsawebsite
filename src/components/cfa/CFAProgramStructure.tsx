@@ -44,8 +44,8 @@ const cfaLevels: CFALevel[] = [
     outcome: 'Analytical foundation',
     duration: '6–8 months',
     icon: BookOpenIcon,
-    color: 'from-blue-500 to-indigo-500',
-    bgColor: 'from-blue-50 to-indigo-50',
+    color: 'from-red-500 to-indigo-500',
+    bgColor: 'from-red-50 to-indigo-50',
     topics: [
       'Ethical and Professional Standards',
       'Quantitative Methods',
@@ -178,7 +178,7 @@ export default function CFAProgramStructure() {
 
   if (!isClient) {
     return (
-      <section className="py-20 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
+      <section className="py-20 bg-gradient-to-br from-slate-50 via-red-50 to-indigo-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
@@ -194,7 +194,7 @@ export default function CFAProgramStructure() {
   }
 
   return (
-    <section className="py-20 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 relative overflow-hidden">
+    <section className="py-20 bg-gradient-to-br from-slate-50 via-red-50 to-indigo-50 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.1),transparent_50%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(147,51,234,0.1),transparent_50%)]" />
@@ -214,7 +214,7 @@ export default function CFAProgramStructure() {
             <p className="text-xl text-slate-600 max-w-3xl mx-auto mb-4">
                   Simplified Visualization — Your 3-Part Journey to Global Finance Excellence
                 </p>
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full" />
+            <div className="w-24 h-1 bg-gradient-to-r from-red-500 to-purple-500 mx-auto rounded-full" />
           </motion.div>
 
           {/* 3-Level Timeline Grid */}
@@ -229,7 +229,7 @@ export default function CFAProgramStructure() {
                 >
                   {/* Connection Line (Desktop) */}
                   {index < cfaLevels.length - 1 && (
-                    <div className="hidden lg:block absolute top-1/2 -right-4 w-8 h-0.5 bg-gradient-to-r from-blue-300 to-purple-300 z-10" />
+                    <div className="hidden lg:block absolute top-1/2 -right-4 w-8 h-0.5 bg-gradient-to-r from-red-300 to-purple-300 z-10" />
                   )}
                   
                   <div className={`bg-gradient-to-br ${level.bgColor} rounded-2xl p-8 border border-white/50 shadow-lg backdrop-blur-sm h-full`}>
@@ -282,7 +282,7 @@ export default function CFAProgramStructure() {
                             {/* Topics */}
                             <div>
                               <h5 className="font-bold text-slate-900 mb-3 flex items-center">
-                                <BookOpenIcon className="w-5 h-5 mr-2 text-blue-500" />
+                                <BookOpenIcon className="w-5 h-5 mr-2 text-red-500" />
                                 Key Topics
                               </h5>
                               <ul className="space-y-2">
@@ -333,20 +333,20 @@ export default function CFAProgramStructure() {
 
           {/* Download CTA */}
           <motion.div variants={itemVariants} className="text-center">
-            <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white relative overflow-hidden">
+            <div className="bg-gradient-to-r from-red-600 to-purple-600 rounded-2xl p-8 text-white relative overflow-hidden">
               <div className="absolute inset-0 bg-black/10" />
               <div className="relative z-10">
                 <h3 className="text-2xl md:text-3xl font-bold mb-4">
                   Get Complete CFA Syllabus Guide
                 </h3>
-                <p className="text-blue-100 text-lg mb-8 max-w-2xl mx-auto">
+                <p className="text-red-100 text-lg mb-8 max-w-2xl mx-auto">
                   Download detailed syllabus with study schedules, exam strategies, and career roadmaps for all three levels
                 </p>
                 <motion.button
                   onClick={() => setShowDownloadModal(true)}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="bg-white text-blue-600 font-bold py-4 px-8 rounded-xl hover:bg-blue-50 transition-all duration-200 flex items-center gap-3 mx-auto shadow-lg"
+                  className="bg-white text-red-600 font-bold py-4 px-8 rounded-xl hover:bg-red-50 transition-all duration-200 flex items-center gap-3 mx-auto shadow-lg"
                 >
                   <DocumentArrowDownIcon className="w-6 h-6" />
                   Download Full CFA Syllabus (PDF)
@@ -381,22 +381,22 @@ export default function CFAProgramStructure() {
                 <input
                   type="text"
                   placeholder="Full Name"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
                 />
                 <input
                   type="email"
                   placeholder="Email Address"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
                 />
                 <input
                   type="tel"
                   placeholder="Phone Number"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
                 />
                 
                 <button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold py-3 px-6 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-200"
+                  className="w-full bg-gradient-to-r from-red-600 to-purple-600 text-white font-bold py-3 px-6 rounded-lg hover:from-red-700 hover:to-purple-700 transition-all duration-200"
                 >
                   Download Now
                 </button>

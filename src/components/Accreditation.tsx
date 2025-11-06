@@ -114,7 +114,7 @@ export default function Accreditation() {
                 <div className="text-4xl mb-4">{body.logo}</div>
                 <h3 className="text-lg font-bold text-gray-900 mb-2">{body.name}</h3>
                 <p className="text-sm text-gray-600 mb-2">{body.fullName}</p>
-                <p className="text-sm font-medium text-blue-600">{body.description}</p>
+                <p className="text-sm font-medium text-red-600">{body.description}</p>
                 <div className="mt-3 text-xs text-gray-500">{body.country}</div>
               </motion.div>
             ))}
@@ -152,7 +152,7 @@ export default function Accreditation() {
                       whileInView={{ scale: 1, opacity: 1 }}
                       viewport={{ once: true }}
                       transition={{ delay: index * 0.2 }}
-                      className="w-16 h-16 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full flex items-center justify-center text-white font-bold text-lg mb-4 shadow-lg"
+                      className="w-16 h-16 bg-gradient-to-r from-red-600 to-indigo-600 rounded-full flex items-center justify-center text-white font-bold text-lg mb-4 shadow-lg"
                     >
                       {step.step}
                     </motion.div>
@@ -169,10 +169,10 @@ export default function Accreditation() {
                         whileInView={{ scaleX: 1, opacity: 1 }}
                         viewport={{ once: true }}
                         transition={{ delay: index * 0.2 + 0.3 }}
-                        className="absolute top-8 left-full w-full h-0.5 bg-gradient-to-r from-blue-300 to-indigo-300 origin-left"
+                        className="absolute top-8 left-full w-full h-0.5 bg-gradient-to-r from-red-300 to-indigo-300 origin-left"
                         style={{ width: 'calc(100vw / 6 - 64px)' }}
                       >
-                        <div className="absolute right-0 top-1/2 transform -translate-y-1/2 w-0 h-0 border-l-4 border-l-blue-400 border-t-2 border-b-2 border-t-transparent border-b-transparent"></div>
+                        <div className="absolute right-0 top-1/2 transform -translate-y-1/2 w-0 h-0 border-l-4 border-l-red-400 border-t-2 border-b-2 border-t-transparent border-b-transparent"></div>
                       </motion.div>
                     )}
                   </div>
@@ -191,7 +191,7 @@ export default function Accreditation() {
                   transition={{ delay: index * 0.1 }}
                   className="flex items-center space-x-4"
                 >
-                  <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">
+                  <div className="w-12 h-12 bg-gradient-to-r from-red-600 to-indigo-600 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">
                     {step.step}
                   </div>
                   <div className="flex-1">
@@ -202,7 +202,7 @@ export default function Accreditation() {
                     <p className="text-sm text-gray-600">{step.description}</p>
                   </div>
                   {index < processSteps.length - 1 && (
-                    <div className="absolute left-6 mt-12 w-0.5 h-6 bg-blue-200"></div>
+                    <div className="absolute left-6 mt-12 w-0.5 h-6 bg-red-200"></div>
                   )}
                 </motion.div>
               ))}
@@ -217,7 +217,7 @@ export default function Accreditation() {
           viewport={{ once: true }}
           className="text-center"
         >
-          <div className="bg-gradient-to-r from-gray-50 to-blue-50 rounded-2xl p-8 border border-gray-100">
+          <div className="bg-gradient-to-r from-gray-50 to-red-50 rounded-2xl p-8 border border-gray-100">
             <div className="max-w-3xl mx-auto">
               <h3 className="text-2xl font-bold text-gray-900 mb-4">
                 Global Validity. No Limitations.

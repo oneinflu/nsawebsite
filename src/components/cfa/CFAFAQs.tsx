@@ -67,10 +67,10 @@ const CFAFAQs: React.FC = () => {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       
-      <section className="py-20 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 relative overflow-hidden">
+      <section className="py-20 bg-gradient-to-br from-slate-50 via-red-50 to-indigo-100 relative overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse"></div>
+          <div className="absolute top-20 left-10 w-72 h-72 bg-red-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse"></div>
           <div className="absolute bottom-20 right-10 w-72 h-72 bg-indigo-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse delay-1000"></div>
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-purple-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse delay-2000"></div>
         </div>
@@ -85,13 +85,13 @@ const CFAFAQs: React.FC = () => {
             className="text-center mb-16"
           >
             <div className="flex items-center justify-center mb-6">
-              <div className="bg-gradient-to-r from-blue-500 to-indigo-600 p-3 rounded-2xl shadow-lg">
+              <div className="bg-gradient-to-r from-red-500 to-indigo-600 p-3 rounded-2xl shadow-lg">
                 <QuestionMarkCircleIcon className="h-8 w-8 text-white" />
               </div>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               Frequently Asked{' '}
-              <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-red-600 to-indigo-600 bg-clip-text text-transparent">
                 Questions
               </span>
             </h2>
@@ -113,7 +113,7 @@ const CFAFAQs: React.FC = () => {
               >
                 <button
                   onClick={() => toggleFAQ(faq.id)}
-                  className="w-full px-8 py-6 text-left flex items-center justify-between hover:bg-blue-50/50 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-inset"
+                  className="w-full px-8 py-6 text-left flex items-center justify-between hover:bg-red-50/50 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-inset"
                   aria-expanded={openFAQ === faq.id}
                   aria-controls={`faq-answer-${faq.id}`}
                 >
@@ -125,7 +125,7 @@ const CFAFAQs: React.FC = () => {
                     transition={{ duration: 0.3 }}
                     className="flex-shrink-0"
                   >
-                    <ChevronDownIcon className="h-6 w-6 text-blue-600" />
+                    <ChevronDownIcon className="h-6 w-6 text-red-600" />
                   </motion.div>
                 </button>
                 
@@ -140,7 +140,7 @@ const CFAFAQs: React.FC = () => {
                       className="overflow-hidden"
                     >
                       <div className="px-8 pb-6 pt-2">
-                        <div className="h-px bg-gradient-to-r from-blue-200 to-indigo-200 mb-4"></div>
+                        <div className="h-px bg-gradient-to-r from-red-200 to-indigo-200 mb-4"></div>
                         <p className="text-gray-700 leading-relaxed text-base md:text-lg">
                           {faq.answer}
                         </p>
@@ -160,25 +160,25 @@ const CFAFAQs: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="text-center mt-16"
           >
-            <div className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-8 shadow-xl">
+            <div className="bg-gradient-to-r from-red-600 to-indigo-600 rounded-2xl p-8 shadow-xl">
               <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
                 Still Have Questions?
               </h3>
-              <p className="text-blue-100 mb-6 text-lg">
+              <p className="text-red-100 mb-6 text-lg">
                 Our CFA experts are here to guide you through your certification journey
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="bg-white text-blue-600 px-8 py-3 rounded-xl font-semibold hover:bg-blue-50 transition-colors duration-200 shadow-lg"
+                  className="bg-white text-red-600 px-8 py-3 rounded-xl font-semibold hover:bg-red-50 transition-colors duration-200 shadow-lg"
                 >
                   Schedule Free Consultation
                 </motion.button>
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="bg-blue-700 text-white px-8 py-3 rounded-xl font-semibold hover:bg-blue-800 transition-colors duration-200 border-2 border-blue-500"
+                  className="bg-red-700 text-white px-8 py-3 rounded-xl font-semibold hover:bg-red-800 transition-colors duration-200 border-2 border-red-500"
                 >
                   Download CFA Guide
                 </motion.button>

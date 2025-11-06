@@ -23,7 +23,7 @@ export default function CMAHero() {
 
   const keyBadges = [
     { icon: CheckCircleIcon, text: 'IMA® USA Certification', color: 'bg-violet-50 text-violet-700 border-violet-200' },
-    { icon: GlobeAltIcon, text: 'Global Opportunities (100+ Countries)', color: 'bg-blue-50 text-blue-700 border-blue-200' },
+    { icon: GlobeAltIcon, text: 'Global Opportunities (100+ Countries)', color: 'bg-red-50 text-red-700 border-red-200' },
     { icon: PlayCircleIcon, text: 'Live + Recorded Learning', color: 'bg-indigo-50 text-indigo-700 border-indigo-200' },
     { icon: UserGroupIcon, text: 'Big 4 & MNC Placements', color: 'bg-purple-50 text-purple-700 border-purple-200' }
   ];

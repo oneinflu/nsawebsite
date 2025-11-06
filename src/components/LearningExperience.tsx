@@ -87,7 +87,7 @@ const LearningExperience = () => {
       icon: Play,
       title: "Live Classes + Recorded Access",
       description: "Never miss a concept — learn on your schedule.",
-      color: "from-blue-500 to-indigo-600"
+      color: "from-red-500 to-indigo-600"
     },
     {
       icon: MessageCircle,
@@ -162,7 +162,7 @@ const LearningExperience = () => {
                         <div className="grid grid-cols-3 gap-2 mt-6">
                           <div className="h-16 bg-indigo-100 rounded"></div>
                           <div className="h-16 bg-purple-100 rounded"></div>
-                          <div className="h-16 bg-blue-100 rounded"></div>
+                          <div className="h-16 bg-red-100 rounded"></div>
                         </div>
                       </div>
                     </div>

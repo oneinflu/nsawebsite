@@ -36,7 +36,7 @@ const CIAFAQ = () => {
       id: 'exams',
       title: 'Exam Windows',
       icon: Calendar,
-      color: 'from-blue-500 to-blue-600',
+      color: 'from-red-500 to-red-600',
       description: 'Testing schedule and availability'
     },
     {
@@ -220,7 +220,7 @@ const CIAFAQ = () => {
   return (
     <>
       {generateFAQSchema()}
-      <section className="py-20 bg-gradient-to-br from-slate-50 via-white to-blue-50">
+      <section className="py-20 bg-gradient-to-br from-slate-50 via-white to-red-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
           <motion.div
@@ -232,7 +232,7 @@ const CIAFAQ = () => {
             <div className="flex items-center justify-center mb-6">
               <Shield className="w-12 h-12 text-green-600 mr-4" />
               <h2 className="text-4xl md:text-5xl font-bold text-slate-900">
-                CIA <span className="bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">FAQs</span>
+                CIA <span className="bg-gradient-to-r from-green-600 to-red-600 bg-clip-text text-transparent">FAQs</span>
               </h2>
             </div>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto mb-8">
@@ -313,7 +313,7 @@ const CIAFAQ = () => {
                         <div className="flex items-center justify-between">
                           <div className="flex items-start">
                             <div className={`w-2 h-2 rounded-full mr-4 mt-3 ${
-                              faq.priority === 'high' ? 'bg-red-500' : 'bg-blue-500'
+                              faq.priority === 'high' ? 'bg-red-500' : 'bg-red-500'
                             }`}></div>
                             <h4 className="text-lg font-semibold text-slate-800 pr-4">{faq.question}</h4>
                           </div>
@@ -388,7 +388,7 @@ const CIAFAQ = () => {
               transition={{ delay: 0.1 }}
               className="bg-white rounded-xl p-6 shadow-md text-center"
             >
-              <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mx-auto mb-4">
+              <div className="w-12 h-12 bg-gradient-to-r from-red-500 to-red-600 rounded-xl flex items-center justify-center mx-auto mb-4">
                 <Calendar className="w-6 h-6 text-white" />
               </div>
               <div className="text-2xl font-bold text-slate-900 mb-2">365</div>
@@ -429,7 +429,7 @@ const CIAFAQ = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mt-16 bg-gradient-to-r from-green-600 to-blue-600 rounded-2xl p-8 text-white text-center"
+            className="mt-16 bg-gradient-to-r from-green-600 to-red-600 rounded-2xl p-8 text-white text-center"
           >
             <h3 className="text-2xl font-bold mb-4">Still Have Questions?</h3>
             <p className="text-lg opacity-90 mb-6">

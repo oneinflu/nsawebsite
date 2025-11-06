@@ -46,7 +46,7 @@ const ACCAComparisonMatrix = () => {
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'excellent': return 'bg-green-100 text-green-800 border-green-200';
-      case 'good': return 'bg-blue-100 text-blue-800 border-blue-200';
+      case 'good': return 'bg-red-100 text-red-800 border-red-200';
       case 'medium': return 'bg-yellow-100 text-yellow-800 border-yellow-200';
       case 'limited': return 'bg-red-100 text-red-800 border-red-200';
       case 'long': return 'bg-orange-100 text-orange-800 border-orange-200';
@@ -58,7 +58,7 @@ const ACCAComparisonMatrix = () => {
    
 
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+    <section className="py-20 bg-gradient-to-br from-gray-50 to-red-50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -69,9 +69,9 @@ const ACCAComparisonMatrix = () => {
           className="text-center mb-12"
         >
           <div className="flex items-center justify-center mb-6">
-            <ChartBarIcon className="w-12 h-12 text-blue-600 mr-4" />
+            <ChartBarIcon className="w-12 h-12 text-red-600 mr-4" />
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
-              ACCA vs CA India vs CMA vs <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">CPA</span>
+              ACCA vs CA India vs CMA vs <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-purple-600">CPA</span>
             </h2>
           </div>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -116,7 +116,7 @@ const ACCAComparisonMatrix = () => {
                 className="grid grid-cols-5 gap-4 p-6 hover:bg-gray-50 transition-colors duration-300"
               >
                 <div className="font-semibold text-gray-900 flex items-center">
-                  <div className="w-3 h-8 bg-gradient-to-b from-blue-500 to-purple-500 rounded-full mr-3"></div>
+                  <div className="w-3 h-8 bg-gradient-to-b from-red-500 to-purple-500 rounded-full mr-3"></div>
                   {feature}
                 </div>
                 {qualifications.map((qual) => {
@@ -174,7 +174,7 @@ const ACCAComparisonMatrix = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="bg-gradient-to-r from-green-50 to-blue-50 rounded-3xl p-8 mb-12 border-2 border-green-200"
+          className="bg-gradient-to-r from-green-50 to-red-50 rounded-3xl p-8 mb-12 border-2 border-green-200"
         >
           <div className="text-center mb-8">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">
@@ -217,14 +217,14 @@ const ACCAComparisonMatrix = () => {
           transition={{ duration: 0.6 }}
           className="text-center"
         >
-          <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-3xl p-8 md:p-12 text-white relative overflow-hidden">
+          <div className="bg-gradient-to-r from-red-600 via-purple-600 to-pink-600 rounded-3xl p-8 md:p-12 text-white relative overflow-hidden">
             <div className="absolute inset-0 bg-black/10"></div>
             <div className="relative z-10">
               <div className="text-6xl mb-6">🎯</div>
               <h3 className="text-3xl md:text-4xl font-bold mb-4">
                 Still Confused Which One to Choose?
               </h3>
-              <p className="text-blue-100 text-lg mb-8 max-w-2xl mx-auto">
+              <p className="text-red-100 text-lg mb-8 max-w-2xl mx-auto">
                 Take our 30-second Course Fit Quiz and get personalized recommendations based on your background and goals
               </p>
               
@@ -233,7 +233,7 @@ const ACCAComparisonMatrix = () => {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => setShowQuiz(true)}
-                  className="bg-white text-blue-600 px-8 py-4 rounded-2xl font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 inline-flex items-center justify-center"
+                  className="bg-white text-red-600 px-8 py-4 rounded-2xl font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 inline-flex items-center justify-center"
                 >
                   <span className="mr-2">🎯</span>
                   Take 30-sec Course Fit Quiz
@@ -242,14 +242,14 @@ const ACCAComparisonMatrix = () => {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-2xl font-bold text-lg hover:bg-white hover:text-blue-600 transition-all duration-300 inline-flex items-center justify-center"
+                  className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-2xl font-bold text-lg hover:bg-white hover:text-red-600 transition-all duration-300 inline-flex items-center justify-center"
                 >
                   <span className="mr-2">📞</span>
                   Book Free Counselling
                 </motion.button>
               </div>
 
-              <div className="mt-8 text-blue-200 text-sm">
+              <div className="mt-8 text-red-200 text-sm">
                 ⚡ Get instant results | 🎯 Personalized recommendations | 📞 Free expert guidance
               </div>
             </div>
@@ -288,7 +288,7 @@ const ACCAComparisonMatrix = () => {
                       // Here you would redirect to the actual quiz
                       setShowQuiz(false);
                     }}
-                    className="flex-1 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg transition-all"
+                    className="flex-1 bg-gradient-to-r from-red-600 to-purple-600 text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg transition-all"
                   >
                     Start Quiz
                   </button>

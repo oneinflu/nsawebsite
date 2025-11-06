@@ -97,10 +97,10 @@ export default function ScrollLeadCapture() {
           </button>
 
           {/* Header */}
-          <div className="bg-gradient-to-r from-blue-500 to-purple-600 text-white p-6 text-center relative overflow-hidden">
+          <div className="bg-gradient-to-r from-red-500 to-purple-600 text-white p-6 text-center relative overflow-hidden">
             {/* Animated background */}
             <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-500 opacity-50"
+              className="absolute inset-0 bg-gradient-to-r from-red-400 to-purple-500 opacity-50"
               animate={{
                 scale: [1, 1.05, 1],
                 rotate: [0, 2, 0]
@@ -150,7 +150,7 @@ export default function ScrollLeadCapture() {
             <div className="mb-6 space-y-3">
               {[
                 { icon: CheckCircle, text: "Expert career guidance", color: "text-green-500" },
-                { icon: Clock, text: "Quick 2-minute response", color: "text-blue-500" },
+                { icon: Clock, text: "Quick 2-minute response", color: "text-red-500" },
                 { icon: Phone, text: "Free consultation call", color: "text-purple-500" }
               ].map((item, index) => (
                 <motion.div
@@ -187,7 +187,7 @@ export default function ScrollLeadCapture() {
                 onClick={handleCounselling}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold py-4 px-6 rounded-xl transition-all flex items-center justify-center gap-3 shadow-lg"
+                className="w-full bg-gradient-to-r from-red-500 to-purple-600 hover:from-red-600 hover:to-purple-700 text-white font-semibold py-4 px-6 rounded-xl transition-all flex items-center justify-center gap-3 shadow-lg"
               >
                 <Phone className="w-5 h-5" />
                 Free Counselling
@@ -210,7 +210,7 @@ export default function ScrollLeadCapture() {
             {[...Array(4)].map((_, i) => (
               <motion.div
                 key={i}
-                className="absolute w-1 h-1 bg-blue-300 rounded-full opacity-40"
+                className="absolute w-1 h-1 bg-red-300 rounded-full opacity-40"
                 initial={{ 
                   x: Math.random() * 300,
                   y: Math.random() * 400,
@@ -233,7 +233,7 @@ export default function ScrollLeadCapture() {
 
           {/* Progress indicator (subtle) */}
           <motion.div
-            className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-blue-500 to-purple-600"
+            className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-red-500 to-purple-600"
             initial={{ width: 0 }}
             animate={{ width: "100%" }}
             transition={{ duration: 2, ease: "easeOut" }}

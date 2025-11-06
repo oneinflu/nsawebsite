@@ -129,12 +129,12 @@ export default function CMAFAQ() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-6">
-            <QuestionMarkCircleIcon className="w-8 h-8 text-blue-600" />
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-red-100 rounded-full mb-6">
+            <QuestionMarkCircleIcon className="w-8 h-8 text-red-600" />
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
             CMA{' '}
-            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-red-600 to-indigo-600 bg-clip-text text-transparent">
               FAQ
             </span>
           </h2>
@@ -158,7 +158,7 @@ export default function CMAFAQ() {
                 <h3 className="text-2xl font-bold text-slate-900 mb-2">
                   {category.category}
                 </h3>
-                <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full"></div>
+                <div className="w-20 h-1 bg-gradient-to-r from-red-600 to-indigo-600 rounded-full"></div>
               </div>
 
               {/* Questions */}
@@ -172,7 +172,7 @@ export default function CMAFAQ() {
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: questionIndex * 0.05 }}
-                      className="bg-slate-50 rounded-lg overflow-hidden border border-slate-200 hover:border-blue-300 transition-colors duration-200"
+                      className="bg-slate-50 rounded-lg overflow-hidden border border-slate-200 hover:border-red-300 transition-colors duration-200"
                     >
                       <button
                         onClick={() => toggleFAQ(globalIndex)}
@@ -220,7 +220,7 @@ export default function CMAFAQ() {
           transition={{ duration: 0.6, delay: 0.5 }}
           className="mt-16 text-center"
         >
-          <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8 md:p-12">
+          <div className="bg-gradient-to-r from-red-50 to-indigo-50 rounded-2xl p-8 md:p-12">
             <h3 className="text-3xl font-bold text-slate-900 mb-4">
               Still Have Questions?
             </h3>
@@ -232,14 +232,14 @@ export default function CMAFAQ() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-4 rounded-lg font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300"
+                className="bg-gradient-to-r from-red-600 to-indigo-600 text-white px-8 py-4 rounded-lg font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300"
               >
                 Book Free Consultation
               </motion.button>
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="border-2 border-blue-600 text-blue-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-50 transition-all duration-300"
+                className="border-2 border-red-600 text-red-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-red-50 transition-all duration-300"
               >
                 Chat with Expert
               </motion.button>

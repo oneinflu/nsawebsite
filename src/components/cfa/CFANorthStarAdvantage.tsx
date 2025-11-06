@@ -56,8 +56,8 @@ const featureCards: FeatureCard[] = [
     title: '1:1 Mentor Guidance',
     description: 'Personal mentorship from CFA Charterholders with industry experience',
     icon: UserGroupIcon,
-    color: 'from-blue-500 to-blue-600',
-    bgColor: 'from-blue-50 to-blue-100'
+    color: 'from-red-500 to-red-600',
+    bgColor: 'from-red-50 to-red-100'
   },
   {
     id: 'live-classes',
@@ -121,7 +121,7 @@ export default function CFANorthStarAdvantage() {
 
   if (!isClient) {
     return (
-      <section className="py-20 bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900">
+      <section className="py-20 bg-gradient-to-br from-slate-900 via-red-900 to-purple-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
@@ -134,7 +134,7 @@ export default function CFANorthStarAdvantage() {
   }
 
   return (
-    <section className="py-20 bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900 relative overflow-hidden">
+    <section className="py-20 bg-gradient-to-br from-slate-900 via-red-900 to-purple-900 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(59,130,246,0.1),transparent_50%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_70%,rgba(147,51,234,0.1),transparent_50%)]" />
@@ -148,17 +148,17 @@ export default function CFANorthStarAdvantage() {
         >
           {/* Header */}
           <motion.div variants={itemVariants} className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 bg-blue-500/20 text-blue-300 px-4 py-2 rounded-full text-sm font-medium mb-6">
+            <div className="inline-flex items-center gap-2 bg-red-500/20 text-red-300 px-4 py-2 rounded-full text-sm font-medium mb-6">
               <span className="text-2xl">6️⃣</span>
               <span>Training Excellence</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              NorthStar <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Advantage</span>
+              NorthStar <span className="bg-gradient-to-r from-red-400 to-purple-400 bg-clip-text text-transparent">Advantage</span>
             </h2>
             <p className="text-xl text-slate-300 max-w-3xl mx-auto mb-4">
               Training &amp; Mentorship Layer
             </p>
-            <p className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+            <p className="text-2xl font-bold bg-gradient-to-r from-red-400 to-purple-400 bg-clip-text text-transparent">
               Learn like analysts. Train like professionals
             </p>
           </motion.div>
@@ -183,7 +183,7 @@ export default function CFANorthStarAdvantage() {
                       transition={{ duration: 0.5 }}
                       className="relative inline-block"
                     >
-                      <div className="w-32 h-32 mx-auto mb-4 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 p-1">
+                      <div className="w-32 h-32 mx-auto mb-4 rounded-full bg-gradient-to-r from-red-500 to-purple-500 p-1">
                         <div className="w-full h-full rounded-full bg-slate-200 flex items-center justify-center text-4xl font-bold text-slate-600">
                           {mentorProfiles[activeMentor].name.split(' ').map(n => n[0]).join('')}
                         </div>
@@ -202,7 +202,7 @@ export default function CFANorthStarAdvantage() {
                       <h4 className="text-xl font-bold text-white mb-2">
                         {mentorProfiles[activeMentor].name}
                       </h4>
-                      <p className="text-blue-300 font-medium mb-2">
+                      <p className="text-red-300 font-medium mb-2">
                         {mentorProfiles[activeMentor].title}
                       </p>
                       <p className="text-slate-300 text-sm mb-2">
@@ -233,7 +233,7 @@ export default function CFANorthStarAdvantage() {
                     {/* Dashboard Header */}
                     <div className="flex items-center justify-between mb-6 pb-4 border-b border-slate-200">
                       <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg flex items-center justify-center">
+                        <div className="w-10 h-10 bg-gradient-to-r from-red-500 to-purple-500 rounded-lg flex items-center justify-center">
                           <AcademicCapIcon className="w-6 h-6 text-white" />
                         </div>
                         <div>
@@ -261,10 +261,10 @@ export default function CFANorthStarAdvantage() {
                       <div>
                         <div className="flex justify-between text-sm mb-1">
                           <span className="text-slate-700">Quantitative Methods</span>
-                          <span className="text-blue-600">82%</span>
+                          <span className="text-red-600">82%</span>
                         </div>
                         <div className="w-full bg-slate-200 rounded-full h-2">
-                          <div className="bg-blue-500 h-2 rounded-full" style={{width: '82%'}}></div>
+                          <div className="bg-red-500 h-2 rounded-full" style={{width: '82%'}}></div>
                         </div>
                       </div>
                       <div>
@@ -280,9 +280,9 @@ export default function CFANorthStarAdvantage() {
 
                     {/* Analytics Cards */}
                     <div className="grid grid-cols-2 gap-4">
-                      <div className="bg-blue-50 rounded-lg p-4 text-center">
-                        <ChartBarIcon className="w-8 h-8 text-blue-600 mx-auto mb-2" />
-                        <p className="text-2xl font-bold text-blue-600">156</p>
+                      <div className="bg-red-50 rounded-lg p-4 text-center">
+                        <ChartBarIcon className="w-8 h-8 text-red-600 mx-auto mb-2" />
+                        <p className="text-2xl font-bold text-red-600">156</p>
                         <p className="text-sm text-slate-600">Hours Studied</p>
                       </div>
                       <div className="bg-green-50 rounded-lg p-4 text-center">
@@ -328,7 +328,7 @@ export default function CFANorthStarAdvantage() {
 
           {/* Bottom CTA */}
           <motion.div variants={itemVariants} className="text-center mt-16">
-            <div className="bg-gradient-to-r from-blue-600/20 to-purple-600/20 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+            <div className="bg-gradient-to-r from-red-600/20 to-purple-600/20 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
               <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
                 Experience the NorthStar Difference
               </h3>
@@ -339,7 +339,7 @@ export default function CFANorthStarAdvantage() {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="bg-gradient-to-r from-blue-500 to-purple-500 text-white font-bold py-4 px-8 rounded-xl hover:from-blue-600 hover:to-purple-600 transition-all duration-200 flex items-center gap-3 shadow-lg"
+                  className="bg-gradient-to-r from-red-500 to-purple-500 text-white font-bold py-4 px-8 rounded-xl hover:from-red-600 hover:to-purple-600 transition-all duration-200 flex items-center gap-3 shadow-lg"
                 >
                   <PlayIcon className="w-6 h-6" />
                   Watch Demo Class

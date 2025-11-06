@@ -283,7 +283,7 @@ const GlobalCareerPath: React.FC = () => {
   const activeCategories = categories.find(cat => cat.id === activeCategory);
 
   return (
-    <section className="py-16 bg-gradient-to-br from-gray-50 to-blue-50">
+    <section className="py-16 bg-gradient-to-br from-gray-50 to-red-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -298,7 +298,7 @@ const GlobalCareerPath: React.FC = () => {
             <div className="lg:text-left">
               <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
                 Build Your Global Career Path
-                <span className="block text-blue-600">Start from Any Course.</span>
+                <span className="block text-red-600">Start from Any Course.</span>
               </h2>
               <p className="text-xl text-gray-600 max-w-2xl">
                 Choose your stream and see where each qualification can take you.
@@ -307,7 +307,7 @@ const GlobalCareerPath: React.FC = () => {
             <div className="mt-6 lg:mt-0">
               <Link
                 href="/career-fit-quiz"
-                className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 shadow-lg hover:shadow-xl"
+                className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-red-600 to-indigo-600 text-white font-semibold rounded-lg hover:from-red-700 hover:to-indigo-700 transition-all duration-300 shadow-lg hover:shadow-xl"
               >
                 Find My Fit →
               </Link>
@@ -332,8 +332,8 @@ const GlobalCareerPath: React.FC = () => {
                   onClick={() => handleCategoryChange(category.id)}
                   className={`flex items-center space-x-2 px-6 py-3 rounded-full font-medium transition-all duration-300 whitespace-nowrap ${
                     activeCategory === category.id
-                      ? 'bg-blue-600 text-white shadow-lg'
-                      : 'bg-white text-gray-600 hover:bg-blue-50 hover:text-blue-600 shadow-md'
+                      ? 'bg-red-600 text-white shadow-lg'
+                      : 'bg-white text-gray-600 hover:bg-red-50 hover:text-red-600 shadow-md'
                   }`}
                 >
                   <IconComponent className="w-5 h-5" />
@@ -367,8 +367,8 @@ const GlobalCareerPath: React.FC = () => {
                   onClick={() => handleCareerClick(career)}
                 >
                   <div className="flex items-start justify-between mb-4">
-                    <div className="p-3 bg-blue-50 rounded-lg">
-                      <IconComponent className="w-6 h-6 text-blue-600" />
+                    <div className="p-3 bg-red-50 rounded-lg">
+                      <IconComponent className="w-6 h-6 text-red-600" />
                     </div>
                     <span className="text-sm font-semibold text-green-600 bg-green-50 px-3 py-1 rounded-full">
                       {career.salaryRange}
@@ -387,7 +387,7 @@ const GlobalCareerPath: React.FC = () => {
                     {career.courses.map((course) => (
                       <span
                         key={course}
-                        className="px-3 py-1 bg-blue-100 text-blue-700 text-sm font-medium rounded-full"
+                        className="px-3 py-1 bg-red-100 text-red-700 text-sm font-medium rounded-full"
                       >
                         {course}
                       </span>
@@ -412,7 +412,7 @@ const GlobalCareerPath: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-8 text-white"
+          className="text-center bg-gradient-to-r from-red-600 to-indigo-600 rounded-2xl p-8 text-white"
         >
           <h3 className="text-3xl font-bold mb-4">
             Want to see where you fit?
@@ -425,7 +425,7 @@ const GlobalCareerPath: React.FC = () => {
           </p>
           <Link
             href="/book-counselling"
-            className="inline-flex items-center space-x-2 bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-50 transition-all duration-300 shadow-lg hover:shadow-xl"
+            className="inline-flex items-center space-x-2 bg-white text-red-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-50 transition-all duration-300 shadow-lg hover:shadow-xl"
           >
             <ChatBubbleLeftRightIcon className="w-5 h-5" />
             <span>Get My Career Roadmap</span>
@@ -478,14 +478,14 @@ const GlobalCareerPath: React.FC = () => {
                 
                 <div>
                   <h4 className="font-semibold text-gray-900 mb-3 flex items-center">
-                    <AcademicCapIcon className="w-5 h-5 mr-2 text-blue-600" />
+                    <AcademicCapIcon className="w-5 h-5 mr-2 text-red-600" />
                     Recommended Courses
                   </h4>
                   <div className="flex flex-wrap gap-2">
                     {selectedCareer.courses.map((course) => (
                       <span
                         key={course}
-                        className="px-3 py-1 bg-blue-100 text-blue-700 text-sm font-medium rounded-full"
+                        className="px-3 py-1 bg-red-100 text-red-700 text-sm font-medium rounded-full"
                       >
                         {course}
                       </span>
@@ -513,7 +513,7 @@ const GlobalCareerPath: React.FC = () => {
                 <div className="grid grid-cols-2 gap-2">
                   {selectedCareer.topCompanies.map((company) => (
                     <div key={company} className="flex items-center space-x-2">
-                      <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+                      <div className="w-2 h-2 bg-red-600 rounded-full"></div>
                       <span className="text-gray-700">{company}</span>
                     </div>
                   ))}
@@ -523,7 +523,7 @@ const GlobalCareerPath: React.FC = () => {
               <div className="flex space-x-4">
                 <Link
                   href={`/career-roadmap/${selectedCareer.slug}`}
-                  className="flex-1 bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors text-center"
+                  className="flex-1 bg-red-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-red-700 transition-colors text-center"
                 >
                   View Career Roadmap
                 </Link>
