@@ -1,0 +1,136 @@
+'use client';
+
+import React, { createContext, useContext, useState, ReactNode } from 'react';
+
+interface LeadFormContextType {
+  isOpen: boolean;
+  showThankYou: boolean;
+  isSendOtp: boolean;
+  openLeadForm: (type?: string, isSendOtp?: boolean) => void;
+  closeLeadForm: () => void;
+  openThankYouPage: () => void;
+  closeThankYouPage: () => void;
+  leadVerified: boolean;
+  setLeadVerified: (verified: boolean) => void;
+  formStep: 'details' | 'otp' | 'thankyou';
+  setFormStep: (step: 'details' | 'otp' | 'thankyou') => void;
+  formData: {
+    name: string;
+    email: string;
+    phone: string;
+    location: string;
+    utm_source: string;
+    utm_medium: string;
+    utm_campaign: string;
+    utm_term: string;
+    utm_content: string;
+    dob: string;
+    gender: string;
+    education: string;
+    professional: string;
+    course: string;
+    studyMode: string;
+    agreeToTerms: boolean;
+    howHeard: string;
+  };
+  updateFormData: (data: Partial<LeadFormContextType['formData']>) => void;
+  formType: string;
+}
+
+const defaultFormData = {
+  name: '',
+  email: '',
+  phone: '',
+  location: '',
+  utm_source: '',
+  utm_medium: '',
+  utm_campaign: '',
+  utm_term: '',
+  utm_content: '',
+  dob: '',
+  gender: '',
+  education: '',
+  professional: '',
+  course: '',
+  studyMode: 'Online',
+  agreeToTerms: false,
+  howHeard: '',
+};
+
+const LeadFormContext = createContext<LeadFormContextType | undefined>(undefined);
+
+export const LeadFormProvider = ({ children }: { children: ReactNode }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [showThankYou, setShowThankYou] = useState(false);
+  const [formStep, setFormStep] = useState<'details' | 'otp' | 'thankyou'>('details');
+  const [formData, setFormData] = useState(defaultFormData);
+  const [formType, setFormType] = useState('general');
+  const [isSendOtp, setIsSendOtp] = useState(true);
+  const [leadVerified, setLeadVerified] = useState(false);
+
+  const openLeadForm = (type = 'general') => {
+    setFormType(type);
+    setFormStep('details');
+    setIsSendOtp(true);
+    setLeadVerified(false);
+    setIsOpen(true);
+    document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+  };
+
+  const closeLeadForm = () => {
+    setIsOpen(false);
+    setFormStep('details');
+    setFormData(defaultFormData);
+    setIsSendOtp(false);
+    document.body.style.overflow = ''; // Re-enable scrolling
+  };
+
+  const openThankYouPage = () => {
+    setIsOpen(false);
+    setShowThankYou(true);
+    setFormStep('thankyou');
+    document.body.style.overflow = 'hidden'; // Prevent scrolling
+  };
+
+  const closeThankYouPage = () => {
+    setShowThankYou(false);
+    setFormStep('details');
+    setFormData(defaultFormData);
+    document.body.style.overflow = ''; // Re-enable scrolling
+  };
+
+  const updateFormData = (data: Partial<typeof formData>) => {
+    setFormData(prev => ({ ...prev, ...data }));
+  };
+
+  return (
+    <LeadFormContext.Provider
+      value={{
+        isOpen,
+        showThankYou,
+        isSendOtp,
+        openLeadForm,
+        closeLeadForm,
+        openThankYouPage,
+        closeThankYouPage,
+        leadVerified,
+        setLeadVerified,
+        formStep,
+        setFormStep,
+        formData,
+        updateFormData,
+        formType,
+      }}
+    >
+      {children}
+    </LeadFormContext.Provider>
+  );
+};
+
+export const useLeadForm = () => {
+  const context = useContext(LeadFormContext);
+  if (context === undefined) {
+    throw new Error('useLeadForm must be used within a LeadFormProvider');
+  }
+  return context;
+};
