@@ -89,14 +89,49 @@ const DetailsForm: React.FC<DetailsFormProps> = ({
           <label htmlFor="phone" className="block text-sm font-medium text-black mb-1">
             Phone Number
           </label>
-          <PhoneInput
-            country={"in"}
-            value={formData.phone}
-            onChange={handlePhoneChange}
-            containerClass="w-full"
-            inputClass="w-full px-4 py-2.5 text-black placeholder-gray-500 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
-          />
+          <div className="phone-input-no-dial">
+            <PhoneInput
+              country={"in"}
+              value={formData.phone}
+              onChange={(value) => handlePhoneChange(value)}
+              enableSearch
+              autoFormat
+              placeholder="Enter phone number"
+              containerClass="w-full"
+              inputClass="w-full px-4 py-2.5 text-black placeholder-gray-500 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+              inputProps={{ name: "phone", id: "phone" }}
+            />
+          </div>
           {phoneError && <p className="text-red-500 text-sm mt-1">{phoneError}</p>}
+          {/* Hide dial code text next to flag, while keeping country selection */}
+          <style jsx>{`
+            .phone-input-no-dial :global(.selected-dial-code) {
+              display: none !important;
+            }
+            /* Align styles to match other inputs */
+            .phone-input-no-dial :global(.react-tel-input .form-control) {
+              width: 100% !important;
+              border-radius: 0.375rem !important; /* rounded-md */
+              border: 1px solid #D1D5DB !important; /* gray-300 */
+              padding: 0.625rem 1rem !important; /* py-2.5 px-4 */
+              color: #000 !important;
+            }
+            .phone-input-no-dial :global(.react-tel-input .form-control::placeholder) {
+              color: #6B7280 !important; /* gray-500 */
+            }
+            .phone-input-no-dial :global(.react-tel-input .form-control:focus) {
+              outline: none !important;
+              box-shadow: 0 0 0 2px rgba(220, 38, 38, 0.5) !important; /* red-600 ring */
+              border-color: #DC2626 !important; /* red-600 */
+            }
+            .phone-input-no-dial :global(.react-tel-input .flag-dropdown) {
+              border: 1px solid #D1D5DB !important; /* gray-300 */
+              border-right: none !important;
+              background: #ffffff !important;
+              border-top-left-radius: 0.375rem !important;
+              border-bottom-left-radius: 0.375rem !important;
+            }
+          `}</style>
         </div>
 
         <div className="mb-4">
