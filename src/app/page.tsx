@@ -13,7 +13,7 @@ import PricingROI from "@/components/PricingROI";
 import LeadMagnet from "@/components/LeadMagnet";
 import FAQ from '@/components/FAQ';
 import Accreditation from '@/components/Accreditation';
-import FinalCTA from '@/components/FinalCTA';
+
 
 
 export default function Home() {
@@ -31,7 +31,7 @@ export default function Home() {
       <LeadMagnet />
       <FAQ />
       <Accreditation />
-      <FinalCTA />
+      
     </main>
   );
 }

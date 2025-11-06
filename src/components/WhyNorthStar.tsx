@@ -14,6 +14,7 @@ import {
   ChevronRightIcon,
   GlobeAltIcon
 } from '@heroicons/react/24/outline';
+import LeadFormButton from './LeadFormButton';
 
 interface TestimonialVideo {
   id: string;
@@ -105,10 +106,7 @@ const WhyNorthStar: React.FC = () => {
     }
   };
 
-  const scrollToResults = () => {
-    // This would scroll to Section 3 or open Success Stories Modal
-    console.log('Scrolling to results section...');
-  };
+  
 
   return (
     <section className="py-20 bg-gradient-to-br from-slate-50 via-white to-red-50 relative overflow-hidden">
@@ -342,15 +340,18 @@ const WhyNorthStar: React.FC = () => {
 
         {/* CTA Section */}
         <div className="text-center">
-          <button 
-            onClick={scrollToResults}
-            className="group bg-gradient-to-r from-red-600 to-purple-600 hover:from-red-700 hover:to-purple-700 text-white font-bold py-4 px-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
-          >
+           <LeadFormButton
+              formType="download-placement-report"
+              isSendOtp={true}
+             variant='primary'
+             
+             
+            >
             <span className="flex items-center space-x-2">
               <span>Prove It To Me → Show Student Results</span>
               <ChevronRightIcon className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
             </span>
-          </button>
+          </LeadFormButton>
         </div>
       </div>
 

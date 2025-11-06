@@ -139,7 +139,7 @@ export default function WhyCMA() {
             </LeadFormButton>
            
             <LeadFormButton
-              formType='cma'
+              formType='general'
               variant='outline'
               className='text-base md:text-lg'
               isSendOtp={true}

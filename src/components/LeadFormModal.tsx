@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 import React, { useState, useEffect, useRef } from "react";
 import { useLeadForm } from "@/context/LeadFormContext";
@@ -49,7 +50,7 @@ const LeadFormModal = () => {
   const [editPhoneValue, setEditPhoneValue] = useState("");
   const [editDialCode, setEditDialCode] = useState("91");
   const inputRef = useRef<HTMLInputElement>(null);
-  const [autocomplete, setAutocomplete] =
+  const [, setAutocomplete] =
     useState<google.maps.places.Autocomplete | null>(null);
   const [ipAddress, setIpAddress] = useState("");
   const [sessionReferrer, setSessionReferrer] = useState("");

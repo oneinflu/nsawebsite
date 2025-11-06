@@ -86,17 +86,7 @@ const Hero: React.FC = () => {
     anywhere: { id: 'anywhere', name: 'Anywhere', flag: '🌎', salary: 'Global Opportunities', currency: 'Multi' }
   };
 
-  const trustLogos = [
-    { name: 'Deloitte', logo: 'https://via.placeholder.com/120x40/000000/FFFFFF?text=Deloitte' },
-    { name: 'EY', logo: 'https://via.placeholder.com/120x40/FFD320/000000?text=EY' },
-    { name: 'KPMG', logo: 'https://via.placeholder.com/120x40/00338D/FFFFFF?text=KPMG' },
-    { name: 'PwC', logo: 'https://via.placeholder.com/120x40/FF6600/FFFFFF?text=PwC' },
-    { name: 'IMA', logo: 'https://via.placeholder.com/120x40/0066CC/FFFFFF?text=IMA' },
-    { name: 'AICPA', logo: 'https://via.placeholder.com/120x40/003366/FFFFFF?text=AICPA' },
-    { name: 'ACCA', logo: 'https://via.placeholder.com/120x40/7B68EE/FFFFFF?text=ACCA' },
-    { name: 'Amazon', logo: 'https://via.placeholder.com/120x40/FF9900/000000?text=Amazon' }
-  ];
-
+  
   // Animate statistics on mount
   useEffect(() => {
     const animateStats = () => {
