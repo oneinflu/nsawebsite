@@ -58,12 +58,12 @@ export default function GlobalPreloader({
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3 }}
         >
-          {/* Background similar to Hero */}
+          {/* Background image behind gradient */}
           <div
             className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: "url('/bg-hero.avif')" }}
+            style={{ backgroundImage: "url('/nsa.webp')" }}
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-black/100 via-red-900/100 to-black/100" />
+          <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-red-900/50 to-black/80" />
 
           {/* Centered content */}
           <div className="relative h-full w-full flex items-center justify-center">
