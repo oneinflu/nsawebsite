@@ -1,30 +1,16 @@
+/* eslint-disable @next/next/no-img-element */
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
-import { MapPin, ArrowRight, TrendingUp, Users, Globe, CheckCircle, Star, Building, Award, Target } from 'lucide-react';
+import  { useState, useEffect, useRef } from 'react';
+import {  ArrowRight,  Users,  CheckCircle, Star, Building, Award, Target } from 'lucide-react';
 
 const GlobalCareerSuccess = () => {
   const [activeStep, setActiveStep] = useState(0);
-  const [hoveredPin, setHoveredPin] = useState(null);
-  const [visibleCards, setVisibleCards] = useState(new Set());
+ 
   const sectionRef = useRef<HTMLDivElement>(null);
 
   // Company logos for carousel
-  const companyLogos = [
-    { name: 'Deloitte', tier: 'Big 4' },
-    { name: 'EY', tier: 'Big 4' },
-    { name: 'KPMG', tier: 'Big 4' },
-    { name: 'PwC', tier: 'Big 4' },
-    { name: 'Amazon', tier: 'MNC' },
-    { name: 'Accenture', tier: 'MNC' },
-    { name: 'Wipro', tier: 'MNC' },
-    { name: 'Flipkart', tier: 'MNC' },
-    { name: 'Microsoft', tier: 'MNC' },
-    { name: 'Google', tier: 'MNC' },
-    { name: 'JP Morgan', tier: 'Banking' },
-    { name: 'Goldman Sachs', tier: 'Banking' }
-  ];
-
+  
   // Placement pipeline steps
   const placementSteps = [
     { phase: 'Train', description: 'Master concepts & questions', icon: Award },
@@ -35,82 +21,7 @@ const GlobalCareerSuccess = () => {
     { phase: 'Get Hired', description: 'Offer support & documentation', icon: CheckCircle }
   ];
 
-  // Global career map pins
-  const careerPins = [
-    {
-      id: 1,
-      city: 'New York',
-      position: { left: '25%', top: '35%' },
-      alumni: {
-        name: 'Priya Sharma',
-        role: 'Senior Financial Analyst',
-        company: 'JP Morgan',
-        certificate: 'CPA US',
-        photo: '/api/placeholder/60/60'
-      }
-    },
-    {
-      id: 2,
-      city: 'Dubai',
-      position: { left: '60%', top: '45%' },
-      alumni: {
-        name: 'Rahul Patel',
-        role: 'Finance Manager',
-        company: 'Deloitte',
-        certificate: 'CMA US',
-        photo: '/api/placeholder/60/60'
-      }
-    },
-    {
-      id: 3,
-      city: 'London',
-      position: { left: '48%', top: '25%' },
-      alumni: {
-        name: 'Sneha Gupta',
-        role: 'Audit Associate',
-        company: 'EY',
-        certificate: 'ACCA',
-        photo: '/api/placeholder/60/60'
-      }
-    },
-    {
-      id: 4,
-      city: 'Mumbai',
-      position: { left: '70%', top: '55%' },
-      alumni: {
-        name: 'Amit Kumar',
-        role: 'Financial Controller',
-        company: 'KPMG',
-        certificate: 'CMA US',
-        photo: '/api/placeholder/60/60'
-      }
-    },
-    {
-      id: 5,
-      city: 'Singapore',
-      position: { left: '80%', top: '65%' },
-      alumni: {
-        name: 'Kavya Nair',
-        role: 'Risk Analyst',
-        company: 'PwC',
-        certificate: 'CPA US',
-        photo: '/api/placeholder/60/60'
-      }
-    },
-    {
-      id: 6,
-      city: 'Dublin',
-      position: { left: '45%', top: '30%' },
-      alumni: {
-        name: 'Rohan Singh',
-        role: 'Tax Consultant',
-        company: 'Accenture',
-        certificate: 'ACCA',
-        photo: '/api/placeholder/60/60'
-      }
-    }
-  ];
-
+  
   // Success outcome cards
   const outcomeCards = [
     {
@@ -206,7 +117,7 @@ const GlobalCareerSuccess = () => {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [placementSteps.length]);
 
   return (
     <section className="bg-gradient-to-b from-white to-slate-50 overflow-hidden">
@@ -256,35 +167,7 @@ const GlobalCareerSuccess = () => {
         </div>
       </div>
 
-      {/* Row 2: Hiring Partners Carousel */}
-      <div className="bg-white py-16 border-y border-slate-200">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-12">
-            <h3 className="text-2xl font-light text-slate-900 mb-4">Trusted by 200+ Recruitment Partners</h3>
-            <p className="text-slate-600">Big companies trust NorthStar graduates</p>
-          </div>
-
-          {/* Scrolling logos */}
-          <div className="relative overflow-hidden">
-            <div className="flex animate-scroll space-x-12 items-center">
-              {[...companyLogos, ...companyLogos].map((company, index) => (
-                <div 
-                  key={index}
-                  className="flex-shrink-0 group cursor-pointer"
-                  title={`${company.tier} • 200+ recruitment connections`}
-                >
-                  <div className="bg-slate-100 hover:bg-white border border-slate-200 hover:border-slate-300 rounded-xl px-8 py-4 transition-all duration-300 hover:shadow-lg">
-                    <span className="text-xl font-semibold text-slate-400 group-hover:text-slate-700 transition-colors">
-                      {company.name}
-                    </span>
-                    <div className="text-xs text-slate-400 mt-1">{company.tier}</div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
+      
 
       {/* Row 3: Placement Support Pipeline */}
       <div ref={sectionRef} className="max-w-7xl mx-auto px-4 py-20">

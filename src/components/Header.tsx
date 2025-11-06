@@ -98,7 +98,7 @@ const megaMenuData: MegaMenuData = {
         },
         {
           name: 'ACCA (UK)',
-          href: '/acca-uk',
+          href: '/acca/',
           description: 'Global Accounting Qualification',
           flag: '🇬🇧',
           logo: 'ACCA®',

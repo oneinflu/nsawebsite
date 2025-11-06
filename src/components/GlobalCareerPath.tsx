@@ -20,6 +20,7 @@ import {
   AcademicCapIcon,
   ChatBubbleLeftRightIcon
 } from '@heroicons/react/24/outline';
+import LeadFormButton from './LeadFormButton';
 
 // Data Structures
 interface Career {
@@ -281,6 +282,16 @@ const GlobalCareerPath: React.FC = () => {
   };
 
   const activeCategories = categories.find(cat => cat.id === activeCategory);
+  
+  // Map course names to their respective page routes
+  const courseSlugMap: Record<string, string> = {
+    CMA: '/cma-usa',
+    CPA: '/cpa-us',
+    CIA: '/cia',
+    CFA: '/cfa-us',
+    ACCA: '/acca',
+    EA: '/book-counselling', // fallback since EA page is not present
+  };
 
   return (
     <section className="py-16 bg-gradient-to-br from-gray-50 to-red-50">
@@ -423,13 +434,13 @@ const GlobalCareerPath: React.FC = () => {
           <p className="text-sm mb-8 opacity-75">
             AI-powered roadmap based on your background.
           </p>
-          <Link
-            href="/book-counselling"
-            className="inline-flex items-center space-x-2 bg-white text-red-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-50 transition-all duration-300 shadow-lg hover:shadow-xl"
-          >
-            <ChatBubbleLeftRightIcon className="w-5 h-5" />
-            <span>Get My Career Roadmap</span>
-          </Link>
+          <LeadFormButton 
+            formType="general"
+            isSendOtp={true}
+            variant='outline' >
+          
+            <span>Get Mentorship</span>
+          </LeadFormButton>
         </motion.div>
       </div>
 
@@ -520,19 +531,16 @@ const GlobalCareerPath: React.FC = () => {
                 </div>
               </div>
 
-              <div className="flex space-x-4">
-                <Link
-                  href={`/career-roadmap/${selectedCareer.slug}`}
-                  className="flex-1 bg-red-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-red-700 transition-colors text-center"
-                >
-                  View Career Roadmap
-                </Link>
-                <Link
-                  href="/book-counselling"
-                  className="flex-1 bg-gray-100 text-gray-900 py-3 px-6 rounded-lg font-semibold hover:bg-gray-200 transition-colors text-center"
-                >
-                  Get Guidance
-                </Link>
+              <div className="flex flex-wrap gap-3">
+                {selectedCareer.courses.map((course) => (
+                  <Link
+                    key={course}
+                    href={courseSlugMap[course.toUpperCase()] ?? '/book-counselling'}
+                    className="bg-red-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-red-700 transition-colors text-center"
+                  >
+                    {`Explore ${course}`}
+                  </Link>
+                ))}
               </div>
             </motion.div>
           </motion.div>

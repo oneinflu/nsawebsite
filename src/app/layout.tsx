@@ -39,7 +39,8 @@ export default function RootLayout({
   // Check if this is the Super300 page
   const isSuper300Page = pathname.includes("/super300");
   // Check if this is under the simplified "a" section
-  const isASection = pathname.startsWith("/a");
+  // Use exact '/a' or '/a/*' to avoid matching '/acca-uk'
+  const isASection = pathname === "/a" || pathname.startsWith("/a/");
 
   return (
     <html lang="en">

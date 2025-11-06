@@ -3,6 +3,7 @@
 
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import LeadFormButton from './LeadFormButton'
 
 export default function PricingROI() {
   const [salaryExpectation, ] = useState(15)
@@ -131,73 +132,7 @@ export default function PricingROI() {
         </motion.div>
 
         
-        {/* Pricing Tiers */}
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mb-16"
-        >
-          <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-gray-900 mb-4">Choose Your Investment Plan</h3>
-            <p className="text-gray-600 text-lg">Transparent. Fair. No hidden fees.</p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {pricingTiers.map((tier, index) => (
-              <motion.div
-                key={tier.name}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className={`relative bg-white rounded-2xl shadow-xl p-8 border-2 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 ${
-                  tier.popular ? 'border-red-500 ring-4 ring-red-100' : 'border-gray-200'
-                }`}
-              >
-                {tier.popular && (
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <span className="bg-gradient-to-r from-red-600 to-red-600 text-white px-6 py-2 rounded-full text-sm font-semibold">
-                      Most Popular
-                    </span>
-                  </div>
-                )}
-
-                <div className="text-center mb-6">
-                  <div className={`inline-block px-3 py-1 rounded-full text-sm font-semibold mb-4 ${tier.badgeColor}`}>
-                    {tier.badge}
-                  </div>
-                  <h4 className="text-2xl font-bold text-gray-900 mb-2">{tier.name}</h4>
-                  <div className="text-4xl font-bold text-gray-900 mb-1">{tier.price}</div>
-                  <div className="text-gray-600">or {tier.emi}</div>
-                  <div className="text-sm text-gray-500 mt-2">{tier.duration} program</div>
-                </div>
-
-                <ul className="space-y-3 mb-8">
-                  {tier.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-center text-gray-700">
-                      <svg className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                      </svg>
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-
-                <button
-                  onClick={() => {
-                    setSelectedTier(tier.name)
-                    setShowModal(true)
-                  }}
-                  className={`w-full py-4 px-6 rounded-xl font-semibold transition-all duration-300 ${tier.ctaStyle}`}
-                >
-                  {tier.cta}
-                </button>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-
+       
         {/* Scholarships & EMI */}
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
@@ -222,12 +157,9 @@ export default function PricingROI() {
                 </li>
               ))}
             </ul>
-            <button 
-              onClick={() => setShowModal(true)}
-              className="w-full bg-gradient-to-r from-yellow-500 to-orange-500 text-white py-3 px-6 rounded-xl font-semibold hover:from-yellow-600 hover:to-orange-600 transition-all duration-300"
-            >
+            <LeadFormButton formType='general' isSendOtp={true} variant='primary' >
               Check Scholarship Eligibility
-            </button>
+            </LeadFormButton>
           </div>
 
           <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-8 border border-green-200">
@@ -274,33 +206,7 @@ export default function PricingROI() {
         </motion.div>
 
         {/* Final CTA */}
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center"
-        >
-          <div className="bg-gradient-to-r from-red-600 to-red-600 rounded-3xl p-12 text-white">
-            <h3 className="text-3xl font-bold mb-4">
-              Ready to Transform Your Career?
-            </h3>
-            <p className="text-xl mb-8 opacity-90">
-              Get your personalized pricing & EMI plan
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <button 
-                onClick={() => setShowModal(true)}
-                className="bg-white text-red-600 px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-50 transition-all duration-300 shadow-lg hover:shadow-xl"
-              >
-                Get Your Personalized Pricing & EMI Plan →
-              </button>
-              <button className="border-2 border-white text-white px-6 py-3 rounded-xl font-semibold hover:bg-white hover:text-red-600 transition-all duration-300">
-                Talk to an Advisor on WhatsApp
-              </button>
-            </div>
-          </div>
-        </motion.div>
+     
       </div>
 
       {/* Modal */}

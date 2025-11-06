@@ -16,12 +16,13 @@ import {
   XMarkIcon,
   CheckIcon,
   ArrowUpRightIcon,
-  PlayIcon,
+ 
  
   GlobeAltIcon,
   BriefcaseIcon,
  
 } from '@heroicons/react/24/outline';
+import LeadFormButton from './LeadFormButton';
 
 // Enhanced Data Structures for SEO and Interactivity
 interface Course {
@@ -121,7 +122,7 @@ const GlobalCoursesHub: React.FC = () => {
       jobRoles: ['Investment Analyst', 'Portfolio Manager', 'Research Analyst', 'Wealth Manager']
     },
     {
-      id: 'acca-uk',
+      id: 'acca',
       title: 'ACCA (UK)',
       subtitle: 'Association of Chartered Certified Accountants',
       category: 'accounting',
@@ -135,7 +136,7 @@ const GlobalCoursesHub: React.FC = () => {
       certificationBody: 'Association of Chartered Certified Accountants (ACCA)',
       globalRecognition: 'Recognized by employers in over 180 countries',
       icon: AcademicCapIcon,
-      slug: 'acca-uk',
+      slug: 'acca',
       difficulty: 'Intermediate',
       jobRoles: ['Chartered Accountant', 'Finance Manager', 'Audit Senior', 'Financial Analyst']
     },
@@ -350,7 +351,7 @@ const GlobalCoursesHub: React.FC = () => {
                 'cma-usa': '/courses/cma.png',
                 'cpa-us': '/courses/cpa.png',
                 'cfa-us': '/courses/cfa.png',
-                'acca-uk': '/courses/acca.png',
+                'acca': '/courses/acca.png',
                 'cia': '/courses/cia.png',
                 'ea': '/courses/ea.png',
               };
@@ -453,17 +454,12 @@ const GlobalCoursesHub: React.FC = () => {
                 Join thousands of professionals who have accelerated their careers with our globally recognized certifications.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link
-                  href="#contact"
-                  className="inline-flex items-center gap-2 bg-white text-red-600 px-8 py-4 rounded-full font-semibold hover:bg-red-50 transition-colors"
-                >
-                  Start Your Journey
-                  <ArrowUpRightIcon className="w-5 h-5" />
-                </Link>
-                <button className="inline-flex items-center gap-2 border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-red-600 transition-colors">
-                  <PlayIcon className="w-5 h-5" />
-                  Watch Success Stories
-                </button>
+            
+                <LeadFormButton  formType="general"
+              isSendOtp={true}
+             variant='outline' >
+                   Talk to our counsellors
+                </LeadFormButton>
               </div>
             </div>
           </div>
@@ -497,7 +493,7 @@ const GlobalCoursesHub: React.FC = () => {
                         'cma-usa': '/courses/cma.png',
                         'cpa-us': '/courses/cpa.png',
                         'cfa-us': '/courses/cfa.png',
-                        'acca-uk': '/courses/acca.png',
+                        'acca': '/courses/acca.png',
                         'cia': '/courses/cia.png',
                         'ea': '/courses/ea.png',
                       }[selectedCourse.slug] ?? '/logo.svg'}
@@ -525,7 +521,7 @@ const GlobalCoursesHub: React.FC = () => {
                 <p className="text-gray-700 text-lg">{selectedCourse.description}</p>
 
                 {/* Stats */}
-                <div className="grid grid-cols-3 gap-4">
+                <div className="gridWatch grid-cols-3 gap-4">
                   <div className="text-center p-4 bg-gray-50 rounded-xl">
                     <div className="text-2xl font-bold text-gray-900">{selectedCourse.rating}</div>
                     <div className="text-sm text-gray-600">Rating</div>

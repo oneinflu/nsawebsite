@@ -2,7 +2,9 @@
 
 import React, { useState, useEffect } from 'react';
 import TrustLogosMarquee from './TrustLogosMarquee';
-import { ChevronRightIcon, CheckIcon, PlayIcon, StarIcon, AcademicCapIcon, CurrencyRupeeIcon, ChatBubbleLeftRightIcon, BriefcaseIcon, UserGroupIcon } from '@heroicons/react/24/outline';
+import Link from 'next/link';
+import {  CheckIcon, PlayIcon, StarIcon, AcademicCapIcon, CurrencyRupeeIcon, ChatBubbleLeftRightIcon, BriefcaseIcon, UserGroupIcon } from '@heroicons/react/24/outline';
+import LeadFormButton from './LeadFormButton';
 
 interface Certification {
   id: string;
@@ -167,22 +169,31 @@ const Hero: React.FC = () => {
             {/* 4️⃣ Guided CTA Funnel */}
             <div className="space-y-4">
               <div className="flex flex-col sm:flex-row gap-4">
-                <button className="flex-1 bg-gradient-to-r from-red-600 to-red-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:shadow-lg transform hover:scale-105 transition-all duration-200 flex items-center justify-center space-x-2">
-                  <span>Book Free Counselling</span>
-                  <ChevronRightIcon className="w-5 h-5" />
-                </button>
+                 <LeadFormButton 
+               formType='general'
+               variant='primary'
+                className="w-full bg-gradient-to-r from-red-600 to-red-600 text-white py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-200"
+              >  <span>Book Free Counselling</span>
+                  
+                </LeadFormButton>
               </div>
               
               <div className="flex flex-col sm:flex-row gap-4">
-                <button className="flex-1 bg-white border-2 border-slate-200 text-slate-700 px-6 py-3 rounded-xl font-medium hover:border-red-300 hover:shadow-md transition-all duration-200 flex items-center justify-center space-x-2">
+                <Link
+                  href="#courses"
+                  className="flex-1 bg-white border-2 border-slate-200 text-slate-700 px-6 py-3 rounded-xl font-medium hover:border-red-300 hover:shadow-md transition-all duration-200 flex items-center justify-center space-x-2"
+                >
                   <AcademicCapIcon className="w-5 h-5" />
                   <span>Find My Best Course</span>
-                </button>
-                
-                <button className="flex-1 bg-white border-2 border-slate-200 text-slate-700 px-6 py-3 rounded-xl font-medium hover:border-red-300 hover:shadow-md transition-all duration-200 flex items-center justify-center space-x-2">
+                </Link>
+
+                <Link
+                  href="#video-stories"
+                  className="flex-1 bg-white border-2 border-slate-200 text-slate-700 px-6 py-3 rounded-xl font-medium hover:border-red-300 hover:shadow-md transition-all duration-200 flex items-center justify-center space-x-2"
+                >
                   <PlayIcon className="w-5 h-5" />
                   <span>Watch 100+ Success Stories</span>
-                </button>
+                </Link>
               </div>
             </div>
 
@@ -416,12 +427,13 @@ const Hero: React.FC = () => {
                 <p className="text-lg font-semibold text-red-600">ROI: 300-500% within 2 years</p>
               </div>
               
-              <button 
-                onClick={() => setShowROIModal(false)}
+              <LeadFormButton 
+               formType='general'
+               variant='primary'
                 className="w-full bg-gradient-to-r from-red-600 to-red-600 text-white py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-200"
               >
                 Start My Journey Now
-              </button>
+              </LeadFormButton>
             </div>
           </div>
         </div>

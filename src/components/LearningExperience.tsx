@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
@@ -6,12 +7,9 @@ import {
   MessageCircle, 
   Calendar, 
   BarChart3, 
-  CheckCircle, 
-  Target, 
-  User, 
-  Briefcase,
+
   
-  Users,
+
   
   TrendingUp,
   Award,
@@ -19,7 +17,7 @@ import {
 } from 'lucide-react';
 
 const LearningExperience = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const [, setCurrentSlide] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
 
@@ -109,28 +107,7 @@ const LearningExperience = () => {
     }
   ];
 
-  const trustBadges = [
-    {
-      icon: CheckCircle,
-      title: "Structured to finish on time",
-      description: "No procrastination traps"
-    },
-    {
-      icon: Target,
-      title: "Designed for first-attempt success",
-      description: "Avoid repeat exam costs"
-    },
-    {
-      icon: User,
-      title: "Mentor-backed progress",
-      description: "You're guided at every step"
-    },
-    {
-      icon: Briefcase,
-      title: "Career readiness baked-in",
-      description: "Resume. Interviews. Offers."
-    }
-  ];
+ 
 
   return (
     <section ref={sectionRef} className="bg-gradient-to-b from-slate-50 to-white py-20 overflow-hidden">
@@ -258,142 +235,12 @@ const LearningExperience = () => {
         </div>
       </div>
 
-      {/* Row 3: Dashboard Showcase */}
-      <div className="max-w-7xl mx-auto px-4 mb-20">
-        <div className="text-center mb-12">
-          <h3 className="text-4xl font-light text-slate-900 mb-4">Dashboard Experience Showcase</h3>
-          <p className="text-xl text-slate-600">Built like a fintech product, designed for learning success</p>
-        </div>
+      
 
-        <div className="relative">
-          {/* Main Display */}
-          <div className="bg-slate-900 rounded-3xl p-8 shadow-2xl overflow-hidden">
-            <div className="bg-white rounded-2xl overflow-hidden">
-              {/* Header */}
-              <div className="bg-gradient-to-r from-red-600 to-purple-600 p-6 text-white">
-                <div className="flex items-center justify-between">
-                  <h4 className="text-2xl font-semibold">{dashboardSlides[currentSlide].title}</h4>
-                  <div className="flex items-center gap-2 text-sm bg-white/20 px-3 py-1 rounded-full">
-                    <div className="w-2 h-2 bg-emerald-400 rounded-full"></div>
-                    Online
-                  </div>
-                </div>
-                <p className="text-red-100 mt-2">{dashboardSlides[currentSlide].description}</p>
-              </div>
-
-              {/* Content Area */}
-              <div className="p-8 h-96 bg-gradient-to-br from-slate-50 to-slate-100 relative overflow-hidden">
-                <img 
-                  src={dashboardSlides[currentSlide].image}
-                  alt={dashboardSlides[currentSlide].title}
-                  className="w-full h-full object-cover rounded-xl transition-all duration-500"
-                />
-                
-                {/* Feature Overlay */}
-                <div className="absolute bottom-4 left-4 right-4">
-                  <div className="bg-white/90 backdrop-blur-sm rounded-xl p-4">
-                    <div className="grid grid-cols-3 gap-4">
-                      {dashboardSlides[currentSlide].features.map((feature, index) => (
-                        <div key={index} className="text-center">
-                          <div className="w-8 h-8 bg-red-100 rounded-lg mx-auto mb-2 flex items-center justify-center">
-                            <CheckCircle className="w-4 h-4 text-red-600" />
-                          </div>
-                          <div className="text-xs text-slate-600">{feature}</div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Slide Indicators */}
-          <div className="flex justify-center mt-8 gap-3">
-            {dashboardSlides.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentSlide(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  index === currentSlide ? 'bg-red-600 w-8' : 'bg-slate-300 hover:bg-slate-400'
-                }`}
-              />
-            ))}
-          </div>
-
-          {/* Navigation Thumbnails */}
-          <div className="grid grid-cols-4 gap-4 mt-8">
-            {dashboardSlides.map((slide, index) => (
-              <button
-                key={slide.id}
-                onClick={() => setCurrentSlide(index)}
-                className={`relative p-4 rounded-xl border-2 transition-all duration-300 ${
-                  index === currentSlide 
-                    ? 'border-red-500 bg-red-50' 
-                    : 'border-slate-200 bg-white hover:border-slate-300'
-                }`}
-              >
-                <div className="text-sm font-medium text-slate-900 mb-1">{slide.title}</div>
-                <div className="text-xs text-slate-500">{slide.description}</div>
-              </button>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Row 4: Trust Badges */}
-      <div className="max-w-7xl mx-auto px-4 mb-20">
-        <div className="grid md:grid-cols-4 gap-6">
-          {trustBadges.map((badge, index) => {
-            const Icon = badge.icon;
-            return (
-              <div 
-                key={index}
-                className={`text-center p-6 transition-all duration-700 ${
-                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-                }`}
-                style={{ transitionDelay: `${index * 200}ms` }}
-              >
-                <div className="w-16 h-16 bg-gradient-to-r from-emerald-500 to-teal-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <Icon className="w-8 h-8 text-white" />
-                </div>
-                <h4 className="font-semibold text-slate-900 mb-2">{badge.title}</h4>
-                <p className="text-sm text-slate-600">{badge.description}</p>
-              </div>
-            );
-          })}
-        </div>
-      </div>
+     
 
       {/* CTA Section */}
-      <div className="max-w-4xl mx-auto px-4 text-center">
-        <div className="bg-gradient-to-r from-red-900 via-purple-900 to-red-900 rounded-3xl p-12 text-white relative overflow-hidden">
-          {/* Background Pattern */}
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent transform -skew-x-12"></div>
-          </div>
-          
-          <div className="relative">
-            <h3 className="text-3xl font-light mb-4">Stop guessing. Start progressing.</h3>
-            <p className="text-xl text-red-200 mb-8">Experience the difference of structured learning</p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-white text-red-900 px-8 py-4 rounded-xl font-semibold hover:bg-red-50 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-3">
-                <Play className="w-5 h-5" />
-                Experience a Live Class → Free Demo Access
-              </button>
-              <button className="border border-white/30 text-white px-8 py-4 rounded-xl font-medium hover:bg-white/10 transition-all duration-300 flex items-center justify-center gap-3">
-                <Users className="w-5 h-5" />
-                Speak with a Program Advisor
-              </button>
-            </div>
-            
-            <div className="mt-8 text-sm text-red-300">
-              <p>No charges · No pressure · 100% clarity</p>
-            </div>
-          </div>
-        </div>
-      </div>
+      
 
       {/* Custom Styles */}
       <style jsx>{`
