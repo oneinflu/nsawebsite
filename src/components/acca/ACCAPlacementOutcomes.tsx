@@ -106,7 +106,7 @@ const ACCAPlacementOutcomes = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-red-50 to-indigo-100">
+    <section className="py-20 bg-gradient-to-br from-red-50 to-red-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div

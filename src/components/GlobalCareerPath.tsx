@@ -307,7 +307,7 @@ const GlobalCareerPath: React.FC = () => {
             <div className="mt-6 lg:mt-0">
               <Link
                 href="/career-fit-quiz"
-                className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-red-600 to-indigo-600 text-white font-semibold rounded-lg hover:from-red-700 hover:to-indigo-700 transition-all duration-300 shadow-lg hover:shadow-xl"
+                className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-red-600 to-red-600 text-white font-semibold rounded-lg hover:from-red-700 hover:to-red-700 transition-all duration-300 shadow-lg hover:shadow-xl"
               >
                 Find My Fit →
               </Link>
@@ -412,7 +412,7 @@ const GlobalCareerPath: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center bg-gradient-to-r from-red-600 to-indigo-600 rounded-2xl p-8 text-white"
+          className="text-center bg-gradient-to-r from-red-600 to-red-600 rounded-2xl p-8 text-white"
         >
           <h3 className="text-3xl font-bold mb-4">
             Want to see where you fit?

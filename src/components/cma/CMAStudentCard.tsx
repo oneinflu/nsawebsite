@@ -30,9 +30,9 @@ export default function CMAStudentCard({ name, imageSrc, content, part1Score, pa
             {part1Score}
             <span className="ml-1 text-[10px] text-red-600">Part 1</span>
           </span>
-          <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-semibold bg-indigo-50 text-indigo-700 border border-indigo-200">
+          <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-semibold bg-red-50 text-red-700 border border-red-200">
             {part2Score}
-            <span className="ml-1 text-[10px] text-indigo-600">Part 2</span>
+            <span className="ml-1 text-[10px] text-red-600">Part 2</span>
           </span>
         </div>
       </div>

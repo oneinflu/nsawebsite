@@ -199,7 +199,7 @@ export default function CMAComparison() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
-            <span className="bg-gradient-to-r from-red-600 to-indigo-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-red-600 to-red-600 bg-clip-text text-transparent">
               CMA Comparison
             </span>
           </h2>
@@ -374,7 +374,7 @@ export default function CMAComparison() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="bg-gradient-to-r from-red-50 to-indigo-50 rounded-2xl p-8 md:p-12 text-center"
+          className="bg-gradient-to-r from-red-50 to-red-50 rounded-2xl p-8 md:p-12 text-center"
         >
           <h3 className="text-3xl font-bold text-slate-900 mb-6">
             Still Confused? Let Us Help You Decide
@@ -387,7 +387,7 @@ export default function CMAComparison() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-gradient-to-r from-red-600 to-indigo-600 text-white px-8 py-4 rounded-lg font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300"
+              className="bg-gradient-to-r from-red-600 to-red-600 text-white px-8 py-4 rounded-lg font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300"
             >
               Get Personalized Recommendation
             </motion.button>

@@ -9,7 +9,7 @@ const AnnouncementBar = () => {
   if (!isVisible) return null;
 
   return (
-    <div className="relative bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-600 text-white py-3 px-4 overflow-hidden">
+    <div className="relative bg-gradient-to-r from-red-600 via-purple-600 to-red-600 text-white py-3 px-4 overflow-hidden">
       {/* Animated gradient shimmer overlay */}
       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent animate-shimmer"></div>
       

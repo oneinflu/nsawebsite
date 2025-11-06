@@ -300,10 +300,10 @@ export default function CPASyllabus() {
         button: 'bg-purple-600 hover:bg-purple-700'
       },
       indigo: {
-        bg: 'bg-indigo-50',
-        border: 'border-indigo-200',
-        text: 'text-indigo-600',
-        button: 'bg-indigo-600 hover:bg-indigo-700'
+        bg: 'bg-red-50',
+        border: 'border-red-200',
+        text: 'text-red-600',
+        button: 'bg-red-600 hover:bg-red-700'
       }
     }
     return colors[color as keyof typeof colors] || colors.blue
@@ -495,7 +495,7 @@ export default function CPASyllabus() {
           transition={{ duration: 0.8, delay: 0.5 }}
           className="text-center mt-12"
         >
-          <div className="bg-gradient-to-r from-red-600 to-indigo-600 rounded-2xl p-8 text-white">
+          <div className="bg-gradient-to-r from-red-600 to-red-600 rounded-2xl p-8 text-white">
             <div className="max-w-2xl mx-auto">
               <AcademicCapIcon className="w-12 h-12 mx-auto mb-4 opacity-80" />
               <h3 className="text-2xl font-bold mb-4">Get Complete CPA Syllabus & Study Plan</h3>
@@ -566,7 +566,7 @@ export default function CPASyllabus() {
                 />
                 <button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-red-600 to-indigo-600 text-white py-3 px-6 rounded-lg font-semibold hover:shadow-lg transition-all duration-300"
+                  className="w-full bg-gradient-to-r from-red-600 to-red-600 text-white py-3 px-6 rounded-lg font-semibold hover:shadow-lg transition-all duration-300"
                 >
                   Download Now (Free)
                 </button>

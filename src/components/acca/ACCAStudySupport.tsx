@@ -154,7 +154,7 @@ const ACCAStudySupport = () => {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-50 to-indigo-50">
+    <section className="py-20 bg-gradient-to-br from-gray-50 to-red-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div

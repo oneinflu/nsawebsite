@@ -39,7 +39,7 @@ export default function LeadMagnet() {
       description: 'Live session on global finance career opportunities',
       icon: '🎥',
       cta: 'Register Now',
-      gradient: 'from-red-500 to-indigo-600',
+      gradient: 'from-red-500 to-red-600',
       purpose: 'Educate & convert'
     },
     {
@@ -71,7 +71,7 @@ export default function LeadMagnet() {
   const whatsappNumber = "+919876543210" // Replace with actual number
 
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-900 via-red-900 to-indigo-900 text-white relative overflow-hidden">
+    <section className="py-20 bg-gradient-to-br from-gray-900 via-red-900 to-red-900 text-white relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0" style={{
@@ -258,7 +258,7 @@ export default function LeadMagnet() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setShowModal(true)}
-                className="bg-gradient-to-r from-red-500 to-indigo-600 text-white px-8 py-4 rounded-xl font-bold text-lg hover:from-red-600 hover:to-indigo-700 transition-all duration-300 shadow-lg"
+                className="bg-gradient-to-r from-red-500 to-red-600 text-white px-8 py-4 rounded-xl font-bold text-lg hover:from-red-600 hover:to-red-700 transition-all duration-300 shadow-lg"
               >
                 Book Free Counselling — Reserve Your Seat →
               </motion.button>
@@ -341,7 +341,7 @@ export default function LeadMagnet() {
                 </select>
                 <button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-red-600 to-indigo-600 text-white py-3 px-6 rounded-lg font-semibold hover:from-red-700 hover:to-indigo-700 transition-all duration-300"
+                  className="w-full bg-gradient-to-r from-red-600 to-red-600 text-white py-3 px-6 rounded-lg font-semibold hover:from-red-700 hover:to-red-700 transition-all duration-300"
                 >
                   Get My Free Resources
                 </button>

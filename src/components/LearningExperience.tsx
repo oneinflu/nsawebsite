@@ -87,7 +87,7 @@ const LearningExperience = () => {
       icon: Play,
       title: "Live Classes + Recorded Access",
       description: "Never miss a concept — learn on your schedule.",
-      color: "from-red-500 to-indigo-600"
+      color: "from-red-500 to-red-600"
     },
     {
       icon: MessageCircle,
@@ -145,7 +145,7 @@ const LearningExperience = () => {
                 {/* iPad Mockup */}
                 <div className="relative bg-slate-900 rounded-3xl p-6 shadow-2xl transform rotate-3 hover:rotate-6 transition-transform duration-500">
                   <div className="bg-white rounded-2xl overflow-hidden">
-                    <div className="bg-gradient-to-r from-indigo-600 to-purple-600 p-4 text-white">
+                    <div className="bg-gradient-to-r from-red-600 to-purple-600 p-4 text-white">
                       <div className="flex items-center justify-between">
                         <h4 className="font-semibold">Live CMA Class</h4>
                         <div className="flex items-center gap-2">
@@ -160,7 +160,7 @@ const LearningExperience = () => {
                         <div className="h-4 bg-slate-200 rounded animate-pulse w-3/4"></div>
                         <div className="h-4 bg-slate-300 rounded animate-pulse w-1/2"></div>
                         <div className="grid grid-cols-3 gap-2 mt-6">
-                          <div className="h-16 bg-indigo-100 rounded"></div>
+                          <div className="h-16 bg-red-100 rounded"></div>
                           <div className="h-16 bg-purple-100 rounded"></div>
                           <div className="h-16 bg-red-100 rounded"></div>
                         </div>
@@ -180,7 +180,7 @@ const LearningExperience = () => {
                     </div>
                     <div className="p-4 h-32 space-y-2">
                       <div className="bg-slate-100 rounded-lg p-2 text-xs">Quick question about ratios...</div>
-                      <div className="bg-indigo-500 text-white rounded-lg p-2 text-xs ml-4">Let me explain that concept...</div>
+                      <div className="bg-red-500 text-white rounded-lg p-2 text-xs ml-4">Let me explain that concept...</div>
                     </div>
                   </div>
                 </div>
@@ -201,7 +201,7 @@ const LearningExperience = () => {
             <div>
               <h2 className="text-5xl font-light text-slate-900 leading-tight mb-6">
                 A Learning System
-                <span className="block text-indigo-600 font-medium">Engineered for Global Results</span>
+                <span className="block text-red-600 font-medium">Engineered for Global Results</span>
               </h2>
               <p className="text-xl text-slate-600 font-light leading-relaxed mb-4">
                 Smart structure + mentorship support + analytics insight.
@@ -215,7 +215,7 @@ const LearningExperience = () => {
             {/* Quick Stats */}
             <div className="grid grid-cols-3 gap-6">
               <div className="text-center">
-                <div className="text-2xl font-bold text-indigo-600">24/7</div>
+                <div className="text-2xl font-bold text-red-600">24/7</div>
                 <div className="text-sm text-slate-600">Access</div>
               </div>
               <div className="text-center">
@@ -270,7 +270,7 @@ const LearningExperience = () => {
           <div className="bg-slate-900 rounded-3xl p-8 shadow-2xl overflow-hidden">
             <div className="bg-white rounded-2xl overflow-hidden">
               {/* Header */}
-              <div className="bg-gradient-to-r from-indigo-600 to-purple-600 p-6 text-white">
+              <div className="bg-gradient-to-r from-red-600 to-purple-600 p-6 text-white">
                 <div className="flex items-center justify-between">
                   <h4 className="text-2xl font-semibold">{dashboardSlides[currentSlide].title}</h4>
                   <div className="flex items-center gap-2 text-sm bg-white/20 px-3 py-1 rounded-full">
@@ -278,7 +278,7 @@ const LearningExperience = () => {
                     Online
                   </div>
                 </div>
-                <p className="text-indigo-100 mt-2">{dashboardSlides[currentSlide].description}</p>
+                <p className="text-red-100 mt-2">{dashboardSlides[currentSlide].description}</p>
               </div>
 
               {/* Content Area */}
@@ -295,8 +295,8 @@ const LearningExperience = () => {
                     <div className="grid grid-cols-3 gap-4">
                       {dashboardSlides[currentSlide].features.map((feature, index) => (
                         <div key={index} className="text-center">
-                          <div className="w-8 h-8 bg-indigo-100 rounded-lg mx-auto mb-2 flex items-center justify-center">
-                            <CheckCircle className="w-4 h-4 text-indigo-600" />
+                          <div className="w-8 h-8 bg-red-100 rounded-lg mx-auto mb-2 flex items-center justify-center">
+                            <CheckCircle className="w-4 h-4 text-red-600" />
                           </div>
                           <div className="text-xs text-slate-600">{feature}</div>
                         </div>
@@ -315,7 +315,7 @@ const LearningExperience = () => {
                 key={index}
                 onClick={() => setCurrentSlide(index)}
                 className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  index === currentSlide ? 'bg-indigo-600 w-8' : 'bg-slate-300 hover:bg-slate-400'
+                  index === currentSlide ? 'bg-red-600 w-8' : 'bg-slate-300 hover:bg-slate-400'
                 }`}
               />
             ))}
@@ -329,7 +329,7 @@ const LearningExperience = () => {
                 onClick={() => setCurrentSlide(index)}
                 className={`relative p-4 rounded-xl border-2 transition-all duration-300 ${
                   index === currentSlide 
-                    ? 'border-indigo-500 bg-indigo-50' 
+                    ? 'border-red-500 bg-red-50' 
                     : 'border-slate-200 bg-white hover:border-slate-300'
                 }`}
               >
@@ -367,7 +367,7 @@ const LearningExperience = () => {
 
       {/* CTA Section */}
       <div className="max-w-4xl mx-auto px-4 text-center">
-        <div className="bg-gradient-to-r from-indigo-900 via-purple-900 to-indigo-900 rounded-3xl p-12 text-white relative overflow-hidden">
+        <div className="bg-gradient-to-r from-red-900 via-purple-900 to-red-900 rounded-3xl p-12 text-white relative overflow-hidden">
           {/* Background Pattern */}
           <div className="absolute inset-0 opacity-10">
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent transform -skew-x-12"></div>
@@ -375,10 +375,10 @@ const LearningExperience = () => {
           
           <div className="relative">
             <h3 className="text-3xl font-light mb-4">Stop guessing. Start progressing.</h3>
-            <p className="text-xl text-indigo-200 mb-8">Experience the difference of structured learning</p>
+            <p className="text-xl text-red-200 mb-8">Experience the difference of structured learning</p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-white text-indigo-900 px-8 py-4 rounded-xl font-semibold hover:bg-indigo-50 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-3">
+              <button className="bg-white text-red-900 px-8 py-4 rounded-xl font-semibold hover:bg-red-50 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-3">
                 <Play className="w-5 h-5" />
                 Experience a Live Class → Free Demo Access
               </button>
@@ -388,7 +388,7 @@ const LearningExperience = () => {
               </button>
             </div>
             
-            <div className="mt-8 text-sm text-indigo-300">
+            <div className="mt-8 text-sm text-red-300">
               <p>No charges · No pressure · 100% clarity</p>
             </div>
           </div>

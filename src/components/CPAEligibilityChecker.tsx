@@ -168,7 +168,7 @@ export default function CPAEligibilityChecker() {
   }
 
   return (
-    <section className="py-20 bg-gradient-to-br from-red-50 to-indigo-50">
+    <section className="py-20 bg-gradient-to-br from-red-50 to-red-50">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -217,7 +217,7 @@ export default function CPAEligibilityChecker() {
                 </div>
                 <div className="w-full bg-slate-200 rounded-full h-2">
                   <motion.div
-                    className="bg-gradient-to-r from-red-500 to-indigo-500 h-2 rounded-full"
+                    className="bg-gradient-to-r from-red-500 to-red-500 h-2 rounded-full"
                     initial={{ width: 0 }}
                     animate={{ width: `${getProgressPercentage()}%` }}
                     transition={{ duration: 0.5 }}
@@ -293,7 +293,7 @@ export default function CPAEligibilityChecker() {
 
                     <button
                       onClick={() => setShowLeadForm(true)}
-                      className="bg-gradient-to-r from-red-600 to-indigo-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                      className="bg-gradient-to-r from-red-600 to-red-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
                     >
                       Get Personalized Guidance
                     </button>
@@ -330,7 +330,7 @@ export default function CPAEligibilityChecker() {
                     </div>
 
                     {/* Lead Capture Form */}
-                    <div className="bg-gradient-to-r from-red-600 to-indigo-600 rounded-xl p-8 text-white">
+                    <div className="bg-gradient-to-r from-red-600 to-red-600 rounded-xl p-8 text-white">
                       <div className="text-center mb-6">
                         <SparklesIcon className="w-12 h-12 mx-auto mb-4 opacity-80" />
                         <h3 className="text-2xl font-bold mb-2">Get Your Personalized CPA Roadmap</h3>

@@ -24,7 +24,7 @@ export default function CMAHero() {
   const keyBadges = [
     { icon: CheckCircleIcon, text: 'IMA® USA Certification', color: 'bg-violet-50 text-violet-700 border-violet-200' },
     { icon: GlobeAltIcon, text: 'Global Opportunities (100+ Countries)', color: 'bg-red-50 text-red-700 border-red-200' },
-    { icon: PlayCircleIcon, text: 'Live + Recorded Learning', color: 'bg-indigo-50 text-indigo-700 border-indigo-200' },
+    { icon: PlayCircleIcon, text: 'Live + Recorded Learning', color: 'bg-red-50 text-red-700 border-red-200' },
     { icon: UserGroupIcon, text: 'Big 4 & MNC Placements', color: 'bg-purple-50 text-purple-700 border-purple-200' }
   ];
 
@@ -150,7 +150,8 @@ export default function CMAHero() {
               className="flex flex-col sm:flex-row gap-4"
             >
               <LeadFormButton
-                formType='cma'
+                formType='general'
+              courseId="CMA USA"
                 variant="primary"
                 className="px-8 py-4 transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl"
                 isSendOtp={true}
@@ -264,7 +265,8 @@ export default function CMAHero() {
           </div>
           <div className="flex gap-2">
             <LeadFormButton
-              formType='cma'
+              formType='general'
+              courseId="CMA USA"
               variant="primary"
               className="px-6 py-3 bg-gradient-to-r from-red-500 to-red-500 text-white hover:from-red-600 hover:to-red-700 shadow-md"
               isSendOtp={true}

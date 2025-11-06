@@ -34,7 +34,7 @@ export default function WhyCPA() {
 
   const salaryData = [
     { level: 'Entry Level', salary: 60, color: 'bg-red-500' },
-    { level: 'Senior Associate', salary: 85, color: 'bg-indigo-500' },
+    { level: 'Senior Associate', salary: 85, color: 'bg-red-500' },
     { level: 'Manager', salary: 110, color: 'bg-purple-500' },
     { level: 'Senior Manager', salary: 140, color: 'bg-pink-500' },
     { level: 'Director', salary: 180, color: 'bg-red-500' }
@@ -50,7 +50,7 @@ export default function WhyCPA() {
   ]
 
   return (
-    <section ref={sectionRef} className="py-20 bg-gradient-to-br from-slate-50 via-red-50 to-indigo-50 overflow-hidden">
+    <section ref={sectionRef} className="py-20 bg-gradient-to-br from-slate-50 via-red-50 to-red-50 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -62,7 +62,7 @@ export default function WhyCPA() {
         >
           <h2 className="text-5xl font-bold text-slate-900 mb-6">
             Why CPA (US)?
-            <span className="block text-3xl font-medium text-indigo-600 mt-2">
+            <span className="block text-3xl font-medium text-red-600 mt-2">
               The Ultimate Accounting Authority
             </span>
           </h2>
@@ -84,7 +84,7 @@ export default function WhyCPA() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="relative"
             >
-              <div className="bg-gradient-to-br from-red-600 via-indigo-600 to-purple-700 rounded-3xl p-8 shadow-2xl transform perspective-1000 hover:rotate-y-12 transition-transform duration-500">
+              <div className="bg-gradient-to-br from-red-600 via-red-600 to-purple-700 rounded-3xl p-8 shadow-2xl transform perspective-1000 hover:rotate-y-12 transition-transform duration-500">
                 <div className="flex items-center gap-6">
                   <div className="relative">
                     <div className="w-20 h-20 bg-gradient-to-br from-yellow-400 to-amber-500 rounded-2xl flex items-center justify-center shadow-xl transform rotate-12">
@@ -133,7 +133,7 @@ export default function WhyCPA() {
                 </div>
               </div>
               
-              <div className="bg-gradient-to-r from-red-50 to-indigo-50 p-4 rounded-xl">
+              <div className="bg-gradient-to-r from-red-50 to-red-50 p-4 rounded-xl">
                 <p className="text-sm text-slate-700">
                   <strong>CPA License gives you:</strong> Legal authority to sign audit reports, represent clients before IRS, and practice public accounting
                 </p>
@@ -233,7 +233,7 @@ export default function WhyCPA() {
               initial={{ opacity: 0, x: 50 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.5 }}
-              className="bg-gradient-to-br from-slate-800 via-red-900 to-indigo-900 rounded-2xl p-6 shadow-2xl relative overflow-hidden"
+              className="bg-gradient-to-br from-slate-800 via-red-900 to-red-900 rounded-2xl p-6 shadow-2xl relative overflow-hidden"
             >
               <h3 className="text-xl font-bold text-white mb-6 text-center">
                 Global CPA Opportunities
@@ -242,7 +242,7 @@ export default function WhyCPA() {
               {/* World Map Background */}
               <motion.div
                 style={{ opacity: mapOpacity }}
-                className="relative h-64 bg-gradient-to-br from-red-800 to-indigo-800 rounded-xl mb-6 overflow-hidden"
+                className="relative h-64 bg-gradient-to-br from-red-800 to-red-800 rounded-xl mb-6 overflow-hidden"
               >
                 {/* Animated background grid */}
                 <div className="absolute inset-0 opacity-20">
@@ -333,7 +333,7 @@ export default function WhyCPA() {
           transition={{ duration: 0.8, delay: 1 }}
           className="text-center mt-16"
         >
-          <div className="bg-gradient-to-r from-red-600 to-indigo-600 rounded-2xl p-8 text-white">
+          <div className="bg-gradient-to-r from-red-600 to-red-600 rounded-2xl p-8 text-white">
             <h3 className="text-2xl font-bold mb-4">Ready to Become a Licensed CPA?</h3>
             <p className="text-red-100 mb-6 max-w-2xl mx-auto">
               Join 650,000+ CPAs worldwide and unlock unlimited career opportunities in accounting and finance

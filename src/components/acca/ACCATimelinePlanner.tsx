@@ -116,8 +116,8 @@ const ACCATimelinePlanner = () => {
       description: 'Gain practical experience in accounting/finance roles',
       duration: '36 months',
       icon: BriefcaseIcon,
-      color: 'from-indigo-500 to-purple-500',
-      bgColor: 'from-indigo-50 to-purple-50',
+      color: 'from-red-500 to-purple-500',
+      bgColor: 'from-red-50 to-purple-50',
       tasks: [
         'Work in relevant role',
         'Complete Performance Objectives',

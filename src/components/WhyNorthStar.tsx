@@ -2,6 +2,7 @@
 'use client';
 
 import React, { useState, useRef } from 'react';
+import VideoPlayer from './VideoPlayer';
 import { 
   CheckIcon, 
   XMarkIcon, 
@@ -38,31 +39,28 @@ const WhyNorthStar: React.FC = () => {
   const testimonialVideos: TestimonialVideo[] = [
     {
       id: '1',
-      thumbnail: 'https://www.withersworldwide.com/Withers/media/Withers/person-pages/mim/IMGL0099-EditPriya_Sharma,_PYS_SECONDARY.jpg',
-      name: 'Priya Sharma',
-      achievement: 'CMA Global Rank 1',
-      videoUrl: '#'
+      thumbnail: '/stars.jpg',
+      name: 'Ninad Waingankar',
+      achievement: 'Cleared CMA in First Attempt & After 10 Year Academic Gap',
+      videoUrl: 'https://northstaracademy.b-cdn.net/northstaracademy/video2.mp4'
     },
     {
       id: '2',
-      thumbnail: 'https://cdni.haymarketmedia.in/utils/ImageResizer.ashx?n=https://img.haymarketmedia.in/printweek/IMG/954/34954/imageresizerwm.JPG',
-      name: 'Rahul Kumar',
-      achievement: 'CPA Cleared in 1st Attempt',
-      videoUrl: '#'
+      thumbnail: '/stars.jpg', name: 'Yogendra Kumar',
+      achievement: 'CMA USA Aspirant',
+      videoUrl: 'https://northstaracademy.b-cdn.net/northstaracademy/video1.mp4'
     },
     {
       id: '3',
-      thumbnail: 'https://gwdocs.com/sites/g/files/zaskib551/files/2021-09/Anita-Mehta-Headshot.jpg',
-      name: 'Anita Mehta',
-      achievement: 'Big 4 Placement',
-      videoUrl: '#'
+      thumbnail: '/stars.jpg', name: 'Kinjal Champawat',
+      achievement: 'CMA USA Aspirant',
+      videoUrl: 'https://northstaracademy.b-cdn.net/northstaracademy/video3.mp4'
     },
     {
       id: '4',
-      thumbnail: 'https://i1.rgstatic.net/ii/profile.image/885506015498240-1588132494015_Q512/Vikas-Patel-22.jpg',
-      name: 'Vikash Patel',
-      achievement: 'ACCA Gold Medal',
-      videoUrl: '#'
+      thumbnail: '/stars.jpg', name: 'Aldrin Antony',
+      achievement: 'CMA USA Alumni',
+      videoUrl: 'https://northstaracademy.b-cdn.net/northstaracademy/video4.mp4'
     }
   ];
 
@@ -82,7 +80,7 @@ const WhyNorthStar: React.FC = () => {
     { icon: UserGroupIcon, text: '25,000+ Students Trained', color: 'text-red-600 bg-red-50 border-red-200' },
     { icon: TrophyIcon, text: 'National & Global Rank Holders', color: 'text-purple-600 bg-purple-50 border-purple-200' },
     { icon: CheckIcon, text: '98% Pass Rate', color: 'text-green-600 bg-green-50 border-green-200' },
-    { icon: AcademicCapIcon, text: 'One Mentor System', color: 'text-indigo-600 bg-indigo-50 border-indigo-200' }
+    { icon: AcademicCapIcon, text: 'One Mentor System', color: 'text-red-600 bg-red-50 border-red-200' }
   ];
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -373,9 +371,10 @@ const WhyNorthStar: React.FC = () => {
               </button>
             </div>
             <div className="p-6">
-              <div className="aspect-video bg-slate-100 rounded-lg flex items-center justify-center">
-                <p className="text-slate-500">Video player would be embedded here</p>
-              </div>
+              <VideoPlayer
+                src={selectedVideo.videoUrl}
+                className="aspect-video bg-slate-100 rounded-lg overflow-hidden"
+              />
             </div>
           </div>
         </div>

@@ -230,7 +230,7 @@ const GlobalCareerSuccess = () => {
           <div className="relative z-10">
             <h2 className="text-5xl lg:text-6xl font-light text-slate-900 leading-tight mb-6">
               From Classroom to
-              <span className="block text-indigo-600 font-medium">Big 4 & Beyond</span>
+              <span className="block text-red-600 font-medium">Big 4 & Beyond</span>
               <span className="block text-2xl lg:text-3xl font-light text-slate-600 mt-4">
                 Handheld Career Launch
               </span>
@@ -297,7 +297,7 @@ const GlobalCareerSuccess = () => {
           {/* Progress line */}
           <div className="absolute top-1/2 left-0 right-0 h-1 bg-slate-200 transform -translate-y-1/2 hidden lg:block">
             <div 
-              className="h-full bg-gradient-to-r from-indigo-500 to-amber-400 transition-all duration-1000 ease-out"
+              className="h-full bg-gradient-to-r from-red-500 to-amber-400 transition-all duration-1000 ease-out"
               style={{ width: `${((activeStep + 1) / placementSteps.length) * 100}%` }}
             ></div>
           </div>
@@ -311,12 +311,12 @@ const GlobalCareerSuccess = () => {
                 <div key={index} className="relative">
                   <div className={`bg-white rounded-2xl p-6 shadow-lg border-2 transition-all duration-500 ${
                     isActive 
-                      ? 'border-indigo-500 shadow-xl transform -translate-y-2' 
+                      ? 'border-red-500 shadow-xl transform -translate-y-2' 
                       : 'border-slate-200 hover:border-slate-300'
                   }`}>
                     <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 transition-all duration-500 ${
                       isActive 
-                        ? 'bg-indigo-500 text-white' 
+                        ? 'bg-red-500 text-white' 
                         : 'bg-slate-100 text-slate-400'
                     }`}>
                       <Icon className="w-6 h-6" />
@@ -402,7 +402,7 @@ const GlobalCareerSuccess = () => {
                 </blockquote>
 
                 <div className="flex items-center justify-between">
-                  <span className="font-semibold text-indigo-600">{card.company}</span>
+                  <span className="font-semibold text-red-600">{card.company}</span>
                   <span className="bg-slate-100 text-slate-700 px-2 py-1 rounded text-sm">
                     {card.certificate}
                   </span>
@@ -434,7 +434,7 @@ const GlobalCareerSuccess = () => {
       </div>
 
       {/* CTA: Become the Next NorthStar Success */}
-      <div className="bg-gradient-to-r from-indigo-900 via-slate-800 to-indigo-900 text-white py-20">
+      <div className="bg-gradient-to-r from-red-900 via-slate-800 to-red-900 text-white py-20">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h3 className="text-4xl font-light mb-6">
             Become the Next NorthStar Success

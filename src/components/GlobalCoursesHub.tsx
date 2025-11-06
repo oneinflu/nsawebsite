@@ -247,7 +247,7 @@ const GlobalCoursesHub: React.FC = () => {
         </div>
         
         {/* Floating Geometric Shapes */}
-        <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-red-100 to-indigo-200 rounded-full opacity-20 blur-xl"></div>
+        <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-red-100 to-red-200 rounded-full opacity-20 blur-xl"></div>
         <div className="absolute top-40 right-20 w-24 h-24 bg-gradient-to-br from-purple-100 to-pink-200 rounded-full opacity-20 blur-lg"></div>
         <div className="absolute bottom-32 left-1/4 w-40 h-40 bg-gradient-to-br from-green-100 to-emerald-200 rounded-full opacity-15 blur-2xl"></div>
         <div className="absolute bottom-20 right-1/3 w-28 h-28 bg-gradient-to-br from-orange-100 to-yellow-200 rounded-full opacity-20 blur-xl"></div>
@@ -261,7 +261,7 @@ const GlobalCoursesHub: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-red-600 to-indigo-600 text-white px-4 py-2 rounded-full text-sm font-medium mb-6"
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-red-600 to-red-600 text-white px-4 py-2 rounded-full text-sm font-medium mb-6"
           >
             <AcademicCapIcon className="w-4 h-4" />
             Professional Certification Hub
@@ -275,7 +275,7 @@ const GlobalCoursesHub: React.FC = () => {
             className="text-4xl md:text-5xl font-bold text-gray-900 mb-6"
           >
             Master Global Finance &{' '}
-            <span className="bg-gradient-to-r from-red-600 to-indigo-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-red-600 to-red-600 bg-clip-text text-transparent">
               Accounting Certifications
             </span>
           </motion.h2>
@@ -327,7 +327,7 @@ const GlobalCoursesHub: React.FC = () => {
                 onClick={() => setActiveCategory(category.id)}
                 className={`flex items-center gap-2 px-6 py-3 rounded-full font-medium transition-all duration-300 ${
                   activeCategory === category.id
-                    ? 'bg-gradient-to-r from-red-600 to-indigo-600 text-white shadow-lg shadow-red-500/25'
+                    ? 'bg-gradient-to-r from-red-600 to-red-600 text-white shadow-lg shadow-red-500/25'
                     : 'bg-white text-gray-600 hover:text-red-600 hover:bg-red-50 border border-gray-200'
                 }`}
               >
@@ -365,7 +365,7 @@ const GlobalCoursesHub: React.FC = () => {
                   )}
 
                   {/* Course Icon */}
-                  <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-red-500 to-indigo-600 rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-red-500 to-red-600 rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-300">
                     <Icon className="w-8 h-8 text-white" />
                   </div>
 
@@ -428,8 +428,8 @@ const GlobalCoursesHub: React.FC = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="mt-20 text-center"
         >
-          <div className="bg-gradient-to-r from-red-600 to-indigo-600 rounded-3xl p-12 text-white relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-r from-red-600/90 to-indigo-600/90"></div>
+          <div className="bg-gradient-to-r from-red-600 to-red-600 rounded-3xl p-12 text-white relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-r from-red-600/90 to-red-600/90"></div>
             <div className="relative z-10">
               <h3 className="text-3xl md:text-4xl font-bold mb-4">
                 Ready to Transform Your Career?
@@ -476,7 +476,7 @@ const GlobalCoursesHub: React.FC = () => {
               {/* Modal Header */}
               <div className="flex items-start justify-between mb-6">
                 <div className="flex items-center gap-4">
-                  <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-red-500 to-indigo-600 rounded-2xl">
+                  <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-red-500 to-red-600 rounded-2xl">
                     <selectedCourse.icon className="w-8 h-8 text-white" />
                   </div>
                   <div>
@@ -543,21 +543,21 @@ const GlobalCoursesHub: React.FC = () => {
                   <h4 className="text-lg font-semibold text-gray-900 mb-3">Certification Details</h4>
                   <div className="bg-gray-50 rounded-lg p-4 space-y-3">
                     <div className="flex items-start gap-3">
-                      <AcademicCapIcon className="w-5 h-5 text-indigo-600 mt-0.5 flex-shrink-0" />
+                      <AcademicCapIcon className="w-5 h-5 text-red-600 mt-0.5 flex-shrink-0" />
                       <div>
                         <p className="font-medium text-gray-900">Certifying Body</p>
                         <p className="text-sm text-gray-600">{selectedCourse.certificationBody}</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-3">
-                      <GlobeAltIcon className="w-5 h-5 text-indigo-600 mt-0.5 flex-shrink-0" />
+                      <GlobeAltIcon className="w-5 h-5 text-red-600 mt-0.5 flex-shrink-0" />
                       <div>
                         <p className="font-medium text-gray-900">Global Recognition</p>
                         <p className="text-sm text-gray-600">{selectedCourse.globalRecognition}</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-3">
-                      <ChartBarIcon className="w-5 h-5 text-indigo-600 mt-0.5 flex-shrink-0" />
+                      <ChartBarIcon className="w-5 h-5 text-red-600 mt-0.5 flex-shrink-0" />
                       <div>
                         <p className="font-medium text-gray-900">Difficulty Level</p>
                         <p className="text-sm text-gray-600">{selectedCourse.difficulty}</p>
@@ -575,7 +575,7 @@ const GlobalCoursesHub: React.FC = () => {
                     </div>
                     <Link
                       href={`/${selectedCourse.slug}`}
-                      className="inline-flex items-center gap-2 bg-gradient-to-r from-red-600 to-indigo-600 text-white px-6 py-3 rounded-full font-semibold hover:shadow-lg transition-all"
+                      className="inline-flex items-center gap-2 bg-gradient-to-r from-red-600 to-red-600 text-white px-6 py-3 rounded-full font-semibold hover:shadow-lg transition-all"
                     >
                       Learn More
                       <ArrowUpRightIcon className="w-5 h-5" />

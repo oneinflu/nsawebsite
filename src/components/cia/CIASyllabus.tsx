@@ -70,8 +70,8 @@ const CIASyllabus = () => {
       ],
       examFormat: '125 questions, 2.5 hours',
       passingScore: '600/800 points',
-      color: 'from-red-500 to-indigo-600',
-      bgColor: 'from-red-50 to-indigo-50',
+      color: 'from-red-500 to-red-600',
+      bgColor: 'from-red-50 to-red-50',
       icon: BookOpenIcon
     },
     {

@@ -14,6 +14,7 @@ type DetailsFormProps = {
   phoneError: string;
   isSubmitting: boolean;
   inputRef: React.RefObject<HTMLInputElement | null>;
+  isCourseLocked: boolean;
 };
 
 const DetailsForm: React.FC<DetailsFormProps> = ({
@@ -26,11 +27,34 @@ const DetailsForm: React.FC<DetailsFormProps> = ({
   phoneError,
   isSubmitting,
   inputRef,
+  isCourseLocked,
 }) => {
   return (
     <>
       <h3 className="text-2xl font-bold text-gray-800 mb-6">{formTitle}</h3>
       <form onSubmit={handleSubmit}>
+        {!isCourseLocked && (
+          <div className="mb-4">
+            <label htmlFor="course_id" className="block text-sm font-medium text-gray-700 mb-1">
+              Course
+            </label>
+            <select
+              id="course_id"
+              value={formData.course || ''}
+              onChange={(e) => updateFormData({ course: e.target.value })}
+              className="w-full px-4 py-2.5 text-black placeholder-gray-500 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+              required
+            >
+              <option value="" disabled>Select your course</option>
+              <option value="CPA">CPA</option>
+              <option value="CMA USA">CMA USA</option>
+              <option value="ACCA">ACCA</option>
+              <option value="CFA">CFA</option>
+              <option value="CIA">CIA</option>
+              <option value="EA">EA</option>
+            </select>
+          </div>
+        )}
         <div className="mb-4">
           <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
             Full Name

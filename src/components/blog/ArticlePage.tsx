@@ -401,7 +401,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
                     </p>
 
                     {/* Key Takeaways Callout */}
-                    <div className="bg-gradient-to-r from-red-50 to-indigo-50 border-l-4 border-red-500 p-6 my-8 rounded-r-lg">
+                    <div className="bg-gradient-to-r from-red-50 to-red-50 border-l-4 border-red-500 p-6 my-8 rounded-r-lg">
                       <div className="flex items-start">
                         <Lightbulb className="w-6 h-6 text-red-600 mt-1 mr-3 flex-shrink-0" />
                         <div>
@@ -543,7 +543,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
                   </div>
 
                   {/* Context Links */}
-                  <div className="bg-gradient-to-r from-red-50 to-indigo-50 rounded-xl p-6 my-8 border border-red-200">
+                  <div className="bg-gradient-to-r from-red-50 to-red-50 rounded-xl p-6 my-8 border border-red-200">
                     <h4 className="font-semibold text-red-900 mb-4 flex items-center">
                       <Globe className="w-5 h-5 mr-2" />
                       Related CPA Resources

@@ -152,7 +152,7 @@ export default function Accreditation() {
                       whileInView={{ scale: 1, opacity: 1 }}
                       viewport={{ once: true }}
                       transition={{ delay: index * 0.2 }}
-                      className="w-16 h-16 bg-gradient-to-r from-red-600 to-indigo-600 rounded-full flex items-center justify-center text-white font-bold text-lg mb-4 shadow-lg"
+                      className="w-16 h-16 bg-gradient-to-r from-red-600 to-red-600 rounded-full flex items-center justify-center text-white font-bold text-lg mb-4 shadow-lg"
                     >
                       {step.step}
                     </motion.div>
@@ -169,7 +169,7 @@ export default function Accreditation() {
                         whileInView={{ scaleX: 1, opacity: 1 }}
                         viewport={{ once: true }}
                         transition={{ delay: index * 0.2 + 0.3 }}
-                        className="absolute top-8 left-full w-full h-0.5 bg-gradient-to-r from-red-300 to-indigo-300 origin-left"
+                        className="absolute top-8 left-full w-full h-0.5 bg-gradient-to-r from-red-300 to-red-300 origin-left"
                         style={{ width: 'calc(100vw / 6 - 64px)' }}
                       >
                         <div className="absolute right-0 top-1/2 transform -translate-y-1/2 w-0 h-0 border-l-4 border-l-red-400 border-t-2 border-b-2 border-t-transparent border-b-transparent"></div>
@@ -191,7 +191,7 @@ export default function Accreditation() {
                   transition={{ delay: index * 0.1 }}
                   className="flex items-center space-x-4"
                 >
-                  <div className="w-12 h-12 bg-gradient-to-r from-red-600 to-indigo-600 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">
+                  <div className="w-12 h-12 bg-gradient-to-r from-red-600 to-red-600 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">
                     {step.step}
                   </div>
                   <div className="flex-1">

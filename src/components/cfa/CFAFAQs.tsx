@@ -67,11 +67,11 @@ const CFAFAQs: React.FC = () => {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       
-      <section className="py-20 bg-gradient-to-br from-slate-50 via-red-50 to-indigo-100 relative overflow-hidden">
+      <section className="py-20 bg-gradient-to-br from-slate-50 via-red-50 to-red-100 relative overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0">
           <div className="absolute top-20 left-10 w-72 h-72 bg-red-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse"></div>
-          <div className="absolute bottom-20 right-10 w-72 h-72 bg-indigo-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse delay-1000"></div>
+          <div className="absolute bottom-20 right-10 w-72 h-72 bg-red-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse delay-1000"></div>
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-purple-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse delay-2000"></div>
         </div>
 
@@ -85,13 +85,13 @@ const CFAFAQs: React.FC = () => {
             className="text-center mb-16"
           >
             <div className="flex items-center justify-center mb-6">
-              <div className="bg-gradient-to-r from-red-500 to-indigo-600 p-3 rounded-2xl shadow-lg">
+              <div className="bg-gradient-to-r from-red-500 to-red-600 p-3 rounded-2xl shadow-lg">
                 <QuestionMarkCircleIcon className="h-8 w-8 text-white" />
               </div>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               Frequently Asked{' '}
-              <span className="bg-gradient-to-r from-red-600 to-indigo-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-red-600 to-red-600 bg-clip-text text-transparent">
                 Questions
               </span>
             </h2>
@@ -140,7 +140,7 @@ const CFAFAQs: React.FC = () => {
                       className="overflow-hidden"
                     >
                       <div className="px-8 pb-6 pt-2">
-                        <div className="h-px bg-gradient-to-r from-red-200 to-indigo-200 mb-4"></div>
+                        <div className="h-px bg-gradient-to-r from-red-200 to-red-200 mb-4"></div>
                         <p className="text-gray-700 leading-relaxed text-base md:text-lg">
                           {faq.answer}
                         </p>
@@ -160,7 +160,7 @@ const CFAFAQs: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="text-center mt-16"
           >
-            <div className="bg-gradient-to-r from-red-600 to-indigo-600 rounded-2xl p-8 shadow-xl">
+            <div className="bg-gradient-to-r from-red-600 to-red-600 rounded-2xl p-8 shadow-xl">
               <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
                 Still Have Questions?
               </h3>

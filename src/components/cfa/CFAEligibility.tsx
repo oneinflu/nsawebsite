@@ -154,7 +154,7 @@ export default function CFAEligibility() {
           <div className="grid lg:grid-cols-2 gap-12 mb-16">
             {/* Left Column - Eligibility Requirements */}
             <motion.div variants={itemVariants}>
-              <div className="bg-gradient-to-br from-red-50 to-indigo-50 rounded-3xl p-8 h-full">
+              <div className="bg-gradient-to-br from-red-50 to-red-50 rounded-3xl p-8 h-full">
                 <div className="flex items-center gap-3 mb-8">
                   <div className="w-12 h-12 bg-red-500 rounded-xl flex items-center justify-center">
                     <CheckCircleIcon className="w-6 h-6 text-white" />

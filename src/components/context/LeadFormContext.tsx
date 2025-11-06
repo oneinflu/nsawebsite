@@ -7,7 +7,7 @@ interface LeadFormContextType {
   isOpen: boolean;
   showThankYou: boolean;
   isSendOtp: boolean;
-  openLeadForm: (type?: FormType, isSendOtp?: boolean) => void;
+  openLeadForm: (type?: FormType, isSendOtp?: boolean, courseId?: string) => void;
   closeLeadForm: () => void;
   openThankYouPage: () => void;
   closeThankYouPage: () => void;
@@ -15,6 +15,8 @@ interface LeadFormContextType {
   setLeadVerified: (verified: boolean) => void;
   formStep: 'details' | 'otp' | 'thankyou';
   setFormStep: (step: 'details' | 'otp' | 'thankyou') => void;
+  isCourseLocked: boolean;
+  setIsCourseLocked: (locked: boolean) => void;
   formData: {
     name: string;
     email: string;
@@ -68,11 +70,16 @@ export const LeadFormProvider = ({ children }: { children: ReactNode }) => {
   const [formType, setFormType] = useState<FormType>('general');
   const [isSendOtp, setIsSendOtp] = useState(true);
   const [leadVerified, setLeadVerified] = useState(false);
+  const [isCourseLocked, setIsCourseLocked] = useState(false);
 
-  const openLeadForm = (type: FormType = 'general', isSendOtpParam: boolean = true) => {
+  const openLeadForm = (type: FormType = 'general', isSendOtpParam: boolean = true, courseId?: string) => {
     setFormType(type);
     setFormStep('details');
     setIsSendOtp(isSendOtpParam);
+    if (courseId) {
+      setFormData(prev => ({ ...prev, course: courseId }));
+      setIsCourseLocked(true);
+    }
     setLeadVerified(false);
     setIsOpen(true);
     document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
@@ -83,6 +90,7 @@ export const LeadFormProvider = ({ children }: { children: ReactNode }) => {
     setFormStep('details');
     setFormData(defaultFormData);
     setIsSendOtp(false);
+    setIsCourseLocked(false);
     document.body.style.overflow = ''; // Re-enable scrolling
   };
 
@@ -118,6 +126,8 @@ export const LeadFormProvider = ({ children }: { children: ReactNode }) => {
         setLeadVerified,
         formStep,
         setFormStep,
+        isCourseLocked,
+        setIsCourseLocked,
         formData,
         updateFormData,
         formType,

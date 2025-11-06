@@ -80,7 +80,7 @@ export default function CIAStudyPlanner() {
       duration: '15 Months',
       hoursPerWeek: '15-20 hours',
       description: 'Balanced approach for working professionals',
-      color: 'from-red-500 to-indigo-500',
+      color: 'from-red-500 to-red-500',
       icon: '⚖️',
       suitableFor: ['Working professionals', 'Balanced lifestyle', 'Steady progress'],
       timeline: [
@@ -153,7 +153,7 @@ export default function CIAStudyPlanner() {
       title: 'Part 2', 
       subtitle: 'Practice of Internal Auditing',
       icon: BriefcaseIcon,
-      color: 'bg-indigo-500',
+      color: 'bg-red-500',
       description: 'Practical application'
     },
     { 
@@ -222,7 +222,7 @@ export default function CIAStudyPlanner() {
         >
           <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
             CIA{' '}
-            <span className="bg-gradient-to-r from-red-600 to-indigo-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-red-600 to-red-600 bg-clip-text text-transparent">
               Study Planner
             </span>
           </h2>
@@ -455,7 +455,7 @@ export default function CIAStudyPlanner() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="text-center"
         >
-          <div className="bg-gradient-to-r from-red-50 to-indigo-50 rounded-2xl p-8 md:p-12">
+          <div className="bg-gradient-to-r from-red-50 to-red-50 rounded-2xl p-8 md:p-12">
             <h3 className="text-3xl font-bold text-slate-900 mb-4">
               Ready to Start Your CIA Journey?
             </h3>
@@ -467,7 +467,7 @@ export default function CIAStudyPlanner() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={handleDownloadSyllabus}
-              className="bg-gradient-to-r from-red-600 to-indigo-600 text-white px-8 py-4 rounded-lg font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 inline-flex items-center"
+              className="bg-gradient-to-r from-red-600 to-red-600 text-white px-8 py-4 rounded-lg font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 inline-flex items-center"
             >
               <DocumentArrowDownIcon className="w-6 h-6 mr-2" />
               Download Study Planner
@@ -549,7 +549,7 @@ export default function CIAStudyPlanner() {
                 
                 <button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-red-600 to-indigo-600 text-white py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-300"
+                  className="w-full bg-gradient-to-r from-red-600 to-red-600 text-white py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-300"
                 >
                   Download Study Planner
                 </button>

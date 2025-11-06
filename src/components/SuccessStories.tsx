@@ -282,7 +282,7 @@ const SuccessStories: React.FC = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-indigo-50 via-white to-purple-50 relative overflow-hidden">
+    <section className="py-20 bg-gradient-to-br from-red-50 via-white to-purple-50 relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
@@ -295,7 +295,7 @@ const SuccessStories: React.FC = () => {
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-6">
             Where Dreams Become
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600 block">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-purple-600 block">
               Global Careers
             </span>
           </h2>
@@ -383,7 +383,7 @@ const SuccessStories: React.FC = () => {
                 <div className="p-6 relative">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-3">
-                      <div className="w-10 h-10 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full flex items-center justify-center shadow-lg group-hover:rotate-12 transition-transform duration-300">
+                      <div className="w-10 h-10 bg-gradient-to-r from-red-500 to-purple-600 rounded-full flex items-center justify-center shadow-lg group-hover:rotate-12 transition-transform duration-300">
                         <TrophyIcon className="w-5 h-5 text-white" />
                       </div>
                       <div>
@@ -409,7 +409,7 @@ const SuccessStories: React.FC = () => {
                       <div className="text-green-700 font-bold text-lg">{ranker.score.split('/')[0]}</div>
                       <div className="text-green-600 text-xs font-medium">Score Achieved</div>
                     </div>
-                    <div className="bg-gradient-to-r from-red-50 to-indigo-50 rounded-xl p-3 border border-red-200/50">
+                    <div className="bg-gradient-to-r from-red-50 to-red-50 rounded-xl p-3 border border-red-200/50">
                       <div className="text-red-700 font-bold text-lg">{ranker.rank.replace('AIR ', '#')}</div>
                       <div className="text-red-600 text-xs font-medium">Global Rank</div>
                     </div>
@@ -431,7 +431,7 @@ const SuccessStories: React.FC = () => {
 
           {/* Call to Action */}
           <div className="text-center mt-12">
-            <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-8 py-4 rounded-2xl font-bold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 cursor-pointer">
+            <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-red-600 to-purple-600 text-white px-8 py-4 rounded-2xl font-bold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 cursor-pointer">
               <span>🚀 Join the Rankers Club</span>
               <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
             </div>
@@ -483,7 +483,7 @@ const SuccessStories: React.FC = () => {
                             </div>
                           </div>
                         </div>
-                        <blockquote className="text-lg italic text-slate-700 border-l-4 border-indigo-500 pl-4">
+                        <blockquote className="text-lg italic text-slate-700 border-l-4 border-red-500 pl-4">
                           &quot;{alumni.quote}&quot;
                         </blockquote>
                       </div>
@@ -514,7 +514,7 @@ const SuccessStories: React.FC = () => {
                   key={index}
                   onClick={() => setCurrentSlide(index)}
                   className={`w-3 h-3 rounded-full transition-colors duration-200 ${
-                    index === currentSlide ? 'bg-indigo-600' : 'bg-slate-300'
+                    index === currentSlide ? 'bg-red-600' : 'bg-slate-300'
                   }`}
                 />
               ))}
@@ -524,7 +524,7 @@ const SuccessStories: React.FC = () => {
 
         {/* Proof Stats Band */}
         <div ref={statsRef} className="mb-20">
-          <div className="bg-gradient-to-r from-slate-900 via-indigo-900 to-purple-900 rounded-2xl p-8 shadow-2xl">
+          <div className="bg-gradient-to-r from-slate-900 via-red-900 to-purple-900 rounded-2xl p-8 shadow-2xl">
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
               {proofStats.map((stat, index) => {
                 const IconComponent = stat.icon;
@@ -553,7 +553,7 @@ const SuccessStories: React.FC = () => {
             <div className="flex animate-scroll space-x-8">
               {[...microStories, ...microStories].map((story, index) => (
                 <div key={index} className="flex-shrink-0">
-                  <div className="bg-gradient-to-r from-indigo-100 to-purple-100 border border-indigo-200 rounded-full px-6 py-3">
+                  <div className="bg-gradient-to-r from-red-100 to-purple-100 border border-red-200 rounded-full px-6 py-3">
                     <span className="text-slate-700 font-medium whitespace-nowrap">&quot;{story}&quot;</span>
                   </div>
                 </div>
@@ -566,7 +566,7 @@ const SuccessStories: React.FC = () => {
         <div className="text-center">
           <button 
             onClick={() => setShowTestimonialModal(true)}
-            className="group bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-bold py-4 px-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 mb-4"
+            className="group bg-gradient-to-r from-red-600 to-purple-600 hover:from-red-700 hover:to-purple-700 text-white font-bold py-4 px-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 mb-4"
           >
             <span className="flex items-center space-x-2">
               <PlayIcon className="w-5 h-5" />
@@ -608,8 +608,8 @@ const SuccessStories: React.FC = () => {
             <div className="p-6">
               <h3 className="text-2xl font-bold text-slate-900 mb-2">{selectedRanker.name}</h3>
               <div className="flex items-center space-x-4 mb-4">
-                <div className="bg-indigo-100 px-3 py-1 rounded-full">
-                  <span className="text-indigo-700 font-semibold text-sm">{selectedRanker.certification}</span>
+                <div className="bg-red-100 px-3 py-1 rounded-full">
+                  <span className="text-red-700 font-semibold text-sm">{selectedRanker.certification}</span>
                 </div>
                 <div className="bg-green-100 px-3 py-1 rounded-full">
                   <span className="text-green-700 font-semibold text-sm">{selectedRanker.score}</span>

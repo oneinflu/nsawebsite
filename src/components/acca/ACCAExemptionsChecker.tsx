@@ -89,7 +89,7 @@ const ACCAExemptionsChecker = () => {
   const result = getExemptionResult();
 
   return (
-    <section className="py-20 bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50">
+    <section className="py-20 bg-gradient-to-br from-red-50 via-purple-50 to-pink-50">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div

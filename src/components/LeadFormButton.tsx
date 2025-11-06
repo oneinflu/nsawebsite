@@ -10,6 +10,7 @@ interface LeadFormButtonProps {
   variant?: 'primary' | 'secondary' | 'outline';
   formType?: FormType;
   isSendOtp?: boolean;
+  courseId?: 'CPA' | 'CMA USA' | 'ACCA' | 'CFA' | 'CIA' | 'EA';
 }
 
 const LeadFormButton = ({ 
@@ -18,6 +19,7 @@ const LeadFormButton = ({
   variant = 'primary',
   formType = 'general',
   isSendOtp = true,
+  courseId,
 }: LeadFormButtonProps) => {
   const { openLeadForm } = useLeadForm();
 
@@ -31,7 +33,7 @@ const LeadFormButton = ({
 
   return (
     <button
-      onClick={() => openLeadForm(formType, isSendOtp)}
+      onClick={() => openLeadForm(formType, isSendOtp, courseId)}
       className={`${baseStyles} ${variantStyles[variant]} ${className}`}
     >
       {children}

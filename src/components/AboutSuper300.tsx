@@ -50,7 +50,7 @@ const AboutSuper300 = () => {
       icon: "🎯", 
       label: "300 Students Only",
       subtext: "Pan-India Selection",
-      gradient: "from-red-400 to-indigo-500",
+      gradient: "from-red-400 to-red-500",
       glow: "shadow-red-500/25"
     },
     {

@@ -263,7 +263,7 @@ const Header: React.FC = () => {
                     className="h-10 w-auto"
                   />
                   <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-red-400/20 to-indigo-400/20 rounded-lg opacity-0"
+                    className="absolute inset-0 bg-gradient-to-r from-red-400/20 to-red-400/20 rounded-lg opacity-0"
                     whileHover={{ opacity: 1 }}
                     transition={{ duration: 0.3 }}
                   />
@@ -289,7 +289,7 @@ const Header: React.FC = () => {
                     <ChevronDownIcon className="w-4 h-4" />
                   </motion.div>
                   <motion.div
-                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-red-500 to-indigo-500 origin-left"
+                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-red-500 to-red-500 origin-left"
                     initial={{ scaleX: 0 }}
                     whileHover={{ scaleX: 1 }}
                     transition={{ duration: 0.3 }}
@@ -313,7 +313,7 @@ const Header: React.FC = () => {
                     <ChevronDownIcon className="w-4 h-4" />
                   </motion.div>
                   <motion.div
-                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-red-500 to-indigo-500 origin-left"
+                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-red-500 to-red-500 origin-left"
                     initial={{ scaleX: 0 }}
                     whileHover={{ scaleX: 1 }}
                     transition={{ duration: 0.3 }}
@@ -337,7 +337,7 @@ const Header: React.FC = () => {
                     <ChevronDownIcon className="w-4 h-4" />
                   </motion.div>
                   <motion.div
-                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-red-500 to-indigo-500 origin-left"
+                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-red-500 to-red-500 origin-left"
                     initial={{ scaleX: 0 }}
                     whileHover={{ scaleX: 1 }}
                     transition={{ duration: 0.3 }}
@@ -361,7 +361,7 @@ const Header: React.FC = () => {
                     <ChevronDownIcon className="w-4 h-4" />
                   </motion.div>
                   <motion.div
-                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-red-500 to-indigo-500 origin-left"
+                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-red-500 to-red-500 origin-left"
                     initial={{ scaleX: 0 }}
                     whileHover={{ scaleX: 1 }}
                     transition={{ duration: 0.3 }}
@@ -516,7 +516,7 @@ const Header: React.FC = () => {
                           <motion.button
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            className="w-full bg-gradient-to-r from-red-600 to-indigo-600 text-white py-2 px-4 rounded-lg font-semibold text-sm"
+                            className="w-full bg-gradient-to-r from-red-600 to-red-600 text-white py-2 px-4 rounded-lg font-semibold text-sm"
                           >
                             Book Free Counselling
                           </motion.button>
@@ -555,7 +555,7 @@ const Header: React.FC = () => {
                     <motion.button
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      className="bg-gradient-to-r from-red-600 to-indigo-600 text-white px-8 py-3 rounded-xl font-semibold"
+                      className="bg-gradient-to-r from-red-600 to-red-600 text-white px-8 py-3 rounded-xl font-semibold"
                     >
                       Get Personalized Career Plan →
                     </motion.button>
@@ -744,7 +744,7 @@ const Header: React.FC = () => {
                   <div className="space-y-4 pt-6 border-t border-gray-200">
                     <Link
                       href="/book-counselling"
-                      className="block w-full bg-gradient-to-r from-red-600 to-indigo-600 text-white text-center py-3 px-4 rounded-xl font-semibold"
+                      className="block w-full bg-gradient-to-r from-red-600 to-red-600 text-white text-center py-3 px-4 rounded-xl font-semibold"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
                       Book Free Counselling

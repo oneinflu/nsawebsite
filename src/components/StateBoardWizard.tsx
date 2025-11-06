@@ -236,7 +236,7 @@ export default function StateBoardWizard() {
     const recommendedBoards = getRecommendedBoards()
     
     return (
-      <section className="py-20 bg-gradient-to-br from-red-50 to-indigo-50">
+      <section className="py-20 bg-gradient-to-br from-red-50 to-red-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -331,7 +331,7 @@ export default function StateBoardWizard() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8 }}
-            className="bg-gradient-to-r from-red-600 to-indigo-600 rounded-2xl p-8 text-white text-center"
+            className="bg-gradient-to-r from-red-600 to-red-600 rounded-2xl p-8 text-white text-center"
           >
             <h3 className="text-2xl font-bold mb-4">
               Need Expert Guidance on State Board Selection?
@@ -400,7 +400,7 @@ export default function StateBoardWizard() {
                   </select>
                   <button
                     type="submit"
-                    className="w-full bg-gradient-to-r from-red-600 to-indigo-600 text-white py-3 px-6 rounded-lg font-semibold hover:shadow-lg transition-all duration-300"
+                    className="w-full bg-gradient-to-r from-red-600 to-red-600 text-white py-3 px-6 rounded-lg font-semibold hover:shadow-lg transition-all duration-300"
                   >
                     Schedule Call Back
                   </button>
@@ -479,7 +479,7 @@ export default function StateBoardWizard() {
           </div>
           <div className="w-full bg-slate-200 rounded-full h-2">
             <motion.div
-              className="bg-gradient-to-r from-red-500 to-indigo-500 h-2 rounded-full"
+              className="bg-gradient-to-r from-red-500 to-red-500 h-2 rounded-full"
               initial={{ width: 0 }}
               animate={{ width: `${((currentStep + 1) / wizardSteps.length) * 100}%` }}
               transition={{ duration: 0.5 }}

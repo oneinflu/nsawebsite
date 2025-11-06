@@ -44,8 +44,8 @@ const cfaLevels: CFALevel[] = [
     outcome: 'Analytical foundation',
     duration: '6–8 months',
     icon: BookOpenIcon,
-    color: 'from-red-500 to-indigo-500',
-    bgColor: 'from-red-50 to-indigo-50',
+    color: 'from-red-500 to-red-500',
+    bgColor: 'from-red-50 to-red-50',
     topics: [
       'Ethical and Professional Standards',
       'Quantitative Methods',
@@ -178,7 +178,7 @@ export default function CFAProgramStructure() {
 
   if (!isClient) {
     return (
-      <section className="py-20 bg-gradient-to-br from-slate-50 via-red-50 to-indigo-50">
+      <section className="py-20 bg-gradient-to-br from-slate-50 via-red-50 to-red-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
@@ -194,7 +194,7 @@ export default function CFAProgramStructure() {
   }
 
   return (
-    <section className="py-20 bg-gradient-to-br from-slate-50 via-red-50 to-indigo-50 relative overflow-hidden">
+    <section className="py-20 bg-gradient-to-br from-slate-50 via-red-50 to-red-50 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.1),transparent_50%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(147,51,234,0.1),transparent_50%)]" />

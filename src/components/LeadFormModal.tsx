@@ -35,6 +35,8 @@ const LeadFormModal = () => {
     setFormStep,
     formType,
     isSendOtp,
+    isCourseLocked,
+    setIsCourseLocked,
   } = useLeadForm();
   const router = useRouter();
   const pathname = usePathname();
@@ -43,11 +45,15 @@ const LeadFormModal = () => {
   const [otp, setOtp] = useState("");
   const [otpError, setOtpError] = useState("");
   const [leadId, setLeadId] = useState<string | null>(null);
+  const [isEditingPhone, setIsEditingPhone] = useState(false);
+  const [editPhoneValue, setEditPhoneValue] = useState("");
+  const [editDialCode, setEditDialCode] = useState("91");
   const inputRef = useRef<HTMLInputElement>(null);
   const [autocomplete, setAutocomplete] =
     useState<google.maps.places.Autocomplete | null>(null);
   const [ipAddress, setIpAddress] = useState("");
   const [sessionReferrer, setSessionReferrer] = useState("");
+  const [otpNotice, setOtpNotice] = useState<string>("");
 
   useEffect(() => {
     const fetchIp = async () => {
@@ -72,6 +78,26 @@ const LeadFormModal = () => {
       closeLeadForm();
     }
   }, [pathname, closeLeadForm]);
+
+  // Prefill course_id based on URL unless base "/" (show selector)
+  useEffect(() => {
+    if (!isOpen) return;
+    if (formData.course) return; // already set via button or prior state
+    const path = pathname || "/";
+    if (path === "/") return; // base URL -> selector visible
+    const lower = path.toLowerCase();
+    let detected: string | null = null;
+    if (lower.includes("cpa")) detected = "CPA";
+    else if (lower.includes("cma")) detected = "CMA USA";
+    else if (lower.includes("acca")) detected = "ACCA";
+    else if (lower.includes("enrolled-agent") || lower.includes("ea")) detected = "EA";
+    else if (lower.includes("cfa-us") || lower.includes("cfa")) detected = "CFA";
+    else if (lower.includes("cia")) detected = "CIA";
+    if (detected) {
+      updateFormData({ course: detected });
+      setIsCourseLocked(true);
+    }
+  }, [isOpen, pathname, formData.course, updateFormData, setIsCourseLocked]);
 
   useEffect(() => {
     if (isOpen) {
@@ -224,25 +250,32 @@ const LeadFormModal = () => {
       if (response.ok) {
         const result = await response.json();
         console.log("OTP verification success:", result);
-        // Determine course slug for dynamic thank-you routing
         const inASection = pathname.startsWith("/a");
-        const detectCourseSlug = () => {
-          if (pathname.includes("/cma-usa")) return "cma-usa";
-          if (pathname.includes("/cpa-us")) return "cpa-us";
-          if (pathname.includes("/acca-uk")) return "acca-uk";
-          if (pathname.includes("/cia")) return "cia";
-          const normalized = (formData.course || "").trim().toLowerCase();
-          if (normalized.includes("cma")) return "cma-usa";
-          if (normalized.includes("cpa")) return "cpa-us";
-          if (normalized.includes("acca")) return "acca-uk";
-          if (normalized.includes("cia")) return "cia";
-          return "cma-usa"; // default to most common course if unknown
+        const courseId = (formData.course || "").trim();
+        const courseIdToSlug = (id: string): string => {
+          switch (id) {
+            case "CPA": return "cpa-us";
+            case "CMA USA": return "cma-usa";
+            case "ACCA": return "acca-uk";
+            case "CIA": return "cia";
+            case "CFA": return "cfa-us";
+            case "EA": return "enrolled-agent";
+            default: {
+              const lower = pathname.toLowerCase();
+              if (lower.includes("cma-usa")) return "cma-usa";
+              if (lower.includes("cpa-us")) return "cpa-us";
+              if (lower.includes("acca-uk")) return "acca-uk";
+              if (lower.includes("cia")) return "cia";
+              if (lower.includes("cfa-us")) return "cfa-us";
+              return "cma-usa";
+            }
+          }
         };
-        const courseSlug = detectCourseSlug();
-        const target = inASection
-          ? `/a/thank-you/${courseSlug}`
-          : `/thank-you/${courseSlug}`;
+        const courseSlug = courseIdToSlug(courseId);
+        const target = inASection ? `/a/thank-you/${courseSlug}` : `/thank-you/${courseSlug}`;
         router.push(target);
+        // Close the lead form modal so the navigation is visible
+        closeLeadForm();
       } else {
         const errorData = await response.json();
         console.error("OTP verification failed:", response.status, errorData);
@@ -256,73 +289,117 @@ const LeadFormModal = () => {
   };
 
   const handleResendOtp = async () => {
+    if (!leadId) {
+      setOtpError("No lead found. Please submit the form again.");
+      return;
+    }
     setIsSubmitting(true);
     setOtpError("");
-
-    // config resolved via getConfigFor(formType) if needed
-
-    const leadData = {
-      form_id: "7e68ae1a-5765-489c-9b62-597b478c0fa0", // Hardcoded for now
-      visitor_id: "68303d80d71ba95da713026e", // Hardcoded for now
-      isSendOtp: isSendOtp,
-      answers: {
-        full_name: formData.name,
-        phone_number: formData.phone,
-        email_address: formData.email,
-        course_id: "CMA USA",
-      },
-      utm_data: {
-        utm_source: formData.utm_source,
-        utm_medium: formData.utm_medium,
-        utm_campaign: formData.utm_campaign,
-        utm_term: formData.utm_term,
-        utm_content: formData.utm_content,
-        utm_tag: "", // Not available in form
-        utm_keyword: "", // Not available in form
-      },
-      location_data: {
-        country: "India", // Hardcoded for now
-        state: "", // To be implemented with location services
-        city: formData.location,
-        pin_code: "", // To be implemented with location services
-      },
-      session_referrer: sessionReferrer,
-      ip_address: ipAddress,
-    };
-
     try {
       const response = await fetch(
-        "https://api.starforze.com/api/leads",
+        `https://api.starforze.com/api/leads/${leadId}/send-otp`,
         {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(leadData),
+          headers: { "Content-Type": "application/json" },
         }
       );
-
       if (response.ok) {
         const result = await response.json();
-        // Log the response for resend OTP flow
-        console.log("Resend OTP - lead creation response:", result);
-        const id = result?.data?._id ?? result?.data?.id ?? null;
-        setLeadId(id);
-        console.log("Captured leadId (resend):", id);
+        console.log("Resent OTP for lead:", result);
         setOtp("");
+        setOtpNotice("OTP resent");
       } else {
-        console.error("Form submission failed");
+        const err = await response.json();
+        setOtpError(err?.message || "Failed to resend OTP.");
       }
     } catch (error) {
-      console.error("An error occurred during form submission:", error);
+      console.error("Resend OTP error:", error);
+      setOtpError("An error occurred. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
   };
 
-  const handleChangeNumber = () => {
-    setFormStep("details");
+  const handleChangeNumber = async () => {
+    setIsEditingPhone(true);
+    // Prefill from API if leadId exists
+    if (!leadId) {
+      // Fallback to current formData.phone
+      setEditDialCode("91");
+      setEditPhoneValue(formData.phone || "");
+      return;
+    }
+    try {
+      const response = await fetch(`https://api.starforze.com/api/leads/${leadId}`);
+      if (response.ok) {
+        const result = await response.json();
+        const mobile = result?.data?.mobile || result?.data?.phone_number || "";
+        const ccode = result?.data?.countryCode || result?.data?.dialCode || "91";
+        setEditDialCode(String(ccode));
+        // Combine for PhoneInput controlled value: dialCode + mobile
+        const combined = mobile ? `${ccode}${String(mobile).replace(/\D/g, "")}` : formData.phone;
+        setEditPhoneValue(combined || "");
+      } else {
+        setEditDialCode("91");
+        setEditPhoneValue(formData.phone || "");
+      }
+    } catch (error) {
+      console.error("Fetch lead details error:", error);
+      setEditDialCode("91");
+      setEditPhoneValue(formData.phone || "");
+    }
   };
+
+  const handleEditPhoneChange = (value: string, dialCode?: string) => {
+    setEditPhoneValue(value);
+    if (dialCode) setEditDialCode(String(dialCode));
+  };
+
+  const handleEditPhoneCancel = () => {
+    setIsEditingPhone(false);
+  };
+
+  const handleEditPhoneSubmit = async () => {
+    if (!leadId) {
+      setOtpError("No lead found to update.");
+      return;
+    }
+    setIsSubmitting(true);
+    setOtpError("");
+    // Parse mobile from combined value (dialCode + mobile)
+    const dialLen = editDialCode.length;
+    const digitsOnly = editPhoneValue.replace(/\D/g, "");
+    const mobile = digitsOnly.slice(dialLen);
+    try {
+      const updateResp = await fetch(
+        `https://api.starforze.com/api/leads/${leadId}/update-mobile`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ mobile, countryCode: editDialCode }),
+        }
+      );
+      if (!updateResp.ok) {
+        const err = await updateResp.json();
+        setOtpError(err?.message || "Failed to update mobile.");
+        setIsSubmitting(false);
+        return;
+      }
+      // Update local form data phone
+      updateFormData({ phone: `${editDialCode}${mobile}` });
+      // Do not call send-otp again; updating mobile triggers OTP automatically
+      setOtp("");
+      setIsEditingPhone(false);
+      setOtpNotice("Mobile number updated and OTP sent");
+    } catch (error) {
+      console.error("Update mobile/send OTP error:", error);
+      setOtpError("An error occurred. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  // Deprecated: old change-number handler removed in favor of inline edit flow
 
   if (!isOpen) return null;
 
@@ -360,6 +437,7 @@ const LeadFormModal = () => {
                     phoneError={phoneError}
                     isSubmitting={isSubmitting}
                     inputRef={inputRef as unknown as React.RefObject<HTMLInputElement | null>}
+                    isCourseLocked={isCourseLocked}
                   />
                 )}
 
@@ -373,6 +451,12 @@ const LeadFormModal = () => {
                     onVerify={handleOtpVerification}
                     onChangeNumber={handleChangeNumber}
                     onResend={handleResendOtp}
+                    notice={otpNotice}
+                    isEditingPhone={isEditingPhone}
+                    editPhoneValue={editPhoneValue}
+                    onEditPhoneChange={handleEditPhoneChange}
+                    onEditPhoneSubmit={handleEditPhoneSubmit}
+                    onEditPhoneCancel={handleEditPhoneCancel}
                   />
                 )}
 

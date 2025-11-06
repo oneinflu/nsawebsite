@@ -105,6 +105,52 @@ export const courseThankYouConfig: Record<string, CourseThankYouContent> = {
       { label: 'CIA Syllabus', href: '/api/resources/cia-syllabus' },
       { label: 'Mentor Q&A Calendar', href: '/api/resources/cia-qa' }
     ]
+  },
+  'cfa-us': {
+    title: 'Welcome to CFA Success Track',
+    subtitle: 'Start your CFA journey with curated guidance and community.',
+    youtubeId: 'hHW1oY26kxQ',
+    groupLink: 'https://chat.whatsapp.com/your-cfa-group-link',
+    groupPlatform: 'whatsapp',
+    advisorName: 'Arjun P',
+    advisorTitle: 'Program Advisor — CFA',
+    highlights: [
+      'Level-wise study plans and resources',
+      'Exam strategy sessions',
+      'Mentor support and peer community'
+    ],
+    nextSteps: [
+      'Join the WhatsApp group for updates',
+      'Watch the CFA roadmap overview',
+      'Complete onboarding to get a personalized plan'
+    ],
+    resources: [
+      { label: 'CFA Syllabus', href: '/api/resources/cfa-syllabus' },
+      { label: 'Study Planner', href: '/api/resources/cfa-planner' }
+    ]
+  },
+  'enrolled-agent': {
+    title: 'Welcome to Enrolled Agent Fast-Track',
+    subtitle: 'Accelerate your EA preparation with structured guidance.',
+    youtubeId: 'hHW1oY26kxQ',
+    groupLink: 'https://t.me/your-ea-telegram-group',
+    groupPlatform: 'telegram',
+    advisorName: 'Sana R',
+    advisorTitle: 'Program Advisor — EA',
+    highlights: [
+      'Exam-oriented modules and mock tests',
+      'Mentor support and Q&A',
+      'Career readiness and placement assistance'
+    ],
+    nextSteps: [
+      'Join the Telegram group for updates',
+      'Review the EA orientation video',
+      'Fill profile details to get tailored guidance'
+    ],
+    resources: [
+      { label: 'EA Syllabus', href: '/api/resources/ea-syllabus' },
+      { label: 'Bootcamp Schedule', href: '/api/resources/ea-bootcamps' }
+    ]
   }
 };
 

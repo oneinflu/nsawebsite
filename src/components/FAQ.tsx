@@ -232,7 +232,7 @@ export default function FAQ() {
           viewport={{ once: true }}
           className="mt-16 text-center"
         >
-          <div className="bg-gradient-to-r from-red-600 to-indigo-600 rounded-2xl p-8 text-white">
+          <div className="bg-gradient-to-r from-red-600 to-red-600 rounded-2xl p-8 text-white">
             <h3 className="text-2xl font-bold mb-4">Didn&apos;t find what you need?</h3>
             <p className="text-red-100 mb-6 text-lg">
               You won&apos;t get stuck. We&apos;re here to help with personalized guidance.

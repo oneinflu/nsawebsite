@@ -127,7 +127,7 @@ const MeetYourMentor = () => {
           <div className="relative">
             <div className="relative group">
               {/* Main portrait with premium lighting */}
-              <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-indigo-900 via-slate-800 to-black p-8">
+              <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-red-900 via-slate-800 to-black p-8">
                 <div className="absolute inset-0 bg-gradient-to-r from-amber-400/20 via-transparent to-amber-400/20 opacity-60"></div>
                 <img 
                   src="/api/placeholder/400/500" 
@@ -160,7 +160,7 @@ const MeetYourMentor = () => {
             <div>
               <h2 className="text-5xl font-light text-slate-900 leading-tight mb-6">
                 Mentorship that creates
-                <span className="block text-indigo-600 font-medium">Global Finance Leaders</span>
+                <span className="block text-red-600 font-medium">Global Finance Leaders</span>
               </h2>
               <p className="text-xl text-slate-600 font-light leading-relaxed">
                 A personal coaching model that ensures every student succeeds
@@ -193,7 +193,7 @@ const MeetYourMentor = () => {
 
             {/* CTAs */}
             <div className="space-y-4">
-              <button className="w-full lg:w-auto bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-4 rounded-xl font-medium transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-3">
+              <button className="w-full lg:w-auto bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-xl font-medium transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-3">
                 Learn from Irfat Sir
                 <ArrowRight className="w-5 h-5" />
               </button>
@@ -301,7 +301,7 @@ const MeetYourMentor = () => {
                 key={video.id}
                 onClick={() => setCurrentVideoIndex(index)}
                 className={`relative cursor-pointer rounded-xl overflow-hidden transition-all duration-300 ${
-                  index === currentVideoIndex ? 'ring-2 ring-indigo-500 shadow-lg' : 'hover:shadow-md'
+                  index === currentVideoIndex ? 'ring-2 ring-red-500 shadow-lg' : 'hover:shadow-md'
                 }`}
               >
                 <img 
@@ -341,8 +341,8 @@ const MeetYourMentor = () => {
                 return (
                   <div key={index} className="relative">
                     <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-200">
-                      <div className="bg-indigo-100 w-12 h-12 rounded-xl flex items-center justify-center mb-4">
-                        <Icon className="w-6 h-6 text-indigo-600" />
+                      <div className="bg-red-100 w-12 h-12 rounded-xl flex items-center justify-center mb-4">
+                        <Icon className="w-6 h-6 text-red-600" />
                       </div>
                       <h4 className="font-medium text-slate-900 mb-2">{step.step}</h4>
                       <p className="text-sm text-slate-600 leading-relaxed">{step.description}</p>
@@ -363,7 +363,7 @@ const MeetYourMentor = () => {
       </div>
 
       {/* CTA Footer */}
-      <div className="bg-gradient-to-r from-indigo-900 via-slate-800 to-indigo-900 text-white py-20">
+      <div className="bg-gradient-to-r from-red-900 via-slate-800 to-red-900 text-white py-20">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h3 className="text-4xl font-light mb-6">
             Join the Mentorship Movement

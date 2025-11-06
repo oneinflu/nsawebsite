@@ -66,7 +66,7 @@ const MeetYourMentor: React.FC = () => {
       title: 'Indian-Friendly Explanations',
       description: 'Makes tough US concepts simple and relatable for Indian students',
       icon: AcademicCapIcon,
-      color: 'from-red-500 to-indigo-500'
+      color: 'from-red-500 to-red-500'
     },
     {
       title: 'Exam Strategy Expertise',

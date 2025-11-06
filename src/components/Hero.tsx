@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import TrustLogosMarquee from './TrustLogosMarquee';
 import { ChevronRightIcon, CheckIcon, PlayIcon, StarIcon, AcademicCapIcon, CurrencyRupeeIcon, ChatBubbleLeftRightIcon, BriefcaseIcon, UserGroupIcon } from '@heroicons/react/24/outline';
 
 interface Certification {
@@ -131,7 +132,7 @@ const Hero: React.FC = () => {
   const currentCert = certifications[selectedCertification];
 
   return (
-    <div className="relative min-h-screen bg-gradient-to-br from-slate-50 via-red-50 to-indigo-100 overflow-hidden">
+    <div className="relative min-h-screen bg-gradient-to-br from-slate-50 via-red-50 to-red-100 overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23e0e7ff%22%20fill-opacity%3D%220.3%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%221%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-40"></div>
       
@@ -153,7 +154,7 @@ const Hero: React.FC = () => {
             {/* 2️⃣ Core Headline */}
             <div className="space-y-4">
               <h1 className="text-4xl lg:text-6xl font-bold leading-tight">
-                <span className="bg-gradient-to-r from-red-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-red-600 via-purple-600 to-red-600 bg-clip-text text-transparent">
                   Become a Globally Certified
                 </span>
                 <br />
@@ -176,7 +177,7 @@ const Hero: React.FC = () => {
             {/* 4️⃣ Guided CTA Funnel */}
             <div className="space-y-4">
               <div className="flex flex-col sm:flex-row gap-4">
-                <button className="flex-1 bg-gradient-to-r from-red-600 to-indigo-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:shadow-lg transform hover:scale-105 transition-all duration-200 flex items-center justify-center space-x-2">
+                <button className="flex-1 bg-gradient-to-r from-red-600 to-red-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:shadow-lg transform hover:scale-105 transition-all duration-200 flex items-center justify-center space-x-2">
                   <span>Book Free Counselling</span>
                   <ChevronRightIcon className="w-5 h-5" />
                 </button>
@@ -369,7 +370,7 @@ const Hero: React.FC = () => {
               </div>
               
               {selectedLocation && (
-                <div className="mt-4 p-4 bg-gradient-to-r from-red-50 to-indigo-50 rounded-lg border border-red-200">
+                <div className="mt-4 p-4 bg-gradient-to-r from-red-50 to-red-50 rounded-lg border border-red-200">
                   <div className="text-center">
                     <div className="text-lg font-semibold text-red-800">
                       Expected Salary: {locations[selectedLocation].salary}
@@ -391,19 +392,7 @@ const Hero: React.FC = () => {
           <p className="text-slate-600 font-medium">Trusted by students who now work at</p>
         </div>
         
-        <div className="relative">
-          <div className="flex animate-scroll space-x-12">
-            {[...trustLogos, ...trustLogos].map((logo, index) => (
-              <div key={index} className="flex-shrink-0 hover:scale-105 transition-all duration-300">
-                <div className="bg-white rounded-lg px-6 py-3 shadow-md border border-slate-200 hover:shadow-lg transition-all duration-300">
-                  <span className="text-slate-700 font-semibold text-lg whitespace-nowrap">
-                    {logo.name}
-                  </span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+        <TrustLogosMarquee />
       </div>
 
       {/* ROI Modal */}
@@ -439,7 +428,7 @@ const Hero: React.FC = () => {
               
               <button 
                 onClick={() => setShowROIModal(false)}
-                className="w-full bg-gradient-to-r from-red-600 to-indigo-600 text-white py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-200"
+                className="w-full bg-gradient-to-r from-red-600 to-red-600 text-white py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-200"
               >
                 Start My Journey Now
               </button>

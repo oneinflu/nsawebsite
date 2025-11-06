@@ -134,8 +134,8 @@ const CIATrainingExperience = () => {
       title: 'Global Exam Support',
       description: 'End-to-end exam registration and scheduling assistance',
       icon: GlobeAltIcon,
-      color: 'from-indigo-500 to-indigo-600',
-      bgColor: 'bg-indigo-50',
+      color: 'from-red-500 to-red-600',
+      bgColor: 'bg-red-50',
       emotion: 'Practical',
       uxElement: {
         type: 'registration',

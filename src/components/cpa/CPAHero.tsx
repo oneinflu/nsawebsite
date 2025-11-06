@@ -32,7 +32,7 @@ export default function CPAHero() {
   ];
 
   return (
-    <section className="relative min-h-screen bg-gradient-to-br from-red-900 via-red-800 to-indigo-900 overflow-hidden">
+    <section className="relative min-h-screen bg-gradient-to-br from-red-900 via-red-800 to-red-900 overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
         {/* Animated background pattern */}
