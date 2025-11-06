@@ -1,12 +1,13 @@
 'use client';
 
 import React, { createContext, useContext, useState, ReactNode } from 'react';
+import { FormType } from "../lead-form/formConfigs";
 
 interface LeadFormContextType {
   isOpen: boolean;
   showThankYou: boolean;
   isSendOtp: boolean;
-  openLeadForm: (type?: string, isSendOtp?: boolean) => void;
+  openLeadForm: (type?: FormType, isSendOtp?: boolean) => void;
   closeLeadForm: () => void;
   openThankYouPage: () => void;
   closeThankYouPage: () => void;
@@ -34,7 +35,7 @@ interface LeadFormContextType {
     howHeard: string;
   };
   updateFormData: (data: Partial<LeadFormContextType['formData']>) => void;
-  formType: string;
+  formType: FormType;
 }
 
 const defaultFormData = {
@@ -64,14 +65,14 @@ export const LeadFormProvider = ({ children }: { children: ReactNode }) => {
   const [showThankYou, setShowThankYou] = useState(false);
   const [formStep, setFormStep] = useState<'details' | 'otp' | 'thankyou'>('details');
   const [formData, setFormData] = useState(defaultFormData);
-  const [formType, setFormType] = useState('general');
+  const [formType, setFormType] = useState<FormType>('general');
   const [isSendOtp, setIsSendOtp] = useState(true);
   const [leadVerified, setLeadVerified] = useState(false);
 
-  const openLeadForm = (type = 'general') => {
+  const openLeadForm = (type: FormType = 'general', isSendOtpParam: boolean = true) => {
     setFormType(type);
     setFormStep('details');
-    setIsSendOtp(true);
+    setIsSendOtp(isSendOtpParam);
     setLeadVerified(false);
     setIsOpen(true);
     document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open

@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { CheckCircleIcon } from '@heroicons/react/24/outline';
 import { TrendingUp } from 'lucide-react';
+import LeadFormButton from '../LeadFormButton';
 
 export default function CMAFeesROI() {
   const feeStructure = [
@@ -243,12 +244,12 @@ export default function CMAFeesROI() {
             Don&apos;t let the initial investment hold you back. CMA certification typically pays for itself within the first few months through salary increases and better opportunities.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="px-8 py-4 bg-white text-green-600 font-semibold rounded-lg hover:bg-slate-50 transform hover:scale-105 transition-all duration-200">
-              Calculate Your ROI
-            </button>
-            <button className="px-8 py-4 bg-green-700 text-white font-semibold rounded-lg hover:bg-green-800 transition-colors duration-200">
+            <LeadFormButton formType="download-syllabus" variant="outline" className="px-8 py-4 bg-white text-green-600 font-semibold rounded-lg hover:bg-slate-50 transform hover:scale-105 transition-all duration-200">
+             Talk to Expert
+            </LeadFormButton>
+            <LeadFormButton formType="general" variant="secondary" className="px-8 py-4 bg-green-700 text-white font-semibold rounded-lg hover:bg-green-800 transition-colors duration-200">
               Start Your Journey Today
-            </button>
+            </LeadFormButton>
           </div>
         </motion.div>
       </div>

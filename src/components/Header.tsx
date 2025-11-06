@@ -22,6 +22,7 @@ import {
   ArrowTrendingUpIcon,
   FireIcon
 } from '@heroicons/react/24/outline';
+import LeadFormButton from './LeadFormButton';
 
 interface MegaMenuData {
   courses: {
@@ -386,12 +387,16 @@ const Header: React.FC = () => {
               </motion.a>
 
               {/* Primary CTA */}
-              <Link
-                href="/book-counselling"
-                className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium transition-colors duration-200 text-sm"
-              >
+              <LeadFormButton
+              formType="general"
+              isSendOtp={true}
+             variant='primary'
+             
+             
+            >
+            
                 Book Free Call
-              </Link>
+              </LeadFormButton>
 
               {/* Login Icon */}
               <motion.button

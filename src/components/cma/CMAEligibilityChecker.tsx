@@ -549,7 +549,7 @@ export default function CMAEligibilityChecker() {
                       </ul>
                     </div>
                     <div className="mt-6">
-                      <LeadFormButton formType="cma" variant="primary" className="w-full">Download Full Syllabus</LeadFormButton>
+                      <LeadFormButton formType="download-syllabus" variant="primary" className="w-full">Download Full Syllabus</LeadFormButton>
                       <button onClick={resetChecker} className="mt-3 w-full px-4 py-2 rounded-lg font-semibold text-slate-700 bg-slate-200">Check Again</button>
                     </div>
                   </motion.div>
@@ -836,7 +836,7 @@ export default function CMAEligibilityChecker() {
                       <p className="text-slate-600 mb-6">Take the first step towards a globally recognized certification.</p>
                       <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
                         <LeadFormButton
-                          formType="cma"
+                          formType="download-syllabus"
                           variant="primary"
                           className="mt-4 w-full"
                         >

@@ -238,7 +238,7 @@ export default function CMASyllabus() {
                       Quick preview only — not the full CMA US syllabus.
                       <span className="ml-1">Unlock the complete, detailed syllabus (with subtopics and weightages):</span>
                       <div className="mt-3">
-                        <LeadFormButton formType="cma" variant="primary" className="text-sm">
+                        <LeadFormButton formType="download-syllabus" isSendOtp={true} variant="primary" className="text-sm">
                           Download Full Syllabus PDF
                         </LeadFormButton>
                       </div>
@@ -301,15 +301,16 @@ export default function CMASyllabus() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
          
             <LeadFormButton
-              formType="cma"
+              formType="download-syllabus"
+              isSendOtp={true}
               variant="secondary"
               className='text-base md:text-lg'
-              isSendOtp={true}
+             
             >
               Download Full Syllabus
             </LeadFormButton>
             <LeadFormButton
-              formType="cma"
+              formType="general"
               
              
               className='text-base md:text-lg btn-info'

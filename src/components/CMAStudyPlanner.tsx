@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CalendarIcon, ClockIcon, BookOpenIcon, CheckCircleIcon, PlayCircleIcon, DocumentTextIcon } from '@heroicons/react/24/solid';
+import LeadFormButton from './LeadFormButton';
 
 export default function CMAStudyPlanner() {
   const [selectedPlan, setSelectedPlan] = useState('standard');
@@ -293,20 +294,26 @@ export default function CMAStudyPlanner() {
               with our expert guidance and comprehensive resources.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-gradient-to-r from-red-600 to-indigo-600 text-white px-8 py-4 rounded-lg font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300"
-              >
+              <LeadFormButton
+              formType="download-hackdoc"
+              isSendOtp={true}
+             variant='secondary'
+             
+             
+            >
+            
                 Get My Study Plan
-              </motion.button>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="border-2 border-red-600 text-red-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-red-50 transition-all duration-300"
-              >
+              </LeadFormButton>
+             <LeadFormButton
+              formType="general"
+              isSendOtp={true}
+             variant='primary'
+             
+             
+            >
+            
                 Book Free Consultation
-              </motion.button>
+              </LeadFormButton>
             </div>
           </div>
         </motion.div>

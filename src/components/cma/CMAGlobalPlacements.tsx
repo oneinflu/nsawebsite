@@ -7,10 +7,10 @@ import {
   GlobeAltIcon, 
   ChevronLeftIcon, 
   ChevronRightIcon,
-  ArrowRightIcon,
-  ChatBubbleLeftRightIcon
+ 
 } from '@heroicons/react/24/outline';
 import Image from 'next/image';
+import LeadFormButton from '../LeadFormButton';
 
 
 const CMAGlobalPlacements = () => {
@@ -350,15 +350,19 @@ const CMAGlobalPlacements = () => {
             <p className="text-red-100 text-lg mb-8 max-w-2xl mx-auto">
               Get personalized career guidance from our placement experts who have helped 500+ students land their dream jobs
             </p>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-white text-red-600 px-8 py-4 rounded-xl font-bold text-lg hover:shadow-xl transition-all duration-300 inline-flex items-center"
+            <LeadFormButton
+              formType="download-placement-report"
+              isSendOtp={true}
+             variant='outline'
+             
+             
             >
-              <ChatBubbleLeftRightIcon className="w-6 h-6 mr-3" />
-              Talk to Placement Team
-              <ArrowRightIcon className="w-5 h-5 ml-2" />
-            </motion.button>
+            
+             
+              Download Placement Report
+          
+          
+            </LeadFormButton>
           </div>
         </motion.div>
       </div>
