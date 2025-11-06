@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 import { 
   AcademicCapIcon,
   ChartBarIcon,
@@ -345,7 +346,15 @@ const GlobalCoursesHub: React.FC = () => {
         >
           <AnimatePresence mode="wait">
             {filteredCourses.map((course, index) => {
-              const Icon = course.icon;
+              const courseImagesBySlug: Record<string, string> = {
+                'cma-usa': '/courses/cma.png',
+                'cpa-us': '/courses/cpa.png',
+                'cfa-us': '/courses/cfa.png',
+                'acca-uk': '/courses/acca.png',
+                'cia': '/courses/cia.png',
+                'ea': '/courses/ea.png',
+              };
+              const imageSrc = courseImagesBySlug[course.slug] ?? courseImagesBySlug[course.id] ?? '/logo.svg';
               return (
                 <motion.div
                   key={course.id}
@@ -364,9 +373,15 @@ const GlobalCoursesHub: React.FC = () => {
                     </div>
                   )}
 
-                  {/* Course Icon */}
-                  <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-red-500 to-red-600 rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-300">
-                    <Icon className="w-8 h-8 text-white" />
+                  {/* Course Image */}
+                  <div className="flex items-center justify-center w-16 h-16 bg-white rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-300 border border-red-100">
+                    <Image
+                      src={imageSrc}
+                      alt={`${course.title} logo`}
+                      width={48}
+                      height={48}
+                      className="w-12 h-12 object-contain"
+                    />
                   </div>
 
                   {/* Course Info */}
@@ -476,8 +491,21 @@ const GlobalCoursesHub: React.FC = () => {
               {/* Modal Header */}
               <div className="flex items-start justify-between mb-6">
                 <div className="flex items-center gap-4">
-                  <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-red-500 to-red-600 rounded-2xl">
-                    <selectedCourse.icon className="w-8 h-8 text-white" />
+                  <div className="flex items-center justify-center w-16 h-16 bg-white rounded-2xl border border-red-100">
+                    <Image
+                      src={{
+                        'cma-usa': '/courses/cma.png',
+                        'cpa-us': '/courses/cpa.png',
+                        'cfa-us': '/courses/cfa.png',
+                        'acca-uk': '/courses/acca.png',
+                        'cia': '/courses/cia.png',
+                        'ea': '/courses/ea.png',
+                      }[selectedCourse.slug] ?? '/logo.svg'}
+                      alt={`${selectedCourse.title} logo`}
+                      width={48}
+                      height={48}
+                      className="w-12 h-12 object-contain"
+                    />
                   </div>
                   <div>
                     <h3 className="text-2xl font-bold text-gray-900">{selectedCourse.title}</h3>
