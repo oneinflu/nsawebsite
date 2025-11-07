@@ -17,6 +17,10 @@ interface LeadFormContextType {
   setFormStep: (step: 'details' | 'otp' | 'thankyou') => void;
   isCourseLocked: boolean;
   setIsCourseLocked: (locked: boolean) => void;
+  suppressThankYouOnOtp: boolean;
+  setSuppressThankYouOnOtp: (suppress: boolean) => void;
+  afterOtpAction?: () => void;
+  setAfterOtpAction: (cb?: () => void) => void;
   formData: {
     name: string;
     email: string;
@@ -71,6 +75,8 @@ export const LeadFormProvider = ({ children }: { children: ReactNode }) => {
   const [isSendOtp, setIsSendOtp] = useState(true);
   const [leadVerified, setLeadVerified] = useState(false);
   const [isCourseLocked, setIsCourseLocked] = useState(false);
+  const [suppressThankYouOnOtp, setSuppressThankYouOnOtp] = useState(false);
+  const [afterOtpAction, setAfterOtpAction] = useState<undefined | (() => void)>(undefined);
 
   const openLeadForm = (type: FormType = 'general', isSendOtpParam: boolean = true, courseId?: string) => {
     setFormType(type);
@@ -91,6 +97,8 @@ export const LeadFormProvider = ({ children }: { children: ReactNode }) => {
     setFormData(defaultFormData);
     setIsSendOtp(false);
     setIsCourseLocked(false);
+    setSuppressThankYouOnOtp(false);
+    setAfterOtpAction(undefined);
     document.body.style.overflow = ''; // Re-enable scrolling
   };
 
@@ -128,6 +136,10 @@ export const LeadFormProvider = ({ children }: { children: ReactNode }) => {
         setFormStep,
         isCourseLocked,
         setIsCourseLocked,
+        suppressThankYouOnOtp,
+        setSuppressThankYouOnOtp,
+        afterOtpAction,
+        setAfterOtpAction,
         formData,
         updateFormData,
         formType,

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 'use client';
 
 
@@ -14,6 +15,7 @@ import Footer from "@/components/Footer";
 // import { usePathname } from "next/navigation";
 // import ExitIntentPopup from "@/components/ExitIntentPopup";
 import { LeadFormProvider } from "@/context/LeadFormContext";
+import { ToolsModalProvider, useToolsModal } from "@/context/ToolsModalContext";
 import LeadFormModal from "@/components/LeadFormModal";
 import { LoadScript } from "@react-google-maps/api";
 import { usePathname } from "next/navigation";
@@ -51,6 +53,7 @@ export default function RootLayout({
         {/* Global preloader overlay */}
         <GlobalPreloader />
         <LeadFormProvider>
+        <ToolsModalProvider>
            <LoadScript
           googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || "AIzaSyAOPCNlHy1wcVmr7Srt_1ic9EqEStBSMm4"}
           libraries={["places"]}
@@ -61,13 +64,31 @@ export default function RootLayout({
           {children}
           {/* Mount global lead form modal so it can open from anywhere */}
           <LeadFormModal />
+          {/* Mount calculators modals portal */}
+          <GlobalToolsModalPortal />
           
          
          
           {!isSuper300Page && !isASection && <Footer />}
           </LoadScript>
+        </ToolsModalProvider>
         </LeadFormProvider>
       </body>
     </html>
+  );
+}
+
+// Lightweight portal component to render calculators modals globally
+function GlobalToolsModalPortal() {
+  const { activeTool, closeTool } = useToolsModal();
+  const SalaryModal = require("@/components/tools/SalaryCalculatorModal").default;
+  const RoiModal = require("@/components/tools/RoiCalculatorModal").default;
+  const QuizModal = require("@/components/tools/CareerFitQuizModal").default;
+  return (
+    <>
+      <SalaryModal isOpen={activeTool === "salary"} onClose={closeTool} />
+      <RoiModal isOpen={activeTool === "roi"} onClose={closeTool} />
+      <QuizModal isOpen={activeTool === "quiz"} onClose={closeTool} />
+    </>
   );
 }

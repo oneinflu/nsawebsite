@@ -38,6 +38,8 @@ const LeadFormModal = () => {
     isSendOtp,
     isCourseLocked,
     setIsCourseLocked,
+    suppressThankYouOnOtp,
+    afterOtpAction,
   } = useLeadForm();
   const router = useRouter();
   const pathname = usePathname();
@@ -251,32 +253,41 @@ const LeadFormModal = () => {
       if (response.ok) {
         const result = await response.json();
         console.log("OTP verification success:", result);
-        const inASection = pathname.startsWith("/a");
-        const courseId = (formData.course || "").trim();
-        const courseIdToSlug = (id: string): string => {
-          switch (id) {
-            case "CPA": return "cpa-us";
-            case "CMA USA": return "cma-usa";
-            case "ACCA": return "acca-uk";
-            case "CIA": return "cia";
-            case "CFA": return "cfa-us";
-            case "EA": return "enrolled-agent";
-            default: {
-              const lower = pathname.toLowerCase();
-              if (lower.includes("cma-usa")) return "cma-usa";
-              if (lower.includes("cpa-us")) return "cpa-us";
-              if (lower.includes("acca-uk")) return "acca-uk";
-              if (lower.includes("cia")) return "cia";
-              if (lower.includes("cfa-us")) return "cfa-us";
-              return "cma-usa";
-            }
+        // If calculators gating is active, suppress thank-you and run custom action
+        if (suppressThankYouOnOtp) {
+          try {
+            afterOtpAction && afterOtpAction();
+          } finally {
+            closeLeadForm();
           }
-        };
-        const courseSlug = courseIdToSlug(courseId);
-        const target = inASection ? `/a/thank-you/${courseSlug}` : `/thank-you/${courseSlug}`;
-        router.push(target);
-        // Close the lead form modal so the navigation is visible
-        closeLeadForm();
+        } else {
+          const inASection = pathname.startsWith("/a");
+          const courseId = (formData.course || "").trim();
+          const courseIdToSlug = (id: string): string => {
+            switch (id) {
+              case "CPA": return "cpa-us";
+              case "CMA USA": return "cma-usa";
+              case "ACCA": return "acca-uk";
+              case "CIA": return "cia";
+              case "CFA": return "cfa-us";
+              case "EA": return "enrolled-agent";
+              default: {
+                const lower = pathname.toLowerCase();
+                if (lower.includes("cma-usa")) return "cma-usa";
+                if (lower.includes("cpa-us")) return "cpa-us";
+                if (lower.includes("acca-uk")) return "acca-uk";
+                if (lower.includes("cia")) return "cia";
+                if (lower.includes("cfa-us")) return "cfa-us";
+                return "cma-usa";
+              }
+            }
+          };
+          const courseSlug = courseIdToSlug(courseId);
+          const target = inASection ? `/a/thank-you/${courseSlug}` : `/thank-you/${courseSlug}`;
+          router.push(target);
+          // Close the lead form modal so the navigation is visible
+          closeLeadForm();
+        }
       } else {
         const errorData = await response.json();
         console.error("OTP verification failed:", response.status, errorData);

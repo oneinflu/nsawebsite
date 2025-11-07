@@ -23,6 +23,8 @@ import {
   FireIcon
 } from '@heroicons/react/24/outline';
 import LeadFormButton from './LeadFormButton';
+import { useLeadForm } from '@/context/LeadFormContext';
+import { useToolsModal } from '@/context/ToolsModalContext';
 
 interface MegaMenuData {
   courses: {
@@ -172,6 +174,15 @@ const Header: React.FC = () => {
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [hoveredCourse, setHoveredCourse] = useState<typeof megaMenuData.courses[0]['courses'][0] | null>(null);
+  const { openLeadForm, setSuppressThankYouOnOtp, setAfterOtpAction } = useLeadForm();
+  const { openTool } = useToolsModal();
+
+  const handleOpenCalculator = (tool: 'quiz' | 'salary' | 'roi') => {
+    // Gate calculators behind OTP verification and suppress thank-you redirect
+    setSuppressThankYouOnOtp(true);
+    setAfterOtpAction(() => () => openTool(tool));
+    openLeadForm('general', true);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -493,15 +504,30 @@ const Header: React.FC = () => {
                           {category.category}
                         </h3>
                         <div className="space-y-2">
-                          {category.items.map((item, itemIdx) => (
-                            <Link
-                              key={itemIdx}
-                              href={item.href}
-                              className="block p-2 rounded-lg hover:bg-red-50 text-gray-700 hover:text-red-600 transition-colors"
-                            >
-                              {item.name}
-                            </Link>
-                          ))}
+                          {category.items.map((item, itemIdx) => {
+                            const isCalculatorItem = ['Career Fit Quiz', 'Salary Calculator', 'ROI Calculator'].includes(item.name);
+                            if (isCalculatorItem) {
+                              const tool = item.name === 'Career Fit Quiz' ? 'quiz' : item.name === 'Salary Calculator' ? 'salary' : 'roi';
+                              return (
+                                <button
+                                  key={itemIdx}
+                                  onClick={() => handleOpenCalculator(tool)}
+                                  className="block w-full text-left p-2 rounded-lg hover:bg-red-50 text-gray-700 hover:text-red-600 transition-colors"
+                                >
+                                  {item.name}
+                                </button>
+                              );
+                            }
+                            return (
+                              <Link
+                                key={itemIdx}
+                                href={item.href}
+                                className="block p-2 rounded-lg hover:bg-red-50 text-gray-700 hover:text-red-600 transition-colors"
+                              >
+                                {item.name}
+                              </Link>
+                            );
+                          })}
                         </div>
                       </div>
                     ))}
