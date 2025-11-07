@@ -348,12 +348,12 @@ const GlobalCoursesHub: React.FC = () => {
           <AnimatePresence mode="wait">
             {filteredCourses.map((course, index) => {
               const courseImagesBySlug: Record<string, string> = {
-                'cma-usa': '/courses/cma.png',
-                'cpa-us': '/courses/cpa.png',
+                'cma-usa-course-details': '/courses/cma.png',
+                'cpa-course-details': '/courses/cpa.png',
                 'cfa-us': '/courses/cfa.png',
-                'acca': '/courses/acca.png',
+                'acca-course-details': '/courses/acca.png',
                 'cia': '/courses/cia.png',
-                'ea': '/courses/ea.png',
+                'enrolled-agent-course-details': '/courses/ea.png',
               };
               const imageSrc = courseImagesBySlug[course.slug] ?? courseImagesBySlug[course.id] ?? '/logo.svg';
               return (
