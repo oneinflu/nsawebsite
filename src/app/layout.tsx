@@ -50,6 +50,7 @@ export default function RootLayout({
       <head>
         {/* Set site favicon to the JPEG in public */}
         <link rel="icon" href="/favicon.jpeg" type="image/jpeg" />
+        
       </head>
       <body
         className={`${inter.variable} ${poppins.variable} font-inter antialiased`}

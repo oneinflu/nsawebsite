@@ -53,3 +53,10 @@ export default function Home() {
     </main>
   );
 }
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'NorthStar Academy | Global Finance Certification Training',
+  description:
+    'Accelerate your finance career with mentor-led CPA, CMA, ACCA, CFA, CIA, and EA training. Live classes, Big 4 placement support, scholarships, and ROI-focused tools.',
+};
