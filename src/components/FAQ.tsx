@@ -240,7 +240,7 @@ export default function FAQ() {
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <a
-                href="https://wa.me/919876543210?text=Hi! I have some questions about the certification programs."
+                href="https://wa.link/rwc7kj"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 flex items-center"
@@ -251,7 +251,7 @@ export default function FAQ() {
                 WhatsApp
               </a>
               <a
-                href="tel:+919876543210"
+                href="tel:+918147470707"
                 className="bg-white/20 hover:bg-white/30 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 flex items-center border border-white/30"
               >
                 <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
