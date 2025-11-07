@@ -29,10 +29,12 @@ const AnnouncementBar = () => {
       
       <div className="relative max-w-7xl mx-auto flex items-center justify-between">
         <div className="flex-1 flex items-center justify-center space-x-6 text-sm font-medium">
-          <span className="flex items-center space-x-2">
-            <span className="inline-block w-2 h-2 bg-yellow-400 rounded-full animate-pulse"></span>
-            <span>Next Batch Starts: {nextBatchDate || 'Loading…'}</span>
-          </span>
+          {nextBatchDate && (
+            <span className="flex items-center space-x-2">
+              <span className="inline-block w-2 h-2 bg-yellow-400 rounded-full animate-pulse"></span>
+              <span>Next Batch Starts: {nextBatchDate}</span>
+            </span>
+          )}
           
           <span className="hidden sm:inline">•</span>
           

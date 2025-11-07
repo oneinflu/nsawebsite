@@ -24,7 +24,7 @@ const MeetYourMentor = () => {
     const targets = {
       rankHolders: 150,
       partners: 200,
-      students: 25000,
+      students: 55000,
       success: 98,
       growth: 300
     };
