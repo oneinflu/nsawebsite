@@ -351,7 +351,7 @@ const GlobalCoursesHub: React.FC = () => {
                 'cma-usa': '/courses/cma.png',
                 'cpa-us': '/courses/cpa.png',
                 'cfa-us': '/courses/cfa.png',
-                'acca': '/courses/acca-course-details.png',
+                'acca': '/courses/acca.png',
                 'cia': '/courses/cia.png',
                 'ea': '/courses/ea.png',
               };
