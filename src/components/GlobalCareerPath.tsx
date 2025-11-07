@@ -285,11 +285,11 @@ const GlobalCareerPath: React.FC = () => {
   
   // Map course names to their respective page routes
   const courseSlugMap: Record<string, string> = {
-    CMA: '/cma-usa',
-    CPA: '/cpa-us',
+    CMA: '/cma-usa-course-details',
+    CPA: '/cpa-course-details',
     CIA: '/cia',
     CFA: '/cfa-us',
-    ACCA: '/acca',
+    ACCA: '/acca-course-details',
     EA: '/book-counselling', // fallback since EA page is not present
   };
 

@@ -21,20 +21,16 @@ export default function Footer() {
   }, [])
 
   const programs = [
-    { name: 'CMA (US)', href: '#cma' },
-    { name: 'CPA (US)', href: '#cpa' },
-    { name: 'ACCA (UK)', href: '#acca' },
-    { name: 'Compare Programs', href: '#compare', special: true },
-    { name: 'Scholarships & EMI', href: '#scholarships' }
+    { name: 'CMA (US)', href: '/cma-usa-course-details' },
+    { name: 'CPA (US)', href: '/cpa-course-details' , special: true },
+    { name: 'ACCA (UK)', href: '/acca-course-details' },
+    { name: 'CFA', href: '/cfa-us',  },
+    { name: 'CIA', href: '/cia' },
+    { name: 'Enrolled Agent', href: '/enrolled-agent-course-details' }
   ]
 
   // Footer link groups
-  const calculators = [
-    { name: 'Career Fit Quiz', href: '/quiz/career-fit' },
-    { name: 'Salary Calculator', href: '/tools/salary-calculator' },
-    { name: 'ROI Calculator', href: '/tools/roi-calculator' },
-  ]
-
+  
   const salaryPages = [
     { name: 'CPA vs CA Salaries', href: '/salary/cpa-vs-ca' },
   ]
@@ -42,7 +38,7 @@ export default function Footer() {
   const careerPages = [
     { name: 'CPA Jobs in UAE', href: '/careers/cpa-uae' },
     { name: 'CMA in India', href: '/careers/cma-india' },
-    { name: 'ACCA in UK', href: '/careers/acca-uk' },
+    { name: 'ACCA in UK', href: '/careers/acca-course-details-uk' },
     { name: 'CFA Career Paths', href: '/careers/cfa-paths' },
   ]
 
@@ -71,7 +67,7 @@ export default function Footer() {
   ]
 
   const brandBadges = [
-    { icon: '⭐', text: '25,000+ Students' },
+    { icon: '⭐', text: '55,000+ Students' },
     { icon: '🧠', text: 'Mentor-Led' },
     { icon: '🌍', text: 'International Certifications' },
     { icon: '🏢', text: 'Big 4 Career Pathways' }
@@ -101,7 +97,7 @@ export default function Footer() {
                 <h3 className="text-2xl font-bold">Download the Ultimate Guide to Global Finance Careers</h3>
               </div>
               <p className="text-red-200 mb-6 text-lg">
-                Free PDF: CMA vs CPA vs ACCA Comparison Guide (Worth ₹999)
+                Free PDF: CMA vs CPA vs ACCA Comparison Guide
               </p>
               <LeadFormButton formType='general' isSendOtp={true}
                 className={`bg-gradient-to-r from-yellow-500 to-orange-500 text-white px-8 py-4 rounded-xl font-bold text-lg hover:from-yellow-600 hover:to-orange-600 transition-all duration-300 shadow-lg transform hover:scale-105 ${
@@ -192,21 +188,7 @@ export default function Footer() {
             >
               <h3 className="text-lg font-bold mb-6 text-white">Explore</h3>
               <div className="space-y-6">
-                <div>
-                  <p className="text-sm font-semibold text-gray-200 mb-3">Calculators</p>
-                  <ul className="space-y-2">
-                    {calculators.map((item, idx) => (
-                      <li key={idx}>
-                        <a href={item.href} className="text-gray-300 hover:text-white transition-colors duration-300 group">
-                          <span className="relative">
-                            {item.name}
-                            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-current transition-all duration-300 group-hover:w-full"></span>
-                          </span>
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+               
                 <div>
                   <p className="text-sm font-semibold text-gray-200 mb-3">Salary Pages</p>
                   <ul className="space-y-2">

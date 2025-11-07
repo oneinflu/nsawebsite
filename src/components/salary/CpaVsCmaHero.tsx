@@ -97,7 +97,7 @@ export default function CpaVsCmaHero() {
 
             <div className="mt-8">
               <Link
-               href='/cpa-us'
+               href='/cpa-course-details'
                 className="rounded-xl bg-blue-600 hover:bg-blue-700 px-5 py-3 text-white"
               >
                 Explore CPA (US) →

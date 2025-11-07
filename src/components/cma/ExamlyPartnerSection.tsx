@@ -169,7 +169,7 @@ export default function ExamlyPartnerSection() {
           {[
             { label: 'Learners worldwide on Examly', value: '1.2M+' },
             { label: 'Universities & institutes powered', value: '100+' },
-            { label: 'NorthStar CMA learners on Examly', value: '25,000+' },
+            { label: 'NorthStar CMA learners on Examly', value: '55,000+' },
           ].map((stat, i) => (
             <div key={i} className="rounded-xl bg-white p-4 border border-red-100">
               <div className="text-2xl font-bold text-red-700">{stat.value}</div>

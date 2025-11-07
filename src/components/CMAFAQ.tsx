@@ -81,7 +81,7 @@ export default function CMAFAQ() {
         },
         {
           q: 'Is CMA worth the investment?',
-          a: 'Absolutely! CMA professionals earn 25-40% more than non-certified peers. The average salary increase post-CMA ranges from $15,000-$30,000 annually, making it a highly profitable investment in your career.'
+          a: 'Absolutely! CMA professionals earn 25-40% more than non-certified peers. The average salary increase post-CMA ranges from $55,000-$30,000 annually, making it a highly profitable investment in your career.'
         },
         {
           q: 'Do you provide EMI options for course fees?',

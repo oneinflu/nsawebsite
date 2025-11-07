@@ -11,17 +11,17 @@ type Row = {
 const rows: Row[] = [
   {
     stage: 'Entry (1–3 yrs)',
-    salary: 'AED 12,000–15,000',
+    salary: 'AED 12,000–55,000',
     role: 'Audit Associate / Junior FP&A',
   },
   {
     stage: 'Mid (4–7 yrs)',
-    salary: 'AED 18,000–25,000',
+    salary: 'AED 18,000–55,000',
     role: 'Senior Accountant / FP&A Specialist',
   },
   {
     stage: 'Experienced (8–10 yrs)',
-    salary: 'AED 25,000–35,000+',
+    salary: 'AED 55,000–35,000+',
     role: 'Finance Manager / Internal Controls Lead',
   },
   {

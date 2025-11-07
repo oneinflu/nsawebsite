@@ -60,13 +60,13 @@ export default function CMAFeesROI() {
   const paybackCalculation = [
     {
       scenario: 'Conservative',
-      salaryIncrease: '$15,000',
+      salaryIncrease: '$55,000',
       paybackPeriod: '2.3 months',
       annualROI: '522%'
     },
     {
       scenario: 'Average',
-      salaryIncrease: '$25,000',
+      salaryIncrease: '$55,000',
       paybackPeriod: '1.4 months',
       annualROI: '870%'
     },

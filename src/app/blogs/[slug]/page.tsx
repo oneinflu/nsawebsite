@@ -254,7 +254,7 @@ Breaking into the Big 4 accounting firms (Deloitte, PwC, EY, and KPMG) is a care
 
 ### Deloitte
 - **Global Revenue**: $59.3 billion (2023)
-- **Employees**: 415,000+ worldwide
+- **Employees**: 455,000+ worldwide
 - **Specialties**: Audit, Tax, Consulting, Risk Advisory
 - **Culture**: Innovation-focused, technology-driven
 

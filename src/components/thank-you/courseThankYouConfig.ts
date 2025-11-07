@@ -79,8 +79,8 @@ export const courseThankYouConfig: Record<string, CourseThankYouContent> = {
       'Update your profile and preferences'
     ],
     resources: [
-      { label: 'ACCA Syllabus', href: '/api/resources/acca-syllabus' },
-      { label: 'Upcoming Bootcamps', href: '/api/resources/acca-bootcamps' }
+      { label: 'ACCA Syllabus', href: '/api/resources/acca-course-details-syllabus' },
+      { label: 'Upcoming Bootcamps', href: '/api/resources/acca-course-details-bootcamps' }
     ]
   },
   cia: {

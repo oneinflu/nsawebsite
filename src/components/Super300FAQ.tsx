@@ -52,7 +52,7 @@ const trustBadges = [
   { icon: "🧠", label: "Mentor-Led Learning" },
   { icon: "🛡️", label: "100% Transparent Process" },
   { icon: "🕒", label: "Limited Time Opportunity" },
-  { icon: "🎓", label: "25,000+ Students Trained" }
+  { icon: "🎓", label: "55,000+ Students Trained" }
 ];
 
 export default function Super300FAQ() {

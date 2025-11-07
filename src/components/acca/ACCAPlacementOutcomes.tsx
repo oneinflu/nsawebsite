@@ -84,7 +84,7 @@ const ACCAPlacementOutcomes = () => {
     {
       company: 'KPMG',
       role: 'Tax Consultant',
-      salary: '₹11,25,000',
+      salary: '₹11,55,000',
       student: 'Sneha G.',
       date: 'January 2024'
     }

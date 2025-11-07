@@ -69,9 +69,9 @@ const SalaryCalculatorModal: React.FC<Props> = ({ isOpen, onClose }) => {
               <div className="rounded-lg bg-gray-50 p-4">
                 <p className="text-sm text-gray-700">Popular Certifications:</p>
                 <div className="mt-2 flex flex-wrap gap-3 text-sm">
-                  <Link href="/cpa-us" className="text-blue-700 hover:underline">CPA US</Link>
-                  <Link href="/cma-usa" className="text-orange-700 hover:underline">CMA US</Link>
-                  <Link href="/acca-uk" className="text-blue-700 hover:underline">ACCA</Link>
+                  <Link href="/cpa-course-details" className="text-blue-700 hover:underline">CPA US</Link>
+                  <Link href="/cma-usa-course-details" className="text-orange-700 hover:underline">CMA US</Link>
+                  <Link href="/acca-course-details-uk" className="text-blue-700 hover:underline">ACCA</Link>
                   <Link href="/cia" className="text-orange-700 hover:underline">CIA</Link>
                   <Link href="/cfa-us" className="text-blue-700 hover:underline">CFA</Link>
                   <Link href="/enrolled-agent" className="text-orange-700 hover:underline">Enrolled Agent</Link>

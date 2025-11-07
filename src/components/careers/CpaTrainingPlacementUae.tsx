@@ -32,7 +32,7 @@ const CpaTrainingPlacementUae = () => {
 
             <div className="mt-6 flex flex-wrap gap-3">
               <a
-                href="/cpa-us"
+                href="/cpa-course-details"
                 className="inline-flex items-center justify-center rounded-xl bg-gradient-to-br from-indigo-600 to-purple-600 px-5 py-3 text-white shadow hover:from-indigo-700 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
               >
                 Check Eligibility & Start Your Journey →

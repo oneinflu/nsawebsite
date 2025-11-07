@@ -534,7 +534,7 @@ export default function CPAFeesROI() {
                             <p className="text-xl font-bold text-green-600">
                               {formatCurrency(salaryComparison.us.senior)}
                             </p>
-                            <p className="text-sm text-green-600">≈ $115,000 USD</p>
+                            <p className="text-sm text-green-600">≈ $155,000 USD</p>
                           </div>
                         </div>
                         <div className="mt-2 text-center">

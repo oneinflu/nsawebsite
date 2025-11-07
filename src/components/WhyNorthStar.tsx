@@ -78,7 +78,7 @@ const WhyNorthStar: React.FC = () => {
 
   const proofChips = [
     { icon: StarIcon, text: 'Ranked #1 CMA Mentor in India', color: 'text-yellow-600 bg-yellow-50 border-yellow-200' },
-    { icon: UserGroupIcon, text: '25,000+ Students Trained', color: 'text-red-600 bg-red-50 border-red-200' },
+    { icon: UserGroupIcon, text: '55,000+ Students Trained', color: 'text-red-600 bg-red-50 border-red-200' },
     { icon: TrophyIcon, text: 'National & Global Rank Holders', color: 'text-purple-600 bg-purple-50 border-purple-200' },
     { icon: CheckIcon, text: '98% Pass Rate', color: 'text-green-600 bg-green-50 border-green-200' },
     { icon: AcademicCapIcon, text: 'One Mentor System', color: 'text-red-600 bg-red-50 border-red-200' }

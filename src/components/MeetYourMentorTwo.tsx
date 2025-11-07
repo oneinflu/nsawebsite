@@ -133,7 +133,7 @@ const MeetYourMentor: React.FC = () => {
             </div>
 
             <p className="text-xl text-slate-600 leading-relaxed mb-8">
-              A mentor who has guided over <strong className="text-slate-900">25,000 students</strong> to 
+              A mentor who has guided over <strong className="text-slate-900">55,000 students</strong> to 
               global certifications and careers — including rank holders, 
               Big 4 hires, and international professionals.
             </p>
@@ -141,7 +141,7 @@ const MeetYourMentor: React.FC = () => {
             {/* Quick Stats */}
             <div className="grid grid-cols-3 gap-4 mb-8">
               <div className="text-center p-4 bg-white rounded-xl shadow-sm">
-                <div className="text-2xl font-bold text-red-600">25,000+</div>
+                <div className="text-2xl font-bold text-red-600">55,000+</div>
                 <div className="text-sm text-slate-600">Students Guided</div>
               </div>
               <div className="text-center p-4 bg-white rounded-xl shadow-sm">

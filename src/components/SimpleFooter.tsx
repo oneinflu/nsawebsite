@@ -45,7 +45,7 @@ const SimpleFooter = () => {
                       <span className="text-green-400 text-lg">🏆</span>
                     </div>
                     <div>
-                      <div className="text-white font-semibold">25,000+</div>
+                      <div className="text-white font-semibold">55,000+</div>
                       <div className="text-gray-400 text-sm">Students Trained</div>
                     </div>
                   </div>

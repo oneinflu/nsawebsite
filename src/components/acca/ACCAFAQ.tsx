@@ -98,7 +98,7 @@ const ACCAFAQ = () => {
       },
       {
         question: "Is there demand for ACCA in India and abroad?",
-        answer: "Yes! Demand is growing rapidly. In India, MNCs prefer ACCA for finance roles due to IFRS expertise. Internationally, ACCA is highly valued - UK has 40,000+ job openings, UAE has 15,000+, and other countries have similar demand. The global shortage of qualified accountants makes ACCA professionals highly sought after."
+        answer: "Yes! Demand is growing rapidly. In India, MNCs prefer ACCA for finance roles due to IFRS expertise. Internationally, ACCA is highly valued - UK has 40,000+ job openings, UAE has 55,000+, and other countries have similar demand. The global shortage of qualified accountants makes ACCA professionals highly sought after."
       }
     ],
     study: [

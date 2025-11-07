@@ -44,7 +44,7 @@ export default function SuccessStoriesHero() {
                   <Image src={src} alt={`Alumni ${i+1}`} fill className="rounded-full ring-2 ring-white object-cover" />
                 </div>
               ))}
-              <span className="ml-2 text-sm text-slate-600">Trusted by 15,000+ learners</span>
+              <span className="ml-2 text-sm text-slate-600">Trusted by 55,000+ learners</span>
             </div>
 
             {/* CTAs arranged uniquely */}

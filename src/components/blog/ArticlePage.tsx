@@ -549,7 +549,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
                       Related CPA Resources
                     </h4>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <a href="/cpa-us/fees" className="flex items-center space-x-3 p-4 bg-white rounded-lg hover:bg-red-50 transition-all duration-200 border border-red-100 hover:border-red-300 group">
+                      <a href="/cpa-course-details/fees" className="flex items-center space-x-3 p-4 bg-white rounded-lg hover:bg-red-50 transition-all duration-200 border border-red-100 hover:border-red-300 group">
                         <DollarSign className="w-5 h-5 text-red-600 group-hover:scale-110 transition-transform" />
                         <div className="flex-1">
                           <div className="font-medium text-red-900">CPA Fees & ROI</div>
@@ -557,7 +557,7 @@ const ArticlePage: React.FC<ArticlePageProps> = ({ article }) => {
                         </div>
                         <ExternalLink className="w-4 h-4 text-red-600 opacity-0 group-hover:opacity-100 transition-opacity" />
                       </a>
-                      <a href="/cpa-us/state-boards" className="flex items-center space-x-3 p-4 bg-white rounded-lg hover:bg-red-50 transition-all duration-200 border border-red-100 hover:border-red-300 group">
+                      <a href="/cpa-course-details/state-boards" className="flex items-center space-x-3 p-4 bg-white rounded-lg hover:bg-red-50 transition-all duration-200 border border-red-100 hover:border-red-300 group">
                         <MapPin className="w-5 h-5 text-red-600 group-hover:scale-110 transition-transform" />
                         <div className="flex-1">
                           <div className="font-medium text-red-900">State Board Requirements</div>

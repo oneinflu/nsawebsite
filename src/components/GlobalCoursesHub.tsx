@@ -76,7 +76,7 @@ const GlobalCoursesHub: React.FC = () => {
       certificationBody: 'Institute of Management Accountants (IMA)',
       globalRecognition: 'Recognized in 180+ countries worldwide',
       icon: CalculatorIcon,
-      slug: 'cma-usa',
+      slug: 'cma-usa-course-details',
       popular: true,
       difficulty: 'Intermediate',
       jobRoles: ['Financial Analyst', 'Management Accountant', 'Budget Manager', 'Cost Accountant']
@@ -97,7 +97,7 @@ const GlobalCoursesHub: React.FC = () => {
       certificationBody: 'American Institute of CPAs (AICPA)',
       globalRecognition: 'Gold standard in accounting profession globally',
       icon: ShieldCheckIcon,
-      slug: 'cpa-us',
+      slug: 'cpa-course-details',
       difficulty: 'Advanced',
       jobRoles: ['Public Accountant', 'Audit Manager', 'Tax Advisor', 'Financial Controller']
     },
@@ -136,7 +136,7 @@ const GlobalCoursesHub: React.FC = () => {
       certificationBody: 'Association of Chartered Certified Accountants (ACCA)',
       globalRecognition: 'Recognized by employers in over 180 countries',
       icon: AcademicCapIcon,
-      slug: 'acca',
+      slug: 'acca-course-details',
       difficulty: 'Intermediate',
       jobRoles: ['Chartered Accountant', 'Finance Manager', 'Audit Senior', 'Financial Analyst']
     },
@@ -174,7 +174,7 @@ const GlobalCoursesHub: React.FC = () => {
       certificationBody: 'Internal Revenue Service (IRS)',
       globalRecognition: 'Highest credential awarded by the IRS',
       icon: CalculatorIcon,
-      slug: 'ea',
+      slug: 'enrolled-agent-course-details',
       difficulty: 'Beginner',
       jobRoles: ['Tax Consultant', 'Tax Preparer', 'Tax Advisor', 'Enrolled Agent']
     }
@@ -306,7 +306,7 @@ const GlobalCoursesHub: React.FC = () => {
             </div>
             <div className="flex items-center gap-2">
               <UserGroupIcon className="w-5 h-5 text-red-500" />
-              <span className="font-medium">15,000+ Certified Professionals</span>
+              <span className="font-medium">55,000+ Certified Professionals</span>
             </div>
             <div className="flex items-center gap-2">
               <CheckIcon className="w-5 h-5 text-green-500" />
@@ -351,7 +351,7 @@ const GlobalCoursesHub: React.FC = () => {
                 'cma-usa': '/courses/cma.png',
                 'cpa-us': '/courses/cpa.png',
                 'cfa-us': '/courses/cfa.png',
-                'acca': '/courses/acca.png',
+                'acca': '/courses/acca-course-details.png',
                 'cia': '/courses/cia.png',
                 'ea': '/courses/ea.png',
               };
@@ -493,7 +493,7 @@ const GlobalCoursesHub: React.FC = () => {
                         'cma-usa': '/courses/cma.png',
                         'cpa-us': '/courses/cpa.png',
                         'cfa-us': '/courses/cfa.png',
-                        'acca': '/courses/acca.png',
+                        'acca': '/courses/acca-course-details.png',
                         'cia': '/courses/cia.png',
                         'ea': '/courses/ea.png',
                       }[selectedCourse.slug] ?? '/logo.svg'}
