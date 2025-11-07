@@ -77,7 +77,7 @@ const megaMenuData: MegaMenuData = {
         },
         {
           name: 'CMA (US)',
-          href: '/cma-usa',
+          href: '/cma-usa-course-details',
           description: 'Management Accounting',
           flag: '🇺🇸',
           logo: 'CMA®',
@@ -91,7 +91,7 @@ const megaMenuData: MegaMenuData = {
       courses: [
         {
           name: 'CPA (US)',
-          href: '/cpa-us',
+          href: '/cpa-course-details',
           description: 'Global Accounting License',
           flag: '🇺🇸',
           logo: 'CPA®',
@@ -100,7 +100,7 @@ const megaMenuData: MegaMenuData = {
         },
         {
           name: 'ACCA (UK)',
-          href: '/acca/',
+          href: '/acca-course-details',
           description: 'Global Accounting Qualification',
           flag: '🇬🇧',
           logo: 'ACCA®',
@@ -128,7 +128,7 @@ const megaMenuData: MegaMenuData = {
       courses: [
         {
           name: 'Enrolled Agent (EA)',
-          href: '/ea-us',
+          href: '/enrolled-agent-course-details',
           description: 'US Taxation Expert Path',
           flag: '🇺🇸',
           logo: 'EA®',
