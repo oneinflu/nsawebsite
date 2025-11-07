@@ -489,14 +489,25 @@ const GlobalCoursesHub: React.FC = () => {
                 <div className="flex items-center gap-4">
                   <div className="flex items-center justify-center w-16 h-16 bg-white rounded-2xl border border-red-100">
                     <Image
-                      src={{
-                        'cma-usa': '/courses/cma.png',
-                        'cpa-us': '/courses/cpa.png',
-                        'cfa-us': '/courses/cfa.png',
-                        'acca': '/courses/acca-course-details.png',
-                        'cia': '/courses/cia.png',
-                        'ea': '/courses/ea.png',
-                      }[selectedCourse.slug] ?? '/logo.svg'}
+                      src={(() => {
+                        const bySlug: Record<string, string> = {
+                          'cma-usa-course-details': '/courses/cma.png',
+                          'cpa-course-details': '/courses/cpa.png',
+                          'cfa-us': '/courses/cfa.png',
+                          'acca-course-details': '/courses/acca.png',
+                          'cia': '/courses/cia.png',
+                          'enrolled-agent-course-details': '/courses/ea.png',
+                        };
+                        const byId: Record<string, string> = {
+                          'cma-usa': '/courses/cma.png',
+                          'cpa-us': '/courses/cpa.png',
+                          'cfa': '/courses/cfa.png',
+                          'acca': '/courses/acca.png',
+                          'cia': '/courses/cia.png',
+                          'ea': '/courses/ea.png',
+                        };
+                        return bySlug[selectedCourse.slug] ?? byId[selectedCourse.id] ?? '/logo.svg';
+                      })()}
                       alt={`${selectedCourse.title} logo`}
                       width={48}
                       height={48}
