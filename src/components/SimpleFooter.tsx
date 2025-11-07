@@ -85,7 +85,7 @@ const SimpleFooter = () => {
                       </svg>
                     </div>
                     <div>
-                      <div className="text-white font-medium">+91 99999 99999</div>
+                      <div className="text-white font-medium">+91 81474 70707</div>
                       <div className="text-gray-400 text-sm">24/7 Support</div>
                     </div>
                   </div>
@@ -97,7 +97,7 @@ const SimpleFooter = () => {
                       </svg>
                     </div>
                     <div>
-                      <div className="text-white font-medium">info@northstaracad.com</div>
+                      <div className="text-white font-medium">contact@northstaracad.com</div>
                       <div className="text-gray-400 text-sm">General Inquiries</div>
                     </div>
                   </div>

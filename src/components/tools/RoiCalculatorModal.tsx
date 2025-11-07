@@ -60,10 +60,10 @@ const RoiCalculatorModal: React.FC<Props> = ({ isOpen, onClose }) => {
                 <div className="mt-2 flex flex-wrap gap-3 text-sm">
                   <Link href="/cpa-course-details" className="text-blue-700 hover:underline">CPA US</Link>
                   <Link href="/cma-usa-course-details" className="text-orange-700 hover:underline">CMA US</Link>
-                  <Link href="/acca-course-details-uk" className="text-blue-700 hover:underline">ACCA</Link>
+                  <Link href="/acca-course-details" className="text-blue-700 hover:underline">ACCA</Link>
                   <Link href="/cia" className="text-orange-700 hover:underline">CIA</Link>
                   <Link href="/cfa-us" className="text-blue-700 hover:underline">CFA</Link>
-                  <Link href="/enrolled-agent" className="text-orange-700 hover:underline">Enrolled Agent</Link>
+                  <Link href="/enrolled-agent-course-details" className="text-orange-700 hover:underline">Enrolled Agent</Link>
                 </div>
               </div>
             </div>

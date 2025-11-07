@@ -13,7 +13,7 @@ export default function CpaVsCaCta() {
               Earn Globally. Work Anywhere.
             </h2>
             <p className="mt-4 text-gray-600 text-base md:text-lg">
-              Join 55,000+ students who accelerated their career with NorthStar’s
+              Join 25,000+ students who accelerated their career with NorthStar’s
               CPA (US) program.
             </p>
 

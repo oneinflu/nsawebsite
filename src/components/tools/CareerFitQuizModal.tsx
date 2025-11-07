@@ -24,8 +24,8 @@ const CareerFitQuizModal: React.FC<Props> = ({ isOpen, onClose }) => {
     const score = answers.reduce((s, v) => s + v, 0);
     if (score >= 10) return { title: "CPA US", href: "/cpa-course-details" };
     if (score >= 8) return { title: "CMA US", href: "/cma-usa-course-details" };
-    if (score >= 6) return { title: "ACCA", href: "/acca-course-details-uk" };
-    return { title: "Enrolled Agent", href: "/enrolled-agent" };
+    if (score >= 6) return { title: "ACCA", href: "/acca-course-details" };
+    return { title: "Enrolled Agent", href: "/enrolled-agent-course-details" };
   };
 
   return (
@@ -75,9 +75,9 @@ const CareerFitQuizModal: React.FC<Props> = ({ isOpen, onClose }) => {
                   <Link href={result().href} className="text-blue-700 hover:underline font-medium">{result().title}</Link>
                 </div>
                 <div className="mt-3 flex flex-wrap gap-3 text-sm">
-                  <Link href="/cpa-course-details" className="text-blue-700 hover:underline">CPA US</Link>
-                  <Link href="/cma-usa-course-details" className="text-orange-700 hover:underline">CMA US</Link>
-                  <Link href="/acca-course-details-uk" className="text-blue-700 hover:underline">ACCA</Link>
+                  <Link href="/cpa-us" className="text-blue-700 hover:underline">CPA US</Link>
+                  <Link href="/cma-usa" className="text-orange-700 hover:underline">CMA US</Link>
+                  <Link href="/acca-uk" className="text-blue-700 hover:underline">ACCA</Link>
                   <Link href="/cia" className="text-orange-700 hover:underline">CIA</Link>
                   <Link href="/cfa-us" className="text-blue-700 hover:underline">CFA</Link>
                   <Link href="/enrolled-agent" className="text-orange-700 hover:underline">Enrolled Agent</Link>
