@@ -19,6 +19,7 @@ import {
  
   Building
 } from 'lucide-react';
+import LeadFormButton from '../LeadFormButton';
 
 const CPAComparison = () => {
   const [showQuiz, setShowQuiz] = useState(false);
@@ -260,21 +261,7 @@ const CPAComparison = () => {
           </motion.p>
 
           {/* Quick CTA */}
-          <motion.button
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => setShowQuiz(true)}
-            className="bg-gradient-to-r from-red-600 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:shadow-lg transition-all duration-300"
-          >
-            <div className="flex items-center gap-2">
-              Help me choose → 30 sec quiz
-              <ArrowRight className="w-5 h-5" />
-            </div>
-          </motion.button>
+        
         </div>
 
         {/* Winner Highlight */}
@@ -421,18 +408,19 @@ const CPAComparison = () => {
           viewport={{ once: true }}
           className="text-center"
         >
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => setShowQuiz(true)}
+          <LeadFormButton
+            formType='general'
+            isSendOtp={true}
+            courseId='CPA'
+            
             className="bg-gradient-to-r from-red-600 to-purple-600 text-white px-12 py-4 rounded-xl font-semibold text-xl hover:shadow-lg transition-all duration-300"
           >
             <div className="flex items-center gap-3">
               <Target className="w-6 h-6" />
-              Help me choose → 30 sec quiz
+              Talk to Counsellor
               <ArrowRight className="w-6 h-6" />
             </div>
-          </motion.button>
+          </LeadFormButton>
         </motion.div>
       </div>
 

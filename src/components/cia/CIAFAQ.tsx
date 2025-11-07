@@ -17,6 +17,7 @@ import {
   Shield,
   TrendingUp
 } from 'lucide-react';
+import LeadFormButton from '../LeadFormButton';
 
 const CIAFAQ = () => {
   const [activeCategory, setActiveCategory] = useState('validity');
@@ -436,26 +437,22 @@ const CIAFAQ = () => {
               Get personalized answers from our CIA experts and start your journey today
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-white text-green-600 px-8 py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300"
+              <LeadFormButton formType='general' isSendOtp={true} courseId='CIA' 
+                className=" text-red-600 px-8 py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300"
               >
                 <div className="flex items-center gap-2">
                   <Users className="w-5 h-5" />
                   Talk to CIA Expert
                 </div>
-              </motion.button>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+              </LeadFormButton>
+              <LeadFormButton formType='download-syllabus' isSendOtp={true} courseId='CIA' 
                 className="border-2 border-white text-white px-8 py-3 rounded-xl font-semibold hover:bg-white hover:text-green-600 transition-all duration-300"
               >
                 <div className="flex items-center gap-2">
                   <BookOpen className="w-5 h-5" />
                   Download CIA Guide
                 </div>
-              </motion.button>
+              </LeadFormButton>
             </div>
           </motion.div>
         </div>

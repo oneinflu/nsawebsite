@@ -15,6 +15,7 @@ import {
   GlobeAltIcon,
   AcademicCapIcon
 } from '@heroicons/react/24/outline';
+import LeadFormButton from '../LeadFormButton';
 
 interface ComparisonData {
   feature: string;
@@ -330,16 +331,10 @@ export default function CFADecisionHelper() {
               Take our quick 30-second fit quiz to get a personalized recommendation based on your goals, timeline, and budget.
             </p>
             
-            <motion.button
-              onClick={() => setShowQuiz(true)}
-              className="group bg-gradient-to-r from-red-600 to-red-600 text-white px-8 py-4 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 flex items-center space-x-2 mx-auto"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <QuestionMarkCircleIcon className="w-5 h-5" />
-              <span>Take 30-sec Fit Quiz</span>
-              <ArrowRightIcon className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </motion.button>
+            <LeadFormButton formType='general' variant='secondary' isSendOtp={true} >
+              <span>Schedule a call</span>
+            
+            </LeadFormButton>
           </div>
         </motion.div>
       </motion.div>

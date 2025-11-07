@@ -7,20 +7,18 @@ import {
   PlayIcon,
   DocumentTextIcon,
   ChartBarIcon,
-  ArrowRightIcon,
+  
   XMarkIcon
 } from '@heroicons/react/24/outline';
+import TrustLogosMarquee from '../TrustLogosMarquee';
+import LeadFormButton from '../LeadFormButton';
 
 const ACCAPlacementOutcomes = () => {
   const [activeTestimonial, setActiveTestimonial] = useState(0);
   const [showVideoModal, setShowVideoModal] = useState(false);
   const [activeVideo, setActiveVideo] = useState(0);
 
-  const companies = [
-    'Deloitte', 'EY', 'KPMG', 'PwC', 'RSM', 'BDO', 'Grant Thornton',
-    'Mazars', 'Baker Tilly', 'Crowe', 'Moore Global', 'PKF International'
-  ];
-
+ 
   const successStories = [
     {
       name: 'Priya Sharma',
@@ -107,7 +105,7 @@ const ACCAPlacementOutcomes = () => {
 
   return (
     <section className="py-20 bg-gradient-to-br from-red-50 to-red-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 justify-center">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -127,52 +125,14 @@ const ACCAPlacementOutcomes = () => {
           </p>
         </motion.div>
 
-        {/* Company Logos Rolling */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mb-16 overflow-hidden"
-        >
-          <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200">
-            <h3 className="text-center text-lg font-bold text-gray-900 mb-6">
-              Our Students Work At
-            </h3>
-            <div className="relative">
-              <motion.div
-                animate={{ x: [0, -100 * companies.length] }}
-                transition={{
-                  x: {
-                    repeat: Infinity,
-                    repeatType: "loop",
-                    duration: 20,
-                    ease: "linear",
-                  },
-                }}
-                className="flex space-x-12 items-center"
-                style={{ width: `${200 * companies.length}%` }}
-              >
-                {[...companies, ...companies].map((company, index) => (
-                  <div
-                    key={index}
-                    className="flex-shrink-0 text-2xl font-bold text-gray-600 hover:text-red-600 transition-colors duration-300"
-                  >
-                    {company}
-                  </div>
-                ))}
-              </motion.div>
-            </div>
-          </div>
-        </motion.div>
-
+       <TrustLogosMarquee />
         {/* Success Stories Carousel */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-16"
+          className="mb-16 mt-14"
         >
           <h3 className="text-2xl md:text-3xl font-bold text-center text-gray-900 mb-8">
             Student Success Stories
@@ -333,14 +293,10 @@ const ACCAPlacementOutcomes = () => {
             <p className="text-lg font-medium mb-4">
               💼 I want a job like this
             </p>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-white text-green-600 px-6 py-3 rounded-xl font-bold hover:shadow-lg transition-all duration-300 inline-flex items-center"
-            >
-              Talk to Placement Team
-              <ArrowRightIcon className="w-5 h-5 ml-2" />
-            </motion.button>
+           <LeadFormButton formType='download-placement-report' variant='outline' isSendOtp={true} >
+              Download Placement Team
+          
+            </LeadFormButton>
           </div>
         </motion.div>
 

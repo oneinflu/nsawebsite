@@ -15,6 +15,7 @@ import {
   
   StarIcon
 } from '@heroicons/react/24/outline';
+import LeadFormButton from '../LeadFormButton';
 
 interface CareerRole {
   id: string;
@@ -320,16 +321,11 @@ export default function CFACareerRoles() {
                 <p className="text-slate-300 text-lg mb-8 max-w-2xl mx-auto">
                   Download our comprehensive global career report with salary benchmarks, growth trajectories, and insider tips
                 </p>
-                <motion.button
-                  onClick={() => setShowCareerModal(true)}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="bg-gradient-to-r from-red-500 to-purple-500 text-white font-bold py-4 px-8 rounded-xl hover:from-red-600 hover:to-purple-600 transition-all duration-200 flex items-center gap-3 mx-auto shadow-lg"
-                >
-                  <DocumentArrowDownIcon className="w-6 h-6" />
+                <LeadFormButton formType='download-placement-report' variant='secondary' isSendOtp={true} >
+                 
                   View Global Career Report
-                  <ArrowRightIcon className="w-5 h-5" />
-                </motion.button>
+                 
+                </LeadFormButton>
               </div>
             </div>
           </motion.div>
@@ -433,12 +429,10 @@ export default function CFACareerRoles() {
                   </select>
                 </div>
 
-                <button
-                  type="submit"
-                  className="w-full bg-gradient-to-r from-red-500 to-purple-500 text-white font-bold py-3 px-6 rounded-lg hover:from-red-600 hover:to-purple-600 transition-all duration-200"
-                >
+                 <LeadFormButton formType='download-placement-report' variant='outline' isSendOtp={true} className='mt-10'>
+                  
                   Download Career Report (PDF)
-                </button>
+                </LeadFormButton>
               </form>
 
               <p className="text-xs text-slate-500 mt-4 text-center">

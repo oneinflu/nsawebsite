@@ -18,6 +18,7 @@ import {
   
   ComputerDesktopIcon
 } from '@heroicons/react/24/outline';
+import LeadFormButton from '../LeadFormButton';
 
 interface MentorProfile {
   id: string;
@@ -336,22 +337,11 @@ export default function CFANorthStarAdvantage() {
                 Join thousands of successful CFA candidates who chose personalized mentorship over generic preparation
               </p>
               <div className="flex flex-wrap justify-center gap-4">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="bg-gradient-to-r from-red-500 to-purple-500 text-white font-bold py-4 px-8 rounded-xl hover:from-red-600 hover:to-purple-600 transition-all duration-200 flex items-center gap-3 shadow-lg"
-                >
-                  <PlayIcon className="w-6 h-6" />
-                  Watch Demo Class
-                </motion.button>
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="bg-white/10 backdrop-blur-sm text-white font-bold py-4 px-8 rounded-xl border border-white/20 hover:bg-white/20 transition-all duration-200 flex items-center gap-3"
-                >
-                  <ComputerDesktopIcon className="w-6 h-6" />
-                  Explore LMS
-                </motion.button>
+                
+                <LeadFormButton formType='general' variant='outline' isSendOtp={true} >
+                  Book Demo Class
+                </LeadFormButton>
+                
               </div>
             </div>
           </motion.div>

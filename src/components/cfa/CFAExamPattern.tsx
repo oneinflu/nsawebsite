@@ -12,6 +12,7 @@ import {
   ArrowRightIcon,
   CheckCircleIcon
 } from '@heroicons/react/24/outline';
+import LeadFormButton from '../LeadFormButton';
 
 interface ExamLevel {
   level: string;
@@ -362,15 +363,11 @@ export default function CFAExamPattern() {
             </div>
 
             {/* CTA Button */}
-            <motion.button
-              className="group bg-gradient-to-r from-red-600 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 flex items-center space-x-2"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <CalendarDaysIcon className="w-5 h-5" />
+          <LeadFormButton formType='download-syllabus' variant='outline' isSendOtp={true} className='mt-10'>
+                           
               <span>Download Exam Calendar 2025</span>
-              <ArrowRightIcon className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </motion.button>
+            
+            </LeadFormButton >
           </motion.div>
         </div>
 

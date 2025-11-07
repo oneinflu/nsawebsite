@@ -2,7 +2,8 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { CheckCircleIcon, StarIcon, GlobeAltIcon, ClockIcon, CurrencyDollarIcon, AcademicCapIcon, ChartBarIcon } from '@heroicons/react/24/solid';
+import {  GlobeAltIcon, ClockIcon, CurrencyDollarIcon, AcademicCapIcon, ChartBarIcon } from '@heroicons/react/24/solid';
+import LeadFormButton from './LeadFormButton';
 
 export default function CMAComparison() {
   const [selectedComparison, setSelectedComparison] = useState('cpa-cma');
@@ -295,79 +296,7 @@ export default function CMAComparison() {
         </motion.div>
 
         {/* Detailed Comparison Cards */}
-        <div className="grid lg:grid-cols-3 gap-8 mb-12">
-          {activeCertifications.map((cert, index) => {
-            const data = certificationData[cert as keyof typeof certificationData];
-            return (
-              <motion.div
-                key={cert}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-                className="bg-white rounded-xl shadow-lg overflow-hidden"
-              >
-                <div className={`${getColorClasses(data.color)} p-6`}>
-                  <h3 className="text-2xl font-bold mb-2">{cert}</h3>
-                  <p className="opacity-90">{data.name}</p>
-                </div>
-
-                <div className="p-6 space-y-6">
-                  {/* Key Details */}
-                  <div className="grid grid-cols-2 gap-4 text-sm">
-                    <div>
-                      <span className="text-slate-500">Issuer:</span>
-                      <div className="font-semibold">{data.issuer}</div>
-                    </div>
-                    <div>
-                      <span className="text-slate-500">Duration:</span>
-                      <div className="font-semibold">{data.duration}</div>
-                    </div>
-                    <div>
-                      <span className="text-slate-500">Parts:</span>
-                      <div className="font-semibold">{data.parts}</div>
-                    </div>
-                    <div>
-                      <span className="text-slate-500">Avg Salary:</span>
-                      <div className="font-semibold">{data.avgSalary}</div>
-                    </div>
-                  </div>
-
-                  {/* Strengths */}
-                  <div>
-                    <h4 className="font-bold text-slate-900 mb-3 flex items-center">
-                      <CheckCircleIcon className="w-5 h-5 text-green-500 mr-2" />
-                      Strengths
-                    </h4>
-                    <ul className="space-y-2">
-                      {data.strengths.map((strength, idx) => (
-                        <li key={idx} className="flex items-start text-sm">
-                          <div className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                          <span className="text-slate-700">{strength}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  {/* Best For */}
-                  <div>
-                    <h4 className="font-bold text-slate-900 mb-3 flex items-center">
-                      <StarIcon className="w-5 h-5 text-yellow-500 mr-2" />
-                      Best For
-                    </h4>
-                    <ul className="space-y-2">
-                      {data.bestFor.map((item, idx) => (
-                        <li key={idx} className="flex items-start text-sm">
-                          <div className="w-2 h-2 bg-yellow-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                          <span className="text-slate-700">{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </motion.div>
-            );
-          })}
-        </div>
+      
 
         {/* Decision Helper */}
         <motion.div
@@ -384,20 +313,12 @@ export default function CMAComparison() {
             to recommend the best certification path for your success.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-gradient-to-r from-red-600 to-red-600 text-white px-8 py-4 rounded-lg font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300"
-            >
-              Get Personalized Recommendation
-            </motion.button>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="border-2 border-red-600 text-red-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-red-50 transition-all duration-300"
-            >
-              Take Comparison Quiz
-            </motion.button>
+          
+              <LeadFormButton formType='general' variant='primary' isSendOtp={true} >
+               Get Personalized Recommendation
+              </LeadFormButton>
+            
+           
           </div>
         </motion.div>
       </div>

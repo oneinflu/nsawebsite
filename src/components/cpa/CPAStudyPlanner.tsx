@@ -16,6 +16,7 @@ import {
   BookOpen,
   Target
 } from 'lucide-react';
+import LeadFormButton from '../LeadFormButton';
 
 const CPAStudyPlanner = () => {
   const [activeCard, setActiveCard] = useState(0);
@@ -341,14 +342,15 @@ const CPAStudyPlanner = () => {
           viewport={{ once: true }}
           className="text-center mt-12"
         >
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+          <LeadFormButton 
+            formType='download-hackdoc'
+            isSendOtp={true}
+            courseId='CPA'
             className="inline-flex items-center gap-3 bg-gradient-to-r from-red-600 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:shadow-xl transition-all duration-300"
           >
             <Calendar className="w-5 h-5" />
             Get Your Personalized Study Plan
-          </motion.button>
+          </LeadFormButton>
           <p className="text-gray-600 mt-4">
             Join 5,000+ students who achieved first-attempt success with our structured approach
           </p>

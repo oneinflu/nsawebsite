@@ -10,6 +10,7 @@ import {
   CurrencyDollarIcon,
   BuildingOfficeIcon
 } from '@heroicons/react/24/outline';
+import LeadFormButton from '../LeadFormButton';
 
 const WhyACCA = () => {
   const features = [
@@ -224,14 +225,10 @@ const WhyACCA = () => {
 
           {/* CTA */}
           <div className="text-center mt-12">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-gradient-to-r from-red-600 to-purple-600 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 inline-flex items-center"
-            >
+           <LeadFormButton formType='general' variant='primary' isSendOtp={true} >
               Start Your ACCA Journey
-              <ArrowRightIcon className="w-5 h-5 ml-2" />
-            </motion.button>
+              
+            </LeadFormButton>
           </div>
         </motion.div>
       </div>

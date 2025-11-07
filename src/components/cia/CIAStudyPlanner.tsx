@@ -13,6 +13,7 @@ import {
   TrophyIcon,
   XMarkIcon
 } from '@heroicons/react/24/solid';
+import LeadFormButton from '../LeadFormButton';
 
 interface StudyPlan {
   name: string;
@@ -192,9 +193,7 @@ export default function CIAStudyPlanner() {
 
   const currentPlan = studyPlans[selectedPlan];
 
-  const handleDownloadSyllabus = () => {
-    setShowLeadModal(true);
-  };
+ 
 
   const handleSubmitLeadForm = (e: React.FormEvent) => {
     e.preventDefault();
@@ -463,15 +462,16 @@ export default function CIAStudyPlanner() {
               Download your personalized study planner and get started with our proven roadmap 
               to CIA certification success.
             </p>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={handleDownloadSyllabus}
+            <LeadFormButton 
+        formType='download-hackdoc'
+        isSendOtp={true}
+        courseId='CIA'
+            
               className="bg-gradient-to-r from-red-600 to-red-600 text-white px-8 py-4 rounded-lg font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 inline-flex items-center"
             >
               <DocumentArrowDownIcon className="w-6 h-6 mr-2" />
               Download Study Planner
-            </motion.button>
+            </LeadFormButton>
           </div>
         </motion.div>
       </div>

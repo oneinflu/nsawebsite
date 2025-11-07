@@ -15,6 +15,7 @@ import {
   BriefcaseIcon,
   ShieldCheckIcon
 } from '@heroicons/react/24/outline';
+import LeadFormButton from '../LeadFormButton';
 
 // Type definitions
 interface CIAPart {
@@ -140,10 +141,7 @@ const CIASyllabus = () => {
     setActivePart(activePart === partId ? null : partId);
   };
 
-  const handleDownloadSyllabus = () => {
-    setShowLeadModal(true);
-  };
-
+  
   const handleSubmitLeadForm = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('CIA Syllabus download request:', leadFormData);
@@ -380,15 +378,15 @@ const CIASyllabus = () => {
             <p className="text-red-100 text-lg mb-8 max-w-2xl mx-auto">
               Get detailed syllabus breakdown, study schedules, exam strategies, and preparation tips for all 3 parts
             </p>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={handleDownloadSyllabus}
-              className="bg-white text-red-600 px-8 py-4 rounded-xl font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 inline-flex items-center"
+            <LeadFormButton 
+        formType='download-syllabus'
+        isSendOtp={true}
+        courseId='CIA'
+              className=" text-red-600 px-8 py-4 rounded-xl font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 inline-flex items-center"
             >
               <DocumentArrowDownIcon className="w-6 h-6 mr-3" />
               Download Complete Study Guide 🚀
-            </motion.button>
+            </LeadFormButton>
             <div className="mt-4 text-red-100 text-sm">
               ✅ Part-wise study hours ✅ Difficulty breakdown ✅ Role impact analysis
             </div>

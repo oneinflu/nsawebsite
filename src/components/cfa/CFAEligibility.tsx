@@ -13,6 +13,7 @@ import {
   ArrowRightIcon,
   GlobeAltIcon
 } from '@heroicons/react/24/outline';
+import LeadFormButton from '../LeadFormButton';
 
 interface EligibilityRequirement {
   id: string;
@@ -239,16 +240,12 @@ export default function CFAEligibility() {
                 <p className="text-slate-300 text-lg mb-8 max-w-2xl mx-auto">
                   Get instant clarity on your CFA eligibility with our quick assessment
                 </p>
-                <motion.button
-                  onClick={() => setShowEligibilityModal(true)}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="bg-gradient-to-r from-red-500 to-purple-500 text-white font-bold py-4 px-8 rounded-xl hover:from-red-600 hover:to-purple-600 transition-all duration-200 flex items-center gap-3 mx-auto shadow-lg"
-                >
-                  <GlobeAltIcon className="w-6 h-6" />
+               <LeadFormButton formType='general' variant='outline' isSendOtp={true} className='mt-10'>
+                
+                 
                   Check Eligibility Instantly
-                  <ArrowRightIcon className="w-5 h-5" />
-                </motion.button>
+                
+                </LeadFormButton>
               </div>
             </div>
           </motion.div>

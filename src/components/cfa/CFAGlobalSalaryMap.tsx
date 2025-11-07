@@ -11,6 +11,7 @@ import {
   CurrencyDollarIcon,
   MapPinIcon
 } from '@heroicons/react/24/outline';
+import LeadFormButton from '../LeadFormButton';
 
 interface SalaryRegion {
   id: string;
@@ -172,130 +173,7 @@ export default function CFAGlobalSalaryMap() {
         </motion.div>
 
         {/* Interactive World Map */}
-        <motion.div 
-          className="relative mb-16"
-          variants={itemVariants}
-        >
-          <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20">
-            <h3 className="text-2xl font-bold text-white mb-8 text-center">
-              Interactive Salary Map
-            </h3>
-            
-            {/* Simplified World Map SVG */}
-            <div className="relative w-full h-96 bg-gradient-to-br from-red-900/50 to-purple-900/50 rounded-2xl overflow-hidden">
-              {/* World Map Background */}
-              <svg 
-                viewBox="0 0 100 60" 
-                className="w-full h-full"
-                style={{ filter: 'drop-shadow(0 0 10px rgba(59, 130, 246, 0.3))' }}
-              >
-                {/* Simplified continents */}
-                <path
-                  d="M15 20 L35 18 L38 25 L32 35 L28 38 L20 35 L15 30 Z"
-                  fill="rgba(59, 130, 246, 0.3)"
-                  stroke="rgba(59, 130, 246, 0.6)"
-                  strokeWidth="0.5"
-                />
-                <path
-                  d="M40 15 L85 12 L88 20 L85 35 L82 40 L75 42 L65 40 L55 35 L45 30 L40 25 Z"
-                  fill="rgba(59, 130, 246, 0.3)"
-                  stroke="rgba(59, 130, 246, 0.6)"
-                  strokeWidth="0.5"
-                />
-                <path
-                  d="M70 35 L85 33 L88 40 L85 50 L80 52 L75 50 L70 45 Z"
-                  fill="rgba(59, 130, 246, 0.3)"
-                  stroke="rgba(59, 130, 246, 0.6)"
-                  strokeWidth="0.5"
-                />
-              </svg>
-
-              {/* Interactive Region Markers */}
-              {salaryRegions.map((region) => (
-                <motion.div
-                  key={region.id}
-                  className="absolute cursor-pointer"
-                  style={{
-                    left: `${region.coordinates.x}%`,
-                    top: `${region.coordinates.y}%`,
-                    transform: 'translate(-50%, -50%)'
-                  }}
-                  onMouseEnter={() => setHoveredRegion(region.id)}
-                  onMouseLeave={() => setHoveredRegion(null)}
-                  whileHover={{ scale: 1.2 }}
-                >
-                  {/* Pulsing Glow Effect */}
-                  <motion.div
-                    className={`absolute inset-0 w-8 h-8 rounded-full bg-gradient-to-r ${region.color} opacity-60`}
-                    animate={{
-                      scale: glowingRegions.includes(region.id) ? [1, 1.5, 1] : 1,
-                      opacity: glowingRegions.includes(region.id) ? [0.6, 0.9, 0.6] : 0.6
-                    }}
-                    transition={{ duration: 2, repeat: glowingRegions.includes(region.id) ? Infinity : 0 }}
-                  />
-                  
-                  {/* Main Marker */}
-                  <div className={`relative w-6 h-6 rounded-full bg-gradient-to-r ${region.color} border-2 border-white shadow-lg flex items-center justify-center`}>
-                    <MapPinIcon className="w-3 h-3 text-white" />
-                  </div>
-
-                  {/* Hover Tooltip */}
-                  <AnimatePresence>
-                    {hoveredRegion === region.id && (
-                      <motion.div
-                        className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-80 bg-white/95 backdrop-blur-sm rounded-xl p-4 shadow-2xl border border-gray-200"
-                        initial={{ opacity: 0, y: 10, scale: 0.9 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: 10, scale: 0.9 }}
-                        transition={{ duration: 0.2 }}
-                      >
-                        <div className="text-gray-900">
-                          <h4 className="font-bold text-lg mb-2 flex items-center">
-                            <GlobeAltIcon className="w-5 h-5 mr-2 text-red-600" />
-                            {region.name}
-                          </h4>
-                          
-                          <div className="mb-3">
-                            <div className="flex items-center mb-1">
-                              <CurrencyDollarIcon className="w-4 h-4 mr-2 text-green-600" />
-                              <span className="font-semibold text-green-700">{region.salary}</span>
-                            </div>
-                            <p className="text-sm text-gray-600">{region.description}</p>
-                          </div>
-
-                          <div>
-                            <div className="flex items-center mb-2">
-                              <BuildingOfficeIcon className="w-4 h-4 mr-2 text-purple-600" />
-                              <span className="font-medium text-gray-700">Top Employers:</span>
-                            </div>
-                            <div className="flex flex-wrap gap-1">
-                              {region.companies.slice(0, 3).map((company) => (
-                                <span
-                                  key={company}
-                                  className="text-xs bg-red-100 text-red-800 px-2 py-1 rounded-full"
-                                >
-                                  {company}
-                                </span>
-                              ))}
-                              {region.companies.length > 3 && (
-                                <span className="text-xs text-gray-500">
-                                  +{region.companies.length - 3} more
-                                </span>
-                              )}
-                            </div>
-                          </div>
-                        </div>
-                        
-                        {/* Tooltip Arrow */}
-                        <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-8 border-r-8 border-t-8 border-l-transparent border-r-transparent border-t-white/95"></div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </motion.div>
+        
 
         {/* Salary Comparison Table */}
         <motion.div 
@@ -361,16 +239,10 @@ export default function CFAGlobalSalaryMap() {
               Download our comprehensive PDF guide with detailed salary data, career progression paths, and market insights across 50+ countries.
             </p>
             
-            <motion.button
-              onClick={() => setShowLeadForm(true)}
-              className="group bg-gradient-to-r from-red-600 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 flex items-center space-x-2 mx-auto"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <DocumentArrowDownIcon className="w-5 h-5" />
+            <LeadFormButton formType='download-placement-report' variant='outline' isSendOtp={true} className='mt-10'>
               <span>Get the 2025 Salary Guide (PDF)</span>
-              <ArrowRightIcon className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </motion.button>
+              
+            </LeadFormButton>
           </div>
         </motion.div>
       </motion.div>
@@ -462,14 +334,10 @@ export default function CFAGlobalSalaryMap() {
                   </select>
                 </div>
 
-                <motion.button
-                  type="submit"
-                  className="w-full bg-gradient-to-r from-red-600 to-purple-600 text-white py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-300"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
+                
+                <LeadFormButton formType='download-placement-report' variant='outline' isSendOtp={true} className='w-full'>
                   Download Salary Guide
-                </motion.button>
+                </LeadFormButton>
               </form>
 
               <p className="text-xs text-gray-500 mt-4 text-center">

@@ -8,7 +8,7 @@ import {
  
   GlobeAltIcon,
   CreditCardIcon,
-  PhoneIcon,
+  
   CheckCircleIcon,
   ArrowTrendingUpIcon,
   BanknotesIcon,
@@ -17,11 +17,12 @@ import {
   ClockIcon,
   MapPinIcon
 } from '@heroicons/react/24/outline'
+import LeadFormButton from '../LeadFormButton'
 
 export default function CPAFeesROI() {
   const [selectedEMI, setSelectedEMI] = useState(12)
   const [showEMIModal, setShowEMIModal] = useState(false)
-  const [activeTab, setActiveTab] = useState('breakdown')
+  const [activeTab, ] = useState('comparison')
 
   const feeBreakdown = {
     examFees: 956, // USD
@@ -115,7 +116,7 @@ export default function CPAFeesROI() {
           className="flex justify-center mb-8"
         >
           <div className="bg-white rounded-xl p-2 shadow-lg">
-            <button
+            {/* <button
               onClick={() => setActiveTab('breakdown')}
               className={`px-6 py-3 rounded-lg font-semibold transition-all duration-300 ${
                 activeTab === 'breakdown'
@@ -124,8 +125,8 @@ export default function CPAFeesROI() {
               }`}
             >
               Fee Breakdown
-            </button>
-            <button
+            </button> */}
+            {/* <button
               onClick={() => setActiveTab('emi')}
               className={`px-6 py-3 rounded-lg font-semibold transition-all duration-300 ${
                 activeTab === 'emi'
@@ -134,8 +135,8 @@ export default function CPAFeesROI() {
               }`}
             >
               EMI Calculator
-            </button>
-            <button
+            </button> */}
+            {/* <button
               onClick={() => setActiveTab('comparison')}
               className={`px-6 py-3 rounded-lg font-semibold transition-all duration-300 ${
                 activeTab === 'comparison'
@@ -144,7 +145,7 @@ export default function CPAFeesROI() {
               }`}
             >
               Salary Comparison
-            </button>
+            </button> */}
           </div>
         </motion.div>
 
@@ -595,18 +596,17 @@ export default function CPAFeesROI() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button
-                onClick={() => setShowEMIModal(true)}
-                className="bg-white text-red-600 px-8 py-4 rounded-xl font-semibold hover:shadow-xl transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2"
+              <LeadFormButton
+                formType='general'
+                isSendOtp={true}
+                courseId='CPA'
+                className="text-red-600 px-8 py-4 rounded-xl font-semibold hover:shadow-xl transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2"
               >
-                <CreditCardIcon className="w-5 h-5" />
+               
                 Request EMI Plan
-              </button>
+              </LeadFormButton>
               
-              <button className="border-2 border-white text-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-red-600 transition-all duration-300 flex items-center justify-center gap-2">
-                <PhoneIcon className="w-5 h-5" />
-                Talk to Advisor
-              </button>
+             
             </div>
           </div>
         </motion.div>

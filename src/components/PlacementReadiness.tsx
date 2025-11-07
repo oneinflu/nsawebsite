@@ -16,6 +16,7 @@ import {
   Target,
   Briefcase
 } from 'lucide-react';
+import LeadFormButton from './LeadFormButton';
 
 const PlacementReadiness = () => {
   const [activeStep, setActiveStep] = useState(0);
@@ -423,26 +424,28 @@ const PlacementReadiness = () => {
               Join our placement program and get personalized support from resume building to offer negotiation
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-white text-red-600 px-8 py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300"
+              <LeadFormButton 
+                formType='download-placement-report'
+                isSendOtp={true}
+                courseId='CPA'
+                className="text-red-600 px-8 py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300"
               >
                 <div className="flex items-center gap-2">
                   <Briefcase className="w-5 h-5" />
                   Start Placement Program
                 </div>
-              </motion.button>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+              </LeadFormButton>
+              <LeadFormButton 
+                formType='general'
+                isSendOtp={true}
+                courseId='CPA'
                 className="border-2 border-white text-white px-8 py-3 rounded-xl font-semibold hover:bg-white hover:text-red-600 transition-all duration-300"
               >
                 <div className="flex items-center gap-2">
                   <Users className="w-5 h-5" />
                   Talk to Alumni
                 </div>
-              </motion.button>
+              </LeadFormButton>
             </div>
           </div>
         </motion.div>

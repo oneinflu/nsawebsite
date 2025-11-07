@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDownIcon, QuestionMarkCircleIcon } from '@heroicons/react/24/solid';
+import LeadFormButton from './LeadFormButton';
 
 export default function CMAFAQ() {
   const [openFAQ, setOpenFAQ] = useState<number | null>(0);
@@ -229,20 +230,11 @@ export default function CMAFAQ() {
               answers about your CMA journey, career goals, and study plan.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-gradient-to-r from-red-600 to-red-600 text-white px-8 py-4 rounded-lg font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300"
-              >
-                Book Free Consultation
-              </motion.button>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="border-2 border-red-600 text-red-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-red-50 transition-all duration-300"
-              >
-                Chat with Expert
-              </motion.button>
+              
+                <LeadFormButton formType='general' variant='primary' isSendOtp={true} >
+                  Book Free Consultation
+                </LeadFormButton>
+             
             </div>
           </div>
         </motion.div>

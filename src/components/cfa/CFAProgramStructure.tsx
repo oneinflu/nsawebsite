@@ -16,6 +16,7 @@ import {
   CheckCircleIcon,
   ArrowRightIcon
 } from '@heroicons/react/24/outline';
+import LeadFormButton from '../LeadFormButton';
 
 interface CFALevel {
   id: string;
@@ -342,15 +343,10 @@ export default function CFAProgramStructure() {
                 <p className="text-red-100 text-lg mb-8 max-w-2xl mx-auto">
                   Download detailed syllabus with study schedules, exam strategies, and career roadmaps for all three levels
                 </p>
-                <motion.button
-                  onClick={() => setShowDownloadModal(true)}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="bg-white text-red-600 font-bold py-4 px-8 rounded-xl hover:bg-red-50 transition-all duration-200 flex items-center gap-3 mx-auto shadow-lg"
-                >
-                  <DocumentArrowDownIcon className="w-6 h-6" />
+                <LeadFormButton formType='download-syllabus' variant='outline' isSendOtp={true} className='mt-10'>
+                 
                   Download Full CFA Syllabus (PDF)
-                </motion.button>
+                </LeadFormButton>
               </div>
             </div>
           </motion.div>

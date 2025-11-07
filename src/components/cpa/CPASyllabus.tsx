@@ -12,6 +12,7 @@ import {
   ExclamationTriangleIcon,
   CheckCircleIcon
 } from '@heroicons/react/24/outline'
+import LeadFormButton from '../LeadFormButton'
 
 export default function CPASyllabus() {
   const [activeTab, setActiveTab] = useState('AUD')
@@ -504,9 +505,12 @@ export default function CPASyllabus() {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <button
-                  onClick={() => setShowLeadModal(true)}
-                  className="group bg-white text-red-600 px-8 py-4 rounded-xl font-semibold hover:shadow-xl transition-all duration-300 transform hover:scale-105 flex items-center gap-2"
+                <LeadFormButton
+                  formType='download-syllabus'
+                  isSendOtp={true}
+                  courseId='CPA'
+                
+                  className="group  text-red-600 px-8 py-4 rounded-xl font-semibold hover:shadow-xl transition-all duration-300 transform hover:scale-105 flex items-center gap-2"
                 >
                   <DocumentArrowDownIcon className="w-5 h-5" />
                   Download Full Syllabus
@@ -516,7 +520,7 @@ export default function CPASyllabus() {
                   >
                     <ChevronRightIcon className="w-4 h-4" />
                   </motion.div>
-                </button>
+                </LeadFormButton>
                 
                 <div className="flex items-center gap-2 text-red-100 text-sm">
                   <CheckCircleIcon className="w-4 h-4" />

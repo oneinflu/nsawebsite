@@ -15,6 +15,7 @@ import {
   ArrowTrendingUpIcon,
   AcademicCapIcon
 } from '@heroicons/react/24/outline';
+import LeadFormButton from '../LeadFormButton';
 
 const CIATrainingExperience = () => {
   const [activeFeature, setActiveFeature] = useState(0);
@@ -408,10 +409,10 @@ const CIATrainingExperience = () => {
                 <p className="text-red-200 text-sm mb-4">
                   Join our next demo session to see these features in action
                 </p>
-                <button className="bg-gradient-to-r from-yellow-400 to-orange-500 text-gray-900 px-6 py-3 rounded-xl font-bold text-sm hover:shadow-lg transition-all duration-300 flex items-center space-x-2 mx-auto">
+                <LeadFormButton formType='general' isSendOtp={true} courseId='CIA' className="bg-gradient-to-r from-yellow-400 to-orange-500 text-gray-900 px-6 py-3 rounded-xl font-bold text-sm hover:shadow-lg transition-all duration-300 flex items-center space-x-2 mx-auto">
                   <PlayIcon className="w-4 h-4" />
                   <span>Book Demo Session</span>
-                </button>
+                </LeadFormButton>
               </div>
             </motion.div>
           </div>

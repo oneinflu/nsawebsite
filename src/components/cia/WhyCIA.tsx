@@ -11,6 +11,7 @@ import {
   BuildingOffice2Icon
 } from '@heroicons/react/24/outline';
 import { useState, useEffect } from 'react';
+import LeadFormButton from '../LeadFormButton';
 
 const WhyCIA = () => {
   const [isClient, setIsClient] = useState(false);
@@ -318,14 +319,15 @@ const WhyCIA = () => {
           viewport={{ once: true }}
           className="text-center mt-16"
         >
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+          <LeadFormButton 
+        formType='download-placement-report'
+        isSendOtp={true}
+        courseId='CIA'
             className="bg-gradient-to-r from-red-600 to-purple-600 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 inline-flex items-center"
           >
             <BuildingOffice2Icon className="w-6 h-6 mr-3" />
             Explore CIA Career Opportunities
-          </motion.button>
+          </LeadFormButton>
         </motion.div>
       </div>
     </section>

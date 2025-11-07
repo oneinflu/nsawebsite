@@ -6,11 +6,11 @@ import {
   BuildingOfficeIcon, 
   ClockIcon,
   CheckCircleIcon,
-  PlayIcon,
-  PhoneIcon,
+  
   DocumentCheckIcon
 } from '@heroicons/react/24/outline';
 import { useState } from 'react';
+import LeadFormButton from '../LeadFormButton';
 
 const ACCAHero = () => {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
@@ -127,19 +127,23 @@ const ACCAHero = () => {
             <motion.div  className="space-y-4">
               <div className="flex flex-col sm:flex-row gap-4">
                 {/* Primary CTA */}
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="bg-gradient-to-r from-red-600 to-purple-600 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center justify-center"
-                >
-                  <PhoneIcon className="w-6 h-6 mr-3" />
+                <LeadFormButton formType='general' variant='primary' isSendOtp={true} >
                   Book Free Counselling
-                </motion.button>
+                </LeadFormButton>
 
                 {/* Secondary CTA */}
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
+                  type="button"
+                  onClick={() => {
+                    const el = document.getElementById('exemptions');
+                    if (el) {
+                      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    } else {
+                      window.location.hash = 'exemptions';
+                    }
+                  }}
                   className="bg-white text-red-600 border-2 border-red-600 px-8 py-4 rounded-xl font-bold text-lg hover:bg-red-50 transition-all duration-300 flex items-center justify-center"
                 >
                   <DocumentCheckIcon className="w-6 h-6 mr-3" />
@@ -148,13 +152,7 @@ const ACCAHero = () => {
               </div>
 
               {/* Tertiary CTA */}
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                className="text-gray-600 hover:text-red-600 font-medium flex items-center transition-colors duration-300"
-              >
-                <PlayIcon className="w-5 h-5 mr-2" />
-                Watch Student Success Stories
-              </motion.button>
+             
             </motion.div>
 
             {/* Trust Indicators */}

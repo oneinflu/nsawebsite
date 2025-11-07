@@ -8,6 +8,7 @@ import {
   BuildingOffice2Icon
 } from '@heroicons/react/24/outline';
 import { useState, useEffect } from 'react';
+import LeadFormButton from '../LeadFormButton';
 
 const WhyCFA = () => {
   const [isClient, setIsClient] = useState(false);
@@ -296,13 +297,10 @@ const WhyCFA = () => {
           </motion.div>
 
           {/* Bottom CTA Hint */}
-          <motion.div
-            variants={itemVariants}
-            className="mt-12 inline-flex items-center px-6 py-3 bg-gradient-to-r from-red-600 to-purple-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
-          >
-            <BuildingOffice2Icon className="w-5 h-5 mr-2" />
-            <span className="font-semibold">Ready to join the elite? Start your CFA journey</span>
-          </motion.div>
+           <LeadFormButton formType='general' variant='primary' isSendOtp={true} className='mt-10'>
+               Ready to join the elite? Start your CFA journey
+              </LeadFormButton>
+           
         </motion.div>
       </div>
     </section>

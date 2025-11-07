@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { 
   Play, 
-  MessageCircle, 
+ 
   Calendar, 
   Star, 
   MapPin, 
@@ -14,6 +14,7 @@ import {
   ArrowRight,
   Globe
 } from 'lucide-react';
+import LeadFormButton from '../LeadFormButton';
 
 export default function CPAHero() {
   const [selectedState, setSelectedState] = useState('California');
@@ -158,16 +159,15 @@ export default function CPAHero() {
               transition={{ delay: 0.8 }}
               className="flex flex-col sm:flex-row gap-4 pt-4"
             >
-              <motion.button
-                onClick={() => setShowCounsellingModal(true)}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+             <LeadFormButton formType='general' isSendOtp={true} courseId='CPA'
+               
+                
                 className="bg-gradient-to-r from-orange-500 to-red-500 text-white font-bold py-4 px-8 rounded-xl shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2"
               >
                 <Calendar className="w-5 h-5" />
                 Book Free Counselling
                 <ArrowRight className="w-4 h-4" />
-              </motion.button>
+              </LeadFormButton>
 
               <motion.button
                 whileHover={{ scale: 1.05 }}
@@ -180,22 +180,7 @@ export default function CPAHero() {
             </motion.div>
 
             {/* WhatsApp Assistant */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.9 }}
-              className="flex items-center gap-3 pt-4"
-            >
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-green-500 hover:bg-green-600 text-white font-medium py-3 px-6 rounded-full shadow-lg transition-all flex items-center gap-2"
-              >
-                <MessageCircle className="w-4 h-4" />
-                WhatsApp Query Assistant
-              </motion.button>
-              <span className="text-red-200 text-sm">Quick replies guaranteed</span>
-            </motion.div>
+           
           </motion.div>
 
           {/* Right Visual */}

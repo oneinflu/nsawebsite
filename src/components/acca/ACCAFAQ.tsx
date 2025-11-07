@@ -10,9 +10,9 @@ import {
   AcademicCapIcon,
   CheckCircleIcon,
   ExclamationTriangleIcon,
-  ChatBubbleLeftRightIcon,
-  PhoneIcon
+  ChatBubbleLeftRightIcon
 } from '@heroicons/react/24/outline';
+import LeadFormButton from '../LeadFormButton';
 
 const ACCAFAQ = () => {
   const [activeCategory, setActiveCategory] = useState('general');
@@ -279,22 +279,11 @@ const ACCAFAQ = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-white text-red-600 px-8 py-4 rounded-xl font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 inline-flex items-center justify-center"
-              >
-                <ChatBubbleLeftRightIcon className="w-5 h-5 mr-2" />
-                Live Chat with Expert
-              </motion.button>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white hover:text-red-600 transition-all duration-300 inline-flex items-center justify-center"
-              >
-                <PhoneIcon className="w-5 h-5 mr-2" />
-                Schedule a Call
-              </motion.button>
+             
+              <LeadFormButton formType='general' variant='outline' isSendOtp={true} > Book Free Counsellor</LeadFormButton>
+               
+              
+             
             </div>
 
             <div className="mt-8 text-red-200 text-sm">

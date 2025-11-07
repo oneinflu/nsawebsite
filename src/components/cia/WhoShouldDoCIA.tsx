@@ -13,6 +13,7 @@ import {
   TrophyIcon
 } from '@heroicons/react/24/outline';
 import { useState, useEffect } from 'react';
+import LeadFormButton from '../LeadFormButton';
 
 const WhoShouldDoCIA = () => {
   const [isClient, setIsClient] = useState(false);
@@ -279,14 +280,14 @@ const WhoShouldDoCIA = () => {
                 </motion.div>
 
                 {/* CTA Button */}
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+                <LeadFormButton formType='general' isSendOtp={true} courseId='CIA' 
+                
+                
                   className={`mt-4 w-full bg-gradient-to-r ${persona.color} text-white py-2 px-4 rounded-xl font-semibold text-sm shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center`}
                 >
                   Learn More
                   <ArrowRightIcon className="w-4 h-4 ml-2" />
-                </motion.button>
+                </LeadFormButton>
               </div>
             </motion.div>
           ))}
@@ -337,14 +338,13 @@ const WhoShouldDoCIA = () => {
 
             {/* Final CTA */}
             <motion.div variants={itemVariants} className="text-center">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+            <LeadFormButton formType='general' isSendOtp={true} courseId='CIA' 
+                
                 className="bg-gradient-to-r from-red-600 to-purple-600 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 inline-flex items-center"
               >
                 <TrophyIcon className="w-6 h-6 mr-3" />
                 Start Your CIA Journey Today
-              </motion.button>
+              </LeadFormButton>
               <p className="text-gray-400 text-sm mt-4">
                 Free career counseling • Eligibility check • Study plan
               </p>

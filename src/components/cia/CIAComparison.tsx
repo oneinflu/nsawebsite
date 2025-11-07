@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { 
   
@@ -8,13 +8,14 @@ import {
   Globe, 
   TrendingUp, 
   
-  ChartBar,
+ 
   Users,
-  ArrowRight,
+ 
 
   Target,
  
 } from 'lucide-react';
+import LeadFormButton from '../LeadFormButton';
 
 const CIAComparison = () => {
   const [hoveredCell, setHoveredCell] = useState<string | null>(null);
@@ -246,24 +247,15 @@ const CIAComparison = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-white text-red-600 px-8 py-4 rounded-xl font-bold text-lg hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-3"
-              >
-                <ChartBar className="w-6 h-6" />
-                Take Career Path Quiz
-                <ArrowRight className="w-5 h-5" />
-              </motion.button>
-              
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="border-2 border-white text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white hover:text-red-600 transition-all duration-300 flex items-center justify-center gap-3"
+              <LeadFormButton formType='general' isSendOtp={true} courseId='CIA' 
+                className="text-red-600 px-8 py-4 rounded-xl font-bold text-lg hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-3"
               >
                 <Users className="w-6 h-6" />
-                Talk to Career Expert
-              </motion.button>
+               Talk to Career Expert
+              
+              </LeadFormButton>
+              
+            
             </div>
             
             <div className="mt-6 text-sm opacity-75">

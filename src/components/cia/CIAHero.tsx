@@ -6,12 +6,13 @@ import {
   BuildingOfficeIcon, 
  
   CheckCircleIcon,
-  PlayIcon,
+
   PhoneIcon,
   DocumentCheckIcon,
   ChartBarIcon
 } from '@heroicons/react/24/outline';
 import { useState, useEffect } from 'react';
+import LeadFormButton from '../LeadFormButton';
 
 const CIAHero = () => {
   const [isClient, setIsClient] = useState(false);
@@ -188,32 +189,39 @@ const CIAHero = () => {
             {/* CTAs */}
             <motion.div variants={itemVariants} className="space-y-4">
               {/* Primary CTA */}
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+              <LeadFormButton
+                formType='general'
+                isSendOtp={true}
+                courseId='CIA'
+                
+            
                 className="w-full sm:w-auto bg-gradient-to-r from-red-600 to-purple-600 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 inline-flex items-center justify-center"
               >
                 <PhoneIcon className="w-6 h-6 mr-3" />
                 Book Free Counselling
-              </motion.button>
+              </LeadFormButton>
 
               {/* Secondary CTAs */}
               <div className="flex flex-col sm:flex-row gap-4">
                 <motion.button
                   whileHover={{ scale: 1.02 }}
+                  type="button"
+                  onClick={() => {
+                    const target = document.getElementById('eligibility');
+                    if (target) {
+                      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    } else {
+                      window.location.hash = 'eligibility';
+                    }
+                  }}
+                  aria-label="Scroll to CIA eligibility section"
                   className="bg-white text-red-600 border-2 border-red-600 px-6 py-3 rounded-xl font-semibold hover:bg-red-50 transition-all duration-300 inline-flex items-center justify-center"
                 >
                   <DocumentCheckIcon className="w-5 h-5 mr-2" />
                   Check Eligibility
                 </motion.button>
 
-                <motion.button
-                  whileHover={{ scale: 1.02 }}
-                  className="text-gray-600 hover:text-red-600 font-medium flex items-center justify-center transition-colors duration-300"
-                >
-                  <PlayIcon className="w-5 h-5 mr-2" />
-                  Watch Career Stories
-                </motion.button>
+              
               </div>
             </motion.div>
 

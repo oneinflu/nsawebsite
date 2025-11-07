@@ -14,6 +14,7 @@ import {
   CurrencyDollarIcon
 } from '@heroicons/react/24/outline';
 import { useState, useEffect } from 'react';
+import LeadFormButton from '../LeadFormButton';
 
 const CFAHero = () => {
   const [isClient, setIsClient] = useState(false);
@@ -182,24 +183,15 @@ const CFAHero = () => {
             {/* CTAs */}
             <motion.div variants={itemVariants} className="space-y-4">
               {/* Primary CTA */}
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="w-full sm:w-auto bg-gradient-to-r from-red-600 to-purple-600 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 inline-flex items-center justify-center"
-              >
-                <PhoneIcon className="w-6 h-6 mr-3" />
+             <LeadFormButton formType='general' variant='primary' isSendOtp={true}>
                 Book Free Counselling
-              </motion.button>
+              </LeadFormButton>
 
               {/* Secondary CTA */}
               <div className="flex flex-col sm:flex-row gap-4">
-                <motion.button
-                  whileHover={{ scale: 1.02 }}
-                  className="bg-white text-red-600 border-2 border-red-600 px-6 py-3 rounded-xl font-semibold hover:bg-red-50 transition-all duration-300 inline-flex items-center justify-center"
-                >
-                  <DocumentArrowDownIcon className="w-5 h-5 mr-2" />
+                <LeadFormButton formType='download-syllabus' variant='secondary' isSendOtp={true}>
                   Download CFA Roadmap
-                </motion.button>
+               </LeadFormButton>
 
                 <motion.button
                   whileHover={{ scale: 1.02 }}

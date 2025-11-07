@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDownIcon, QuestionMarkCircleIcon } from '@heroicons/react/24/outline';
+import LeadFormButton from '../LeadFormButton';
 
 interface FAQ {
   id: string;
@@ -168,20 +169,12 @@ const CFAFAQs: React.FC = () => {
                 Our CFA experts are here to guide you through your certification journey
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="bg-white text-red-600 px-8 py-3 rounded-xl font-semibold hover:bg-red-50 transition-colors duration-200 shadow-lg"
-                >
+                <LeadFormButton formType='general' variant='outline' isSendOtp={true} >
                   Schedule Free Consultation
-                </motion.button>
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="bg-red-700 text-white px-8 py-3 rounded-xl font-semibold hover:bg-red-800 transition-colors duration-200 border-2 border-red-500"
-                >
+                </LeadFormButton>
+                <LeadFormButton formType='download-hackdoc' variant='secondary' isSendOtp={true} >
                   Download CFA Guide
-                </motion.button>
+                </LeadFormButton>
               </div>
             </div>
           </motion.div>
