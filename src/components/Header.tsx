@@ -152,8 +152,8 @@ const megaMenuData: MegaMenuData = {
       category: 'Salary Insights',
       items: [
         { name: 'CPA vs CA Salaries', href: '/salary/cpa-vs-ca' },
-        { name: 'CFA Career ROI', href: '/salary/cfa-roi' },
-        { name: 'Global Salary Report 2025', href: '/salary/report-2025' }
+        { name: 'CFA Career ROI', href: '' },
+        { name: 'Global Salary Report 2025', href: '' }
       ]
     },
     {
@@ -341,7 +341,7 @@ const Header: React.FC = () => {
             <div className="flex items-center space-x-3">
               {/* WhatsApp Button */}
               <motion.a
-                href="https://wa.me/1234567890"
+                href="https://wa.link/rwc7kj"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hidden sm:flex items-center justify-center w-10 h-10 text-green-600 hover:text-green-700 transition-colors rounded-full hover:bg-green-50"
@@ -366,13 +366,13 @@ const Header: React.FC = () => {
               </LeadFormButton>
 
               {/* Login Icon */}
-              <motion.button
+              {/* <motion.button
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
                 className="hidden sm:flex items-center justify-center w-10 h-10 rounded-full border-2 border-gray-300 hover:border-red-500 text-gray-600 hover:text-red-600 transition-colors"
               >
                 <UserIcon className="w-4 h-4" />
-              </motion.button>
+              </motion.button> */}
 
               {/* Mobile menu button */}
               <motion.button

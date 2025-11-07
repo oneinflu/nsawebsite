@@ -43,11 +43,11 @@ export default function Footer() {
   ]
 
   const support = [
-    { name: 'Contact Us', href: '#contact' },
-    { name: 'WhatsApp Help', href: 'https://wa.me/919876543210', verified: true },
-    { name: 'Student Onboarding Helpdesk', href: '#helpdesk' },
-    { name: 'FAQs', href: '#faq' },
-    { name: 'Refund Policy', href: '#refund' }
+    { name: 'Contact Us', href: '/contact' },
+    { name: 'WhatsApp Help', href: 'https://wa.link/rwc7kj', verified: true },
+    { name: 'Student Onboarding Helpdesk', href: '' },
+    { name: 'FAQs', href: '' },
+    { name: 'Refund Policy', href: '' }
   ]
 
   const accreditations = [
