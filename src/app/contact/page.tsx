@@ -19,8 +19,8 @@ export default function ContactPage() {
             <h2 className="text-lg font-semibold text-slate-900">Call</h2>
             <p className="mt-2 text-sm text-slate-600">Talk to our counselors for quick guidance.</p>
             <div className="mt-4">
-              <a href="tel:+919876543210" className="inline-flex items-center rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-sm hover:bg-slate-50">
-                +91 98765 43210
+              <a href="tel:+918147470707" className="inline-flex items-center rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-sm hover:bg-slate-50">
+                +91 81474 70707
               </a>
             </div>
           </div>
@@ -30,8 +30,8 @@ export default function ContactPage() {
             <h2 className="text-lg font-semibold text-slate-900">Email</h2>
             <p className="mt-2 text-sm text-slate-600">Prefer writing to us? We respond within one business day.</p>
             <div className="mt-4">
-              <a href="mailto:contact@northstaracademy.in" className="inline-flex items-center rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-sm hover:bg-slate-50">
-                contact@northstaracademy.in
+              <a href="mailto:contact@northstaracad.com" className="inline-flex items-center rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-sm hover:bg-slate-50">
+                contact@northstaracad.com
               </a>
 
             </div>
