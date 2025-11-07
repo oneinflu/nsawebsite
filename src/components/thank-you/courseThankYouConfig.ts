@@ -17,7 +17,7 @@ export const courseThankYouConfig: Record<string, CourseThankYouContent> = {
     title: 'Welcome to CMA USA Success Path',
     subtitle: 'Your counselor will reach out shortly — meanwhile, get started below.',
     heroText: 'Kickstart your CMA journey with curated resources and community.',
-    youtubeId: 'dQw4w9WgXcQ',
+    youtubeId: 'JiZDzlJsoBo',
     groupLink: 'https://chat.whatsapp.com/your-cma-group-link',
     groupPlatform: 'whatsapp',
     advisorName: 'Anoop K',
@@ -40,7 +40,7 @@ export const courseThankYouConfig: Record<string, CourseThankYouContent> = {
   'cpa-us': {
     title: 'Welcome to CPA US Accelerator',
     subtitle: 'Everything you need to begin your CPA journey.',
-    youtubeId: '5qap5aO4i9A',
+    youtubeId: 'JiZDzlJsoBo',
     groupLink: 'https://t.me/your-cpa-telegram-group',
     groupPlatform: 'telegram',
     advisorName: 'Priya S',
@@ -63,7 +63,7 @@ export const courseThankYouConfig: Record<string, CourseThankYouContent> = {
   'acca-uk': {
     title: 'Welcome to ACCA Fast-Track',
     subtitle: 'Let’s get you moving towards global ACCA accreditation.',
-    youtubeId: 'iYH9Zr87Izc',
+    youtubeId: 'JiZDzlJsoBo',
     groupLink: 'https://discord.gg/your-acca-discord',
     groupPlatform: 'discord',
     advisorName: 'Rahul M',
@@ -86,7 +86,7 @@ export const courseThankYouConfig: Record<string, CourseThankYouContent> = {
   cia: {
     title: 'Welcome to CIA Global Certification Track',
     subtitle: 'Your path to becoming a Certified Internal Auditor starts here.',
-    youtubeId: 'hHW1oY26kxQ',
+    youtubeId: 'JiZDzlJsoBo',
     groupLink: 'https://www.linkedin.com/groups/your-cia-group',
     groupPlatform: 'linkedin',
     advisorName: 'Neha T',
@@ -109,7 +109,7 @@ export const courseThankYouConfig: Record<string, CourseThankYouContent> = {
   'cfa-us': {
     title: 'Welcome to CFA Success Track',
     subtitle: 'Start your CFA journey with curated guidance and community.',
-    youtubeId: 'hHW1oY26kxQ',
+    youtubeId: 'JiZDzlJsoBo',
     groupLink: 'https://chat.whatsapp.com/your-cfa-group-link',
     groupPlatform: 'whatsapp',
     advisorName: 'Arjun P',
@@ -132,7 +132,7 @@ export const courseThankYouConfig: Record<string, CourseThankYouContent> = {
   'enrolled-agent': {
     title: 'Welcome to Enrolled Agent Fast-Track',
     subtitle: 'Accelerate your EA preparation with structured guidance.',
-    youtubeId: 'hHW1oY26kxQ',
+    youtubeId: 'JiZDzlJsoBo',
     groupLink: 'https://t.me/your-ea-telegram-group',
     groupPlatform: 'telegram',
     advisorName: 'Sana R',
