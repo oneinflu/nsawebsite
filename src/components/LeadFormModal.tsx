@@ -425,9 +425,27 @@ const LeadFormModal = () => {
           onClick={closeLeadForm}
         >
           <div
-            className="bg-white rounded-2xl shadow-2xl w-full max-w-4xl mx-auto overflow-hidden"
+            className="bg-white rounded-2xl shadow-2xl w-full max-w-4xl mx-auto overflow-hidden relative"
             onClick={(e) => e.stopPropagation()}
           >
+            {/* Close (X) button */}
+            <button
+              type="button"
+              aria-label="Close"
+              onClick={closeLeadForm}
+              className="absolute top-3 right-3 inline-flex items-center justify-center rounded-full p-2 text-gray-500 hover:text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-300"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                className="h-5 w-5"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 6l12 12M6 18L18 6" />
+              </svg>
+            </button>
             <div className="grid grid-cols-1 md:grid-cols-2">
               {/* Left side - Branding and Info (hidden on mobile) */}
               <BrandingPanel

@@ -2,6 +2,9 @@
 
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import Image from 'next/image'
+import Link from 'next/link'
+import LeadFormButton from './LeadFormButton'
 
 export default function Footer() {
   const [showLeadModal, setShowLeadModal] = useState(false)
@@ -25,12 +28,22 @@ export default function Footer() {
     { name: 'Scholarships & EMI', href: '#scholarships' }
   ]
 
-  const resources = [
-    { name: 'Success Stories', icon: '🎥', href: '#success-stories' },
-    { name: 'Live Class Demo', href: '#demo' },
-    { name: 'Syllabus Downloads', icon: '📄', href: '#syllabus' },
-    { name: 'Blog — Career Insights', href: '#blog' },
-    { name: 'Webinars & Events', href: '#events' }
+  // Footer link groups
+  const calculators = [
+    { name: 'Career Fit Quiz', href: '/quiz/career-fit' },
+    { name: 'Salary Calculator', href: '/tools/salary-calculator' },
+    { name: 'ROI Calculator', href: '/tools/roi-calculator' },
+  ]
+
+  const salaryPages = [
+    { name: 'CPA vs CA Salaries', href: '/salary/cpa-vs-ca' },
+  ]
+
+  const careerPages = [
+    { name: 'CPA Jobs in UAE', href: '/careers/cpa-uae' },
+    { name: 'CMA in India', href: '/careers/cma-india' },
+    { name: 'ACCA in UK', href: '/careers/acca-uk' },
+    { name: 'CFA Career Paths', href: '/careers/cfa-paths' },
   ]
 
   const support = [
@@ -50,10 +63,11 @@ export default function Footer() {
   ]
 
   const socialLinks = [
-    { name: 'LinkedIn', href: '#', icon: 'linkedin' },
-    { name: 'YouTube', href: '#', icon: 'youtube' },
-    { name: 'Instagram', href: '#', icon: 'instagram' },
-    { name: 'X (Twitter)', href: '#', icon: 'twitter' }
+    { name: 'LinkedIn', href: 'https://www.linkedin.com/school/northstaracademy/', icon: 'linkedin' },
+    { name: 'Facebook', href: 'https://www.facebook.com/NorthStarAcad', icon: 'facebook' },
+    { name: 'X (Twitter)', href: 'https://twitter.com/NorthStar_Acad', icon: 'x' },
+    { name: 'Instagram', href: 'https://www.instagram.com/northstaracad/', icon: 'instagram' },
+    { name: 'YouTube', href: 'https://www.youtube.com/channel/UCVhLjuXs5z5ZYJBxpeRbI1g', icon: 'youtube' },
   ]
 
   const brandBadges = [
@@ -89,16 +103,14 @@ export default function Footer() {
               <p className="text-red-200 mb-6 text-lg">
                 Free PDF: CMA vs CPA vs ACCA Comparison Guide (Worth ₹999)
               </p>
-              <motion.button
-                onClick={() => setShowLeadModal(true)}
+              <LeadFormButton formType='general' isSendOtp={true}
                 className={`bg-gradient-to-r from-yellow-500 to-orange-500 text-white px-8 py-4 rounded-xl font-bold text-lg hover:from-yellow-600 hover:to-orange-600 transition-all duration-300 shadow-lg transform hover:scale-105 ${
                   pulseAnimation ? 'animate-pulse ring-4 ring-yellow-400' : ''
                 }`}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+              
               >
                 Get Free Guide →
-              </motion.button>
+              </LeadFormButton>
             </div>
           </div>
         </motion.div>
@@ -115,12 +127,9 @@ export default function Footer() {
               className="lg:col-span-1"
             >
               <div className="mb-6">
-                <div className="flex items-center mb-4">
-                  <div className="w-10 h-10 bg-gradient-to-r from-red-500 to-red-600 rounded-lg flex items-center justify-center mr-3">
-                    <span className="text-white font-bold text-lg">N</span>
-                  </div>
-                  <span className="text-xl font-bold">NorthStar Academy</span>
-                </div>
+                <Link href="/" className="inline-flex items-center mb-4">
+                  <Image src="/logo.svg" alt="NorthStar Academy" width={140} height={40} className="h-10 w-auto" />
+                </Link>
                 <p className="text-gray-300 font-medium mb-4">
                   Global Finance Careers Made in India
                 </p>
@@ -173,7 +182,7 @@ export default function Footer() {
               </ul>
             </motion.div>
 
-            {/* Column 3 - Resources */}
+            {/* Column 3 - Explore */}
             <motion.div 
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -181,26 +190,54 @@ export default function Footer() {
               transition={{ delay: 0.2 }}
               className="lg:col-span-1"
             >
-              <h3 className="text-lg font-bold mb-6 text-white">Resources</h3>
-              <ul className="space-y-3">
-                {resources.map((resource, index) => (
-                  <li key={index}>
-                    <a
-                      href={resource.href}
-                      className="text-gray-300 hover:text-white transition-colors duration-300 flex items-center group"
-                    >
-                      {resource.icon && <span className="mr-2">{resource.icon}</span>}
-                      <span className="relative">
-                        {resource.name}
-                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-current transition-all duration-300 group-hover:w-full"></span>
-                      </span>
-                    </a>
-                  </li>
-                ))}
-              </ul>
-              <p className="text-sm text-gray-400 mt-4">
-                Free tools to plan your global qualification.
-              </p>
+              <h3 className="text-lg font-bold mb-6 text-white">Explore</h3>
+              <div className="space-y-6">
+                <div>
+                  <p className="text-sm font-semibold text-gray-200 mb-3">Calculators</p>
+                  <ul className="space-y-2">
+                    {calculators.map((item, idx) => (
+                      <li key={idx}>
+                        <a href={item.href} className="text-gray-300 hover:text-white transition-colors duration-300 group">
+                          <span className="relative">
+                            {item.name}
+                            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-current transition-all duration-300 group-hover:w-full"></span>
+                          </span>
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-gray-200 mb-3">Salary Pages</p>
+                  <ul className="space-y-2">
+                    {salaryPages.map((item, idx) => (
+                      <li key={idx}>
+                        <a href={item.href} className="text-gray-300 hover:text-white transition-colors duration-300 group">
+                          <span className="relative">
+                            {item.name}
+                            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-current transition-all duration-300 group-hover:w-full"></span>
+                          </span>
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-gray-200 mb-3">Career Pages</p>
+                  <ul className="space-y-2">
+                    {careerPages.map((item, idx) => (
+                      <li key={idx}>
+                        <a href={item.href} className="text-gray-300 hover:text-white transition-colors duration-300 group">
+                          <span className="relative">
+                            {item.name}
+                            <span className="absolute bottom-0 left-0 w-0.5 h-0.5 bg-current transition-all duration-300 group-hover:w-full"></span>
+                          </span>
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
             </motion.div>
 
             {/* Column 4 - Support */}
@@ -287,6 +324,8 @@ export default function Footer() {
                   <motion.a
                     key={index}
                     href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     whileHover={{ scale: 1.2, y: -2 }}
                     className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-red-600 transition-all duration-300"
                   >
@@ -307,9 +346,14 @@ export default function Footer() {
                         <path d="M12.017 15.33a3.33 3.33 0 1 1 0-6.66 3.33 3.33 0 0 1 0 6.66zm0-8.468a5.138 5.138 0 1 0 0 10.276 5.138 5.138 0 0 0 0-10.276zm6.532-1.325a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0z"/>
                       </svg>
                     )}
-                    {social.icon === 'twitter' && (
+                    {social.icon === 'x' && (
                       <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                      </svg>
+                    )}
+                    {social.icon === 'facebook' && (
+                      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M22.675 0h-21.35C.596 0 0 .596 0 1.333v21.333C0 23.404.596 24 1.325 24h11.495v-9.294H9.691V11.06h3.129V8.414c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.464.099 2.796.143v3.244l-1.919.001c-1.505 0-1.796.716-1.796 1.766v2.316h3.59l-.467 3.646h-3.123V24h6.127C23.404 24 24 23.404 24 22.667V1.333C24 .596 23.404 0 22.675 0z"/>
                       </svg>
                     )}
                   </motion.a>
