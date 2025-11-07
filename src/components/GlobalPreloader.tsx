@@ -11,7 +11,7 @@ type Props = {
 };
 
 export default function GlobalPreloader({
-  minShowMs = 700,
+  minShowMs = 1500,
   transitionShowMs = 500,
   tagline = 'Launch Your Global Finance Career',
 }: Props) {
