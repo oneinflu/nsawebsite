@@ -13,13 +13,13 @@ import {
  
   AcademicCapIcon,
   BriefcaseIcon,
-  DocumentTextIcon,
+  
   InformationCircleIcon,
 
   CurrencyDollarIcon,
-  ClipboardDocumentCheckIcon,
+  
   CalendarDaysIcon,
-  ArrowTrendingUpIcon,
+ 
   FireIcon
 } from '@heroicons/react/24/outline';
 import LeadFormButton from './LeadFormButton';
@@ -149,7 +149,7 @@ const megaMenuData: MegaMenuData = {
     {
       category: 'Salary Insights',
       items: [
-        { name: 'CPA vs CMA Salaries', href: '/salary/cpa-vs-cma' },
+        { name: 'CPA vs CA Salaries', href: '/salary/cpa-vs-ca' },
         { name: 'CFA Career ROI', href: '/salary/cfa-roi' },
         { name: 'Global Salary Report 2025', href: '/salary/report-2025' }
       ]
@@ -163,52 +163,8 @@ const megaMenuData: MegaMenuData = {
       ]
     }
   ],
-  resources: [
-    {
-      category: 'Blogs & Insights',
-      items: [
-        { name: 'Finance Trends 2025', href: '/blog/finance-trends-2025' },
-        { name: 'How to Choose Right Course', href: '/blog/choose-course' },
-        { name: 'Career Success Stories', href: '/blog/success-stories' }
-      ]
-    },
-    {
-      category: 'Guides & PDFs',
-      items: [
-        { name: 'Course Roadmaps', href: '/resources/roadmaps' },
-        { name: 'Salary Reports', href: '/resources/salary-reports' },
-        { name: 'State Board Guides', href: '/resources/state-guides' }
-      ]
-    },
-    {
-      category: 'Tools',
-      items: [
-        { name: 'Eligibility Checker', href: '/tools/eligibility', icon: ClipboardDocumentCheckIcon },
-        { name: 'ROI Calculator', href: '/tools/roi', icon: CurrencyDollarIcon },
-        { name: 'Study Planner', href: '/tools/study-planner', icon: CalendarDaysIcon }
-      ]
-    },
-    {
-      category: 'Events',
-      items: [
-        { name: 'Upcoming Webinars', href: '/events/webinars' },
-        { name: 'Career Workshops', href: '/events/workshops' },
-        { name: 'Masterclasses', href: '/events/masterclasses' }
-      ]
-    }
-  ],
-  trending: [
-    {
-      title: 'Download CMA Study Plan',
-      href: '/resources/cma-study-plan',
-      icon: DocumentTextIcon
-    },
-    {
-      title: 'Salary Report 2025',
-      href: '/resources/salary-report-2025',
-      icon: ArrowTrendingUpIcon
-    }
-  ]
+  resources: [],
+  trending: []
 };
 
 const Header: React.FC = () => {
@@ -322,7 +278,7 @@ const Header: React.FC = () => {
               </div>
 
               {/* Resources Menu */}
-              <div className="relative">
+              {/* <div className="relative">
                 <motion.button
                   onClick={() => handleMenuToggle('resources')}
                   className="flex items-center space-x-1 text-gray-700 hover:text-red-600 transition-colors font-medium py-2 px-1 relative group"
@@ -343,7 +299,7 @@ const Header: React.FC = () => {
                     transition={{ duration: 0.3 }}
                   />
                 </motion.button>
-              </div>
+              </div> */}
 
               {/* About Menu */}
               <div className="relative">
@@ -552,13 +508,13 @@ const Header: React.FC = () => {
                   </div>
                   
                   <div className="mt-8 pt-6 border-t border-gray-200">
-                    <motion.button
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
+                    <LeadFormButton
+                    formType='general'
+                    isSendOtp={true}
                       className="bg-gradient-to-r from-red-600 to-red-600 text-white px-8 py-3 rounded-xl font-semibold"
                     >
                       Get Personalized Career Plan →
-                    </motion.button>
+                    </LeadFormButton>
                   </div>
                 </div>
               )}
@@ -631,15 +587,13 @@ const Header: React.FC = () => {
                         <Link href="/about" className="block p-2 rounded-lg hover:bg-red-50 text-gray-700 hover:text-red-600 transition-colors">
                           About NorthStar Academy
                         </Link>
-                        <Link href="/mentors" className="block p-2 rounded-lg hover:bg-red-50 text-gray-700 hover:text-red-600 transition-colors">
+                        <Link href="/about#mentors" className="block p-2 rounded-lg hover:bg-red-50 text-gray-700 hover:text-red-600 transition-colors">
                           Mentors & Team
                         </Link>
                         <Link href="/success-stories" className="block p-2 rounded-lg hover:bg-red-50 text-gray-700 hover:text-red-600 transition-colors">
                           Success Stories
                         </Link>
-                        <Link href="/testimonials" className="block p-2 rounded-lg hover:bg-red-50 text-gray-700 hover:text-red-600 transition-colors">
-                          Testimonials
-                        </Link>
+                       
                         <Link href="/contact" className="block p-2 rounded-lg hover:bg-red-50 text-gray-700 hover:text-red-600 transition-colors">
                           Contact Us
                         </Link>
@@ -649,14 +603,9 @@ const Header: React.FC = () => {
                     <div className="bg-red-50 rounded-xl p-6">
                       <h4 className="font-bold text-red-900 mb-3">Why Students Trust Us</h4>
                       <p className="text-red-700 text-sm mb-4">
-                        Join 10,000+ successful professionals who chose NorthStar Academy for their career transformation.
+                        Join 2,00,000+ successful professionals who chose NorthStar Academy for their career transformation.
                       </p>
-                      <Link
-                        href="/why-trust-us"
-                        className="inline-flex items-center text-red-600 hover:text-red-800 font-semibold text-sm"
-                      >
-                        Learn More →
-                      </Link>
+                      
                     </div>
                   </div>
                 </div>

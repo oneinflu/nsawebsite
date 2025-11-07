@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable @next/next/no-img-element */
+
 'use client';
 
 import React, { useState, useEffect } from 'react';
@@ -9,7 +9,7 @@ import {
   Send, 
   Users, 
   Award, 
-  Play, 
+  
   CheckCircle, 
   ArrowRight,
  
@@ -17,11 +17,27 @@ import {
   Briefcase
 } from 'lucide-react';
 import LeadFormButton from './LeadFormButton';
+ import PortraitVideoCarousel from '@/components/PortraitVideoCarousel';
+
+const portraitVideos = [
+  { url: 'https://northstaracademy.b-cdn.net/northstaracademy/story1.mp4', quote: 'From Aspirant to Achiever' },
+  { url: 'https://northstaracademy.b-cdn.net/northstaracademy/story10.mp4', quote: 'Mentor-led Success Journey' },
+  { url: 'https://northstaracademy.b-cdn.net/northstaracademy/story12.mp4', quote: 'Big 4 Ready Confidence' },
+  { url: 'https://northstaracademy.b-cdn.net/northstaracademy/story13.mp4', quote: 'Roadmap to Global Career' },
+  { url: 'https://northstaracademy.b-cdn.net/northstaracademy/story14.mp4', quote: 'Exam Strategy Wins' },
+  { url: 'https://northstaracademy.b-cdn.net/northstaracademy/story2.mp4', quote: 'Consistency beats Complexity' },
+  { url: 'https://northstaracademy.b-cdn.net/northstaracademy/story3.mp4', quote: 'Focus. Practice. Succeed.' },
+  { url: 'https://northstaracademy.b-cdn.net/northstaracademy/story4.mp4', quote: 'Smart Prep, Real Outcomes' },
+  { url: 'https://northstaracademy.b-cdn.net/northstaracademy/story5.mp4', quote: 'From Confusion to Clarity' },
+  { url: 'https://northstaracademy.b-cdn.net/northstaracademy/story6.mp4', quote: 'Results that Inspire' },
+  { url: 'https://northstaracademy.b-cdn.net/northstaracademy/story7.mp4', quote: 'NorthStar Advantage' },
+  { url: 'https://northstaracademy.b-cdn.net/northstaracademy/story8.mp4', quote: 'Community that Cares' },
+  { url: 'https://northstaracademy.b-cdn.net/northstaracademy/story9.mp4', quote: 'Your Story Starts Here' }
+];
 
 const PlacementReadiness = () => {
   const [activeStep, setActiveStep] = useState(0);
-  const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
-  const [, setIsVideoPlaying] = useState(false);
+  
 
   // Placement process steps
   const placementSteps = [
@@ -148,12 +164,7 @@ const PlacementReadiness = () => {
   }, []);
 
   // Auto-advance videos
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentVideoIndex((prev) => (prev + 1) % alumniVideos.length);
-    }, 6000);
-    return () => clearInterval(interval);
-  }, []);
+ 
 
   return (
     <section className="py-20 bg-gradient-to-br from-gray-50 to-red-50 relative overflow-hidden">
@@ -330,84 +341,12 @@ const PlacementReadiness = () => {
         </div>
 
         {/* Alumni Success Videos */}
-        <div className="mb-12">
-          <h3 className="text-2xl font-bold text-center text-gray-900 mb-8">
-            Real Alumni Success Stories
-          </h3>
-          
-          <div className="grid lg:grid-cols-2 gap-8 items-center">
-            {/* Featured Video */}
-            <div className="relative">
-              <motion.div
-                key={currentVideoIndex}
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                className="relative bg-gray-900 rounded-2xl overflow-hidden aspect-video"
-              >
-                <img
-                  src={alumniVideos[currentVideoIndex].thumbnail}
-                  alt={`${alumniVideos[currentVideoIndex].name} success story`}
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-                  <motion.button
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                    onClick={() => setIsVideoPlaying(true)}
-                    className="w-20 h-20 bg-white bg-opacity-90 rounded-full flex items-center justify-center hover:bg-opacity-100 transition-all duration-300"
-                  >
-                    <Play className="w-8 h-8 text-gray-900 ml-1" />
-                  </motion.button>
-                </div>
-                <div className="absolute bottom-4 right-4 bg-black bg-opacity-70 text-white px-2 py-1 rounded text-sm">
-                  {alumniVideos[currentVideoIndex].duration}
-                </div>
-              </motion.div>
-              
-              {/* Video Info */}
-              <div className="mt-4">
-                <h4 className="text-xl font-bold text-gray-900">
-                  {alumniVideos[currentVideoIndex].name}
-                </h4>
-                <p className="text-gray-600">
-                  {alumniVideos[currentVideoIndex].role} at {alumniVideos[currentVideoIndex].company}
-                </p>
-                <blockquote className="mt-3 text-gray-700 italic">
-                  &quot;{alumniVideos[currentVideoIndex].quote}&quot;
-                </blockquote>
-              </div>
-            </div>
+       
 
-            {/* Video Thumbnails */}
-            <div className="grid grid-cols-2 gap-4">
-              {alumniVideos.map((video, index) => (
-                <motion.div
-                  key={video.id}
-                  whileHover={{ scale: 1.05 }}
-                  onClick={() => setCurrentVideoIndex(index)}
-                  className={`cursor-pointer rounded-xl overflow-hidden border-2 transition-all duration-300 ${
-                    currentVideoIndex === index ? 'border-red-500' : 'border-gray-200'
-                  }`}
-                >
-                  <div className="relative aspect-video">
-                    <img
-                      src={video.thumbnail}
-                      alt={`${video.name} at ${video.company}`}
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
-                      <Play className="w-6 h-6 text-white" />
-                    </div>
-                  </div>
-                  <div className="p-3">
-                    <div className="font-semibold text-sm text-gray-900">{video.name}</div>
-                    <div className="text-xs text-gray-600">{video.company}</div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </div>
+
+
+     <PortraitVideoCarousel videos={portraitVideos} title="Success Stories" subtitle="Real transformations at NorthStar Academy" />
+    
 
         {/* CTA Section */}
         <motion.div

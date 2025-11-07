@@ -1,10 +1,24 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { XMarkIcon } from '@heroicons/react/24/outline';
 
 const AnnouncementBar = () => {
   const [isVisible, setIsVisible] = useState(true);
+  const [nextBatchDate, setNextBatchDate] = useState<string>('');
+
+  // Compute "7 days from today" on the client to avoid hydration mismatch
+  useEffect(() => {
+    const next = new Date();
+    next.setDate(next.getDate() + 7);
+    const formatted = new Intl.DateTimeFormat('en-US', {
+      month: 'long',
+      day: 'numeric',
+      year: 'numeric',
+    }).format(next);
+    setNextBatchDate(formatted);
+  }, []);
 
   if (!isVisible) return null;
 
@@ -17,7 +31,7 @@ const AnnouncementBar = () => {
         <div className="flex-1 flex items-center justify-center space-x-6 text-sm font-medium">
           <span className="flex items-center space-x-2">
             <span className="inline-block w-2 h-2 bg-yellow-400 rounded-full animate-pulse"></span>
-            <span>Next Batch Starts: January 15, 2024</span>
+            <span>Next Batch Starts: {nextBatchDate || 'Loading…'}</span>
           </span>
           
           <span className="hidden sm:inline">•</span>
