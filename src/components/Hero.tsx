@@ -19,6 +19,7 @@ interface Certification {
   bgColor: string;
   description: string;
   parts: string;
+  slug: string;
 }
 
 interface Location {
@@ -48,7 +49,8 @@ const Hero: React.FC = () => {
       color: 'text-red-600',
       bgColor: 'bg-red-50 border-red-200',
       description: 'Strategic financial management and decision-making',
-      parts: 'Part 1: Financial Planning • Part 2: Strategic Financial Management'
+      parts: 'Part 1: Financial Planning • Part 2: Strategic Financial Management',
+      slug: 'cma-usa-course-details',
     },
     cpa: {
       id: 'cpa',
@@ -62,7 +64,8 @@ const Hero: React.FC = () => {
       color: 'text-green-600',
       bgColor: 'bg-green-50 border-green-200',
       description: 'Highest authority in accounting and auditing',
-      parts: 'AUD • BEC • FAR • REG - Complete CPA Licensure'
+      parts: 'AUD • BEC • FAR • REG - Complete CPA Licensure',
+      slug: 'cpa-course-details',
     },
     acca: {
       id: 'acca',
@@ -76,7 +79,8 @@ const Hero: React.FC = () => {
       color: 'text-purple-600',
       bgColor: 'bg-purple-50 border-purple-200',
       description: 'Global accounting with maximum exemptions',
-      parts: 'Knowledge • Skills • Strategic Professional - Global Recognition'
+      parts: 'Knowledge • Skills • Strategic Professional - Global Recognition',
+      slug: 'acca-course-details',
     }
   };
 
@@ -288,6 +292,9 @@ const Hero: React.FC = () => {
                 </div>
                 
                 <p className="text-slate-600 italic">{currentCert.description}</p>
+                <Link href={`/${currentCert.slug}`} className="inline-block px-6 py-2 bg-red-600 text-white rounded-full font-medium hover:bg-red-700 transition-colors duration-200">
+                Explore Course Details
+                </Link>
               </div>
             </div>
 
