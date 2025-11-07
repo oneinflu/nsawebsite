@@ -152,8 +152,7 @@ const megaMenuData: MegaMenuData = {
       category: 'Salary Insights',
       items: [
         { name: 'CPA vs CA Salaries', href: '/salary/cpa-vs-ca' },
-        { name: 'CFA Career ROI', href: '' },
-        { name: 'Global Salary Report 2025', href: '' }
+       
       ]
     },
     {
