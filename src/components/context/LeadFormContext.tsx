@@ -25,6 +25,7 @@ interface LeadFormContextType {
     name: string;
     email: string;
     phone: string;
+    country_code: string;
     location: string;
     utm_source: string;
     utm_medium: string;
@@ -48,6 +49,7 @@ const defaultFormData = {
   name: '',
   email: '',
   phone: '',
+  country_code: '',
   location: '',
   utm_source: '',
   utm_medium: '',

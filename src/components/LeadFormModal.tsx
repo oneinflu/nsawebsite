@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-expressions */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 import React, { useState, useEffect, useRef } from "react";
@@ -138,8 +139,10 @@ const LeadFormModal = () => {
     }
   }, [isOpen, formStep, updateFormData]);
 
-  const handlePhoneChange = (value: string) => {
-    updateFormData({ phone: value });
+  const handlePhoneChange = (value: string, country?: { dialCode?: string }) => {
+    const digitsOnly = (value || "").replace(/\D/g, "");
+    const dial = (country?.dialCode || formData.country_code || "").replace(/\D/g, "");
+    updateFormData({ phone: digitsOnly, country_code: dial || "91" });
     setPhoneError("");
   };
 
@@ -152,13 +155,22 @@ const LeadFormModal = () => {
 
     // config resolved via getConfigFor(formType) if needed
 
+    // Derive country_code and local phone number (without country code)
+    const countryCode = (formData.country_code || "").replace(/\D/g, "") || "91";
+    const fullDigits = (formData.phone || "").replace(/\D/g, "");
+    const localPhone = fullDigits.startsWith(countryCode)
+      ? fullDigits.slice(countryCode.length)
+      : fullDigits;
+
     const leadData = {
       form_id: "7e68ae1a-5765-489c-9b62-597b478c0fa0", // Hardcoded for now
       visitor_id: "68303d80d71ba95da713026e", // Hardcoded for now
       isSendOtp: isSendOtp,
       answers: {
         full_name: formData.name,
-        phone_number: formData.phone,
+        // Send phone_number without country code and add country_code separately
+        phone_number: localPhone,
+        country_code: countryCode,
         email_address: formData.email,
         dob: formData.dob,
         gender: formData.gender,

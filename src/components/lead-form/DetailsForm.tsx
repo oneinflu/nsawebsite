@@ -10,7 +10,7 @@ type DetailsFormProps = {
   formData: { [key: string]: any };
   updateFormData: (data: Record<string, any>) => void;
   handleSubmit: (e: React.FormEvent) => void;
-  handlePhoneChange: (value: string) => void;
+  handlePhoneChange: (value: string, country?: { dialCode?: string }) => void;
   phoneError: string;
   isSubmitting: boolean;
   inputRef: React.RefObject<HTMLInputElement | null>;
@@ -93,7 +93,7 @@ const DetailsForm: React.FC<DetailsFormProps> = ({
             <PhoneInput
               country={"in"}
               value={formData.phone}
-              onChange={(value) => handlePhoneChange(value)}
+              onChange={(value, country) => handlePhoneChange(value, country as { dialCode?: string })}
               enableSearch
               autoFormat
               placeholder="Enter phone number"

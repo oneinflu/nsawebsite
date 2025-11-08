@@ -59,9 +59,10 @@ export default function RootLayout({
         <GlobalPreloader />
         <LeadFormProvider>
         <ToolsModalProvider>
-           <LoadScript
+          <LoadScript
           googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || "AIzaSyAOPCNlHy1wcVmr7Srt_1ic9EqEStBSMm4"}
           libraries={["places"]}
+          loadingElement={<div aria-hidden="true" />}
         >
           {!isSuper300Page && !isASection && <AnnouncementBar />}
           {!isSuper300Page && !isASection && <Header />}
