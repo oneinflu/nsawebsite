@@ -142,12 +142,33 @@ const LeadFormModal = () => {
   const handlePhoneChange = (value: string, country?: { dialCode?: string }) => {
     const digitsOnly = (value || "").replace(/\D/g, "");
     const dial = (country?.dialCode || formData.country_code || "").replace(/\D/g, "");
+    // Derive local number for validation
+    const local = digitsOnly.startsWith(dial) ? digitsOnly.slice(dial.length) : digitsOnly;
+    // Basic validation: for India (91), enforce 10-digit local number
+    if ((dial || "91") === "91" && local.length !== 10) {
+      setPhoneError("Please enter a valid 10-digit Indian mobile number");
+    } else {
+      setPhoneError("");
+    }
     updateFormData({ phone: digitsOnly, country_code: dial || "91" });
-    setPhoneError("");
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    // Validate phone before submission
+    const countryCode = (formData.country_code || "").replace(/\D/g, "") || "91";
+    const fullDigits = (formData.phone || "").replace(/\D/g, "");
+    const localPhoneForCheck = fullDigits.startsWith(countryCode)
+      ? fullDigits.slice(countryCode.length)
+      : fullDigits;
+    if (countryCode === "91" && localPhoneForCheck.length !== 10) {
+      setPhoneError("Please enter a valid 10-digit Indian mobile number");
+      return;
+    }
+    if (!localPhoneForCheck) {
+      setPhoneError("Please enter your phone number");
+      return;
+    }
     if (phoneError) {
       return;
     }
@@ -156,8 +177,6 @@ const LeadFormModal = () => {
     // config resolved via getConfigFor(formType) if needed
 
     // Derive country_code and local phone number (without country code)
-    const countryCode = (formData.country_code || "").replace(/\D/g, "") || "91";
-    const fullDigits = (formData.phone || "").replace(/\D/g, "");
     const localPhone = fullDigits.startsWith(countryCode)
       ? fullDigits.slice(countryCode.length)
       : fullDigits;
