@@ -25,10 +25,10 @@ const AboutSuper300Program = () => {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
-  // Counter animation
+  // Counter animation (Super 30: 30 scholars, ₹1 L each)
   useEffect(() => {
     if (isInView) {
-      const targets = { scholarship: 30, students: 300, courses: 5, mentors: 15 };
+      const targets = { scholarship: 30, students: 30, courses: 6, mentors: 15 };
       const duration = 1200;
       const steps = 60;
       const stepDuration = duration / steps;
@@ -91,16 +91,16 @@ const AboutSuper300Program = () => {
 
   // Impact metrics data
   const impactMetrics = [
-    { icon: "💰", value: counters.scholarship, label: "Crores Total Scholarship Value", suffix: " Crores" },
-    { icon: "🎓", value: counters.students, label: "Students Selected Annually", suffix: "" },
-    { icon: "🌍", value: counters.courses, label: "Global Courses Across 3 Continents", suffix: "" },
-    { icon: "🧑‍🏫", value: counters.mentors, label: "Global Faculty Network", suffix: "+" }
+    { icon: "🎓", value: counters.students, label: "Scholars Selected", suffix: "" },
+    { icon: "💰", value: 1, label: "Scholarship per Scholar", suffix: " Lakh" },
+    { icon: "🌍", value: counters.courses, label: "Global Programs", suffix: "" },
+    { icon: "🧑‍🏫", value: counters.mentors, label: "Mentor Network", suffix: "+" }
   ];
 
   return (
     <section 
       ref={sectionRef}
-      className="relative min-h-screen bg-gradient-to-br from-white via-amber-50/30 to-orange-50/20 overflow-hidden"
+      className="relative min-h-screen bg-gradient-to-br from-white via-red-50/30 to-rose-100/20 overflow-hidden"
     >
       {/* Background Effects */}
       <div className="absolute inset-0">
@@ -143,7 +143,7 @@ const AboutSuper300Program = () => {
         <motion.div
           className="absolute w-96 h-96 rounded-full pointer-events-none"
           style={{
-            background: "radial-gradient(circle, rgba(245, 158, 11, 0.1) 0%, transparent 70%)",
+            background: "radial-gradient(circle, rgba(220,38,38,0.12) 0%, transparent 70%)",
             left: mousePosition.x - 192,
             top: mousePosition.y - 192,
           }}
@@ -171,15 +171,15 @@ const AboutSuper300Program = () => {
           >
             About the{" "}
             <span className="relative">
-              <span className="bg-gradient-to-r from-amber-600 via-orange-500 to-amber-600 bg-clip-text text-transparent">
-                Super 300 Scholarship
+              <span className="bg-gradient-to-r from-red-600 via-rose-500 to-red-600 bg-clip-text text-transparent">
+                Super 30 Scholarship
               </span>
               {/* Gold underline */}
               <motion.div
                 initial={{ scaleX: 0 }}
                 animate={isInView ? { scaleX: 1 } : {}}
                 transition={{ duration: 0.8, delay: 0.8 }}
-                className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-amber-400 to-orange-400 rounded-full origin-left"
+                className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-red-400 to-rose-400 rounded-full origin-left"
               />
             </span>
           </motion.h2>
@@ -190,9 +190,9 @@ const AboutSuper300Program = () => {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            A NorthStar Academy initiative in partnership with Examly, designed to provide{" "}
-            <span className="font-semibold text-amber-600">₹30 Crores worth of scholarships</span>{" "}
-            for global accounting and finance aspirants.
+            A NorthStar Academy initiative in partnership with Examly, designed for top finance talent — offering{" "}
+            <span className="font-semibold text-emerald-600">₹1 Lakh per scholar</span>{" "}
+            for <span className="font-semibold text-slate-800">30 selected scholars</span> in global accounting and finance.
           </motion.p>
         </motion.div>
 
@@ -205,18 +205,18 @@ const AboutSuper300Program = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="relative"
           >
-            <div className="relative bg-gradient-to-br from-white to-amber-50 rounded-3xl p-6 shadow-2xl overflow-hidden h-[500px]">
+            <div className="relative bg-gradient-to-br from-white to-red-50 rounded-3xl p-6 shadow-2xl overflow-hidden h-[500px]">
               {/* Background Gradient */}
-              <div className="absolute inset-0 bg-gradient-to-br from-white via-amber-50/50 to-orange-50/30" />
+              <div className="absolute inset-0 bg-gradient-to-br from-white via-red-50/50 to-rose-50/30" />
               
               {/* Scholarship Badge */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={isInView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ duration: 0.6, delay: 1 }}
-                className="absolute top-4 right-4 bg-gradient-to-r from-amber-500 to-orange-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg z-20"
+                className="absolute top-4 right-4 bg-gradient-to-r from-red-600 to-rose-600 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg z-20"
               >
-                ₹90,000 Value
+                ₹1,00,000 Scholarship
               </motion.div>
 
               {/* Interactive Learning Dashboard */}
@@ -240,7 +240,7 @@ const AboutSuper300Program = () => {
                     animate={isInView ? { opacity: 1, scale: 1 } : {}}
                     transition={{ duration: 0.6, delay: 1.4 }}
                     whileHover={{ scale: 1.05, y: -2 }}
-                    className="bg-white/80 backdrop-blur-sm rounded-2xl p-4 border border-amber-200/50 shadow-lg cursor-pointer group"
+                    className="bg-white/80 backdrop-blur-sm rounded-2xl p-4 border border-red-200/50 shadow-lg cursor-pointer group"
                   >
                     <div className="text-center">
                       <motion.div
@@ -259,10 +259,10 @@ const AboutSuper300Program = () => {
                           initial={{ width: 0 }}
                           animate={isInView ? { width: "75%" } : {}}
                           transition={{ duration: 2, delay: 2 }}
-                          className="bg-gradient-to-r from-green-400 to-green-500 h-2 rounded-full"
+                          className="bg-gradient-to-r from-red-500 to-red-600 h-2 rounded-full"
                         />
                       </div>
-                      <div className="text-xs text-green-600 font-semibold">75% Complete</div>
+                      <div className="text-xs text-red-600 font-semibold">75% Complete</div>
                     </div>
                   </motion.div>
 
@@ -331,7 +331,7 @@ const AboutSuper300Program = () => {
                     animate={isInView ? { opacity: 1, scale: 1 } : {}}
                     transition={{ duration: 0.6, delay: 2 }}
                     whileHover={{ scale: 1.05, y: -2 }}
-                    className="bg-white/80 backdrop-blur-sm rounded-2xl p-4 border border-orange-200/50 shadow-lg cursor-pointer group"
+                    className="bg-white/80 backdrop-blur-sm rounded-2xl p-4 border border-red-200/50 shadow-lg cursor-pointer group"
                   >
                     <div className="text-center">
                       <motion.div
@@ -345,7 +345,7 @@ const AboutSuper300Program = () => {
                       <div className="text-xs text-slate-600 mb-2">Books & Resources</div>
                       
                       {/* Resource Count */}
-                      <div className="text-xs text-orange-600 font-semibold mb-1">500+ Resources</div>
+                      <div className="text-xs text-red-600 font-semibold mb-1">500+ Resources</div>
                       <div className="text-xs text-slate-500">Updated Daily</div>
                     </div>
                   </motion.div>
@@ -435,7 +435,7 @@ const AboutSuper300Program = () => {
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: 1.2 }}
               >
-                Super 300 is NorthStar Academy&apos;s flagship scholarship program — designed to make global finance qualifications accessible and affordable to talented students and professionals across India.
+                Super 30 is NorthStar Academy&apos;s selective scholarship — enabling India’s brightest finance talent to access global qualifications with support and guidance.
               </motion.p>
 
               <motion.p
@@ -443,8 +443,8 @@ const AboutSuper300Program = () => {
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: 1.4 }}
               >
-                Each selected candidate receives{" "}
-                <span className="font-semibold text-amber-600">₹90,000 worth of value</span>{" "}
+                Each selected scholar receives{" "}
+                <span className="font-semibold text-emerald-600">₹1,00,000 scholarship value</span>{" "}
                 through comprehensive learning tools, mentorship, and placement training — powered by our official partnership with{" "}
                 <span className="font-semibold text-slate-800">Examly</span>, one of India&apos;s leading EdTech learning platforms.
               </motion.p>
@@ -471,7 +471,7 @@ const AboutSuper300Program = () => {
           <div className="text-center mb-12">
             <h3 className="text-3xl font-bold text-slate-800 mb-4">What You Get</h3>
             <p className="text-slate-600 max-w-2xl mx-auto">
-              Comprehensive value breakdown of your ₹90,000 scholarship package
+              Comprehensive value breakdown of your ₹1,00,000 scholarship grant
             </p>
           </div>
 
@@ -485,7 +485,7 @@ const AboutSuper300Program = () => {
                 whileHover={{ 
                   scale: 1.05, 
                   y: -5,
-                  boxShadow: "0 20px 40px rgba(245, 158, 11, 0.15)"
+                  boxShadow: "0 20px 40px rgba(220, 38, 38, 0.15)"
                 }}
                 onHoverStart={() => setHoveredCard(index)}
                 onHoverEnd={() => setHoveredCard(null)}
@@ -496,7 +496,7 @@ const AboutSuper300Program = () => {
                   initial={{ scaleX: 0 }}
                   animate={hoveredCard === index ? { scaleX: 1 } : { scaleX: 0 }}
                   transition={{ duration: 0.3 }}
-                  className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-amber-400 to-orange-400 origin-left"
+                  className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-red-400 to-rose-400 origin-left"
                 />
 
                 {/* Background Glow */}
@@ -506,7 +506,7 @@ const AboutSuper300Program = () => {
                     scale: [0.8, 1.2, 1]
                   } : {}}
                   transition={{ duration: 1.5, repeat: Infinity }}
-                  className="absolute inset-0 bg-gradient-to-br from-amber-400/10 to-orange-400/10 rounded-2xl"
+                  className="absolute inset-0 bg-gradient-to-br from-red-400/10 to-rose-400/10 rounded-2xl"
                 />
 
                 <div className="relative z-10">
@@ -521,7 +521,7 @@ const AboutSuper300Program = () => {
                     {feature.icon}
                   </motion.div>
                   
-                  <h4 className="text-lg font-bold text-slate-800 mb-3 group-hover:text-amber-600 transition-colors">
+                  <h4 className="text-lg font-bold text-slate-800 mb-3 group-hover:text-red-600 transition-colors">
                     {feature.title}
                   </h4>
                   
@@ -539,7 +539,7 @@ const AboutSuper300Program = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 2.5 }}
-          className="bg-gradient-to-r from-gray-50 to-amber-50/30 rounded-3xl p-8 mb-20 border border-gray-100"
+          className="bg-gradient-to-r from-gray-50 to-red-50/30 rounded-3xl p-8 mb-20 border border-gray-100"
         >
           <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
             {/* Logos Section */}
@@ -560,9 +560,9 @@ const AboutSuper300Program = () => {
                 transition={{ duration: 0.8, delay: 2.9 }}
                 className="flex items-center gap-2 origin-left"
               >
-                <div className="w-8 h-0.5 bg-gradient-to-r from-amber-400 to-orange-400"></div>
-                <span className="text-amber-600 font-bold">×</span>
-                <div className="w-8 h-0.5 bg-gradient-to-r from-orange-400 to-amber-400"></div>
+                <div className="w-8 h-0.5 bg-gradient-to-r from-red-400 to-rose-400"></div>
+                <span className="text-red-600 font-bold">×</span>
+                <div className="w-8 h-0.5 bg-gradient-to-r from-rose-400 to-red-400"></div>
               </motion.div>
 
               <motion.div
@@ -600,7 +600,7 @@ const AboutSuper300Program = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 3.5 }}
-          className="bg-gradient-to-r from-amber-50 to-orange-50 rounded-3xl p-8 mb-20"
+          className="bg-gradient-to-r from-red-50 to-rose-50 rounded-3xl p-8 mb-20"
         >
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {impactMetrics.map((metric, index) => (
@@ -626,7 +626,7 @@ const AboutSuper300Program = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 4 }}
-          className="bg-gradient-to-r from-slate-50 to-amber-50 rounded-3xl p-8 text-center border border-gray-100"
+          className="bg-gradient-to-r from-slate-50 to-red-50 rounded-3xl p-8 text-center border border-gray-100"
         >
           <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
             <div className="text-left lg:text-left">
@@ -637,9 +637,9 @@ const AboutSuper300Program = () => {
 
             <div className="flex flex-col sm:flex-row gap-4">
               <motion.button
-                whileHover={{ scale: 1.05, boxShadow: "0 10px 30px rgba(245, 158, 11, 0.3)" }}
+                whileHover={{ scale: 1.05, boxShadow: "0 10px 30px rgba(220, 38, 38, 0.3)" }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-3 border-2 border-amber-500 text-amber-600 font-semibold rounded-full hover:bg-amber-50 transition-all duration-300"
+                className="px-8 py-3 border-2 border-red-600 text-red-600 font-semibold rounded-full hover:bg-red-50 transition-all duration-300"
               >
                 Check Eligibility
               </motion.button>
@@ -647,13 +647,13 @@ const AboutSuper300Program = () => {
               <motion.button
                 whileHover={{ 
                   scale: 1.05, 
-                  boxShadow: "0 10px 30px rgba(245, 158, 11, 0.4)",
-                  background: "linear-gradient(135deg, #f59e0b 0%, #ea580c 100%)"
+                  boxShadow: "0 10px 30px rgba(220, 38, 38, 0.4)",
+                  background: "linear-gradient(135deg, #dc2626 0%, #f43f5e 100%)"
                 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-3 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-semibold rounded-full shadow-lg transition-all duration-300"
+                className="px-8 py-3 bg-gradient-to-r from-red-600 to-rose-600 text-white font-semibold rounded-full shadow-lg transition-all duration-300"
               >
-                Apply for Super 300
+                Apply for Super 30
               </motion.button>
             </div>
           </div>

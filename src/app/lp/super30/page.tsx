@@ -3,9 +3,7 @@
 
 import { useState } from 'react';
 
-import Super300AnnouncementBar from '@/components/Super300AnnouncementBar';
 import Super30Hero from '@/components/Super30Hero';
-import Super30About from '@/components/Super30About';
 import Super300QuickApplyModal from '@/components/Super300QuickApplyModal';
 import Super300ExitIntentPopup from '@/components/Super300ExitIntentPopup';
 import Super300Toast from '@/components/Super300Toast';
@@ -51,7 +49,7 @@ export default function Super300Page() {
   return (
     <div className="min-h-screen bg-white">
       {/* Top Announcement Bar */}
-      <Super300AnnouncementBar />
+    
       
       {/* Sticky Header */}
      
@@ -60,8 +58,6 @@ export default function Super300Page() {
    
         {/* Main Hero Section */}
         <Super30Hero />
-        {/* About the Program (Super 30) */}
-        <Super30About />
         <AboutSuper300Program />
        
         {/* Eligibility Section */}

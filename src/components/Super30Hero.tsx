@@ -89,7 +89,7 @@ export default function Super30Hero() {
       </AnimatePresence>
 
       {/* Center block */}
-      <div className="relative mx-auto max-w-6xl px-6 pt-24 pb-24 text-center sm:pt-28 sm:pb-28">
+      <div className="relative mx-auto max-w-6xl px-6 pt-40 pb-40 text-center sm:pt-28 sm:pb-28">
         {/* Badge */}
         <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold text-white">
           <span>🎓</span>
@@ -97,8 +97,11 @@ export default function Super30Hero() {
         </div>
 
         {/* Headline */}
-        <h1 className="mt-6 text-3xl font-extrabold sm:text-4xl md:text-5xl text-white">
-          30 Students. ₹1 L Scholarship Each.
+        <h2 className="mt-6 text-4xl font-extrabold sm:text-4xl md:text-4xl text-white">
+          30 Students.
+        </h2>
+        <h1 className="mt-6 text-6xl font-extrabold sm:text-4xl md:text-6xl text-white">
+          ₹100K Scholarship Each.
         </h1>
         <p className="mt-4 text-base text-white/85 sm:text-lg">
           Be among India’s brightest to earn a ₹1 L NorthStar Scholarship.
