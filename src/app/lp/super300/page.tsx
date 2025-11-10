@@ -2,7 +2,7 @@
 'use client';
 
 import { useState } from 'react';
-import Super300Header from '@/components/Super300Header';
+
 import Super300AnnouncementBar from '@/components/Super300AnnouncementBar';
 import Super300Hero from '@/components/Super300Hero';
 import Super300QuickApplyModal from '@/components/Super300QuickApplyModal';
@@ -53,7 +53,7 @@ export default function Super300Page() {
       <Super300AnnouncementBar />
       
       {/* Sticky Header */}
-      <Super300Header onApplyNowClick={handleApplyNowClick} />
+     
       
       {/* Main Content with proper spacing for fixed header */}
    

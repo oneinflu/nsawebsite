@@ -701,32 +701,79 @@ const Header: React.FC = () => {
                     </div>
                   </div>
 
-                  {/* Other Menu Items */}
-                  <div className="space-y-4">
-                    <Link href="/careers" className="block py-2 font-medium text-gray-900 hover:text-red-600">
-                      Careers
-                    </Link>
-                    <Link href="/resources" className="block py-2 font-medium text-gray-900 hover:text-red-600">
-                      Resources
-                    </Link>
-                    <Link href="/about" className="block py-2 font-medium text-gray-900 hover:text-red-600">
-                      About
-                    </Link>
+                  {/* Careers */}
+                  <div>
+                    <h3 className="font-semibold text-gray-900 mb-3">Careers</h3>
+                    <div className="space-y-3 ml-4">
+                      {megaMenuData.careers.map((category, cIdx) => (
+                        <div key={cIdx} className="space-y-2">
+                          <p className="text-sm font-medium text-gray-700">{category.category}</p>
+                          <div className="space-y-1">
+                            {category.items.map((item, itemIdx) => {
+                              const isCalculatorItem = ['Career Fit Quiz', 'Salary Calculator', 'ROI Calculator'].includes(item.name);
+                              if (isCalculatorItem) {
+                                const tool = item.name === 'Career Fit Quiz' ? 'quiz' : item.name === 'Salary Calculator' ? 'salary' : 'roi';
+                                return (
+                                  <button
+                                    key={itemIdx}
+                                    onClick={() => { handleOpenCalculator(tool); setIsMobileMenuOpen(false); }}
+                                    className="block w-full text-left py-2 text-gray-700 hover:text-red-600"
+                                  >
+                                    {item.name}
+                                  </button>
+                                );
+                              }
+                              return (
+                                <Link
+                                  key={itemIdx}
+                                  href={item.href}
+                                  className="block py-2 text-gray-700 hover:text-red-600"
+                                  onClick={() => setIsMobileMenuOpen(false)}
+                                >
+                                  {item.name}
+                                </Link>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* About */}
+                  <div>
+                    <h3 className="font-semibold text-gray-900 mb-3">About</h3>
+                    <div className="space-y-1 ml-4">
+                      <Link href="/about" className="block py-2 text-gray-700 hover:text-red-600" onClick={() => setIsMobileMenuOpen(false)}>
+                        About NorthStar Academy
+                      </Link>
+                      <Link href="/about#mentors" className="block py-2 text-gray-700 hover:text-red-600" onClick={() => setIsMobileMenuOpen(false)}>
+                        Mentors & Team
+                      </Link>
+                      <Link href="/success-stories" className="block py-2 text-gray-700 hover:text-red-600" onClick={() => setIsMobileMenuOpen(false)}>
+                        Success Stories
+                      </Link>
+                      <Link href="/contact" className="block py-2 text-gray-700 hover:text-red-600" onClick={() => setIsMobileMenuOpen(false)}>
+                        Contact Us
+                      </Link>
+                    </div>
                   </div>
 
                   {/* CTAs */}
                   <div className="space-y-4 pt-6 border-t border-gray-200">
-                    <Link
-                      href="/book-counselling"
-                      className="block w-full bg-gradient-to-r from-red-600 to-red-600 text-white text-center py-3 px-4 rounded-xl font-semibold"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                      Book Free Counselling
-                    </Link>
+                    <div onClick={() => setIsMobileMenuOpen(false)}>
+                      <LeadFormButton
+                        formType="general"
+                        isSendOtp={true}
+                        className="block w-full bg-gradient-to-r from-red-600 to-red-600 text-white text-center py-3 px-4 rounded-xl font-semibold"
+                      >
+                        Book Free Call
+                      </LeadFormButton>
+                    </div>
                     
                     <div className="flex items-center justify-center space-x-4">
                       <a
-                        href="https://wa.me/1234567890"
+                        href="https://wa.link/rwc7kj"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center space-x-2 text-green-600 hover:text-green-700"

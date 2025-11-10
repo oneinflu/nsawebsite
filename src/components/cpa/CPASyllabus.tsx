@@ -195,68 +195,53 @@ export default function CPASyllabus() {
         }
       ]
     },
-    BEC: {
-      name: 'Business Environment & Concepts',
-      code: 'BEC',
+    OPT: {
+      name: 'Optional Disciplines',
+      code: 'OPT',
       difficulty: 'Medium',
       studyHours: '90-120 hours',
-      passRate: '62.75%',
-      description: 'Corporate governance, economics, financial management, and information technology',
+      passRate: '—',
+      description: 'Choose one of three optional disciplines: BAR, ISC, or TCP',
       color: 'indigo',
       topics: [
         {
-          id: 'governance',
-          title: 'Corporate Governance',
-          weight: '15-25%',
+          id: 'opt-bar',
+          title: 'Business Analysis & Reporting (BAR)',
+          weight: '—',
           subtopics: [
-            'Internal control frameworks',
-            'Enterprise risk management',
-            'Information technology governance',
-            'Professional responsibilities'
+            'Understanding the Buyer/Investor',
+            'Preparing Marketing Materials',
+            'Deal Positioning and Value Proposition',
+            'Buyer/Investor Outreach',
+            'Roadshows',
+            'Managing the Marketing Process'
           ]
         },
         {
-          id: 'economics',
-          title: 'Economic Concepts & Analysis',
-          weight: '15-25%',
+          id: 'opt-isc',
+          title: 'Information Systems & Control (ISC)',
+          weight: '—',
           subtopics: [
-            'Microeconomics and macroeconomics',
-            'Market structures and pricing',
-            'International trade and finance',
-            'Economic indicators and cycles'
+            'Building Models',
+            'Comparable Company Analysis',
+            'Precedent Transactions',
+            'Deal Structuring',
+            'Financing',
+            'Sensitivity and Scenario Analysis'
           ]
         },
         {
-          id: 'financial',
-          title: 'Financial Management',
-          weight: '15-25%',
+          id: 'opt-tcp',
+          title: 'Tax Compliance & Planning (TCP)',
+          weight: '—',
           subtopics: [
-            'Capital budgeting and investment decisions',
-            'Working capital management',
-            'Financial statement analysis',
-            'Risk and return concepts'
-          ]
-        },
-        {
-          id: 'operations',
-          title: 'Operations Management',
-          weight: '15-25%',
-          subtopics: [
-            'Performance measurement',
-            'Cost accounting and management',
-            'Planning and budgeting',
-            'Process improvement'
-          ]
-        },
-        {
-          id: 'technology',
-          title: 'Information Technology',
-          weight: '15-25%',
-          subtopics: [
-            'IT infrastructure and networks',
-            'Data analytics and modeling',
-            'System security and controls',
-            'Business intelligence systems'
+            'Understanding Term Sheets',
+            'Deal Negotiation Tactics',
+            'Drafting the Term Sheet',
+            'Legal Considerations in Negotiation and Term Sheets',
+            'Negotiation of Key Deal Terms',
+            'Finalizing the Deal and Signing the Term Sheet',
+            'Post Signing Adjustments'
           ]
         }
       ]
@@ -373,7 +358,9 @@ export default function CPASyllabus() {
             className="bg-white rounded-2xl shadow-xl overflow-hidden"
           >
             {(() => {
-              const section = syllabusData[activeTab as keyof typeof syllabusData]
+              const maybeSection = syllabusData[activeTab as keyof typeof syllabusData] as (typeof syllabusData)[keyof typeof syllabusData] | undefined
+              const fallbackKey = Object.keys(syllabusData)[0] as keyof typeof syllabusData
+              const section = maybeSection ?? syllabusData[fallbackKey]
               const colors = getColorClasses(section.color)
               
               return (
