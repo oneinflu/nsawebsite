@@ -1,13 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable react-hooks/exhaustive-deps */
-'use client';
 
-import  { useState, useEffect } from 'react';
+'use client';
+import  { useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
-  
- 
+
  
   Globe, 
   

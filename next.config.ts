@@ -1,8 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Static export configuration for Digital Ocean
-  output: 'export',
+  // Enable dynamic SSR by removing static export
   trailingSlash: true,
   skipTrailingSlashRedirect: true,
   
