@@ -45,7 +45,7 @@ export default function Footer() {
   const support = [
     { name: 'Contact Us', href: '/contact' },
     { name: 'WhatsApp Help', href: 'https://wa.link/rwc7kj', verified: true },
-    { name: 'Student Onboarding Helpdesk', href: '' },
+    { name: 'Resoq Helpdesk', href: '/blogs' },
     { name: 'FAQs', href: '' },
     { name: 'Refund Policy', href: '' }
   ]
