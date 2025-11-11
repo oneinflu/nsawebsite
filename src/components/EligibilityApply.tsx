@@ -5,7 +5,7 @@ import { motion, useInView } from 'framer-motion';
 import LeadFormButton from './LeadFormButton';
 
 const EligibilityApply = () => {
-  const [underlineWidth, setUnderlineWidth] = useState(0);
+  const [, setUnderlineWidth] = useState(0);
   const sectionRef = React.useRef(null);
   const isInView = useInView(sectionRef, { once: true });
 

@@ -1,18 +1,19 @@
+/* eslint-disable @next/next/no-img-element */
+/* eslint-disable react-hooks/exhaustive-deps */
 'use client';
 
 import  { useState, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
-  Play, 
+  
  
-  TrendingUp, 
+ 
   Globe, 
   
   Award, 
   Users, 
-  Download, 
-  ChevronRight, 
- 
+  
   Clock, 
   Target,
   Briefcase,
@@ -21,18 +22,63 @@ import {
   GraduationCap,
   Building,
 
-  ArrowRight,
-  CheckCircle,
+ 
+  
   
   Sparkles,
   
 } from 'lucide-react';
+import LeadFormButton from '@/components/LeadFormButton';
 
 const GlobalFinanceHub = () => {
   const [, setSelectedPersona] = useState<string | null>(null);
-  const [activeCarousel, setActiveCarousel] = useState(0);
-  const [completedTools, setCompletedTools] = useState<string[]>([]);
+  const [, setActiveCarousel] = useState(0);
+  
   const [showPersonalization, setShowPersonalization] = useState(false);
+
+  // Blogs API state
+  type BlogItem = {
+    title: string;
+    slug: string;
+    duration?: string;
+    views?: string | number;
+    thumbnail?: string;
+  };
+  type Pagination = {
+    page: number;
+    pageSize: number;
+    total: number;
+    totalPages: number;
+  };
+  type ApiBlogRaw = {
+    title?: string;
+    name?: string;
+    slug?: string;
+    id?: string;
+    _id?: string;
+    readingTime?: string;
+    duration?: string;
+    views?: string | number;
+    view_count?: number;
+    popularity?: number;
+    thumbnail?: string;
+    image?: string;
+    cover?: string;
+  };
+  const isBlogArray = (value: unknown): value is ApiBlogRaw[] => {
+    return Array.isArray(value) && value.every(v => typeof v === 'object' && v !== null);
+  };
+  const isPagination = (value: unknown): value is Pagination => {
+    if (typeof value !== 'object' || value === null) return false;
+    const v = value as Record<string, unknown>;
+    return typeof v.page === 'number' && typeof v.pageSize === 'number' && typeof v.total === 'number' && typeof v.totalPages === 'number';
+  };
+  const [blogs, setBlogs] = useState<BlogItem[]>([]);
+  const [loadingBlogs, setLoadingBlogs] = useState<boolean>(true);
+  const [blogsError, setBlogsError] = useState<string | null>(null);
+  const [pagination, setPagination] = useState<Pagination | null>(null);
+  const searchParams = useSearchParams();
+  const activePage = Number(searchParams.get('page') || '1') || 1;
 
   // Auto-rotate hero carousels
   useEffect(() => {
@@ -43,35 +89,7 @@ const GlobalFinanceHub = () => {
   }, []);
 
   // Hero Carousels Data
-  const heroCarousels = [
-    {
-      id: 'cpa-beginners',
-      title: 'CPA for Beginners',
-      subtitle: 'Complete roadmap from zero to certified',
-      thumbnail: '/api/placeholder/400/250',
-      duration: '12 min read',
-      difficulty: 'Beginner',
-      color: 'from-red-500 to-red-600'
-    },
-    {
-      id: 'career-uae',
-      title: 'Career in UAE',
-      subtitle: 'Finance opportunities in Middle East',
-      thumbnail: '/api/placeholder/400/250',
-      duration: '8 min read',
-      difficulty: 'Intermediate',
-      color: 'from-emerald-500 to-emerald-600'
-    },
-    {
-      id: 'finance-salaries',
-      title: 'Finance Salaries 2025',
-      subtitle: 'Latest compensation trends globally',
-      thumbnail: '/api/placeholder/400/250',
-      duration: '15 min read',
-      difficulty: 'Advanced',
-      color: 'from-purple-500 to-purple-600'
-    }
-  ];
+ 
 
   // Personalization Options
   const personaOptions = [
@@ -105,106 +123,84 @@ const GlobalFinanceHub = () => {
     }
   ];
 
-  // Topic Lanes Data
-  const topicLanes = [
-    {
-      title: 'CPA Mastery',
-      items: [
-        { title: 'CPA Exam Strategy 2025', views: '12.5K', duration: '10 min', thumbnail: '/api/placeholder/300/200', slug: 'cpa-exam-strategy-2025' },
-        { title: 'State Board Selection Guide', views: '8.2K', duration: '7 min', thumbnail: '/api/placeholder/300/200', slug: 'state-board-selection-guide' },
-        { title: 'CPA vs CMA: Which Wins?', views: '15.1K', duration: '12 min', thumbnail: '/api/placeholder/300/200', slug: 'cpa-vs-cma-comparison' },
-        { title: 'Big 4 Interview Prep', views: '9.8K', duration: '15 min', thumbnail: '/api/placeholder/300/200', slug: 'big-4-career-guide' }
-      ]
-    },
-    {
-      title: 'Global Careers',
-      items: [
-        { title: 'Finance Jobs in Canada', views: '7.3K', duration: '8 min', thumbnail: '/api/placeholder/300/200', slug: 'finance-jobs-canada' },
-        { title: 'UAE Finance Market 2025', views: '11.2K', duration: '11 min', thumbnail: '/api/placeholder/300/200', slug: 'uae-finance-market-2025' },
-        { title: 'UK Accounting Opportunities', views: '6.9K', duration: '9 min', thumbnail: '/api/placeholder/300/200', slug: 'uk-accounting-opportunities' },
-        { title: 'Australia CPA Migration', views: '8.7K', duration: '13 min', thumbnail: '/api/placeholder/300/200', slug: 'australia-cpa-migration' }
-      ]
-    },
-    {
-      title: 'Salary Intelligence',
-      items: [
-        { title: 'CPA Salary Breakdown 2025', views: '18.5K', duration: '6 min', thumbnail: '/api/placeholder/300/200', slug: 'cpa-salary-breakdown-2025' },
-        { title: 'Big 4 Compensation Guide', views: '14.2K', duration: '9 min', thumbnail: '/api/placeholder/300/200', slug: 'big-4-compensation-guide' },
-        { title: 'Finance Manager Salaries', views: '10.8K', duration: '7 min', thumbnail: '/api/placeholder/300/200', slug: 'finance-manager-salaries' },
-        { title: 'CFO Career Path & Pay', views: '12.1K', duration: '11 min', thumbnail: '/api/placeholder/300/200', slug: 'cfo-career-path-pay' }
-      ]
-    }
-  ];
+  // Fetch blogs with pagination and flatten to cards
+  useEffect(() => {
+    const controller = new AbortController();
+    const apiBase = 'https://northstarapis-yamqp.ondigitalocean.app/api';
+    const withPage = (baseUrl: string): string => {
+      if (activePage <= 1) return baseUrl; // first page: no page param
+      const u = new URL(baseUrl, apiBase);
+      u.searchParams.set('page', String(activePage));
+      return u.toString();
+    };
+    const urlCandidates = [
+      withPage(`${apiBase}/blogs`),
+      withPage(`${apiBase}/api/blogs`),
+      withPage(`${apiBase}/posts`),
+    ];
+
+    const normalize = (raw: unknown): BlogItem[] => {
+      let arr: ApiBlogRaw[] = [];
+      if (isBlogArray(raw)) {
+        arr = raw;
+      } else if (typeof raw === 'object' && raw !== null) {
+        const obj = raw as Record<string, unknown>;
+        if (isBlogArray(obj.blogs)) arr = obj.blogs as ApiBlogRaw[];
+        else if (isBlogArray(obj.items)) arr = obj.items as ApiBlogRaw[];
+        else if (isBlogArray(obj.data)) arr = obj.data as ApiBlogRaw[];
+      }
+      return arr.map((it): BlogItem => ({
+        title: it.title || it.name || 'Untitled',
+        slug: it.slug || it.id || it._id || '',
+        duration: it.readingTime || it.duration || undefined,
+        views: it.views || it.view_count || it.popularity || undefined,
+        thumbnail: it.thumbnail || it.image || it.cover || '/api/placeholder/300/200',
+      })).filter((b) => !!b.slug);
+    };
+
+    const tryFetch = async () => {
+      setLoadingBlogs(true);
+      setBlogsError(null);
+      for (const url of urlCandidates) {
+        try {
+          const res = await fetch(url, { signal: controller.signal, headers: { 'Accept': 'application/json' } });
+          if (!res.ok) continue;
+          const json = await res.json();
+          const items = normalize(json);
+          if (items.length > 0) {
+            setBlogs(items);
+            // Try to read pagination info from the response
+            let pag: Pagination | null = null;
+            if (typeof json === 'object' && json !== null && 'pagination' in json) {
+              const maybe = (json as { pagination?: unknown }).pagination;
+              if (isPagination(maybe)) pag = maybe;
+            }
+            // Fallback to known totals if API omits pagination
+            if (!pag) {
+              pag = { page: activePage, pageSize: 9, total: 702, totalPages: 78 };
+            }
+            setPagination(pag);
+            setLoadingBlogs(false);
+            return;
+          }
+        } catch (e: unknown) {
+          if (typeof e === 'object' && e && 'name' in e && (e as { name?: string }).name === 'AbortError') return;
+          // continue to next candidate
+        }
+      }
+      setLoadingBlogs(false);
+      setBlogsError('Unable to load blogs from API');
+    };
+
+    tryFetch();
+    return () => controller.abort();
+  }, [activePage]);
 
   // Micro Tools Data
-  const microTools = [
-    {
-      id: 'salary-predictor',
-      title: 'Salary Predictor',
-      description: 'Estimate your earning potential',
-      icon: DollarSign,
-      color: 'from-green-500 to-green-600',
-      completionTime: '2 min'
-    },
-    {
-      id: 'country-explorer',
-      title: 'Country Career Explorer',
-      description: 'Find opportunities worldwide',
-      icon: Globe,
-      color: 'from-red-500 to-red-600',
-      completionTime: '3 min'
-    },
-    {
-      id: 'eligibility-checker',
-      title: 'CPA Eligibility Checker',
-      description: 'Check if you qualify',
-      icon: CheckCircle,
-      color: 'from-purple-500 to-purple-600',
-      completionTime: '1 min'
-    },
-    {
-      id: 'roi-visualizer',
-      title: 'ROI Visualizer',
-      description: 'Calculate certification ROI',
-      icon: TrendingUp,
-      color: 'from-orange-500 to-orange-600',
-      completionTime: '2 min'
-    }
-  ];
+ 
 
   // Success Stories Data
-  const successStories = [
-    {
-      id: 1,
-      name: 'Priya Sharma',
-      role: 'Senior Auditor at Deloitte',
-      story: 'From B.Com to Big 4 in 18 months',
-      thumbnail: '/api/placeholder/200/200',
-      company: 'Deloitte',
-      salary: '$85K',
-      location: 'Dubai'
-    },
-    {
-      id: 2,
-      name: 'Rahul Gupta',
-      role: 'Finance Manager at EY',
-      story: 'CPA opened doors to global career',
-      thumbnail: '/api/placeholder/200/200',
-      company: 'EY',
-      salary: '$92K',
-      location: 'Toronto'
-    },
-    {
-      id: 3,
-      name: 'Sneha Patel',
-      role: 'Controller at PwC',
-      story: 'From CA to CPA: Best decision ever',
-      thumbnail: '/api/placeholder/200/200',
-      company: 'PwC',
-      salary: '$105K',
-      location: 'New York'
-    }
-  ];
+  
 
   const handlePersonaSelect = (personaId: string) => {
     setSelectedPersona(personaId);
@@ -212,9 +208,7 @@ const GlobalFinanceHub = () => {
     // Trigger personalized content assembly
   };
 
-  const handleToolComplete = (toolId: string) => {
-    setCompletedTools(prev => [...prev, toolId]);
-  };
+ 
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-red-50">
@@ -288,41 +282,7 @@ const GlobalFinanceHub = () => {
           </div>
 
           {/* Hero Carousels */}
-          <div className="grid md:grid-cols-3 gap-8 mb-16">
-            {heroCarousels.map((carousel, index) => (
-              <motion.div
-                key={carousel.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 + index * 0.1 }}
-                whileHover={{ scale: 1.02, y: -5 }}
-                className={`relative rounded-2xl overflow-hidden cursor-pointer group ${
-                  activeCarousel === index ? 'ring-4 ring-red-500' : ''
-                }`}
-              >
-                <div className={`h-64 bg-gradient-to-br ${carousel.color} p-6 text-white relative overflow-hidden`}>
-                  <div className="absolute inset-0 bg-black/20"></div>
-                  <div className="relative z-10">
-                    <div className="flex items-center gap-2 mb-4">
-                      <Play className="w-5 h-5" />
-                      <span className="text-sm font-medium">{carousel.duration}</span>
-                      <span className="text-xs bg-white/20 px-2 py-1 rounded-full">{carousel.difficulty}</span>
-                    </div>
-                    <h3 className="text-2xl font-bold mb-2">{carousel.title}</h3>
-                    <p className="text-white/90 mb-4">{carousel.subtitle}</p>
-                    <motion.button
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="bg-white text-gray-900 px-4 py-2 rounded-lg font-semibold flex items-center gap-2 group-hover:shadow-lg transition-all duration-300"
-                    >
-                      Start Learning
-                      <ArrowRight className="w-4 h-4" />
-                    </motion.button>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+        
 
           {/* Personalization CTA */}
           <motion.div
@@ -331,15 +291,16 @@ const GlobalFinanceHub = () => {
             transition={{ delay: 0.7 }}
             className="text-center"
           >
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => setShowPersonalization(true)}
+            <LeadFormButton
+              
+             formType='general'
+             isSendOtp={true}
+
               className="bg-gradient-to-r from-red-600 to-purple-600 text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-lg hover:shadow-xl transition-all duration-300"
             >
-              Tell us where you are — we&apos;ll build your learning feed
+              Get in Touch with our counsellors
               <Sparkles className="w-5 h-5 ml-2 inline" />
-            </motion.button>
+            </LeadFormButton>
           </motion.div>
         </div>
       </section>
@@ -389,234 +350,235 @@ const GlobalFinanceHub = () => {
         )}
       </AnimatePresence>
 
-      {/* Topic Exploration Lanes */}
+      {/* Blogs Cards (flat list) */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {topicLanes.map((lane, laneIndex) => (
-            <div key={laneIndex} className="mb-16">
-              <div className="flex items-center justify-between mb-8">
-                <h2 className="text-3xl font-bold text-gray-900">{lane.title}</h2>
-                <button className="text-red-600 font-semibold flex items-center gap-2 hover:gap-3 transition-all duration-300">
-                  View All
-                  <ChevronRight className="w-5 h-5" />
-                </button>
-              </div>
-              
-              <div className="flex gap-6 overflow-x-auto pb-4 scrollbar-hide">
-                {lane.items.map((item, itemIndex) => (
+          {loadingBlogs && (
+            <div className="flex justify-center items-center py-10 text-gray-600">
+              Loading blogs...
+            </div>
+          )}
+          {blogsError && (
+            <div className="flex justify-center items-center py-10 text-red-600">
+              {blogsError}
+            </div>
+          )}
+          {!loadingBlogs && !blogsError && (
+            <>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {blogs.map((item, itemIndex) => (
                   <motion.a
-                    key={itemIndex}
-                    href={`/blogs/${item.slug || 'cpa-complete-guide-2025'}`}
-                    initial={{ opacity: 0, x: 20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
+                    key={item.slug || itemIndex}
+                    href={`/blogs/${item.slug}`}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ delay: itemIndex * 0.1 }}
+                    transition={{ delay: itemIndex * 0.05 }}
                     whileHover={{ scale: 1.02, y: -5 }}
-                    className="flex-shrink-0 w-80 bg-white rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden cursor-pointer"
+                    className="bg-white rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden cursor-pointer"
                   >
                     <div className="h-48 bg-gradient-to-br from-gray-200 to-gray-300 relative">
-                      <div className="absolute top-4 left-4 bg-black/70 text-white px-2 py-1 rounded text-sm">
-                        {item.duration}
-                      </div>
-                      <div className="absolute bottom-4 right-4 bg-white/90 text-gray-900 px-2 py-1 rounded text-sm font-medium">
-                        {item.views} views
-                      </div>
+                      {/* Thumbnail placeholder; replace background with image if provided */}
+                      {item.thumbnail && (
+                        <img src={item.thumbnail} alt={item.title} className="absolute inset-0 w-full h-full object-cover" />
+                      )}
+                      {item.duration && (
+                        <div className="absolute top-4 left-4 bg-black/70 text-white px-2 py-1 rounded text-sm">
+                          {item.duration}
+                        </div>
+                      )}
+                      {item.views && (
+                        <div className="absolute bottom-4 right-4 bg-white/90 text-gray-900 px-2 py-1 rounded text-sm font-medium">
+                          {item.views} views
+                        </div>
+                      )}
                     </div>
                     <div className="p-6">
                       <h3 className="font-bold text-gray-900 mb-2">{item.title}</h3>
                       <div className="flex items-center gap-4 text-sm text-gray-600">
-                        <div className="flex items-center gap-1">
-                          <Clock className="w-4 h-4" />
-                          {item.duration}
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <Users className="w-4 h-4" />
-                          {item.views}
-                        </div>
+                        {item.duration && (
+                          <div className="flex items-center gap-1">
+                            <Clock className="w-4 h-4" />
+                            {item.duration}
+                          </div>
+                        )}
+                        {item.views && (
+                          <div className="flex items-center gap-1">
+                            <Users className="w-4 h-4" />
+                            {item.views}
+                          </div>
+                        )}
                       </div>
                     </div>
                   </motion.a>
                 ))}
               </div>
-            </div>
-          ))}
-        </div>
-      </section>
+              {pagination && pagination.totalPages > 1 && (
+                <nav className="mt-10 flex justify-center">
+                  <ul className="flex flex-wrap items-center gap-2">
+                    {/* Previous */}
+                    <li>
+                      <a
+                        href={
+                          activePage > 1
+                            ? activePage - 1 === 1
+                              ? '/blogs'
+                              : `/blogs?page=${activePage - 1}`
+                            : '#'
+                        }
+                        aria-disabled={activePage <= 1 ? true : undefined}
+                        className={`px-3 py-2 rounded-md border text-sm ${
+                          activePage <= 1
+                            ? 'bg-gray-100 text-gray-400 border-gray-200 cursor-not-allowed'
+                            : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50'
+                        }`}
+                      >
+                        Previous
+                      </a>
+                    </li>
 
-      {/* Micro Tools Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">
-              Interactive Tools
-              <span className="bg-gradient-to-r from-red-600 to-purple-600 bg-clip-text text-transparent"> & Calculators</span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Get instant insights with our smart tools designed for finance professionals
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {microTools.map((tool, index) => {
-              const Icon = tool.icon;
-              const isCompleted = completedTools.includes(tool.id);
-              
-              return (
-                <motion.div
-                  key={tool.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  whileHover={{ scale: 1.02, y: -5 }}
-                  onClick={() => handleToolComplete(tool.id)}
-                  className={`p-6 rounded-2xl cursor-pointer transition-all duration-300 ${
-                    isCompleted 
-                      ? 'bg-green-50 border-2 border-green-500' 
-                      : 'bg-gray-50 hover:bg-white hover:shadow-lg border-2 border-gray-200'
-                  }`}
-                >
-                  <div className={`w-12 h-12 bg-gradient-to-r ${tool.color} rounded-xl flex items-center justify-center mb-4 relative`}>
-                    <Icon className="w-6 h-6 text-white" />
-                    {isCompleted && (
-                      <div className="absolute -top-2 -right-2 w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
-                        <CheckCircle className="w-4 h-4 text-white" />
-                      </div>
-                    )}
-                  </div>
-                  <h3 className="font-bold text-gray-900 mb-2">{tool.title}</h3>
-                  <p className="text-gray-600 text-sm mb-4">{tool.description}</p>
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs text-gray-500">{tool.completionTime}</span>
-                    {isCompleted ? (
-                      <span className="text-green-600 text-sm font-medium">Completed!</span>
+                    {activePage === pagination.totalPages ? (
+                      // Last page: show 1, …, last-3, last-2, last-1, last
+                      <>
+                        <li>
+                          <a
+                            href={'/blogs'}
+                            aria-current={activePage === 1 ? 'page' : undefined}
+                            className={`px-3 py-2 rounded-md border text-sm ${
+                              activePage === 1
+                                ? 'bg-blue-600 text-white border-blue-600'
+                                : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50'
+                            }`}
+                          >
+                            1
+                          </a>
+                        </li>
+                        {pagination.totalPages > 5 && (
+                          <li>
+                            <span className="px-2 text-gray-500">…</span>
+                          </li>
+                        )}
+                        {Array.from({ length: 4 }, (_, i) => pagination.totalPages - 3 + i).map((pageNum) => (
+                          <li key={`tail-${pageNum}`}>
+                            <a
+                              href={`/blogs?page=${pageNum}`}
+                              aria-current={pageNum === activePage ? 'page' : undefined}
+                              className={`px-3 py-2 rounded-md border text-sm ${
+                                pageNum === activePage
+                                  ? 'bg-blue-600 text-white border-blue-600'
+                                  : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50'
+                              }`}
+                            >
+                              {pageNum}
+                            </a>
+                          </li>
+                        ))}
+                      </>
                     ) : (
-                      <ArrowRight className="w-4 h-4 text-gray-400" />
+                      // General: show 1,2,3, current-or-4, …, last
+                      <>
+                        {Array.from({ length: Math.min(3, pagination.totalPages) }, (_, i) => i + 1).map((pageNum) => {
+                          const isActive = pageNum === activePage;
+                          const href = pageNum === 1 ? '/blogs' : `/blogs?page=${pageNum}`;
+                          return (
+                            <li key={pageNum}>
+                              <a
+                                href={href}
+                                aria-current={isActive ? 'page' : undefined}
+                                className={`px-3 py-2 rounded-md border text-sm ${
+                                  isActive
+                                    ? 'bg-blue-600 text-white border-blue-600'
+                                    : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50'
+                                }`}
+                              >
+                                {pageNum}
+                              </a>
+                            </li>
+                          );
+                        })}
+                        {pagination.totalPages >= 4 && (() => {
+                          const fourth = activePage >= 4 ? Math.min(activePage, pagination.totalPages) : 4;
+                          const isActive = fourth === activePage;
+                          const href = fourth === 1 ? '/blogs' : `/blogs?page=${fourth}`;
+                          return (
+                            <li key={`fourth-${fourth}`}>
+                              <a
+                                href={href}
+                                aria-current={isActive ? 'page' : undefined}
+                                className={`px-3 py-2 rounded-md border text-sm ${
+                                  isActive
+                                    ? 'bg-blue-600 text-white border-blue-600'
+                                    : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50'
+                                }`}
+                              >
+                                {fourth}
+                              </a>
+                            </li>
+                          );
+                        })()}
+                        {(() => {
+                          if (pagination.totalPages < 5) return null;
+                          const fourth = activePage >= 4 ? Math.min(activePage, pagination.totalPages) : 4;
+                          const showEllipsis = pagination.totalPages > fourth + 1;
+                          return showEllipsis ? (
+                            <li>
+                              <span className="px-2 text-gray-500">…</span>
+                            </li>
+                          ) : null;
+                        })()}
+                        {(() => {
+                          const last = pagination.totalPages;
+                          if (last <= 4) return null;
+                          const fourth = activePage >= 4 ? Math.min(activePage, last) : 4;
+                          if (last === fourth) return null;
+                          const isActive = activePage === last;
+                          const href = `/blogs?page=${last}`;
+                          return (
+                            <li key={last}>
+                              <a
+                                href={href}
+                                aria-current={isActive ? 'page' : undefined}
+                                className={`px-3 py-2 rounded-md border text-sm ${
+                                  isActive
+                                    ? 'bg-blue-600 text-white border-blue-600'
+                                    : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50'
+                                }`}
+                              >
+                                {last}
+                              </a>
+                            </li>
+                          );
+                        })()}
+                      </>
                     )}
-                  </div>
-                </motion.div>
-              );
-            })}
-          </div>
+
+                    {/* Next */}
+                    <li>
+                      <a
+                        href={
+                          activePage < pagination.totalPages
+                            ? `/blogs?page=${activePage + 1}`
+                            : '#'
+                        }
+                        aria-disabled={activePage >= pagination.totalPages ? true : undefined}
+                        className={`px-3 py-2 rounded-md border text-sm ${
+                          activePage >= pagination.totalPages
+                            ? 'bg-gray-100 text-gray-400 border-gray-200 cursor-not-allowed'
+                            : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50'
+                        }`}
+                      >
+                        Next
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+              )}
+            </>
+          )}
         </div>
       </section>
 
-      {/* Success Stories Reel */}
-      <section className="py-20 bg-gradient-to-br from-gray-900 to-red-900 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-6">
-              Big 4 Transformation Stories
-            </h2>
-            <p className="text-xl text-red-200 max-w-3xl mx-auto">
-              Real people, real journeys, real success in global finance careers
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {successStories.map((story, index) => (
-              <motion.div
-                key={story.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                whileHover={{ scale: 1.02, y: -5 }}
-                className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 cursor-pointer hover:bg-white/20 transition-all duration-300"
-              >
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-16 h-16 bg-gradient-to-r from-red-500 to-purple-500 rounded-full"></div>
-                  <div>
-                    <h3 className="font-bold text-white">{story.name}</h3>
-                    <p className="text-red-200 text-sm">{story.role}</p>
-                  </div>
-                </div>
-                <p className="text-white mb-4 font-medium">{story.story}</p>
-                <div className="flex items-center justify-between text-sm">
-                  <span className="text-red-200">{story.company}</span>
-                  <span className="text-green-400 font-bold">{story.salary}</span>
-                </div>
-                <div className="mt-2 text-sm text-red-200">{story.location}</div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Download Center */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">
-              Free Resources
-              <span className="bg-gradient-to-r from-red-600 to-purple-600 bg-clip-text text-transparent"> & Downloads</span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Comprehensive guides, checklists, and templates to accelerate your finance career
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              { title: 'CPA Complete Guide 2025', downloads: '15.2K', type: 'PDF Guide' },
-              { title: 'Big 4 Interview Checklist', downloads: '8.7K', type: 'Checklist' },
-              { title: 'Salary Negotiation Template', downloads: '12.1K', type: 'Template' }
-            ].map((resource, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                whileHover={{ scale: 1.02, y: -5 }}
-                className="bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer"
-              >
-                <div className="w-12 h-12 bg-gradient-to-r from-red-500 to-purple-500 rounded-xl flex items-center justify-center mb-4">
-                  <Download className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="font-bold text-gray-900 mb-2">{resource.title}</h3>
-                <div className="flex items-center justify-between text-sm text-gray-600 mb-4">
-                  <span>{resource.type}</span>
-                  <span>{resource.downloads} downloads</span>
-                </div>
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="w-full bg-gradient-to-r from-red-600 to-purple-600 text-white py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300"
-                >
-                  Download Free
-                </motion.button>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Final CTA */}
-      <section className="py-20 bg-gradient-to-r from-red-600 to-purple-600 text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-4xl font-bold mb-6">
-              Ready for Your Personalized Roadmap?
-            </h2>
-            <p className="text-xl text-red-100 mb-8 max-w-2xl mx-auto">
-              Get a custom learning path designed specifically for your career goals and current situation
-            </p>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-white text-red-600 px-8 py-4 rounded-2xl font-bold text-lg shadow-lg hover:shadow-xl transition-all duration-300"
-            >
-              Get My Personalized Roadmap
-              <ArrowRight className="w-5 h-5 ml-2 inline" />
-            </motion.button>
-          </motion.div>
-        </div>
-      </section>
+      
     </div>
   );
 };

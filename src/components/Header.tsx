@@ -8,7 +8,7 @@ import {
   ChevronDownIcon, 
   XMarkIcon, 
   Bars3Icon,
-  UserIcon,
+  
   PhoneIcon,
  
   AcademicCapIcon,
@@ -288,28 +288,12 @@ const Header: React.FC = () => {
               </div>
 
               {/* Resources Menu */}
-              {/* <div className="relative">
-                <motion.button
-                  onClick={() => handleMenuToggle('resources')}
-                  className="flex items-center space-x-1 text-gray-700 hover:text-red-600 transition-colors font-medium py-2 px-1 relative group"
-                  whileHover={{ scale: 1.05 }}
-                >
-                  <DocumentTextIcon className="w-4 h-4" />
+              <div className="relative">
+                <Link href="/blogs" className="flex items-center text-gray-700 hover:text-red-600 transition-colors font-medium py-2 px-1 relative group">
                   <span>Resources</span>
-                  <motion.div
-                    animate={{ rotate: activeMenu === 'resources' ? 180 : 0 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <ChevronDownIcon className="w-4 h-4" />
-                  </motion.div>
-                  <motion.div
-                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-red-500 to-red-500 origin-left"
-                    initial={{ scaleX: 0 }}
-                    whileHover={{ scaleX: 1 }}
-                    transition={{ duration: 0.3 }}
-                  />
-                </motion.button>
-              </div> */}
+                  <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-red-500 to-red-500 origin-left transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100" />
+                </Link>
+              </div>
 
               {/* About Menu */}
               <div className="relative">
@@ -698,6 +682,20 @@ const Header: React.FC = () => {
                           </Link>
                         ))
                       )}
+                    </div>
+                  </div>
+
+                  {/* Resources */}
+                  <div>
+                    <h3 className="font-semibold text-gray-900 mb-3">Resources</h3>
+                    <div className="space-y-1 ml-4">
+                      <Link
+                        href="/blogs"
+                        className="block py-2 text-gray-700 hover:text-red-600"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        Resources
+                      </Link>
                     </div>
                   </div>
 
