@@ -53,8 +53,6 @@ const LeadFormModal = () => {
   const [editPhoneValue, setEditPhoneValue] = useState("");
   const [editDialCode, setEditDialCode] = useState("91");
   const inputRef = useRef<HTMLInputElement>(null);
-  const [autocomplete, setAutocomplete] =
-    useState<google.maps.places.Autocomplete | null>(null);
   const [ipAddress, setIpAddress] = useState("");
   const [sessionReferrer, setSessionReferrer] = useState("");
   const [otpNotice, setOtpNotice] = useState<string>("");
@@ -120,53 +118,7 @@ const LeadFormModal = () => {
     }
   }, [isOpen, updateFormData]);
 
-  useEffect(() => {
-    // Only set up Autocomplete when the modal is open on details step
-    if (!isOpen || formStep !== "details") return;
-    const inputEl = inputRef.current;
-    if (!inputEl) return;
-    if (typeof window === "undefined") return;
-
-    // Ensure Google Maps Places library is loaded before initializing
-    // Access the globally injected Google object without using `any`
-    const g = (window as Window & typeof globalThis).google;
-    if (!g?.maps?.places?.Autocomplete) return;
-
-    // Prevent re-initialization on re-renders
-    if (autocomplete) return;
-
-    const autocompleteInstance = new g.maps.places.Autocomplete(inputEl, {
-      types: ["(cities)"],
-      componentRestrictions: { country: "in" },
-    });
-    setAutocomplete(autocompleteInstance);
-
-    const listener = autocompleteInstance.addListener("place_changed", () => {
-      const place = autocompleteInstance.getPlace();
-      const formatted = place?.formatted_address || place?.name || "";
-      if (formatted) {
-        updateFormData({ location: formatted });
-      }
-    });
-
-    // Cleanup listener when component re-renders or unmounts
-    return () => {
-      try {
-        if (listener && g?.maps?.event?.removeListener) {
-          g.maps.event.removeListener(listener);
-        }
-      } catch (_) {
-        // no-op
-      }
-    };
-  }, [isOpen, formStep, autocomplete, updateFormData]);
-
-  // Reset autocomplete when the modal closes or step changes away from details
-  useEffect(() => {
-    if (!isOpen || formStep !== "details") {
-      setAutocomplete(null);
-    }
-  }, [isOpen, formStep]);
+  // Google Places autocomplete removed: manual input or IP-based detection handled in DetailsForm
 
   const handlePhoneChange = (value: string, country?: { dialCode?: string }) => {
     const digitsOnly = (value || "").replace(/\D/g, "");

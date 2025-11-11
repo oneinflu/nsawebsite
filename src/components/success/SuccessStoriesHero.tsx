@@ -2,7 +2,8 @@
 
 import LeadFormButton from '@/components/LeadFormButton';
 import Image from 'next/image';
-import VideoPlayer from '@/components/VideoPlayer';
+import dynamic from 'next/dynamic';
+const VideoPlayer = dynamic(() => import('@/components/VideoPlayer'), { ssr: false });
 import { useEffect, useState } from 'react';
 import { successVideos, type VideoItem } from './storiesData';
 

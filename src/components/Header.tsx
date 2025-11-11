@@ -66,6 +66,16 @@ const megaMenuData: MegaMenuData = {
     {
       category: 'Finance',
       courses: [
+        
+        {
+          name: 'CMA (US)',
+          href: '/cma-usa-course-details',
+          description: 'Management Accounting',
+          flag: '🇺🇸',
+          logo: 'CMA®',
+          avgSalary: '$85K - $150K',
+          duration: '1-2 years'
+        },
         {
           name: 'CFA (US)',
           href: '/cfa-us',
@@ -75,15 +85,6 @@ const megaMenuData: MegaMenuData = {
           avgSalary: '$95K - $180K',
           duration: '2-4 years'
         },
-        {
-          name: 'CMA (US)',
-          href: '/cma-usa-course-details',
-          description: 'Management Accounting',
-          flag: '🇺🇸',
-          logo: 'CMA®',
-          avgSalary: '$85K - $150K',
-          duration: '1-2 years'
-        }
       ]
     },
     {

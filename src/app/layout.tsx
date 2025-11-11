@@ -17,7 +17,6 @@ import Footer from "@/components/Footer";
 import { LeadFormProvider } from "@/context/LeadFormContext";
 import { ToolsModalProvider, useToolsModal } from "@/context/ToolsModalContext";
 import LeadFormModal from "@/components/LeadFormModal";
-import { LoadScript } from "@react-google-maps/api";
 import { usePathname } from "next/navigation";
 import GlobalPreloader from "@/components/GlobalPreloader";
 
@@ -59,11 +58,6 @@ export default function RootLayout({
         <GlobalPreloader />
         <LeadFormProvider>
         <ToolsModalProvider>
-          <LoadScript
-          googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || "AIzaSyAOPCNlHy1wcVmr7Srt_1ic9EqEStBSMm4"}
-          libraries={["places"]}
-          loadingElement={<div aria-hidden="true" />}
-        >
           {!isSuper300Page && !isASection && <AnnouncementBar />}
           {!isSuper300Page && !isASection && <Header />}
       
@@ -73,10 +67,9 @@ export default function RootLayout({
           {/* Mount calculators modals portal */}
           <GlobalToolsModalPortal />
           
-         
-         
+          
+          
           {!isSuper300Page && !isASection && <Footer />}
-          </LoadScript>
         </ToolsModalProvider>
         </LeadFormProvider>
       </body>

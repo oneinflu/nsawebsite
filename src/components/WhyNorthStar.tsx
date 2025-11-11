@@ -2,7 +2,8 @@
 'use client';
 
 import React, { useState, useRef } from 'react';
-import VideoPlayer from './VideoPlayer';
+import dynamic from 'next/dynamic';
+const VideoPlayer = dynamic(() => import('./VideoPlayer'), { ssr: false });
 import { 
   CheckIcon, 
   XMarkIcon, 

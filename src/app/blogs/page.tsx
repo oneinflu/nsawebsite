@@ -2,7 +2,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 
 'use client';
-import  { useEffect, useState } from 'react';
+import  { useEffect, useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
@@ -582,4 +582,10 @@ const GlobalFinanceHub = () => {
   );
 };
 
-export default GlobalFinanceHub;
+export default function BlogsPage() {
+  return (
+    <Suspense fallback={<div />}> 
+      <GlobalFinanceHub />
+    </Suspense>
+  );
+}

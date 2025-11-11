@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  
   // Enable dynamic SSR by removing static export
   trailingSlash: true,
   skipTrailingSlashRedirect: true,

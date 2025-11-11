@@ -4,7 +4,8 @@
 
 import  { useState, useEffect } from 'react';
 import { Play,  } from 'lucide-react';
-import VideoPlayer from './VideoPlayer';
+import dynamic from 'next/dynamic';
+const VideoPlayer = dynamic(() => import('./VideoPlayer'), { ssr: false });
 import LeadFormButton from './LeadFormButton';
 
 const MeetYourMentor = () => {

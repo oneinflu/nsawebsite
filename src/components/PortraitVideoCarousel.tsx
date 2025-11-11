@@ -4,7 +4,8 @@ import React, { useMemo, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { PlayIcon, XMarkIcon, ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
 import { Playfair_Display } from 'next/font/google';
-import VideoPlayer from './VideoPlayer';
+import dynamic from 'next/dynamic';
+const VideoPlayer = dynamic(() => import('./VideoPlayer'), { ssr: false });
 
 type VideoItem = {
   url: string;
