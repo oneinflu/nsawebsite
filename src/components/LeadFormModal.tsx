@@ -56,6 +56,9 @@ const LeadFormModal = () => {
   const [ipAddress, setIpAddress] = useState("");
   const [sessionReferrer, setSessionReferrer] = useState("");
   const [otpNotice, setOtpNotice] = useState<string>("");
+  const [locationData, setLocationData] = useState<{ country: string; region: string; city: string }>({ country: "", region: "", city: "" });
+  const entryTimeRef = useRef<Date | null>(null);
+  const lastUrlRef = useRef<string>("");
 
   // Persist UTM params from URL to localStorage on mount
   useEffect(() => {
@@ -76,22 +79,17 @@ const LeadFormModal = () => {
     }
   }, []);
 
-  // Ensure visitor_id and session_id exist in localStorage
+  // Ensure visitor_id exists in localStorage (session_id is created via backend API)
   useEffect(() => {
     if (typeof window === 'undefined') return;
     const VISITOR_KEY = 'nsa_visitor_id';
-    const SESSION_KEY = 'nsa_session_id';
     try {
       if (!localStorage.getItem(VISITOR_KEY)) {
         const vid = (crypto && 'randomUUID' in crypto) ? crypto.randomUUID() : `${Date.now()}-${Math.random().toString(36).slice(2)}`;
         localStorage.setItem(VISITOR_KEY, vid);
       }
-      if (!localStorage.getItem(SESSION_KEY)) {
-        const sid = (crypto && 'randomUUID' in crypto) ? crypto.randomUUID() : `${Date.now()}-${Math.random().toString(36).slice(2)}`;
-        localStorage.setItem(SESSION_KEY, sid);
-      }
     } catch (err) {
-      console.warn('Failed to initialize visitor/session IDs', err);
+      console.warn('Failed to initialize visitor ID', err);
     }
   }, []);
 
@@ -114,6 +112,237 @@ const LeadFormModal = () => {
       setSessionReferrer("direct");
     }
   }, []);
+
+  // Fetch coarse geolocation data based on IP
+  useEffect(() => {
+    const fetchGeo = async () => {
+      try {
+        const res = await fetch('https://ipapi.co/json/');
+        if (!res.ok) return;
+        const data = await res.json();
+        setLocationData({
+          country: data?.country_name || '',
+          region: data?.region || data?.region_code || '',
+          city: data?.city || '',
+        });
+      } catch (e) {
+        // Swallow errors silently; location data is optional
+      }
+    };
+    fetchGeo();
+  }, []);
+
+  // Initialize or update session with page visit info
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    // Set entry time for the current page
+    entryTimeRef.current = new Date();
+    lastUrlRef.current = `${window.location.pathname}${window.location.search}`;
+
+    const finalizePage = async () => {
+      try {
+        const now = new Date();
+        const entryTime = entryTimeRef.current || now;
+        const exitTime = now;
+        const time_spent_seconds = Math.max(0, Math.round((exitTime.getTime() - entryTime.getTime()) / 1000));
+        const pageEntry = {
+          url: lastUrlRef.current || `${window.location.pathname}${window.location.search}`,
+          title: (typeof document !== 'undefined' ? document.title : ''),
+          time_spent_seconds,
+          entry_time: entryTime.toISOString(),
+          exit_time: exitTime.toISOString(),
+        };
+
+        const SESSION_KEY = 'nsa_session_id';
+        const TIMES_KEY = 'nsa_session_times';
+        const existingSessionId = localStorage.getItem(SESSION_KEY) || '';
+        const visitorId = localStorage.getItem('nsa_visitor_id') || '';
+
+        // Build UTM data from URL first, then localStorage fallback (POST only)
+        const params = new URLSearchParams(window.location.search);
+        const getUtm = (k: string) => (params.get(k) || localStorage.getItem(k) || '');
+        const utm_data = {
+          utm_source: getUtm('utm_source'),
+          utm_medium: getUtm('utm_medium'),
+          utm_campaign: getUtm('utm_campaign'),
+          utm_term: getUtm('utm_term'),
+          utm_content: getUtm('utm_content'),
+          utm_id: getUtm('utm_id'),
+          utm_source_platform: getUtm('utm_source_platform'),
+          utm_creative_format: getUtm('utm_creative_format'),
+          utm_audience: getUtm('utm_audience'),
+          utm_ad_id: getUtm('utm_ad_id'),
+          gclid: getUtm('gclid'),
+          fblid: getUtm('fblid'),
+        };
+
+        if (!existingSessionId) {
+          const times = 1;
+          const payload = {
+            ip_address: ipAddress,
+            location_data: {
+              country: locationData.country || '',
+              region: locationData.region || '',
+              city: locationData.city || '',
+            },
+            utm_data,
+            session_referrer: window.location.href,
+            pages_visited: [pageEntry],
+            times,
+          };
+          try {
+            const resp = await fetch('https://api.starforze.com/api/session', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(payload),
+            });
+            if (resp.ok) {
+              const result = await resp.json();
+              const sid = result?.data?._id || result?.data?.id || '';
+              if (sid) {
+                localStorage.setItem(SESSION_KEY, sid);
+                const total_visits = result?.data?.total_visits;
+                localStorage.setItem(TIMES_KEY, String(total_visits ?? times));
+              }
+            }
+          } catch (err) {
+            // Ignore network errors; do not block navigation
+          }
+        } else {
+          const prevTimes = parseInt(localStorage.getItem(TIMES_KEY) || '1', 10);
+          const times = (isNaN(prevTimes) ? 1 : prevTimes + 1);
+          const payload = {
+            pages_visited: [pageEntry],
+            times,
+            session_referrer: window.location.href,
+          };
+          try {
+            const resp = await fetch(`https://api.starforze.com/api/session/${existingSessionId}`, {
+              method: 'PATCH',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(payload),
+            });
+            if (resp.ok) {
+              const result = await resp.json();
+              const total_visits = result?.data?.total_visits;
+              localStorage.setItem(TIMES_KEY, String(total_visits ?? times));
+            }
+          } catch (err) {
+            // Ignore network errors; do not block navigation
+          }
+        }
+      } catch (e) {
+        // Swallow errors silently; we don't want to break page exit
+      }
+    };
+    const onBeforeUnload = () => { finalizePage(); };
+    window.addEventListener('beforeunload', onBeforeUnload);
+    return () => {
+      window.removeEventListener('beforeunload', onBeforeUnload);
+      // Finalize if component ever unmounts
+      finalizePage();
+    };
+  }, [ipAddress, locationData]);
+
+  // Finalize the previous page visit when the route changes, then start a new entry time
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const finalizePrev = async () => {
+      // Call the same logic as beforeunload to record the previous page
+      try {
+        const now = new Date();
+        const entryTime = entryTimeRef.current || now;
+        const exitTime = now;
+        const time_spent_seconds = Math.max(0, Math.round((exitTime.getTime() - entryTime.getTime()) / 1000));
+        const pageEntry = {
+          url: lastUrlRef.current || `${window.location.pathname}${window.location.search}`,
+          title: (typeof document !== 'undefined' ? document.title : ''),
+          time_spent_seconds,
+          entry_time: entryTime.toISOString(),
+          exit_time: exitTime.toISOString(),
+        };
+
+        const SESSION_KEY = 'nsa_session_id';
+        const TIMES_KEY = 'nsa_session_times';
+        const existingSessionId = localStorage.getItem(SESSION_KEY) || '';
+
+        if (!existingSessionId) {
+          // If a session doesn't exist yet, create it on the first route change using minimal data
+          const times = 1;
+          const params = new URLSearchParams(window.location.search);
+          const getUtm = (k: string) => (params.get(k) || localStorage.getItem(k) || '');
+          const utm_data = {
+            utm_source: getUtm('utm_source'),
+            utm_medium: getUtm('utm_medium'),
+            utm_campaign: getUtm('utm_campaign'),
+            utm_term: getUtm('utm_term'),
+            utm_content: getUtm('utm_content'),
+            utm_id: getUtm('utm_id'),
+            utm_source_platform: getUtm('utm_source_platform'),
+            utm_creative_format: getUtm('utm_creative_format'),
+            utm_audience: getUtm('utm_audience'),
+            utm_ad_id: getUtm('utm_ad_id'),
+            gclid: getUtm('gclid'),
+            fblid: getUtm('fblid'),
+          };
+          const payload = {
+            ip_address: ipAddress,
+            location_data: {
+              country: locationData.country || '',
+              region: locationData.region || '',
+              city: locationData.city || '',
+            },
+            utm_data,
+            session_referrer: window.location.href,
+            pages_visited: [pageEntry],
+            times,
+          };
+          try {
+            const resp = await fetch('https://api.starforze.com/api/session', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(payload),
+            });
+            if (resp.ok) {
+              const result = await resp.json();
+              const sid = result?.data?._id || result?.data?.id || '';
+              if (sid) {
+                localStorage.setItem(SESSION_KEY, sid);
+                const total_visits = result?.data?.total_visits;
+                localStorage.setItem(TIMES_KEY, String(total_visits ?? times));
+              }
+            }
+          } catch {}
+        } else {
+          const prevTimes = parseInt(localStorage.getItem(TIMES_KEY) || '1', 10);
+          const times = (isNaN(prevTimes) ? 1 : prevTimes + 1);
+          const payload = {
+            pages_visited: [pageEntry],
+            times,
+            session_referrer: window.location.href,
+          };
+          try {
+            const resp = await fetch(`https://api.starforze.com/api/session/${existingSessionId}`, {
+              method: 'PATCH',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(payload),
+            });
+            if (resp.ok) {
+              const result = await resp.json();
+              const total_visits = result?.data?.total_visits;
+              localStorage.setItem(TIMES_KEY, String(total_visits ?? times));
+            }
+          } catch {}
+        }
+      } catch {}
+    };
+
+    // Finalize previous page visit
+    finalizePrev();
+    // Start timing for the new page
+    entryTimeRef.current = new Date();
+    lastUrlRef.current = `${window.location.pathname}${window.location.search}`;
+  }, [pathname, ipAddress, locationData]);
 
   useEffect(() => {
     if (
@@ -218,19 +447,31 @@ const LeadFormModal = () => {
     })();
     const fullUrl = (typeof window !== 'undefined') ? window.location.href : sessionReferrer;
     const leadOrigin = `${formData.course || ''}|${formType}`;
+    const params = (typeof window !== 'undefined') ? new URLSearchParams(window.location.search) : undefined;
+    const getUtmParam = (key: string): string => {
+      if (!params) return '';
+      const fromUrl = params.get(key) || '';
+      if (fromUrl) return fromUrl;
+      if (typeof window !== 'undefined') {
+        const fromStorage = localStorage.getItem(key) || '';
+        if (fromStorage) return fromStorage;
+      }
+      return '';
+    };
     const utmExtras = {
-      utm_id: (typeof window !== 'undefined' ? (localStorage.getItem('utm_id') || '') : ''),
-      utm_source_platform: (typeof window !== 'undefined' ? (localStorage.getItem('utm_source_platform') || '') : ''),
-      utm_creative_format: (typeof window !== 'undefined' ? (localStorage.getItem('utm_creative_format') || '') : ''),
-      utm_audience: (typeof window !== 'undefined' ? (localStorage.getItem('utm_audience') || '') : ''),
-      utm_ad_id: (typeof window !== 'undefined' ? (localStorage.getItem('utm_ad_id') || '') : ''),
-      gclid: (typeof window !== 'undefined' ? (localStorage.getItem('gclid') || '') : ''),
-      fblid: (typeof window !== 'undefined' ? (localStorage.getItem('fblid') || '') : ''),
+      utm_id: getUtmParam('utm_id'),
+      utm_source_platform: getUtmParam('utm_source_platform'),
+      utm_creative_format: getUtmParam('utm_creative_format'),
+      utm_audience: getUtmParam('utm_audience'),
+      utm_ad_id: getUtmParam('utm_ad_id'),
+      gclid: getUtmParam('gclid'),
+      fblid: getUtmParam('fblid'),
     };
 
     const leadData = {
       form_id: "7e68ae1a-5765-489c-9b62-597b478c0fa0", // Hardcoded for now
-      visitor_id: visitorId,
+      // Per requirement: use session ID as visitor_id in lead payload
+      visitor_id: sessionId,
       session_id: sessionId,
       leadSource,
       leadOrigin,
@@ -253,16 +494,7 @@ const LeadFormModal = () => {
           page_title: (typeof document !== 'undefined' ? document.title : ''),
         },
       },
-      utm_data: {
-        utm_source: formData.utm_source,
-        utm_medium: formData.utm_medium,
-        utm_campaign: formData.utm_campaign,
-        utm_term: formData.utm_term,
-        utm_content: formData.utm_content,
-        utm_tag: "", // Not available in form
-        utm_keyword: "", // Not available in form
-        ...utmExtras,
-      },
+      // Do not re-send UTM data here; it is captured in session
       location_data: {
         country: "India", // Hardcoded for now
         state: "", // To be implemented with location services

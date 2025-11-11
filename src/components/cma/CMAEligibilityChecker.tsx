@@ -131,14 +131,20 @@ const handlePhoneChange = (value: string, country?: { dialCode?: string }) => {
     e.preventDefault();
     if (phoneError) return;
     setIsSubmitting(true);
+    const sessionId = (typeof window !== 'undefined') ? (localStorage.getItem('nsa_session_id') || '') : '';
+    const countryCode = (formData.country_code || '').replace(/\D/g, '') || '91';
+    const fullDigits = (formData.phone || '').replace(/\D/g, '');
+    const localPhone = fullDigits.startsWith(countryCode) ? fullDigits.slice(countryCode.length) : fullDigits;
 
     const leadData = {
       form_id: '7e68ae1a-5765-489c-9b62-597b478c0fa0',
-      visitor_id: '68303d80d71ba95da713026e',
+      visitor_id: sessionId,
+      session_id: sessionId,
       isSendOtp: true,
       answers: {
         full_name: formData.name,
-        phone_number: formData.phone,
+        phone_number: localPhone,
+        country_code: countryCode,
         email_address: formData.email,
         dob: formData.dob,
         gender: formData.gender,
@@ -149,22 +155,13 @@ const handlePhoneChange = (value: string, country?: { dialCode?: string }) => {
         accept_terms: formData.agreeToTerms,
         dynamic_fields: { how_did_you_hear_about_us: formData.howHeard },
       },
-      utm_data: {
-        utm_source: formData.utm_source,
-        utm_medium: formData.utm_medium,
-        utm_campaign: formData.utm_campaign,
-        utm_term: formData.utm_term,
-        utm_content: formData.utm_content,
-        utm_tag: '',
-        utm_keyword: '',
-      },
       location_data: {
         country: 'India',
         state: '',
         city: formData.location,
         pin_code: '',
       },
-      session_referrer: typeof document !== 'undefined' ? (document.referrer || 'direct') : 'direct',
+      session_referrer: (typeof window !== 'undefined') ? window.location.href : (typeof document !== 'undefined' ? (document.referrer || 'direct') : 'direct'),
       ip_address: '',
     };
 
@@ -234,25 +231,22 @@ const handlePhoneChange = (value: string, country?: { dialCode?: string }) => {
   const handleResendOtpInline = async () => {
     setIsSubmitting(true);
     setOtpError('');
+    const sessionId = (typeof window !== 'undefined') ? (localStorage.getItem('nsa_session_id') || '') : '';
+    const countryCode = (formData.country_code || '').replace(/\D/g, '') || '91';
+    const fullDigits = (formData.phone || '').replace(/\D/g, '');
+    const localPhone = fullDigits.startsWith(countryCode) ? fullDigits.slice(countryCode.length) : fullDigits;
 
     const leadData = {
       form_id: '7e68ae1a-5765-489c-9b62-597b478c0fa0',
-      visitor_id: '68303d80d71ba95da713026e',
+      visitor_id: sessionId,
+      session_id: sessionId,
       isSendOtp: true,
       answers: {
         full_name: formData.name,
-        phone_number: formData.phone,
+        phone_number: localPhone,
+        country_code: countryCode,
         email_address: formData.email,
         course_id: formData.course || 'CMA USA',
-      },
-      utm_data: {
-        utm_source: formData.utm_source,
-        utm_medium: formData.utm_medium,
-        utm_campaign: formData.utm_campaign,
-        utm_term: formData.utm_term,
-        utm_content: formData.utm_content,
-        utm_tag: '',
-        utm_keyword: '',
       },
       location_data: {
         country: 'India',
@@ -260,7 +254,7 @@ const handlePhoneChange = (value: string, country?: { dialCode?: string }) => {
         city: formData.location,
         pin_code: '',
       },
-      session_referrer: typeof document !== 'undefined' ? (document.referrer || 'direct') : 'direct',
+      session_referrer: (typeof window !== 'undefined') ? window.location.href : (typeof document !== 'undefined' ? (document.referrer || 'direct') : 'direct'),
       ip_address: '',
     };
 
