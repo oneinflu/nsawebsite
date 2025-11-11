@@ -57,6 +57,44 @@ const LeadFormModal = () => {
   const [sessionReferrer, setSessionReferrer] = useState("");
   const [otpNotice, setOtpNotice] = useState<string>("");
 
+  // Persist UTM params from URL to localStorage on mount
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    try {
+      const keys = [
+        'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content',
+        'utm_id', 'utm_source_platform', 'utm_creative_format', 'utm_audience',
+        'utm_ad_id', 'gclid', 'fblid'
+      ];
+      const params = new URLSearchParams(window.location.search);
+      keys.forEach((k) => {
+        const v = params.get(k);
+        if (v) localStorage.setItem(k, v);
+      });
+    } catch (err) {
+      console.warn('Failed to parse UTM params from URL', err);
+    }
+  }, []);
+
+  // Ensure visitor_id and session_id exist in localStorage
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const VISITOR_KEY = 'nsa_visitor_id';
+    const SESSION_KEY = 'nsa_session_id';
+    try {
+      if (!localStorage.getItem(VISITOR_KEY)) {
+        const vid = (crypto && 'randomUUID' in crypto) ? crypto.randomUUID() : `${Date.now()}-${Math.random().toString(36).slice(2)}`;
+        localStorage.setItem(VISITOR_KEY, vid);
+      }
+      if (!localStorage.getItem(SESSION_KEY)) {
+        const sid = (crypto && 'randomUUID' in crypto) ? crypto.randomUUID() : `${Date.now()}-${Math.random().toString(36).slice(2)}`;
+        localStorage.setItem(SESSION_KEY, sid);
+      }
+    } catch (err) {
+      console.warn('Failed to initialize visitor/session IDs', err);
+    }
+  }, []);
+
   useEffect(() => {
     const fetchIp = async () => {
       try {
@@ -69,7 +107,12 @@ const LeadFormModal = () => {
     };
 
     fetchIp();
-    setSessionReferrer(document.referrer || "direct");
+    // Use full current URL as session_referrer per requirement
+    if (typeof window !== 'undefined') {
+      setSessionReferrer(window.location.href);
+    } else {
+      setSessionReferrer("direct");
+    }
   }, []);
 
   useEffect(() => {
@@ -162,9 +205,35 @@ const LeadFormModal = () => {
       ? fullDigits.slice(countryCode.length)
       : fullDigits;
 
+    // Gather tracking fields
+    const visitorId = (typeof window !== 'undefined') ? (localStorage.getItem('nsa_visitor_id') || '') : '';
+    const sessionId = (typeof window !== 'undefined') ? (localStorage.getItem('nsa_session_id') || '') : '';
+    const leadSource = (() => {
+      if (typeof window === 'undefined') return '';
+      const title = (typeof document !== 'undefined' ? document.title : '') || '';
+      const path = pathname || '';
+      if (path.startsWith('/lp/')) return `Landing Page | ${title}`;
+      if (path.startsWith('/blogs')) return 'Blogs';
+      return title;
+    })();
+    const fullUrl = (typeof window !== 'undefined') ? window.location.href : sessionReferrer;
+    const leadOrigin = `${formData.course || ''}|${formType}`;
+    const utmExtras = {
+      utm_id: (typeof window !== 'undefined' ? (localStorage.getItem('utm_id') || '') : ''),
+      utm_source_platform: (typeof window !== 'undefined' ? (localStorage.getItem('utm_source_platform') || '') : ''),
+      utm_creative_format: (typeof window !== 'undefined' ? (localStorage.getItem('utm_creative_format') || '') : ''),
+      utm_audience: (typeof window !== 'undefined' ? (localStorage.getItem('utm_audience') || '') : ''),
+      utm_ad_id: (typeof window !== 'undefined' ? (localStorage.getItem('utm_ad_id') || '') : ''),
+      gclid: (typeof window !== 'undefined' ? (localStorage.getItem('gclid') || '') : ''),
+      fblid: (typeof window !== 'undefined' ? (localStorage.getItem('fblid') || '') : ''),
+    };
+
     const leadData = {
       form_id: "7e68ae1a-5765-489c-9b62-597b478c0fa0", // Hardcoded for now
-      visitor_id: "68303d80d71ba95da713026e", // Hardcoded for now
+      visitor_id: visitorId,
+      session_id: sessionId,
+      leadSource,
+      leadOrigin,
       isSendOtp: isSendOtp,
       answers: {
         full_name: formData.name,
@@ -181,6 +250,7 @@ const LeadFormModal = () => {
         accept_terms: formData.agreeToTerms,
         dynamic_fields: {
           how_did_you_hear_about_us: formData.howHeard,
+          page_title: (typeof document !== 'undefined' ? document.title : ''),
         },
       },
       utm_data: {
@@ -191,6 +261,7 @@ const LeadFormModal = () => {
         utm_content: formData.utm_content,
         utm_tag: "", // Not available in form
         utm_keyword: "", // Not available in form
+        ...utmExtras,
       },
       location_data: {
         country: "India", // Hardcoded for now
@@ -198,7 +269,7 @@ const LeadFormModal = () => {
         city: formData.location,
         pin_code: "", // To be implemented with location services
       },
-      session_referrer: sessionReferrer,
+      session_referrer: fullUrl,
       ip_address: ipAddress,
     };
 
