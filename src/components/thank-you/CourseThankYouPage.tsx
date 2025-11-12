@@ -43,8 +43,8 @@ export default function CourseThankYouPage({ course }: { course: string }) {
     switch (c) {
       case 'acca-uk':
         return { href: '/prospectus/ACCA.pdf', filename: 'ACCA.pdf' };
-      case '{courseDisplayName}-usa':
-        return { href: '/prospectus/{courseDisplayName}.pdf', filename: '{courseDisplayName}.pdf' };
+      case 'cma-usa':
+        return { href: '/prospectus/CMA.pdf', filename: 'CMA.pdf' };
       case 'cpa-us':
         return { href: '/prospectus/CPA.pdf', filename: 'CPA.pdf' };
       case 'enrolled-agent':
@@ -68,7 +68,7 @@ export default function CourseThankYouPage({ course }: { course: string }) {
         return 'https://chat.whatsapp.com/F7RoIMdQ8LE9eFrYiXAjgA?mode=wwt';
       case 'cpa-us':
         return 'https://chat.whatsapp.com/DLtR0dy2H3I04i25n7ZIRx?mode=wwt';
-      case '{courseDisplayName}-usa':
+      case 'cma-usa':
         return 'https://chat.whatsapp.com/C7HirZh1Mp41HrYdpzcWkV?mode=wwt';
       default:
         return null;
@@ -86,7 +86,7 @@ export default function CourseThankYouPage({ course }: { course: string }) {
         return 'https://www.linkedin.com/groups/15796016';
       case 'cpa-us':
         return 'https://www.linkedin.com/groups/14062350';
-      case '{courseDisplayName}-usa':
+      case 'cma-usa':
         return 'https://www.linkedin.com/groups/13961328';
       default:
         return null;
@@ -103,8 +103,8 @@ export default function CourseThankYouPage({ course }: { course: string }) {
         return 'ACCA';
       case 'cpa-us':
         return 'CPA US';
-      case '{courseDisplayName}-usa':
-        return '{courseDisplayName}';
+      case 'cma-usa':
+        return 'CMA US';
       default:
         return 'NorthStar';
     }
