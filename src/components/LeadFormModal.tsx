@@ -384,6 +384,8 @@ const LeadFormModal = () => {
     const path = pathname || "/";
     if (path === "/") return; // base URL -> selector visible
     const lower = path.toLowerCase();
+    // Do NOT auto-detect course on blog pages; always show selector there
+    if (lower.startsWith("/blogs")) return;
     let detected: string | null = null;
     if (lower.includes("cpa")) detected = "CPA";
     else if (lower.includes("cma")) detected = "CMA USA";

@@ -207,7 +207,7 @@ const Header: React.FC = () => {
       <motion.header
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        className={`sticky top-0 left-0 right-0 z-40 transition-all duration-300 ${
+        className={`sticky top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled 
             ? 'bg-white backdrop-blur-md shadow-lg border-b border-gray-200' 
             : 'bg-white backdrop-blur-sm border-b border-gray-100'
@@ -464,13 +464,13 @@ const Header: React.FC = () => {
                             </div>
                           </div>
 
-                          <motion.button
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
+                          <LeadFormButton
+                           formType='general'
+                           isSendOtp={true}
                             className="w-full bg-gradient-to-r from-red-600 to-red-600 text-white py-2 px-4 rounded-lg font-semibold text-sm"
                           >
                             Book Free Counselling
-                          </motion.button>
+                          </LeadFormButton>
                         </div>
                       </motion.div>
                     )}
@@ -632,7 +632,7 @@ const Header: React.FC = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-40 lg:hidden"
+            className="fixed inset-0 z-60 lg:hidden"
           >
             <div className="fixed inset-0 bg-black/50 backdrop-blur-sm" onClick={() => setIsMobileMenuOpen(false)} />
             

@@ -392,8 +392,8 @@ export default function BlogSlugClient({ slug }: Props) {
       {/* Skip to content for accessibility */}
       <a href="#article" className={`sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-white ${theme.primaryText} px-3 py-2 rounded shadow`}>Skip to content</a>
 
-      {/* Reading progress bar */}
-      <div className="fixed top-0 left-0 right-0 h-1 bg-gray-200 z-40">
+      {/* Reading progress bar (below header) */}
+      <div className="fixed top-0 left-0 right-0 h-1 bg-gray-200 z-30">
         <div className={`h-full ${theme.progress} transition-all duration-300`} style={{ width: `${progress}%` }} />
       </div>
 
