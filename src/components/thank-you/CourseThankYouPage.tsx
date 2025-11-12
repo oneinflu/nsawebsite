@@ -1,9 +1,11 @@
+/* eslint-disable @next/next/no-img-element */
 'use client';
 
 import { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import { getCourseContent } from './courseThankYouConfig';
 import { } from 'framer-motion/client';
+import VideoPlayer from '../VideoPlayer';
 
 const Confetti = dynamic(() => import('react-confetti'), { ssr: false });
 
@@ -23,8 +25,8 @@ export default function CourseThankYouPage({ course }: { course: string }) {
     switch (c) {
       case 'acca-uk':
         return { href: '/hackdocs/ACCA.pdf', filename: 'ACCA.pdf' };
-      case 'cma-usa':
-        return { href: '/hackdocs/CMA.pdf', filename: 'CMA.pdf' };
+      case '{courseDisplayName}-usa':
+        return { href: '/hackdocs/{courseDisplayName}.pdf', filename: '{courseDisplayName}.pdf' };
       case 'cpa-us':
         return { href: '/hackdocs/CPA.pdf', filename: 'CPA.pdf' };
       case 'enrolled-agent':
@@ -40,8 +42,8 @@ export default function CourseThankYouPage({ course }: { course: string }) {
     switch (c) {
       case 'acca-uk':
         return { href: '/prospectus/ACCA.pdf', filename: 'ACCA.pdf' };
-      case 'cma-usa':
-        return { href: '/prospectus/CMA.pdf', filename: 'CMA.pdf' };
+      case '{courseDisplayName}-usa':
+        return { href: '/prospectus/{courseDisplayName}.pdf', filename: '{courseDisplayName}.pdf' };
       case 'cpa-us':
         return { href: '/prospectus/CPA.pdf', filename: 'CPA.pdf' };
       case 'enrolled-agent':
@@ -55,6 +57,58 @@ export default function CourseThankYouPage({ course }: { course: string }) {
     }
   };
   const prospectus = getProspectusForCourse(course);
+
+  // Map course slug to WhatsApp group links
+  const getWhatsAppGroupLinkForCourse = (c: string): string | null => {
+    switch (c) {
+      case 'enrolled-agent':
+        return 'https://chat.whatsapp.com/L10wYnLxX2ELYLCZCA5Ip3?mode=wwt';
+      case 'acca-uk':
+        return 'https://chat.whatsapp.com/F7RoIMdQ8LE9eFrYiXAjgA?mode=wwt';
+      case 'cpa-us':
+        return 'https://chat.whatsapp.com/DLtR0dy2H3I04i25n7ZIRx?mode=wwt';
+      case '{courseDisplayName}-usa':
+        return 'https://chat.whatsapp.com/C7HirZh1Mp41HrYdpzcWkV?mode=wwt';
+      default:
+        return null;
+    }
+  };
+  const whatsAppGroupLink = getWhatsAppGroupLinkForCourse(course) ?? content.groupLink;
+  const whatsAppChannelLink = 'https://whatsapp.com/channel/0029VaTl79bCMY0IQNcKsA1q';
+
+  // Map course slug to LinkedIn group links
+  const getLinkedInGroupLinkForCourse = (c: string): string | null => {
+    switch (c) {
+      case 'enrolled-agent':
+        return 'https://www.linkedin.com/groups/15795018';
+      case 'acca-uk':
+        return 'https://www.linkedin.com/groups/15796016';
+      case 'cpa-us':
+        return 'https://www.linkedin.com/groups/14062350';
+      case '{courseDisplayName}-usa':
+        return 'https://www.linkedin.com/groups/13961328';
+      default:
+        return null;
+    }
+  };
+  const linkedInGroupLink = getLinkedInGroupLinkForCourse(course) ?? content.groupLink;
+
+  // Map course slug to a short, user-facing display name
+  const getCourseDisplayName = (c: string): string => {
+    switch (c) {
+      case 'enrolled-agent':
+        return 'EA';
+      case 'acca-uk':
+        return 'ACCA';
+      case 'cpa-us':
+        return 'CPA US';
+      case '{courseDisplayName}-usa':
+        return '{courseDisplayName}';
+      default:
+        return 'NorthStar';
+    }
+  };
+  const courseDisplayName = getCourseDisplayName(course);
 
   useEffect(() => {
     const updateWindowSize = () => {
@@ -192,8 +246,8 @@ export default function CourseThankYouPage({ course }: { course: string }) {
             {/* Desktop Version - Full Fill */}
             <div className="hidden lg:block relative w-full h-full overflow-hidden">
               <div className="relative w-full h-full cursor-pointer" onClick={() => setShowCustomVideoModal(true)}>
-                {/* YouTube Video Embed - Desktop */}
-                <iframe
+                {/* Background Video - Desktop using VideoPlayer */}
+                <div
                   className="absolute pointer-events-none"
                   style={{ 
                     width: 'max(100%, calc(100vh * 16 / 9))', 
@@ -202,12 +256,13 @@ export default function CourseThankYouPage({ course }: { course: string }) {
                     top: '50%',
                     transform: 'translate(-50%, -50%)'
                   }}
-                  src={`https://www.youtube.com/embed/${content.youtubeId}?autoplay=1&mute=1&loop=1&playlist=${content.youtubeId}&controls=0&modestbranding=1&rel=0&showinfo=0&fs=0`}
-                  title="YouTube video player"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerPolicy="strict-origin-when-cross-origin"
-                />
+                >
+                  <img
+                    src="/Irfat-Sir.webp"
+                    alt="NSA overview video thumbnail"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
                 
                 {/* Click to Play Overlay - Desktop */}
                 <div className="absolute inset-0 bg-black/20 hover:bg-black/30 transition-all duration-200 flex items-center justify-center">
@@ -226,14 +281,9 @@ export default function CourseThankYouPage({ course }: { course: string }) {
                 {/* Video Player Container */}
                 <div className="relative bg-black rounded-2xl overflow-hidden shadow-2xl">
                   <div className="aspect-video">
-                    <iframe
+                    <VideoPlayer
+                      src="https://northstaracademy.b-cdn.net/Why-Northstar.mp4"
                       className="w-full h-full"
-                      src={`https://www.youtube.com/embed/${content.youtubeId}?controls=1&modestbranding=1&rel=0&showinfo=0`}
-                      title="YouTube video player"
-                      frameBorder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                      referrerPolicy="strict-origin-when-cross-origin"
-                      allowFullScreen
                     />
                   </div>
                 </div>
@@ -385,7 +435,7 @@ export default function CourseThankYouPage({ course }: { course: string }) {
               Join Our Community
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Connect with fellow CMA aspirants, get study tips, and stay updated with the latest exam information.
+              Connect with fellow {courseDisplayName} aspirants, get study tips, and stay updated with the latest exam information.
             </p>
           </div>
 
@@ -407,7 +457,7 @@ export default function CourseThankYouPage({ course }: { course: string }) {
                 </div>
               </div>
               <p className="text-gray-700 mb-4">
-                Get daily study tips, exam updates, and connect with fellow CMA aspirants in our active WhatsApp community.
+                Get daily study tips, exam updates, and connect with fellow {courseDisplayName} aspirants in our active WhatsApp community.
               </p>
               <div className="flex items-center text-green-600 font-medium group-hover:text-green-700">
                 <span>Join Community</span>
@@ -434,7 +484,7 @@ export default function CourseThankYouPage({ course }: { course: string }) {
                 </div>
               </div>
               <p className="text-gray-700 mb-4">
-                Receive instant notifications about exam dates, study materials, and important CMA announcements.
+                Receive instant notifications about exam dates, study materials, and important {courseDisplayName} announcements.
               </p>
               <div className="flex items-center text-red-600 font-medium group-hover:text-red-700">
                 <span>Join Channel</span>
@@ -458,7 +508,7 @@ export default function CourseThankYouPage({ course }: { course: string }) {
                 </div>
               </div>
               <p className="text-gray-700 mb-4">
-                Connect with CMA professionals, share career insights, and access exclusive industry content and job opportunities.
+                Connect with {courseDisplayName} professionals, share career insights, and access exclusive industry content and job opportunities.
               </p>
               <div className="flex items-center text-red-600 font-medium group-hover:text-red-700">
                 <span>Join Community</span>
@@ -578,7 +628,7 @@ export default function CourseThankYouPage({ course }: { course: string }) {
                         </div>
                         <div>
                           <p className="font-medium text-gray-900">Peer Support</p>
-                          <p className="text-sm text-gray-600">Connect with fellow CMA aspirants, share doubts, and motivate each other</p>
+                          <p className="text-sm text-gray-600">Connect with fellow {courseDisplayName} aspirants, share doubts, and motivate each other</p>
                         </div>
                       </div>
                       <div className="flex items-start gap-3">
@@ -600,7 +650,7 @@ export default function CourseThankYouPage({ course }: { course: string }) {
                         </div>
                         <div>
                           <p className="font-medium text-gray-900">Expert Guidance</p>
-                          <p className="text-sm text-gray-600">Direct access to CMA experts and mentors for doubt resolution</p>
+                          <p className="text-sm text-gray-600">Direct access to {courseDisplayName} experts and mentors for doubt resolution</p>
                         </div>
                       </div>
                     </div>
@@ -614,16 +664,23 @@ export default function CourseThankYouPage({ course }: { course: string }) {
                       <p className="font-medium text-green-800">Community Guidelines</p>
                     </div>
                     <p className="text-sm text-green-700">
-                      Our community maintains a respectful, supportive environment focused on CMA success. 
+                      Our community maintains a respectful, supportive environment focused on {courseDisplayName} success. 
                       No spam, self-promotion, or off-topic discussions allowed.
                     </p>
                   </div>
 
-                  <button onClick={() => window.open(content.groupLink, '_blank')} className="w-full bg-green-500 hover:bg-green-600 text-white py-3 px-6 rounded-xl font-medium transition-colors flex items-center justify-center gap-2">
+                  <button onClick={() => window.open(whatsAppGroupLink, '_blank')} className="w-full bg-green-500 hover:bg-green-600 text-white py-3 px-6 rounded-xl font-medium transition-colors flex items-center justify-center gap-2">
                     <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
                     </svg>
                     Join WhatsApp Community
+                  </button>
+
+                  <button onClick={() => window.open(whatsAppChannelLink, '_blank')} className="mt-3 w-full bg-white text-green-700 border border-green-300 hover:bg-green-50 py-3 px-6 rounded-xl font-medium transition-colors flex items-center justify-center gap-2">
+                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+                    </svg>
+                    Follow WhatsApp Channel
                   </button>
                 </div>
               </div>
@@ -637,10 +694,10 @@ export default function CourseThankYouPage({ course }: { course: string }) {
                       {/* WhatsApp Header */}
                       <div className="bg-green-500 px-4 py-3 flex items-center gap-3">
                         <div className="w-8 h-8 bg-green-600 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">CMA</span>
+                          <span className="text-white text-xs font-bold">{courseDisplayName}</span>
                         </div>
                         <div className="flex-1">
-                          <p className="text-white font-medium text-sm">CMA US Community</p>
+                          <p className="text-white font-medium text-sm">{courseDisplayName} Community</p>
                           <p className="text-green-100 text-xs">5,247 members</p>
                         </div>
                       </div>
@@ -690,7 +747,7 @@ export default function CourseThankYouPage({ course }: { course: string }) {
                           <div>
                             <p className="text-xs text-gray-600 mb-1">John • Today</p>
                             <div className="bg-white rounded-lg p-2 shadow-sm">
-                              <p className="text-xs text-gray-800">📎 CMA_Syllabus_2024.pdf</p>
+                              <p className="text-xs text-gray-800">📎 {courseDisplayName}_Syllabus_2024.pdf</p>
                               <p className="text-xs text-gray-600 mt-1">Here you go! Latest updates included.</p>
                             </div>
                           </div>
@@ -792,7 +849,7 @@ export default function CourseThankYouPage({ course }: { course: string }) {
                         </div>
                         <div>
                           <p className="font-medium text-gray-900">Expert Tips</p>
-                          <p className="text-sm text-gray-600">Daily study strategies and exam preparation tips from CMA professionals</p>
+                          <p className="text-sm text-gray-600">Daily study strategies and exam preparation tips from {courseDisplayName} professionals</p>
                         </div>
                       </div>
                       <div className="flex items-start gap-3">
@@ -814,7 +871,7 @@ export default function CourseThankYouPage({ course }: { course: string }) {
                         </div>
                         <div>
                           <p className="font-medium text-gray-900">Career Guidance</p>
-                          <p className="text-sm text-gray-600">Job opportunities, career advice, and networking with CMA professionals</p>
+                          <p className="text-sm text-gray-600">Job opportunities, career advice, and networking with {courseDisplayName} professionals</p>
                         </div>
                       </div>
                     </div>
@@ -828,12 +885,12 @@ export default function CourseThankYouPage({ course }: { course: string }) {
                       <p className="font-medium text-red-800">Channel Guidelines</p>
                     </div>
                     <p className="text-sm text-red-700">
-                      Our channel is dedicated to CMA success and professional growth. 
+                      Our channel is dedicated to {courseDisplayName} success and professional growth. 
                       We maintain a focused, educational environment with quality content only.
                     </p>
                   </div>
 
-                  <button onClick={() => window.open(content.groupLink, '_blank')} className="w-full bg-red-500 hover:bg-red-600 text-white py-3 px-6 rounded-xl font-medium transition-colors flex items-center justify-center gap-2">
+                  <button onClick={() => window.open('https://t.me/NorthStarAcademy', '_blank')} className="w-full bg-red-500 hover:bg-red-600 text-white py-3 px-6 rounded-xl font-medium transition-colors flex items-center justify-center gap-2">
                     <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
                     </svg>
@@ -851,10 +908,10 @@ export default function CourseThankYouPage({ course }: { course: string }) {
                       {/* Telegram Header */}
                       <div className="bg-red-500 px-4 py-3 flex items-center gap-3">
                         <div className="w-8 h-8 bg-red-600 rounded-full flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">CMA</span>
+                          <span className="text-white text-xs font-bold">{courseDisplayName}</span>
                         </div>
                         <div className="flex-1">
-                          <p className="text-white font-medium text-sm">CMA US Channel</p>
+                          <p className="text-white font-medium text-sm">{courseDisplayName} Channel</p>
                           <p className="text-red-100 text-xs">8,547 subscribers</p>
                         </div>
                         <div className="w-6 h-6 bg-red-600 rounded-full flex items-center justify-center">
@@ -871,10 +928,10 @@ export default function CourseThankYouPage({ course }: { course: string }) {
                             <div className="w-5 h-5 bg-red-500 rounded-full flex items-center justify-center">
                               <span className="text-white text-xs">📢</span>
                             </div>
-                            <p className="text-xs text-gray-600 font-medium">CMA US Channel • Today</p>
+                            <p className="text-xs text-gray-600 font-medium">{courseDisplayName} Channel • Today</p>
                           </div>
-                          <p className="text-xs text-gray-800 mb-2">🎯 <strong>Exam Alert:</strong> CMA Part 1 registration deadline extended to March 15th!</p>
-                          <p className="text-xs text-red-600">#CMAExam #Registration</p>
+                          <p className="text-xs text-gray-800 mb-2">🎯 <strong>Exam Alert:</strong> {courseDisplayName} Part 1 registration deadline extended to March 15th!</p>
+                          <p className="text-xs text-red-600">#{courseDisplayName}Exam #Registration</p>
                         </div>
 
                         <div className="bg-white rounded-lg p-3 shadow-sm">
@@ -882,7 +939,7 @@ export default function CourseThankYouPage({ course }: { course: string }) {
                             <div className="w-5 h-5 bg-green-500 rounded-full flex items-center justify-center">
                               <span className="text-white text-xs">📚</span>
                             </div>
-                            <p className="text-xs text-gray-600 font-medium">CMA US Channel • Today</p>
+                            <p className="text-xs text-gray-600 font-medium">{courseDisplayName} Channel • Today</p>
                           </div>
                           <p className="text-xs text-gray-800 mb-2">📖 Daily Study Tip: Master the CVP analysis concepts - they appear in 15-20% of Part 1 questions!</p>
                           <div className="bg-gray-100 rounded p-2 mt-2">
@@ -895,7 +952,7 @@ export default function CourseThankYouPage({ course }: { course: string }) {
                             <div className="w-5 h-5 bg-red-500 rounded-full flex items-center justify-center">
                               <span className="text-white text-xs">🎥</span>
                             </div>
-                            <p className="text-xs text-gray-600 font-medium">CMA US Channel • Yesterday</p>
+                            <p className="text-xs text-gray-600 font-medium">{courseDisplayName} Channel • Yesterday</p>
                           </div>
                           <p className="text-xs text-gray-800 mb-2">🎬 New Video: &quot;How to tackle Financial Statement Analysis questions&quot;</p>
                           <div className="bg-red-50 rounded p-2 mt-2 flex items-center gap-2">
@@ -913,10 +970,10 @@ export default function CourseThankYouPage({ course }: { course: string }) {
                             <div className="w-5 h-5 bg-orange-500 rounded-full flex items-center justify-center">
                               <span className="text-white text-xs">💼</span>
                             </div>
-                            <p className="text-xs text-gray-600 font-medium">CMA US Channel • Yesterday</p>
+                            <p className="text-xs text-gray-600 font-medium">{courseDisplayName} Channel • Yesterday</p>
                           </div>
-                          <p className="text-xs text-gray-800 mb-2">🚀 Job Alert: Senior Financial Analyst position at Fortune 500 company. CMA preferred!</p>
-                          <p className="text-xs text-red-600">#JobAlert #CMAJobs</p>
+                          <p className="text-xs text-gray-800 mb-2">🚀 Job Alert: Senior Financial Analyst position at Fortune 500 company. {courseDisplayName} preferred!</p>
+                          <p className="text-xs text-red-600">#JobAlert #{courseDisplayName}Jobs</p>
                         </div>
 
                         <div className="bg-white rounded-lg p-3 shadow-sm">
@@ -924,7 +981,7 @@ export default function CourseThankYouPage({ course }: { course: string }) {
                             <div className="w-5 h-5 bg-red-500 rounded-full flex items-center justify-center">
                               <span className="text-white text-xs">⏰</span>
                             </div>
-                            <p className="text-xs text-gray-600 font-medium">CMA US Channel • 2 days ago</p>
+                            <p className="text-xs text-gray-600 font-medium">{courseDisplayName} Channel • 2 days ago</p>
                           </div>
                           <p className="text-xs text-gray-800">⚡ Quick Reminder: Practice mock tests regularly. Aim for 75%+ scores before the actual exam!</p>
                         </div>
@@ -939,9 +996,9 @@ export default function CourseThankYouPage({ course }: { course: string }) {
                                 <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
                               </svg>
                             </div>
-                            <span className="text-xs text-red-700 font-medium">CMA US Channel</span>
+                            <span className="text-xs text-red-700 font-medium">{courseDisplayName} Channel</span>
                           </div>
-                          <button className="bg-red-500 text-white px-3 py-1 rounded-full text-xs font-medium hover:bg-red-600 transition-colors">
+                          <button onClick={() => window.open('https://t.me/NorthStarAcademy', '_blank')} className="bg-red-500 text-white px-3 py-1 rounded-full text-xs font-medium hover:bg-red-600 transition-colors">
                             Join
                           </button>
                         </div>
@@ -993,7 +1050,7 @@ export default function CourseThankYouPage({ course }: { course: string }) {
                         </div>
                         <div>
                           <p className="font-medium text-gray-900">Career Opportunities</p>
-                          <p className="text-sm text-gray-600">Access exclusive CMA job postings and career advancement opportunities</p>
+                          <p className="text-sm text-gray-600">Access exclusive {courseDisplayName} job postings and career advancement opportunities</p>
                         </div>
                       </div>
                       <div className="flex items-start gap-3">
@@ -1004,7 +1061,7 @@ export default function CourseThankYouPage({ course }: { course: string }) {
                         </div>
                         <div>
                           <p className="font-medium text-gray-900">Industry Insights</p>
-                          <p className="text-sm text-gray-600">Stay updated with latest CMA industry trends and professional insights</p>
+                          <p className="text-sm text-gray-600">Stay updated with latest {courseDisplayName} industry trends and professional insights</p>
                         </div>
                       </div>
                       <div className="flex items-start gap-3">
@@ -1015,7 +1072,7 @@ export default function CourseThankYouPage({ course }: { course: string }) {
                         </div>
                         <div>
                           <p className="font-medium text-gray-900">Professional Networking</p>
-                          <p className="text-sm text-gray-600">Connect with CMA professionals, mentors, and industry leaders worldwide</p>
+                          <p className="text-sm text-gray-600">Connect with {courseDisplayName} professionals, mentors, and industry leaders worldwide</p>
                         </div>
                       </div>
                       <div className="flex items-start gap-3">
@@ -1026,7 +1083,7 @@ export default function CourseThankYouPage({ course }: { course: string }) {
                         </div>
                         <div>
                           <p className="font-medium text-gray-900">Thought Leadership</p>
-                          <p className="text-sm text-gray-600">Share your expertise and build your professional brand in the CMA community</p>
+                          <p className="text-sm text-gray-600">Share your expertise and build your professional brand in the {courseDisplayName} community</p>
                         </div>
                       </div>
                     </div>
@@ -1045,7 +1102,7 @@ export default function CourseThankYouPage({ course }: { course: string }) {
                     </p>
                   </div>
 
-                  <button onClick={() => window.open(content.groupLink, '_blank')} className="w-full bg-red-600 hover:bg-red-700 text-white py-3 px-6 rounded-xl font-medium transition-colors flex items-center justify-center gap-2">
+                  <button onClick={() => window.open(linkedInGroupLink, '_blank')} className="w-full bg-red-600 hover:bg-red-700 text-white py-3 px-6 rounded-xl font-medium transition-colors flex items-center justify-center gap-2">
                     <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                     </svg>
@@ -1063,10 +1120,10 @@ export default function CourseThankYouPage({ course }: { course: string }) {
                       {/* LinkedIn Header */}
                       <div className="bg-red-600 px-4 py-3 flex items-center gap-3">
                         <div className="w-8 h-8 bg-red-700 rounded flex items-center justify-center">
-                          <span className="text-white text-xs font-bold">CMA</span>
+                          <span className="text-white text-xs font-bold">{courseDisplayName}</span>
                         </div>
                         <div className="flex-1">
-                          <p className="text-white font-medium text-sm">CMA Professionals Network</p>
+                          <p className="text-white font-medium text-sm">{courseDisplayName} Professionals Network</p>
                           <p className="text-red-100 text-xs">12,847 members</p>
                         </div>
                         <div className="w-6 h-6 bg-red-700 rounded flex items-center justify-center">
@@ -1084,11 +1141,11 @@ export default function CourseThankYouPage({ course }: { course: string }) {
                               <span className="text-white text-xs font-bold">JS</span>
                             </div>
                             <div className="flex-1">
-                              <p className="text-xs font-medium text-gray-900">John Smith, CMA</p>
+                              <p className="text-xs font-medium text-gray-900">John Smith, {courseDisplayName}</p>
                               <p className="text-xs text-gray-600">Senior Financial Analyst • 2d</p>
                             </div>
                           </div>
-                          <p className="text-xs text-gray-800 mb-2">🎯 Just cleared CMA Part 2! The strategic planning section was challenging but the preparation through our study group made all the difference. Grateful for this amazing community! #CMA #Success</p>
+                          <p className="text-xs text-gray-800 mb-2">🎯 Just cleared {courseDisplayName} Part 2! The strategic planning section was challenging but the preparation through our study group made all the difference. Grateful for this amazing community! #{courseDisplayName} #Success</p>
                           <div className="flex items-center gap-4 text-xs text-gray-600">
                             <span>👍 24</span>
                             <span>💬 8</span>
@@ -1102,11 +1159,11 @@ export default function CourseThankYouPage({ course }: { course: string }) {
                               <span className="text-white text-xs font-bold">MR</span>
                             </div>
                             <div className="flex-1">
-                              <p className="text-xs font-medium text-gray-900">Maria Rodriguez, CMA</p>
+                              <p className="text-xs font-medium text-gray-900">Maria Rodriguez, {courseDisplayName}</p>
                               <p className="text-xs text-gray-600">Finance Director • 1d</p>
                             </div>
                           </div>
-                          <p className="text-xs text-gray-800 mb-2">💼 We&apos;re hiring! Senior Cost Analyst position open at our Fortune 500 company. CMA certification preferred. DM me for details! #Jobs #CMA #Hiring</p>
+                          <p className="text-xs text-gray-800 mb-2">💼 We&apos;re hiring! Senior Cost Analyst position open at our Fortune 500 company. {courseDisplayName} certification preferred. DM me for details! #Jobs #{courseDisplayName} #Hiring</p>
                           <div className="bg-red-50 rounded p-2 mt-2">
                             <p className="text-xs text-red-800 font-medium">💰 $85K - $105K • Remote/Hybrid</p>
                           </div>
@@ -1124,10 +1181,10 @@ export default function CourseThankYouPage({ course }: { course: string }) {
                             </div>
                             <div className="flex-1">
                               <p className="text-xs font-medium text-gray-900">Dr. Robert Chen</p>
-                              <p className="text-xs text-gray-600">CMA Instructor • 3d</p>
+                              <p className="text-xs text-gray-600">{courseDisplayName} Instructor • 3d</p>
                             </div>
                           </div>
-                          <p className="text-xs text-gray-800 mb-2">📊 Key insight for CMA candidates: Focus on understanding the &quot;why&quot; behind financial ratios, not just memorizing formulas. This approach will serve you well in both exams and your career!</p>
+                          <p className="text-xs text-gray-800 mb-2">📊 Key insight for {courseDisplayName} candidates: Focus on understanding the &quot;why&quot; behind financial ratios, not just memorizing formulas. This approach will serve you well in both exams and your career!</p>
                           <div className="flex items-center gap-4 text-xs text-gray-600">
                             <span>👍 67</span>
                             <span>💬 12</span>
@@ -1145,7 +1202,7 @@ export default function CourseThankYouPage({ course }: { course: string }) {
                                 <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                               </svg>
                             </div>
-                            <span className="text-xs text-red-700 font-medium">CMA Professionals</span>
+                            <span className="text-xs text-red-700 font-medium">{courseDisplayName} Professionals</span>
                           </div>
                           <button className="bg-red-600 text-white px-3 py-1 rounded text-xs font-medium hover:bg-red-700 transition-colors">
                             Join
@@ -1168,8 +1225,8 @@ export default function CourseThankYouPage({ course }: { course: string }) {
             {/* Modal Header */}
             <div className="flex items-center justify-between p-6 border-b border-gray-200">
               <div>
-                <h3 className="text-xl font-bold text-gray-900">Total Cost of US CMA Course! Fees Structure</h3>
-                <p className="text-sm text-gray-600 mt-1">Exam, IMA Membership, Registration 2024/2025</p>
+                <h3 className="text-xl font-bold text-gray-900">Welcome to NorthStar Academy!</h3>
+                <p className="text-sm text-gray-600 mt-1">You made a right choice in choosing us..</p>
               </div>
               <button
                 onClick={() => setShowCustomVideoModal(false)}
@@ -1184,13 +1241,9 @@ export default function CourseThankYouPage({ course }: { course: string }) {
             {/* Video Container */}
             <div className="relative bg-black">
               <div className="aspect-video">
-                <iframe
-                  src="https://www.youtube.com/embed/Xh3V1oLbG8w?si=1XySDSwbO5VWj8D1?enablejsapi=1&modestbranding=1&rel=0&showinfo=0&fs=0&disablekb=1"
+                <VideoPlayer
+                  src="https://northstaracademy.b-cdn.net/Why-Northstar.mp4"
                   className="w-full h-full"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen={false}
-                  title="CMA Success Story"
                 />
               </div>
 
@@ -1248,9 +1301,9 @@ export default function CourseThankYouPage({ course }: { course: string }) {
                   </svg>
                 </div>
                 <div className="flex-1">
-                  <h4 className="text-lg font-semibold text-gray-900 mb-2">Transform Your Career with CMA Certification</h4>
+                  <h4 className="text-lg font-semibold text-gray-900 mb-2">Transform Your Career with {courseDisplayName} Certification</h4>
                   <p className="text-gray-600 mb-4">
-                    Full cost of US CMA course in 2025/2024 explained in India. Understand how much money you need to spend on different fees while pursuing the US certified management accountant course. 
+                    Full cost of US {courseDisplayName} course in 2025/2024 explained in India. Understand how much money you need to spend on different fees while pursuing the US certified management accountant course. 
                   </p>
                   <div className="flex flex-wrap gap-2">
                     <span className="px-3 py-1 bg-red-100 text-red-800 text-sm rounded-full">Career Growth</span>
@@ -1265,7 +1318,7 @@ export default function CourseThankYouPage({ course }: { course: string }) {
             <div className="p-6 bg-white border-t border-gray-200">
               <div className="flex items-center justify-between">
                 <div className="text-sm text-gray-600">
-                  <p>🎯 Ready to start your CMA journey? <span className="font-medium text-red-600">Join thousands of successful professionals</span></p>
+                  <p>🎯 Ready to start your {courseDisplayName} journey? <span className="font-medium text-red-600">Join thousands of successful professionals</span></p>
                 </div>
                 <button
                   onClick={() => setShowCustomVideoModal(false)}
