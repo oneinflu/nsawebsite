@@ -130,14 +130,6 @@ export default function CourseThankYouPage({ course }: { course: string }) {
     };
   }, []);
 
-  const handleBookCall = () => {
-    window.open('', '');
-  };
-
-  const handleVideoModal = () => {
-    setShowVideoModal(true);
-  };
-
   const closeVideoModal = () => {
     setShowVideoModal(false);
     setVideoMuted(true);
@@ -329,7 +321,7 @@ export default function CourseThankYouPage({ course }: { course: string }) {
             </div>
 
             {/* Action Buttons */}
-            <div className="space-y-3 sm:space-y-4 mb-10 sm:mb-12">
+            {/* <div className="space-y-3 sm:space-y-4 mb-10 sm:mb-12">
               <button 
                 onClick={handleBookCall}
                 className="w-full bg-red-600 hover:bg-red-700 text-white font-semibold py-3 sm:py-4 px-4 sm:px-6 rounded-xl transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl text-sm sm:text-base"
@@ -346,7 +338,7 @@ export default function CourseThankYouPage({ course }: { course: string }) {
                 </svg>
                 Watch Mentor Introduction
               </button>
-            </div>
+            </div> */}
 
             {/* Quick Stats */}
             <div className="grid grid-cols-3 gap-3 sm:gap-4 lg:gap-6 mb-10 sm:mb-12">
