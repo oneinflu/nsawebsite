@@ -251,7 +251,7 @@ export default function CourseThankYouPage({ course }: { course: string }) {
                   }}
                 >
                   <img
-                    src="/Irfat-Sir.webp"
+                    src="/nsa.webp"
                     alt="NSA overview video thumbnail"
                     className="w-full h-full object-cover"
                   />
