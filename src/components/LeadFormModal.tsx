@@ -67,7 +67,9 @@ const LeadFormModal = () => {
       const keys = [
         'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content',
         'utm_id', 'utm_source_platform', 'utm_creative_format', 'utm_audience',
-        'utm_ad_id', 'gclid', 'fblid'
+        'utm_ad_id', 'gclid', 'fblid',
+        // Additional ad/utm params to capture
+        'utm_adgroup', 'utm_adname', 'sitelink', 'matchtype', 'category', 'device', 'network', 'promotion', 'placement', 'geo'
       ];
       const params = new URLSearchParams(window.location.search);
       keys.forEach((k) => {
@@ -177,6 +179,16 @@ const LeadFormModal = () => {
           utm_ad_id: getUtm('utm_ad_id'),
           gclid: getUtm('gclid'),
           fblid: getUtm('fblid'),
+          utm_adgroup: getUtm('utm_adgroup'),
+          utm_adname: getUtm('utm_adname'),
+          sitelink: getUtm('sitelink'),
+          matchtype: getUtm('matchtype'),
+          category: getUtm('category'),
+          device: getUtm('device'),
+          network: getUtm('network'),
+          promotion: getUtm('promotion'),
+          placement: getUtm('placement'),
+          geo: getUtm('geo'),
         };
 
         if (!existingSessionId) {
@@ -288,6 +300,16 @@ const LeadFormModal = () => {
             utm_ad_id: getUtm('utm_ad_id'),
             gclid: getUtm('gclid'),
             fblid: getUtm('fblid'),
+            utm_adgroup: getUtm('utm_adgroup'),
+            utm_adname: getUtm('utm_adname'),
+            sitelink: getUtm('sitelink'),
+            matchtype: getUtm('matchtype'),
+            category: getUtm('category'),
+            device: getUtm('device'),
+            network: getUtm('network'),
+            promotion: getUtm('promotion'),
+            placement: getUtm('placement'),
+            geo: getUtm('geo'),
           };
           const payload = {
             ip_address: ipAddress,
@@ -337,6 +359,16 @@ const LeadFormModal = () => {
             utm_ad_id: getUtm2('utm_ad_id'),
             gclid: getUtm2('gclid'),
             fblid: getUtm2('fblid'),
+            utm_adgroup: getUtm2('utm_adgroup'),
+            utm_adname: getUtm2('utm_adname'),
+            sitelink: getUtm2('sitelink'),
+            matchtype: getUtm2('matchtype'),
+            category: getUtm2('category'),
+            device: getUtm2('device'),
+            network: getUtm2('network'),
+            promotion: getUtm2('promotion'),
+            placement: getUtm2('placement'),
+            geo: getUtm2('geo'),
           };
           const payload = {
             pages_visited: [pageEntry],
