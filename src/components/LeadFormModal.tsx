@@ -139,7 +139,8 @@ const LeadFormModal = () => {
     if (typeof window === 'undefined') return;
     // Set entry time for the current page
     entryTimeRef.current = new Date();
-    lastUrlRef.current = `${window.location.pathname}${window.location.search}`;
+    // Store full absolute URL (protocol + host + path + query + hash)
+    lastUrlRef.current = window.location.href;
 
     const finalizePage = async () => {
       try {
@@ -148,7 +149,7 @@ const LeadFormModal = () => {
         const exitTime = now;
         const time_spent_seconds = Math.max(0, Math.round((exitTime.getTime() - entryTime.getTime()) / 1000));
         const pageEntry = {
-          url: lastUrlRef.current || `${window.location.pathname}${window.location.search}`,
+          url: lastUrlRef.current || window.location.href,
           title: (typeof document !== 'undefined' ? document.title : ''),
           time_spent_seconds,
           entry_time: entryTime.toISOString(),
@@ -258,7 +259,7 @@ const LeadFormModal = () => {
         const exitTime = now;
         const time_spent_seconds = Math.max(0, Math.round((exitTime.getTime() - entryTime.getTime()) / 1000));
         const pageEntry = {
-          url: lastUrlRef.current || `${window.location.pathname}${window.location.search}`,
+          url: lastUrlRef.current || window.location.href,
           title: (typeof document !== 'undefined' ? document.title : ''),
           time_spent_seconds,
           entry_time: entryTime.toISOString(),
@@ -345,7 +346,8 @@ const LeadFormModal = () => {
     finalizePrev();
     // Start timing for the new page
     entryTimeRef.current = new Date();
-    lastUrlRef.current = `${window.location.pathname}${window.location.search}`;
+    // Update the stored URL to the full absolute URL
+    lastUrlRef.current = window.location.href;
   }, [pathname, ipAddress, locationData]);
 
   useEffect(() => {
