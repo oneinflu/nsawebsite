@@ -4,8 +4,9 @@
 import { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import { getCourseContent } from './courseThankYouConfig';
-import { } from 'framer-motion/client';
-import VideoPlayer from '../VideoPlayer';
+
+// Lazy-load client-only components to avoid SSR issues
+const VideoPlayer = dynamic(() => import('../VideoPlayer'), { ssr: false });
 
 const Confetti = dynamic(() => import('react-confetti'), { ssr: false });
 
@@ -25,8 +26,8 @@ export default function CourseThankYouPage({ course }: { course: string }) {
     switch (c) {
       case 'acca-uk':
         return { href: '/hackdocs/ACCA.pdf', filename: 'ACCA.pdf' };
-      case '{courseDisplayName}-usa':
-        return { href: '/hackdocs/{courseDisplayName}.pdf', filename: '{courseDisplayName}.pdf' };
+      case 'cma-usa':
+        return { href: '/hackdocs/CMA.pdf', filename: 'CMA.pdf' };
       case 'cpa-us':
         return { href: '/hackdocs/CPA.pdf', filename: 'CPA.pdf' };
       case 'enrolled-agent':
