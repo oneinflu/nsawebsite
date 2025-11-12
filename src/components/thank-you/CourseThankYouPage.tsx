@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import { getCourseContent } from './courseThankYouConfig';
-import { div, button } from 'framer-motion/client';
+import { } from 'framer-motion/client';
 
 const Confetti = dynamic(() => import('react-confetti'), { ssr: false });
 
@@ -92,10 +92,7 @@ export default function CourseThankYouPage({ course }: { course: string }) {
     setVideoMuted(!videoMuted);
   };
 
-  const handleResourceClick = (resource: string) => {
-    console.log(`Downloading ${resource}`);
-  };
-
+ 
   const downloadHackdoc = () => {
     if (!hackdoc) return;
     try {
