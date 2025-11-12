@@ -32,6 +32,25 @@ interface LeadFormContextType {
     utm_campaign: string;
     utm_term: string;
     utm_content: string;
+    // Extended UTM/ad params
+    utm_id: string;
+    utm_source_platform: string;
+    utm_creative_format: string;
+    utm_audience: string;
+    utm_ad_id: string;
+    gclid: string;
+    fblid: string;
+    utm_adgroup: string;
+    utm_adname: string;
+    sitelink: string;
+    matchtype: string;
+    category: string;
+    device: string;
+    network: string;
+    promotion: string;
+    placement: string;
+    geo: string;
+    full_url: string;
     dob: string;
     gender: string;
     education: string;
@@ -56,6 +75,24 @@ const defaultFormData = {
   utm_campaign: '',
   utm_term: '',
   utm_content: '',
+  utm_id: '',
+  utm_source_platform: '',
+  utm_creative_format: '',
+  utm_audience: '',
+  utm_ad_id: '',
+  gclid: '',
+  fblid: '',
+  utm_adgroup: '',
+  utm_adname: '',
+  sitelink: '',
+  matchtype: '',
+  category: '',
+  device: '',
+  network: '',
+  promotion: '',
+  placement: '',
+  geo: '',
+  full_url: '',
   dob: '',
   gender: '',
   education: '',

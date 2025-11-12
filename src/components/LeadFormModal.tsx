@@ -433,17 +433,34 @@ const LeadFormModal = () => {
 
   useEffect(() => {
     if (isOpen) {
-      const utm_source = localStorage.getItem("utm_source");
-      const utm_medium = localStorage.getItem("utm_medium");
-      const utm_campaign = localStorage.getItem("utm_campaign");
-      const utm_term = localStorage.getItem("utm_term");
-      const utm_content = localStorage.getItem("utm_content");
+      const getLS = (k: string) => localStorage.getItem(k) || "";
       updateFormData({
-        utm_source: utm_source || "",
-        utm_medium: utm_medium || "",
-        utm_campaign: utm_campaign || "",
-        utm_term: utm_term || "",
-        utm_content: utm_content || "",
+        // Core UTMs
+        utm_source: getLS("utm_source"),
+        utm_medium: getLS("utm_medium"),
+        utm_campaign: getLS("utm_campaign"),
+        utm_term: getLS("utm_term"),
+        utm_content: getLS("utm_content"),
+        // Extended UTMs/ad params
+        utm_id: getLS("utm_id"),
+        utm_source_platform: getLS("utm_source_platform"),
+        utm_creative_format: getLS("utm_creative_format"),
+        utm_audience: getLS("utm_audience"),
+        utm_ad_id: getLS("utm_ad_id"),
+        gclid: getLS("gclid"),
+        fblid: getLS("fblid"),
+        utm_adgroup: getLS("utm_adgroup"),
+        utm_adname: getLS("utm_adname"),
+        sitelink: getLS("sitelink"),
+        matchtype: getLS("matchtype"),
+        category: getLS("category"),
+        device: getLS("device"),
+        network: getLS("network"),
+        promotion: getLS("promotion"),
+        placement: getLS("placement"),
+        geo: getLS("geo"),
+        // Full URL
+        full_url: typeof window !== "undefined" ? window.location.href : "",
       });
     }
   }, [isOpen, updateFormData]);
