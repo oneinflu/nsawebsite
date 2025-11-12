@@ -9,6 +9,12 @@ import EASalaryROI from '@/components/ea/EASalaryROI';
 import EAComparison from '@/components/ea/EAComparison';
 import EAWhyNorthStar from '@/components/ea/EAWhyNorthStar';
 
+export const metadata = {
+  title: 'Enrolled Agent (EA) Course Details | NorthStar Academy',
+  description:
+    'Explore the EA program: hero overview, career prospects, mentorship, syllabus, salary ROI, eligibility, comparison, and FAQs.',
+};
+
 export default function EAPage() {
   return (
     <main className="min-h-screen">

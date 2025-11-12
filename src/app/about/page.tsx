@@ -6,6 +6,12 @@ import WhyNorthStar from '@/components/WhyNorthStar';
 import MeetYourMentorTwo from '@/components/MeetYourMentorTwo';
 import PlacementReadiness from '@/components/PlacementReadiness';
 
+export const metadata = {
+  title: 'About NorthStar Academy',
+  description:
+    'Learn about NorthStar Academy’s mentors, learning approach, placement readiness, trusted partners, and student life.',
+};
+
 export default function AboutPage() {
   return (
     <main>

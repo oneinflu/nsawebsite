@@ -9,6 +9,12 @@ import ACCATimelinePlanner from "@/components/acca/ACCATimelinePlanner";
 import WhyACCA from "@/components/acca/WhyACCA";
 
 
+export const metadata = {
+  title: "ACCA — Learn ACCA with NorthStar Academy",
+  description:
+    "Explore ACCA syllabus, exemptions, timeline planner, study support, global placements, salary ROI, and FAQs to start your ACCA journey.",
+};
+
 
 export default function CMAUSAPage() {
   return (

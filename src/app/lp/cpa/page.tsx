@@ -9,6 +9,12 @@ import PlacementReadiness from "@/components/PlacementReadiness";
 import StateBoardWizard from "@/components/StateBoardWizard";
 import WhyCPA from "@/components/WhyCPA";
 
+export const metadata = {
+  title: 'CPA US — Learn CPA with NorthStar Academy',
+  description:
+    'Start your CPA journey: syllabus overview, State Board selection wizard, fees ROI, eligibility, study planner, placement readiness, and FAQs.',
+};
+
 
 export default function CMAUSAPage() {
   return (

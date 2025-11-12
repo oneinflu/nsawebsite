@@ -7,6 +7,12 @@ import EASalaryROI from "@/components/ea/EASalaryROI";
 import EASyllabus from "@/components/ea/EASyllabus";
 import EAWhyNorthStar from "@/components/ea/EAWhyNorthStar";
 
+export const metadata = {
+  title: 'EA — Enrolled Agent with NorthStar Academy',
+  description:
+    'Begin your Enrolled Agent preparation: syllabus, salary ROI, eligibility, career prospects, comparison, and FAQs.',
+};
+
 
 
 export default function CMAUSAPage() {

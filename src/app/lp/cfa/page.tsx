@@ -9,6 +9,12 @@ import CFANorthStarAdvantage from "@/components/cfa/CFANorthStarAdvantage";
 import CFAProgramStructure from "@/components/cfa/CFAProgramStructure";
 import WhyCFA from "@/components/cfa/WhyCFA";
 
+export const metadata = {
+  title: 'CFA — Learn CFA with NorthStar Academy',
+  description:
+    'Explore the CFA program structure, eligibility, career roles, NorthStar advantage, exam pattern, global salary insights, decision helper, and FAQs.',
+};
+
 
 export default function CMAUSAPage() {
   return (

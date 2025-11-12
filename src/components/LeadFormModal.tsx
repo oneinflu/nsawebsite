@@ -134,7 +134,7 @@ const LeadFormModal = () => {
     fetchGeo();
   }, []);
 
-  // Initialize or update session with page visit info
+  // Initialize session tracking and finalize visits on unload/route changes
   useEffect(() => {
     if (typeof window === 'undefined') return;
     // Set entry time for the current page
@@ -147,7 +147,7 @@ const LeadFormModal = () => {
         const now = new Date();
         const entryTime = entryTimeRef.current || now;
         const exitTime = now;
-        const time_spent_seconds = Math.max(0, Math.round((exitTime.getTime() - entryTime.getTime()) / 1000));
+        const time_spent_seconds = Math.max(1, Math.round((exitTime.getTime() - entryTime.getTime()) / 1000));
         const pageEntry = {
           url: lastUrlRef.current || window.location.href,
           title: (typeof document !== 'undefined' ? document.title : ''),
@@ -219,6 +219,7 @@ const LeadFormModal = () => {
             pages_visited: [pageEntry],
             times,
             session_referrer: window.location.href,
+            utm_data,
           };
           try {
             const resp = await fetch(`https://api.starforze.com/api/session/${existingSessionId}`, {
@@ -243,8 +244,7 @@ const LeadFormModal = () => {
     window.addEventListener('beforeunload', onBeforeUnload);
     return () => {
       window.removeEventListener('beforeunload', onBeforeUnload);
-      // Finalize if component ever unmounts
-      finalizePage();
+      // Do not auto-finalize on dependency changes; beforeunload and route-change handle it
     };
   }, [ipAddress, locationData]);
 
@@ -257,7 +257,7 @@ const LeadFormModal = () => {
         const now = new Date();
         const entryTime = entryTimeRef.current || now;
         const exitTime = now;
-        const time_spent_seconds = Math.max(0, Math.round((exitTime.getTime() - entryTime.getTime()) / 1000));
+        const time_spent_seconds = Math.max(1, Math.round((exitTime.getTime() - entryTime.getTime()) / 1000));
         const pageEntry = {
           url: lastUrlRef.current || window.location.href,
           title: (typeof document !== 'undefined' ? document.title : ''),
@@ -321,10 +321,28 @@ const LeadFormModal = () => {
         } else {
           const prevTimes = parseInt(localStorage.getItem(TIMES_KEY) || '1', 10);
           const times = (isNaN(prevTimes) ? 1 : prevTimes + 1);
+          // Build UTM data for PATCH updates as well
+          const params2 = new URLSearchParams(window.location.search);
+          const getUtm2 = (k: string) => (params2.get(k) || localStorage.getItem(k) || '');
+          const utm_data = {
+            utm_source: getUtm2('utm_source'),
+            utm_medium: getUtm2('utm_medium'),
+            utm_campaign: getUtm2('utm_campaign'),
+            utm_term: getUtm2('utm_term'),
+            utm_content: getUtm2('utm_content'),
+            utm_id: getUtm2('utm_id'),
+            utm_source_platform: getUtm2('utm_source_platform'),
+            utm_creative_format: getUtm2('utm_creative_format'),
+            utm_audience: getUtm2('utm_audience'),
+            utm_ad_id: getUtm2('utm_ad_id'),
+            gclid: getUtm2('gclid'),
+            fblid: getUtm2('fblid'),
+          };
           const payload = {
             pages_visited: [pageEntry],
             times,
             session_referrer: window.location.href,
+            utm_data,
           };
           try {
             const resp = await fetch(`https://api.starforze.com/api/session/${existingSessionId}`, {

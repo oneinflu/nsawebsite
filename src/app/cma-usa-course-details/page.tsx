@@ -9,6 +9,12 @@ import CMAComparison from "@/components/CMAComparison";
 import CMAFAQ from "@/components/CMAFAQ";
 import CMAStudyPlanner from "@/components/CMAStudyPlanner";
 
+export const metadata = {
+  title: 'CMA USA Course Details | NorthStar Academy',
+  description:
+    'All about CMA USA: syllabus, learning experience, global placements, fees ROI, eligibility, study planner, comparison, and FAQs.',
+};
+
 export default function CMAUSAPage() {
   return (
     <main className="min-h-screen">
