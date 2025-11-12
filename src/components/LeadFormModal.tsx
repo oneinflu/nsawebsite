@@ -56,7 +56,7 @@ const LeadFormModal = () => {
   const [ipAddress, setIpAddress] = useState("");
   const [sessionReferrer, setSessionReferrer] = useState("");
   const [otpNotice, setOtpNotice] = useState<string>("");
-  const [locationData, setLocationData] = useState<{ country: string; region: string; city: string }>({ country: "", region: "", city: "" });
+  const [locationData, setLocationData] = useState<{ country: string; region: string; city: string; pin_code: string }>({ country: "", region: "", city: "", pin_code: "" });
   const entryTimeRef = useRef<Date | null>(null);
   const lastUrlRef = useRef<string>("");
 
@@ -120,10 +120,12 @@ const LeadFormModal = () => {
         const res = await fetch('https://ipapi.co/json/');
         if (!res.ok) return;
         const data = await res.json();
+        console.log('Geolocation data:', data);
         setLocationData({
           country: data?.country_name || '',
           region: data?.region || data?.region_code || '',
           city: data?.city || '',
+          pin_code: data?.postal || '',
         });
       } catch (e) {
         // Swallow errors silently; location data is optional
@@ -184,6 +186,7 @@ const LeadFormModal = () => {
               country: locationData.country || '',
               region: locationData.region || '',
               city: locationData.city || '',
+              pin_code: locationData.pin_code || '',
             },
             utm_data,
             session_referrer: window.location.href,
@@ -291,6 +294,7 @@ const LeadFormModal = () => {
               country: locationData.country || '',
               region: locationData.region || '',
               city: locationData.city || '',
+              pin_code: locationData.pin_code || '',
             },
             utm_data,
             session_referrer: window.location.href,
@@ -499,7 +503,7 @@ const LeadFormModal = () => {
         country: "India", // Hardcoded for now
         state: "", // To be implemented with location services
         city: formData.location,
-        pin_code: "", // To be implemented with location services
+        pin_code: locationData.pin_code || "",
       },
       session_referrer: fullUrl,
       ip_address: ipAddress,

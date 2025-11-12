@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import { getCourseContent } from './courseThankYouConfig';
+import { div, button } from 'framer-motion/client';
 
 const Confetti = dynamic(() => import('react-confetti'), { ssr: false });
 
@@ -16,6 +17,44 @@ export default function CourseThankYouPage({ course }: { course: string }) {
   const [showLinkedInModal, setShowLinkedInModal] = useState(false);
   const [showCustomVideoModal, setShowCustomVideoModal] = useState(false);
   const [videoMuted, setVideoMuted] = useState(true);
+
+  // Map course slug to hackdoc file path in /public/hackdocs
+  const getHackdocForCourse = (c: string): { href: string; filename: string } | null => {
+    switch (c) {
+      case 'acca-uk':
+        return { href: '/hackdocs/ACCA.pdf', filename: 'ACCA.pdf' };
+      case 'cma-usa':
+        return { href: '/hackdocs/CMA.pdf', filename: 'CMA.pdf' };
+      case 'cpa-us':
+        return { href: '/hackdocs/CPA.pdf', filename: 'CPA.pdf' };
+      case 'enrolled-agent':
+        return { href: '/hackdocs/EA.pdf', filename: 'EA.pdf' };
+      default:
+        return null; // Hide for CIA, CFA, or generic/all-courses pages
+    }
+  };
+  const hackdoc = getHackdocForCourse(course);
+
+  // Map course slug to prospectus file path in /public/prospectus
+  const getProspectusForCourse = (c: string): { href: string; filename: string } | null => {
+    switch (c) {
+      case 'acca-uk':
+        return { href: '/prospectus/ACCA.pdf', filename: 'ACCA.pdf' };
+      case 'cma-usa':
+        return { href: '/prospectus/CMA.pdf', filename: 'CMA.pdf' };
+      case 'cpa-us':
+        return { href: '/prospectus/CPA.pdf', filename: 'CPA.pdf' };
+      case 'enrolled-agent':
+        return { href: '/prospectus/EA.pdf', filename: 'EA.pdf' };
+      case 'cfa-us':
+        return { href: '/prospectus/CFA.pdf', filename: 'CFA.pdf' };
+      case 'cia':
+        return { href: '/prospectus/CIA.pdf', filename: 'CIA.pdf' };
+      default:
+        return null;
+    }
+  };
+  const prospectus = getProspectusForCourse(course);
 
   useEffect(() => {
     const updateWindowSize = () => {
@@ -37,7 +76,7 @@ export default function CourseThankYouPage({ course }: { course: string }) {
   }, []);
 
   const handleBookCall = () => {
-    window.open('https://calendly.com/your-calendar-link', '_blank');
+    window.open('', '');
   };
 
   const handleVideoModal = () => {
@@ -55,6 +94,49 @@ export default function CourseThankYouPage({ course }: { course: string }) {
 
   const handleResourceClick = (resource: string) => {
     console.log(`Downloading ${resource}`);
+  };
+
+  const downloadHackdoc = () => {
+    if (!hackdoc) return;
+    try {
+      const a = document.createElement('a');
+      a.href = hackdoc.href;
+      a.download = hackdoc.filename;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    } catch {
+      // Fallback: open in new tab if download attribute not honored
+      window.open(hackdoc.href, '_blank');
+    }
+  };
+
+  const downloadProspectus = () => {
+    if (!prospectus) return;
+    try {
+      const a = document.createElement('a');
+      a.href = prospectus.href;
+      a.download = prospectus.filename;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    } catch {
+      window.open(prospectus.href, '_blank');
+    }
+  };
+
+  const downloadPlacementReport = () => {
+    const href = '/placements/placement-report.pdf';
+    try {
+      const a = document.createElement('a');
+      a.href = href;
+      a.download = 'placement-report.pdf';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    } catch {
+      window.open(href, '_blank');
+    }
   };
 
   return (
@@ -204,7 +286,7 @@ export default function CourseThankYouPage({ course }: { course: string }) {
                 onClick={handleBookCall}
                 className="w-full bg-red-600 hover:bg-red-700 text-white font-semibold py-3 sm:py-4 px-4 sm:px-6 rounded-xl transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl text-sm sm:text-base"
               >
-                Book Free Counseling Call
+               Schedule your Call
               </button>
               
               <button 
@@ -238,52 +320,56 @@ export default function CourseThankYouPage({ course }: { course: string }) {
             <div className="space-y-3 sm:space-y-4">
               <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-3 sm:mb-4">Free Resources</h3>
               
-              <div 
-                className="flex items-center justify-between p-3 sm:p-4 bg-red-50 rounded-lg cursor-pointer hover:bg-red-100 transition-colors"
-                onClick={() => handleResourceClick('CMA Prospectus')}
-              >
-                <div className="flex items-center gap-2 sm:gap-3">
-                  <div className="w-8 h-8 sm:w-10 sm:h-10 bg-red-600 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <span className="text-white text-sm sm:text-lg">📘</span>
+              {prospectus && (
+                <div 
+                  className="flex items-center justify-between p-3 sm:p-4 bg-red-50 rounded-lg cursor-pointer hover:bg-red-100 transition-colors"
+                  onClick={downloadProspectus}
+                >
+                  <div className="flex items-center gap-2 sm:gap-3">
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 bg-red-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <span className="text-white text-sm sm:text-lg">📘</span>
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <div className="font-medium text-gray-900 text-sm sm:text-base">Download Prospectus</div>
+                      <div className="text-xs sm:text-sm text-gray-600">Complete certification guide</div>
+                    </div>
                   </div>
-                  <div className="min-w-0 flex-1">
-                    <div className="font-medium text-gray-900 text-sm sm:text-base">CMA Prospectus</div>
-                    <div className="text-xs sm:text-sm text-gray-600">Complete certification guide</div>
-                  </div>
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+                  </svg>
                 </div>
-                <svg className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-                </svg>
-              </div>
+              )}
+
+              {hackdoc && (
+                <div 
+                  className="flex items-center justify-between p-3 sm:p-4 bg-green-50 rounded-lg cursor-pointer hover:bg-green-100 transition-colors"
+                  onClick={downloadHackdoc}
+                >
+                  <div className="flex items-center gap-2 sm:gap-3">
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 bg-green-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <span className="text-white text-sm sm:text-lg">🧠</span>
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <div className="font-medium text-gray-900 text-sm sm:text-base">Download HackDoc</div>
+                      <div className="text-xs sm:text-sm text-gray-600">Proven study strategies</div>
+                    </div>
+                  </div>
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              )}
 
               <div 
-                className="flex items-center justify-between p-3 sm:p-4 bg-green-50 rounded-lg cursor-pointer hover:bg-green-100 transition-colors"
-                onClick={() => handleResourceClick('Study Guide')}
-              >
-                <div className="flex items-center gap-2 sm:gap-3">
-                  <div className="w-8 h-8 sm:w-10 sm:h-10 bg-green-600 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <span className="text-white text-sm sm:text-lg">🧠</span>
-                  </div>
-                  <div className="min-w-0 flex-1">
-                    <div className="font-medium text-gray-900 text-sm sm:text-base">Study HackDoc</div>
-                    <div className="text-xs sm:text-sm text-gray-600">Proven study strategies</div>
-                  </div>
-                </div>
-                <svg className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-                </svg>
-              </div>
-
-              <div 
                 className="flex items-center justify-between p-3 sm:p-4 bg-red-50 rounded-lg cursor-pointer hover:bg-red-100 transition-colors"
-                onClick={() => handleResourceClick('Career Guide')}
+                onClick={downloadPlacementReport}
               >
                 <div className="flex items-center gap-2 sm:gap-3">
                   <div className="w-8 h-8 sm:w-10 sm:h-10 bg-red-600 rounded-lg flex items-center justify-center flex-shrink-0">
                     <span className="text-white text-sm sm:text-lg">🎓</span>
                   </div>
                   <div className="min-w-0 flex-1">
-                    <div className="font-medium text-gray-900 text-sm sm:text-base">Career Guide</div>
+                    <div className="font-medium text-gray-900 text-sm sm:text-base">Placement Report</div>
                     <div className="text-xs sm:text-sm text-gray-600">Salary insights & paths</div>
                   </div>
                 </div>
