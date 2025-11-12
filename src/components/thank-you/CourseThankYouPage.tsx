@@ -1285,42 +1285,7 @@ export default function CourseThankYouPage({ course }: { course: string }) {
               </div>
             </div>
 
-            {/* Video Information */}
-            <div className="p-6 bg-gray-50">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center flex-shrink-0">
-                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h1m4 0h1m6-7a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <div className="flex-1">
-                  <h4 className="text-lg font-semibold text-gray-900 mb-2">Transform Your Career with {courseDisplayName} Certification</h4>
-                  <p className="text-gray-600 mb-4">
-                    Full cost of US {courseDisplayName} course in 2025/2024 explained in India. Understand how much money you need to spend on different fees while pursuing the US certified management accountant course. 
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    <span className="px-3 py-1 bg-red-100 text-red-800 text-sm rounded-full">Career Growth</span>
-                    <span className="px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full">Success Stories</span>
-                    <span className="px-3 py-1 bg-red-100 text-red-800 text-sm rounded-full">Professional Development</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Modal Footer */}
-            <div className="p-6 bg-white border-t border-gray-200">
-              <div className="flex items-center justify-between">
-                <div className="text-sm text-gray-600">
-                  <p>🎯 Ready to start your {courseDisplayName} journey? <span className="font-medium text-red-600">Join thousands of successful professionals</span></p>
-                </div>
-                <button
-                  onClick={() => setShowCustomVideoModal(false)}
-                  className="px-6 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg font-medium transition-colors"
-                >
-                  Get Started
-                </button>
-              </div>
-            </div>
+           
           </div>
         </div>
       )}
