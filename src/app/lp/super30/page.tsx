@@ -8,8 +8,9 @@ import Super300QuickApplyModal from '@/components/Super300QuickApplyModal';
 import Super300ExitIntentPopup from '@/components/Super300ExitIntentPopup';
 import Super300Toast from '@/components/Super300Toast';
 import EligibilityApply from '@/components/EligibilityApply';
-import Super300ScholarshipValue from '@/components/Super300ScholarshipValue';
-import MentorshipSuccess from '@/components/MentorshipSuccess';
+
+import PlacementReadiness from '@/components/PlacementReadiness';
+
 import Super300FAQ from '@/components/Super300FAQ';
 import AboutSuper300Program from '@/components/AboutSuper300Program';
 
@@ -19,9 +20,6 @@ export default function Super300Page() {
   const [toastVisible, setToastVisible] = useState(false);
   const [toastMessage, setToastMessage] = useState('');
 
-  const handleApplyNowClick = () => {
-    setIsModalOpen(true);
-  };
 
   const handleModalSubmit = (data: { name: string; whatsapp: string; course: string }) => {
     // Here you would typically send the data to your API
@@ -65,11 +63,12 @@ export default function Super300Page() {
           <EligibilityApply />
         </div>
         
-        <Super300ScholarshipValue />
+      
         
-        <MentorshipSuccess />
+        <PlacementReadiness />
+      
         
-        <Super300FAQ />
+      <Super300FAQ />
      
 
       {/* Modal and Popup Components */}

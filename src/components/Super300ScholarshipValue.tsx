@@ -3,6 +3,8 @@
 
 import React, { useState, useEffect, useMemo } from 'react';
 import { motion, useInView } from 'framer-motion';
+import { CheckCircleIcon, CurrencyDollarIcon, GlobeAltIcon, ShieldCheckIcon } from '@heroicons/react/24/outline';
+import LeadFormButton from './LeadFormButton';
 
 const Super300ScholarshipValue = () => {
   const [counter, setCounter] = useState(0);
@@ -65,51 +67,27 @@ const Super300ScholarshipValue = () => {
   ];
 
   return (
-    <section 
+    <section
       ref={sectionRef}
-      className="relative py-24 bg-gradient-to-br from-white via-cream-50 to-amber-50/30 overflow-hidden"
+      className="relative py-24 bg-gradient-to-br from-red-50 via-red-50 to-purple-50 overflow-hidden"
     >
-      {/* Background Patterns */}
-      <div className="absolute inset-0 opacity-30">
-        {/* Grid Pattern */}
-        <div 
-          className="absolute inset-0" 
-          style={{
-            backgroundImage: `
-              linear-gradient(rgba(251, 191, 36, 0.1) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(251, 191, 36, 0.1) 1px, transparent 1px)
-            `,
-            backgroundSize: '60px 60px'
-          }}
-        />
-        
-        {/* Floating Particles */}
+      {/* Background accents (matching hero theme) */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-20 left-10 w-72 h-72 bg-red-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob" />
+        <div className="absolute top-40 right-10 w-72 h-72 bg-red-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-2000" />
+        <div className="absolute -bottom-8 left-20 w-72 h-72 bg-purple-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-4000" />
         {particles.map((particle) => (
           <motion.div
             key={particle.id}
-            className="absolute w-2 h-2 bg-amber-300/40 rounded-full"
-            style={{
-              left: `${particle.left}%`,
-              top: `${particle.top}%`,
-            }}
-            animate={{
-              y: [0, -20, 0],
-              opacity: [0.3, 0.8, 0.3],
-              scale: [1, 1.2, 1]
-            }}
-            transition={{
-              duration: particle.duration,
-              repeat: Infinity,
-              delay: particle.delay
-            }}
+            className="absolute w-2 h-2 bg-red-300/40 rounded-full"
+            style={{ left: `${particle.left}%`, top: `${particle.top}%` }}
+            animate={{ y: [0, -20, 0], opacity: [0.3, 0.8, 0.3], scale: [1, 1.2, 1] }}
+            transition={{ duration: particle.duration, repeat: Infinity, delay: particle.delay }}
           />
         ))}
-        
-        {/* Radial Glow */}
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-radial from-amber-100/20 via-transparent to-transparent rounded-full" />
       </div>
 
-      <div className="max-w-6xl mx-auto px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         {/* Hero Section */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -124,31 +102,28 @@ const Super300ScholarshipValue = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="mb-8"
           >
-            <div className="inline-flex items-center gap-4 mb-6">
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                className="text-4xl"
-              >
-                ✨
-              </motion.div>
-              <h1 className="text-5xl lg:text-7xl font-bold bg-gradient-to-r from-amber-600 via-orange-500 to-amber-600 bg-clip-text text-transparent">
-                ₹{counter} Crores
+            <div className="space-y-4">
+              <h1 className="text-4xl md:text-6xl font-bold text-gray-900 leading-tight">
+                NorthStar Super 30 Scholarship
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-purple-600">
+                  ₹{counter} Crores Scholarship Fund
+                </span>
               </h1>
-              <motion.div
-                animate={{ rotate: -360 }}
-                transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-                className="text-4xl"
-              >
-                🎯
-              </motion.div>
+              <p className="text-lg md:text-xl text-slate-700 leading-relaxed max-w-3xl mx-auto">
+                Merit-based scholarships for CPA US — 30 seats only
+              </p>
+              <div className="flex flex-wrap justify-center gap-3">
+                <span className="inline-flex items-center px-4 py-2 bg-red-50 border border-red-200 rounded-full text-red-800 text-sm font-medium">
+                  <ShieldCheckIcon className="w-4 h-4 mr-2" /> Examly Official Partner
+                </span>
+                <span className="inline-flex items-center px-4 py-2 bg-purple-50 border border-purple-200 rounded-full text-purple-800 text-sm font-medium">
+                  <CheckCircleIcon className="w-4 h-4 mr-2" /> Mentor-Led Learning
+                </span>
+                <span className="inline-flex items-center px-4 py-2 bg-red-50 border border-red-200 rounded-full text-red-800 text-sm font-medium">
+                  <CurrencyDollarIcon className="w-4 h-4 mr-2" /> ₹100K per student
+                </span>
+              </div>
             </div>
-            <h2 className="text-2xl lg:text-3xl font-semibold text-slate-700 mb-4">
-              India&apos;s Largest Private Scholarship Initiative
-            </h2>
-            <p className="text-lg text-slate-600 max-w-3xl mx-auto">
-              Empowering 300 students with merit-based scholarships for global finance careers
-            </p>
           </motion.div>
 
           {/* Quick Stats */}
@@ -156,19 +131,34 @@ const Super300ScholarshipValue = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex flex-wrap justify-center gap-8 mb-12"
+            className="flex flex-wrap justify-center gap-6 mb-12"
           >
-            <div className="text-center">
-              <div className="text-3xl font-bold text-amber-600">300</div>
-              <div className="text-sm text-slate-600">Students</div>
+            <div className="flex items-center p-4 bg-white rounded-xl shadow-md border border-gray-100">
+              <div className="p-2 rounded-lg bg-gradient-to-r from-red-500 to-purple-600 mr-3">
+                <ShieldCheckIcon className="w-5 h-5 text-white" />
+              </div>
+              <div>
+                <div className="text-sm font-medium text-gray-700">Seats</div>
+                <div className="text-lg font-bold text-gray-900">30</div>
+              </div>
             </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-amber-600">₹90K</div>
-              <div className="text-sm text-slate-600">Per Student</div>
+            <div className="flex items-center p-4 bg-white rounded-xl shadow-md border border-gray-100">
+              <div className="p-2 rounded-lg bg-gradient-to-r from-red-500 to-purple-600 mr-3">
+                <CurrencyDollarIcon className="w-5 h-5 text-white" />
+              </div>
+              <div>
+                <div className="text-sm font-medium text-gray-700">Per Student</div>
+                <div className="text-lg font-bold text-gray-900">₹100K</div>
+              </div>
             </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-amber-600">5+</div>
-              <div className="text-sm text-slate-600">Global Programs</div>
+            <div className="flex items-center p-4 bg-white rounded-xl shadow-md border border-gray-100">
+              <div className="p-2 rounded-lg bg-gradient-to-r from-red-500 to-purple-600 mr-3">
+                <GlobeAltIcon className="w-5 h-5 text-white" />
+              </div>
+              <div>
+                <div className="text-sm font-medium text-gray-700">Programs</div>
+                <div className="text-lg font-bold text-gray-900">CPA US</div>
+              </div>
             </div>
           </motion.div>
         </motion.div>
@@ -189,7 +179,7 @@ const Super300ScholarshipValue = () => {
               whileHover={{ y: -5, scale: 1.02 }}
               className="relative group"
             >
-              <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 border border-amber-200/50 shadow-lg hover:shadow-xl transition-all duration-300">
+              <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 border border-red-200/50 shadow-lg hover:shadow-xl transition-all duration-300">
                 {/* Icon */}
                 <motion.div
                   animate={{ 
@@ -197,9 +187,11 @@ const Super300ScholarshipValue = () => {
                     scale: [1, 1.1, 1]
                   }}
                   transition={{ duration: 4, repeat: Infinity }}
-                  className="text-5xl mb-4 text-center"
+                  className="mb-4 text-center"
                 >
-                  {card.icon}
+                  {index === 0 && (<CheckCircleIcon className="w-10 h-10 text-red-600 inline-block" />)}
+                  {index === 1 && (<CurrencyDollarIcon className="w-10 h-10 text-red-600 inline-block" />)}
+                  {index === 2 && (<GlobeAltIcon className="w-10 h-10 text-red-600 inline-block" />)}
                 </motion.div>
                 
                 {/* Content */}
@@ -212,13 +204,13 @@ const Super300ScholarshipValue = () => {
                 
                 {/* Highlight Badge */}
                 <div className="text-center">
-                  <span className="inline-block px-3 py-1 bg-amber-100 text-amber-700 text-sm font-medium rounded-full">
+                  <span className="inline-block px-3 py-1 bg-red-100 text-red-700 text-sm font-medium rounded-full">
                     {card.highlight}
                   </span>
                 </div>
 
                 {/* Hover Glow */}
-                <div className="absolute inset-0 bg-gradient-to-r from-amber-400/10 to-orange-400/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-r from-red-400/10 to-purple-400/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
             </motion.div>
           ))}
@@ -242,7 +234,7 @@ const Super300ScholarshipValue = () => {
               initial={{ width: 0 }}
               animate={isInView ? { width: "100%" } : {}}
               transition={{ duration: 2, delay: 1.2 }}
-              className="absolute top-12 left-0 h-1 bg-gradient-to-r from-amber-400 to-orange-500 rounded-full hidden md:block"
+              className="absolute top-12 left-0 h-1 bg-gradient-to-r from-red-500 to-purple-600 rounded-full hidden md:block"
             />
 
             <div className="grid md:grid-cols-4 gap-8">
@@ -257,13 +249,13 @@ const Super300ScholarshipValue = () => {
                   {/* Step Circle */}
                   <motion.div
                     whileHover={{ scale: 1.1 }}
-                    className="relative z-10 w-24 h-24 mx-auto mb-4 bg-gradient-to-r from-amber-400 to-orange-500 rounded-full flex items-center justify-center shadow-lg"
+                    className="relative z-10 w-24 h-24 mx-auto mb-4 bg-gradient-to-r from-red-500 to-purple-600 rounded-full flex items-center justify-center shadow-lg"
                   >
                     <span className="text-3xl">{step.icon}</span>
                   </motion.div>
 
                   {/* Step Number */}
-                  <div className="text-sm font-bold text-amber-600 mb-2">
+                  <div className="text-sm font-bold text-red-600 mb-2">
                     STEP {step.step}
                   </div>
 
@@ -289,7 +281,7 @@ const Super300ScholarshipValue = () => {
           transition={{ duration: 0.8, delay: 1.8 }}
           className="text-center"
         >
-          <div className="bg-white/90 backdrop-blur-sm rounded-3xl p-8 border border-amber-200/50 shadow-xl">
+          <div className="bg-white/90 backdrop-blur-sm rounded-3xl p-8 border border-red-200/50 shadow-xl">
             <motion.div
               animate={{ scale: [1, 1.05, 1] }}
               transition={{ duration: 3, repeat: Infinity }}
@@ -307,20 +299,19 @@ const Super300ScholarshipValue = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+              <LeadFormButton
+                formType="general"
+                isSendOtp={true}
+                className="w-full sm:w-auto bg-gradient-to-r from-red-600 to-purple-600 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 inline-flex items-center justify-center"
               >
-                Apply Now →
-              </motion.button>
-              
+                Apply for Super 300
+              </LeadFormButton>
               <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 border-2 border-amber-500 text-amber-600 font-semibold rounded-xl hover:bg-amber-50 transition-all duration-300"
+                whileHover={{ scale: 1.02 }}
+                type="button"
+                className="px-8 py-4 border-2 border-red-500 text-red-600 font-semibold rounded-xl hover:bg-red-50 transition-all duration-300"
               >
-                Check Eligibility
+                Download Brochure
               </motion.button>
             </div>
 
