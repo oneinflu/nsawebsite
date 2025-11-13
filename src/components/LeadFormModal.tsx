@@ -435,13 +435,12 @@ const LeadFormModal = () => {
     if (isOpen) {
       const getLS = (k: string) => localStorage.getItem(k) || "";
       updateFormData({
-        // Core UTMs
+       
         utm_source: getLS("utm_source"),
         utm_medium: getLS("utm_medium"),
         utm_campaign: getLS("utm_campaign"),
         utm_term: getLS("utm_term"),
         utm_content: getLS("utm_content"),
-        // Extended UTMs/ad params
         utm_id: getLS("utm_id"),
         utm_source_platform: getLS("utm_source_platform"),
         utm_creative_format: getLS("utm_creative_format"),
@@ -513,12 +512,69 @@ const LeadFormModal = () => {
     const visitorId = (typeof window !== 'undefined') ? (localStorage.getItem('nsa_visitor_id') || '') : '';
     const sessionId = (typeof window !== 'undefined') ? (localStorage.getItem('nsa_session_id') || '') : '';
     const leadSource = (() => {
-      if (typeof window === 'undefined') return '';
+      if (typeof window === 'undefined') return { Source: 'organic', SubSource: 'Website' };
       const title = (typeof document !== 'undefined' ? document.title : '') || '';
-      const path = pathname || '';
-      if (path.startsWith('/lp/')) return `Landing Page | ${title}`;
-      if (path.startsWith('/blogs')) return 'Blogs';
-      return title;
+      const path = pathname || (typeof window !== 'undefined' ? window.location.pathname : '');
+      const ref = (typeof document !== 'undefined' ? document.referrer : '');
+      const refHost = (() => {
+        try { return ref ? new URL(ref).hostname : ''; } catch { return ''; }
+      })();
+
+      const params = new URLSearchParams(window.location.search);
+      const utmKeys = [
+        'utm_source','utm_medium','utm_campaign','utm_term','utm_content','utm_id',
+        'utm_source_platform','utm_creative_format','utm_audience','utm_ad_id',
+        'gclid','fblid','utm_adgroup','utm_adname','sitelink','matchtype','category',
+        'device','network','promotion','placement','geo'
+      ];
+      const hasAnyUtm = utmKeys.some((k) => !!params.get(k));
+
+      const toTitle = (s: string) => s.replace(/\s+/g, ' ').trim();
+
+      const mapCoursePage = () => {
+        if (path.startsWith('/cpa-course-details')) return 'Website | CPA US Course Page';
+        if (path.startsWith('/cma-usa-course-details')) return 'Website | CMA US Course Page';
+        if (path.startsWith('/enrolled-agent-course-details')) return 'Website | EA Course Page';
+        if (path.startsWith('/acca-course-details')) return 'Website | ACCA Course Page';
+        if (path.startsWith('/cfa-us')) return 'Website | CFA US Course Page';
+        if (path.startsWith('/cia')) return 'Website | CIA Course Page';
+        return null;
+      };
+
+      const subSourceOrganic = (() => {
+        if (path.startsWith('/blogs')) return 'Website | Blogs';
+        if (path.startsWith('/contact')) return 'Website | Contact Us';
+        const courseLabel = mapCoursePage();
+        if (courseLabel) return courseLabel;
+        if (refHost.includes('instagram.com')) return 'Instagram';
+        if (refHost.includes('whatsapp.com') || refHost.includes('wa.me')) return 'Whatsapp';
+        const sameHost = (typeof window !== 'undefined' ? window.location.hostname : '');
+        if (ref && refHost && sameHost && refHost !== sameHost) {
+          return 'Referral';
+        }
+        return `Website | ${toTitle(title) || 'Page'}`;
+      })();
+
+      const utmSource = (params.get('utm_source') || '').toLowerCase();
+      const utmMedium = (params.get('utm_medium') || '').toLowerCase();
+      const utmCampaign = (params.get('utm_campaign') || '').toLowerCase();
+      const subSourcePaid = (() => {
+        const s = utmSource;
+        if (s.includes('google') || s.includes('adwords') || s.includes('gads')) return 'Google';
+        if (s.includes('facebook') || s.includes('meta') || s.includes('fb')) return 'Facebook';
+        if (s.includes('instagram') || s.includes('ig')) return 'Instagram';
+        if (s.includes('quora')) return 'Quora';
+        if (s.includes('whatsapp') || utmMedium.includes('whatsapp')) return 'Whatsapp';
+        if (utmCampaign.includes('webinar')) return 'Webinars';
+        if (utmMedium.includes('influencer') || utmCampaign.includes('influencer')) return 'Influencer';
+        if (path.startsWith('/lp/')) return 'Landing Page';
+        return s ? s.charAt(0).toUpperCase() + s.slice(1) : 'Paid';
+      })();
+
+      return {
+        Source: hasAnyUtm ? 'paid' : 'organic',
+        SubSource: hasAnyUtm ? subSourcePaid : subSourceOrganic,
+      };
     })();
     const fullUrl = (typeof window !== 'undefined') ? window.location.href : sessionReferrer;
     const leadOrigin = `${formData.course || ''}|${formType}`;
