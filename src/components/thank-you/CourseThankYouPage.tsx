@@ -59,6 +59,23 @@ export default function CourseThankYouPage({ course }: { course: string }) {
   };
   const prospectus = getProspectusForCourse(course);
 
+   const getRoadmapsForCourse = (c: string): { href: string; filename: string } | null => {
+    switch (c) {
+      case 'acca-uk':
+        return { href: '/roadmaps/ACCA.pdf', filename: 'ACCA.pdf' };
+      case 'cma-usa':
+        return { href: '/roadmaps/CMA.pdf', filename: 'CMA.pdf' };
+      case 'cpa-us':
+        return { href: '/roadmaps/CPA.pdf', filename: 'CPA.pdf' };
+      case 'enrolled-agent':
+        return { href: '/roadmaps/EA.pdf', filename: 'EA.pdf' };
+      default:
+        return null; // Hide for CIA, CFA, or generic/all-courses pages
+    }
+  };
+  const roadmaps = getRoadmapsForCourse(course);
+  
+
   // Map course slug to WhatsApp group links
   const getWhatsAppGroupLinkForCourse = (c: string): string | null => {
     switch (c) {
@@ -166,6 +183,19 @@ export default function CourseThankYouPage({ course }: { course: string }) {
       document.body.removeChild(a);
     } catch {
       window.open(prospectus.href, '_blank');
+    }
+  };
+const downloadRoadmaps = () => {
+    if (!roadmaps) return;
+    try {
+      const a = document.createElement('a');
+      a.href = roadmaps.href;
+      a.download = roadmaps.filename;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    } catch {
+      window.open(roadmaps.href, '_blank');
     }
   };
 
@@ -360,6 +390,26 @@ export default function CourseThankYouPage({ course }: { course: string }) {
             <div className="space-y-3 sm:space-y-4">
               <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-3 sm:mb-4">Free Resources</h3>
               
+              {roadmaps && (
+                <div 
+                  className="flex items-center justify-between p-3 sm:p-4 bg-purple-50 rounded-lg cursor-pointer hover:bg-purple-100 transition-colors"
+                  onClick={downloadRoadmaps}
+                >
+                  <div className="flex items-center gap-2 sm:gap-3">
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 bg-purple-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <span className="text-white text-sm sm:text-lg">🛣️</span>
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <div className="font-medium text-gray-900 text-sm sm:text-base">Download Roadmaps</div>
+                      <div className="text-xs sm:text-sm text-gray-600">Complete Course Roadmap guide</div>
+                    </div>
+                  </div>
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              )}
+
               {prospectus && (
                 <div 
                   className="flex items-center justify-between p-3 sm:p-4 bg-red-50 rounded-lg cursor-pointer hover:bg-red-100 transition-colors"
