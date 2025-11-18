@@ -552,7 +552,7 @@ const LeadFormModal = () => {
         if (ref && refHost && sameHost && refHost !== sameHost) {
           return 'Referral';
         }
-        return `Website | ${toTitle(title) || 'Page'}`;
+        return `Website`;
       })();
 
       const utmSource = (params.get('utm_source') || '').toLowerCase();
