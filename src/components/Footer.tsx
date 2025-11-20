@@ -353,8 +353,8 @@ export default function Footer() {
                 <p>© 2025 NorthStar Academy. All rights reserved.</p>
               </div>
               <div className="flex space-x-6">
-                <a href="#terms" className="hover:text-white transition-colors duration-300">Terms & Conditions</a>
-                <a href="#privacy" className="hover:text-white transition-colors duration-300">Privacy Policy</a>
+                <a href="/terms-and-conditions" className="hover:text-white transition-colors duration-300">Terms & Conditions</a>
+                <a href="/privacy-policy" className="hover:text-white transition-colors duration-300">Privacy Policy</a>
                 <a href="#cookies" className="hover:text-white transition-colors duration-300">Cookie Preferences</a>
               </div>
             </div>

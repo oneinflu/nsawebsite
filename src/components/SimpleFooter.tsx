@@ -121,8 +121,8 @@ const SimpleFooter = () => {
                   <Link href="/privacy-policy" className="text-gray-400 hover:text-white transition-colors duration-200">
                     Privacy Policy
                   </Link>
-                  <Link href="/terms-of-service" className="text-gray-400 hover:text-white transition-colors duration-200">
-                    Terms of Service
+                  <Link href="/terms-and-conditions" className="text-gray-400 hover:text-white transition-colors duration-200">
+                    Terms & Conditions
                   </Link>
                   <Link href="/refund-policy" className="text-gray-400 hover:text-white transition-colors duration-200">
                     Refund Policy
