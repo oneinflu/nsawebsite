@@ -557,24 +557,27 @@ const LeadFormModal = () => {
         ? localStorage.getItem('gclid') || ''
         : '');
     const referrer = typeof document !== 'undefined' ? document.referrer : '';
-    let leadSource = '';
-    if (sourceParam) {
-      leadSource = sourceParam;
-    } else if (utmSource) {
-      leadSource = utmSource;
-    } else if (gclidParam) {
+    const isMeaningful = (val?: string | null) => {
+      const v = (val || '').trim().toLowerCase();
+      return !!v && v !== 'null' && v !== 'undefined';
+    };
+
+    let leadSource = 'website';
+    if (isMeaningful(sourceParam)) {
+      leadSource = (sourceParam || '').trim();
+    } else if (isMeaningful(utmSource)) {
+      leadSource = (utmSource || '').trim();
+    } else if (isMeaningful(gclidParam)) {
       leadSource = 'google_ads';
-    } else if (referrer) {
+    } else if (isMeaningful(referrer)) {
       try {
-        const refUrl = new URL(referrer);
+        const refUrl = new URL(referrer || '');
         leadSource = /google\./i.test(refUrl.hostname)
           ? 'google_search'
-          : refUrl.hostname;
+          : refUrl.hostname || 'website';
       } catch {
         leadSource = 'website';
       }
-    } else {
-      leadSource = 'website';
     }
 
     const leadSubSource =
