@@ -1,22 +1,22 @@
 /* eslint-disable @typescript-eslint/no-unused-expressions */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-"use client";
-import React, { useState, useEffect, useRef } from "react";
-import { useLeadForm } from "@/context/LeadFormContext";
-import { useRouter, usePathname } from "next/navigation";
-import BrandingPanel from "./lead-form/BrandingPanel";
-import DetailsForm from "./lead-form/DetailsForm";
-import OtpForm from "./lead-form/OtpForm";
-import { formConfigs, FormType, FormConfig } from "./lead-form/formConfigs";
+'use client';
+import React, { useState, useEffect, useRef } from 'react';
+import { useLeadForm } from '@/context/LeadFormContext';
+import { useRouter, usePathname } from 'next/navigation';
+import BrandingPanel from './lead-form/BrandingPanel';
+import DetailsForm from './lead-form/DetailsForm';
+import OtpForm from './lead-form/OtpForm';
+import { formConfigs, FormType, FormConfig } from './lead-form/formConfigs';
 
 // formConfigs now imported from ./lead-form/formConfigs for easy editing and reuse
 // Helper: safely resolve config for a potentially untyped formType
 const FORM_TYPES: readonly FormType[] = [
-  "general",
-  "download-syllabus",
-  "download-placement-report",
-  "download-hackdoc",
-  "book-webinar",
+  'general',
+  'download-syllabus',
+  'download-placement-report',
+  'download-hackdoc',
+  'book-webinar',
 ] as const;
 
 const isFormType = (t: string): t is FormType => {
@@ -24,7 +24,7 @@ const isFormType = (t: string): t is FormType => {
 };
 
 const getConfigFor = (t: string): FormConfig => {
-  return formConfigs[isFormType(t) ? t : "general"];
+  return formConfigs[isFormType(t) ? t : 'general'];
 };
 
 const LeadFormModal = () => {
@@ -45,41 +45,25 @@ const LeadFormModal = () => {
   const router = useRouter();
   const pathname = usePathname();
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [phoneError, setPhoneError] = useState("");
-  const [otp, setOtp] = useState("");
-  const [otpError, setOtpError] = useState("");
+  const [phoneError, setPhoneError] = useState('');
+  const [otp, setOtp] = useState('');
+  const [otpError, setOtpError] = useState('');
   const [leadId, setLeadId] = useState<string | null>(null);
   const [isEditingPhone, setIsEditingPhone] = useState(false);
-  const [editPhoneValue, setEditPhoneValue] = useState("");
-  const [editDialCode, setEditDialCode] = useState("91");
+  const [editPhoneValue, setEditPhoneValue] = useState('');
+  const [editDialCode, setEditDialCode] = useState('91');
   const inputRef = useRef<HTMLInputElement>(null);
-  const [ipAddress, setIpAddress] = useState("");
-  const [sessionReferrer, setSessionReferrer] = useState("");
-  const [otpNotice, setOtpNotice] = useState<string>("");
-  const [locationData, setLocationData] = useState<{ country: string; region: string; city: string; pin_code: string }>({ country: "", region: "", city: "", pin_code: "" });
+  const [ipAddress, setIpAddress] = useState('');
+  const [sessionReferrer, setSessionReferrer] = useState('');
+  const [otpNotice, setOtpNotice] = useState<string>('');
+  const [locationData, setLocationData] = useState<{
+    country: string;
+    region: string;
+    city: string;
+    pin_code: string;
+  }>({ country: '', region: '', city: '', pin_code: '' });
   const entryTimeRef = useRef<Date | null>(null);
-  const lastUrlRef = useRef<string>("");
-
-  // Persist UTM params from URL to localStorage on mount
-  useEffect(() => {
-    if (typeof window === 'undefined') return;
-    try {
-      const keys = [
-        'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content',
-        'utm_id', 'utm_source_platform', 'utm_creative_format', 'utm_audience',
-        'utm_ad_id', 'gclid', 'fblid',
-        // Additional ad/utm params to capture
-        'utm_adgroup', 'utm_adname', 'sitelink', 'matchtype', 'category', 'device', 'network', 'promotion', 'placement', 'geo'
-      ];
-      const params = new URLSearchParams(window.location.search);
-      keys.forEach((k) => {
-        const v = params.get(k);
-        if (v) localStorage.setItem(k, v);
-      });
-    } catch (err) {
-      console.warn('Failed to parse UTM params from URL', err);
-    }
-  }, []);
+  const lastUrlRef = useRef<string>('');
 
   // Ensure visitor_id exists in localStorage (session_id is created via backend API)
   useEffect(() => {
@@ -87,7 +71,10 @@ const LeadFormModal = () => {
     const VISITOR_KEY = 'nsa_visitor_id';
     try {
       if (!localStorage.getItem(VISITOR_KEY)) {
-        const vid = (crypto && 'randomUUID' in crypto) ? crypto.randomUUID() : `${Date.now()}-${Math.random().toString(36).slice(2)}`;
+        const vid =
+          crypto && 'randomUUID' in crypto
+            ? crypto.randomUUID()
+            : `${Date.now()}-${Math.random().toString(36).slice(2)}`;
         localStorage.setItem(VISITOR_KEY, vid);
       }
     } catch (err) {
@@ -98,11 +85,11 @@ const LeadFormModal = () => {
   useEffect(() => {
     const fetchIp = async () => {
       try {
-        const response = await fetch("https://api.ipify.org?format=json");
+        const response = await fetch('https://api.ipify.org?format=json');
         const data = await response.json();
         setIpAddress(data.ip);
       } catch (error) {
-        console.error("Error fetching IP address:", error);
+        console.error('Error fetching IP address:', error);
       }
     };
 
@@ -111,7 +98,7 @@ const LeadFormModal = () => {
     if (typeof window !== 'undefined') {
       setSessionReferrer(window.location.href);
     } else {
-      setSessionReferrer("direct");
+      setSessionReferrer('direct');
     }
   }, []);
 
@@ -149,10 +136,13 @@ const LeadFormModal = () => {
         const now = new Date();
         const entryTime = entryTimeRef.current || now;
         const exitTime = now;
-        const time_spent_seconds = Math.max(1, Math.round((exitTime.getTime() - entryTime.getTime()) / 1000));
+        const time_spent_seconds = Math.max(
+          1,
+          Math.round((exitTime.getTime() - entryTime.getTime()) / 1000)
+        );
         const pageEntry = {
           url: lastUrlRef.current || window.location.href,
-          title: (typeof document !== 'undefined' ? document.title : ''),
+          title: typeof document !== 'undefined' ? document.title : '',
           time_spent_seconds,
           entry_time: entryTime.toISOString(),
           exit_time: exitTime.toISOString(),
@@ -165,7 +155,8 @@ const LeadFormModal = () => {
 
         // Build UTM data from URL first, then localStorage fallback (POST only)
         const params = new URLSearchParams(window.location.search);
-        const getUtm = (k: string) => (params.get(k) || localStorage.getItem(k) || '');
+        const getUtm = (k: string) =>
+          params.get(k) || localStorage.getItem(k) || '';
         const utm_data = {
           utm_source: getUtm('utm_source'),
           utm_medium: getUtm('utm_medium'),
@@ -225,8 +216,11 @@ const LeadFormModal = () => {
             // Ignore network errors; do not block navigation
           }
         } else {
-          const prevTimes = parseInt(localStorage.getItem(TIMES_KEY) || '1', 10);
-          const times = (isNaN(prevTimes) ? 1 : prevTimes + 1);
+          const prevTimes = parseInt(
+            localStorage.getItem(TIMES_KEY) || '1',
+            10
+          );
+          const times = isNaN(prevTimes) ? 1 : prevTimes + 1;
           const payload = {
             pages_visited: [pageEntry],
             times,
@@ -234,11 +228,14 @@ const LeadFormModal = () => {
             utm_data,
           };
           try {
-            const resp = await fetch(`https://api.starforze.com/api/session/${existingSessionId}`, {
-              method: 'PATCH',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify(payload),
-            });
+            const resp = await fetch(
+              `https://api.starforze.com/api/session/${existingSessionId}`,
+              {
+                method: 'PATCH',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload),
+              }
+            );
             if (resp.ok) {
               const result = await resp.json();
               const total_visits = result?.data?.total_visits;
@@ -252,7 +249,9 @@ const LeadFormModal = () => {
         // Swallow errors silently; we don't want to break page exit
       }
     };
-    const onBeforeUnload = () => { finalizePage(); };
+    const onBeforeUnload = () => {
+      finalizePage();
+    };
     window.addEventListener('beforeunload', onBeforeUnload);
     return () => {
       window.removeEventListener('beforeunload', onBeforeUnload);
@@ -269,10 +268,13 @@ const LeadFormModal = () => {
         const now = new Date();
         const entryTime = entryTimeRef.current || now;
         const exitTime = now;
-        const time_spent_seconds = Math.max(1, Math.round((exitTime.getTime() - entryTime.getTime()) / 1000));
+        const time_spent_seconds = Math.max(
+          1,
+          Math.round((exitTime.getTime() - entryTime.getTime()) / 1000)
+        );
         const pageEntry = {
           url: lastUrlRef.current || window.location.href,
-          title: (typeof document !== 'undefined' ? document.title : ''),
+          title: typeof document !== 'undefined' ? document.title : '',
           time_spent_seconds,
           entry_time: entryTime.toISOString(),
           exit_time: exitTime.toISOString(),
@@ -286,7 +288,8 @@ const LeadFormModal = () => {
           // If a session doesn't exist yet, create it on the first route change using minimal data
           const times = 1;
           const params = new URLSearchParams(window.location.search);
-          const getUtm = (k: string) => (params.get(k) || localStorage.getItem(k) || '');
+          const getUtm = (k: string) =>
+            params.get(k) || localStorage.getItem(k) || '';
           const utm_data = {
             utm_source: getUtm('utm_source'),
             utm_medium: getUtm('utm_medium'),
@@ -341,11 +344,15 @@ const LeadFormModal = () => {
             }
           } catch {}
         } else {
-          const prevTimes = parseInt(localStorage.getItem(TIMES_KEY) || '1', 10);
-          const times = (isNaN(prevTimes) ? 1 : prevTimes + 1);
+          const prevTimes = parseInt(
+            localStorage.getItem(TIMES_KEY) || '1',
+            10
+          );
+          const times = isNaN(prevTimes) ? 1 : prevTimes + 1;
           // Build UTM data for PATCH updates as well
           const params2 = new URLSearchParams(window.location.search);
-          const getUtm2 = (k: string) => (params2.get(k) || localStorage.getItem(k) || '');
+          const getUtm2 = (k: string) =>
+            params2.get(k) || localStorage.getItem(k) || '';
           const utm_data = {
             utm_source: getUtm2('utm_source'),
             utm_medium: getUtm2('utm_medium'),
@@ -377,11 +384,14 @@ const LeadFormModal = () => {
             utm_data,
           };
           try {
-            const resp = await fetch(`https://api.starforze.com/api/session/${existingSessionId}`, {
-              method: 'PATCH',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify(payload),
-            });
+            const resp = await fetch(
+              `https://api.starforze.com/api/session/${existingSessionId}`,
+              {
+                method: 'PATCH',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload),
+              }
+            );
             if (resp.ok) {
               const result = await resp.json();
               const total_visits = result?.data?.total_visits;
@@ -402,8 +412,8 @@ const LeadFormModal = () => {
 
   useEffect(() => {
     if (
-      pathname.startsWith("/thank-you") ||
-      pathname.startsWith("/a/thank-you")
+      pathname.startsWith('/thank-you') ||
+      pathname.startsWith('/a/thank-you')
     ) {
       closeLeadForm();
     }
@@ -413,18 +423,20 @@ const LeadFormModal = () => {
   useEffect(() => {
     if (!isOpen) return;
     if (formData.course) return; // already set via button or prior state
-    const path = pathname || "/";
-    if (path === "/") return; // base URL -> selector visible
+    const path = pathname || '/';
+    if (path === '/') return; // base URL -> selector visible
     const lower = path.toLowerCase();
     // Do NOT auto-detect course on blog pages; always show selector there
-    if (lower.startsWith("/blogs")) return;
+    if (lower.startsWith('/blogs')) return;
     let detected: string | null = null;
-    if (lower.includes("cpa")) detected = "CPA";
-    else if (lower.includes("cma")) detected = "CMA USA";
-    else if (lower.includes("acca")) detected = "ACCA";
-    else if (lower.includes("enrolled-agent") || lower.includes("ea")) detected = "EA";
-    else if (lower.includes("cfa-us") || lower.includes("cfa")) detected = "CFA";
-    else if (lower.includes("cia")) detected = "CIA";
+    if (lower.includes('cpa')) detected = 'CPA';
+    else if (lower.includes('cma')) detected = 'CMA USA';
+    else if (lower.includes('acca')) detected = 'ACCA';
+    else if (lower.includes('enrolled-agent') || lower.includes('ea'))
+      detected = 'EA';
+    else if (lower.includes('cfa-us') || lower.includes('cfa'))
+      detected = 'CFA';
+    else if (lower.includes('cia')) detected = 'CIA';
     if (detected) {
       updateFormData({ course: detected });
       setIsCourseLocked(true);
@@ -433,67 +445,75 @@ const LeadFormModal = () => {
 
   useEffect(() => {
     if (isOpen) {
-      const getLS = (k: string) => localStorage.getItem(k) || "";
+      const getLS = (k: string) => localStorage.getItem(k) || '';
       updateFormData({
-       
-        utm_source: getLS("utm_source"),
-        utm_medium: getLS("utm_medium"),
-        utm_campaign: getLS("utm_campaign"),
-        utm_term: getLS("utm_term"),
-        utm_content: getLS("utm_content"),
-        utm_id: getLS("utm_id"),
-        utm_source_platform: getLS("utm_source_platform"),
-        utm_creative_format: getLS("utm_creative_format"),
-        utm_audience: getLS("utm_audience"),
-        utm_ad_id: getLS("utm_ad_id"),
-        gclid: getLS("gclid"),
-        fblid: getLS("fblid"),
-        utm_adgroup: getLS("utm_adgroup"),
-        utm_adname: getLS("utm_adname"),
-        sitelink: getLS("sitelink"),
-        matchtype: getLS("matchtype"),
-        category: getLS("category"),
-        device: getLS("device"),
-        network: getLS("network"),
-        promotion: getLS("promotion"),
-        placement: getLS("placement"),
-        geo: getLS("geo"),
+        utm_source: getLS('utm_source'),
+        utm_medium: getLS('utm_medium'),
+        utm_campaign: getLS('utm_campaign'),
+        utm_term: getLS('utm_term'),
+        utm_content: getLS('utm_content'),
+        utm_id: getLS('utm_id'),
+        utm_source_platform: getLS('utm_source_platform'),
+        utm_creative_format: getLS('utm_creative_format'),
+        utm_audience: getLS('utm_audience'),
+        utm_ad_id: getLS('utm_ad_id'),
+        gclid: getLS('gclid'),
+        fblid: getLS('fblid'),
+        utm_adgroup: getLS('utm_adgroup'),
+        utm_adname: getLS('utm_adname'),
+        sitelink: getLS('sitelink'),
+        matchtype: getLS('matchtype'),
+        category: getLS('category'),
+        device: getLS('device'),
+        network: getLS('network'),
+        promotion: getLS('promotion'),
+        placement: getLS('placement'),
+        geo: getLS('geo'),
         // Full URL
-        full_url: typeof window !== "undefined" ? window.location.href : "",
+        full_url: typeof window !== 'undefined' ? window.location.href : '',
       });
     }
   }, [isOpen, updateFormData]);
 
   // Google Places autocomplete removed: manual input or IP-based detection handled in DetailsForm
 
-  const handlePhoneChange = (value: string, country?: { dialCode?: string }) => {
-    const digitsOnly = (value || "").replace(/\D/g, "");
-    const dial = (country?.dialCode || formData.country_code || "").replace(/\D/g, "");
+  const handlePhoneChange = (
+    value: string,
+    country?: { dialCode?: string }
+  ) => {
+    const digitsOnly = (value || '').replace(/\D/g, '');
+    const dial = (country?.dialCode || formData.country_code || '').replace(
+      /\D/g,
+      ''
+    );
     // Derive local number for validation
-    const local = digitsOnly.startsWith(dial) ? digitsOnly.slice(dial.length) : digitsOnly;
+    const local = digitsOnly.startsWith(dial)
+      ? digitsOnly.slice(dial.length)
+      : digitsOnly;
     // Basic validation: for India (91), enforce 10-digit local number
-    if ((dial || "91") === "91" && local.length !== 10) {
-      setPhoneError("Please enter a valid 10-digit Indian mobile number");
+    if ((dial || '91') === '91' && local.length !== 10) {
+      setPhoneError('Please enter a valid 10-digit Indian mobile number');
     } else {
-      setPhoneError("");
+      setPhoneError('');
     }
-    updateFormData({ phone: digitsOnly, country_code: dial || "91" });
+    updateFormData({ phone: digitsOnly, country_code: dial || '91' });
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     // Validate phone before submission
-    const countryCode = (formData.country_code || "").replace(/\D/g, "") || "91";
-    const fullDigits = (formData.phone || "").replace(/\D/g, "");
+    const countryCode =
+      (formData.country_code || '').replace(/\D/g, '') || '91';
+    const fullDigits = (formData.phone || '').replace(/\D/g, '');
     const localPhoneForCheck = fullDigits.startsWith(countryCode)
       ? fullDigits.slice(countryCode.length)
       : fullDigits;
-    if (countryCode === "91" && localPhoneForCheck.length !== 10) {
-      setPhoneError("Please enter a valid 10-digit Indian mobile number");
+    if (countryCode === '91' && localPhoneForCheck.length !== 10) {
+      setPhoneError('Please enter a valid 10-digit Indian mobile number');
       return;
     }
     if (!localPhoneForCheck) {
-      setPhoneError("Please enter your phone number");
+      setPhoneError('Please enter your phone number');
       return;
     }
     if (phoneError) {
@@ -508,103 +528,65 @@ const LeadFormModal = () => {
       ? fullDigits.slice(countryCode.length)
       : fullDigits;
 
-    // Gather tracking fields
-    const visitorId = (typeof window !== 'undefined') ? (localStorage.getItem('nsa_visitor_id') || '') : '';
-    const sessionId = (typeof window !== 'undefined') ? (localStorage.getItem('nsa_session_id') || '') : '';
-    const leadSource = (() => {
-      if (typeof window === 'undefined') return { Source: 'organic', SubSource: 'Website' };
-      const title = (typeof document !== 'undefined' ? document.title : '') || '';
-      const path = pathname || (typeof window !== 'undefined' ? window.location.pathname : '');
-      const ref = (typeof document !== 'undefined' ? document.referrer : '');
-      const refHost = (() => {
-        try { return ref ? new URL(ref).hostname : ''; } catch { return ''; }
-      })();
+    const sessionId =
+      typeof window !== 'undefined'
+        ? localStorage.getItem('nsa_session_id') || ''
+        : '';
 
-      const params = new URLSearchParams(window.location.search);
-      const utmKeys = [
-        'utm_source','utm_medium','utm_campaign','utm_term','utm_content','utm_id',
-        'utm_source_platform','utm_creative_format','utm_audience','utm_ad_id',
-        'gclid','fblid','utm_adgroup','utm_adname','sitelink','matchtype','category',
-        'device','network','promotion','placement','geo'
-      ];
-      const hasAnyUtm = utmKeys.some((k) => !!params.get(k));
-
-      const toTitle = (s: string) => s.replace(/\s+/g, ' ').trim();
-
-      const mapCoursePage = () => {
-        if (path.startsWith('/cpa-course-details')) return 'Website | CPA US Course Page';
-        if (path.startsWith('/cma-usa-course-details')) return 'Website | CMA US Course Page';
-        if (path.startsWith('/enrolled-agent-course-details')) return 'Website | EA Course Page';
-        if (path.startsWith('/acca-course-details')) return 'Website | ACCA Course Page';
-        if (path.startsWith('/cfa-us')) return 'Website | CFA US Course Page';
-        if (path.startsWith('/cia')) return 'Website | CIA Course Page';
-        return null;
-      };
-
-      const subSourceOrganic = (() => {
-        if (path.startsWith('/blogs')) return 'Website | Blogs';
-        if (path.startsWith('/contact')) return 'Website | Contact Us';
-        const courseLabel = mapCoursePage();
-        if (courseLabel) return courseLabel;
-        if (refHost.includes('instagram.com')) return 'Instagram';
-        if (refHost.includes('whatsapp.com') || refHost.includes('wa.me')) return 'Whatsapp';
-        const sameHost = (typeof window !== 'undefined' ? window.location.hostname : '');
-        if (ref && refHost && sameHost && refHost !== sameHost) {
-          return 'Referral';
-        }
-        return `Website`;
-      })();
-
-      const utmSource = (params.get('utm_source') || '').toLowerCase();
-      const utmMedium = (params.get('utm_medium') || '').toLowerCase();
-      const utmCampaign = (params.get('utm_campaign') || '').toLowerCase();
-      const subSourcePaid = (() => {
-        const s = utmSource;
-        if (s.includes('google') || s.includes('adwords') || s.includes('gads')) return 'Google';
-        if (s.includes('facebook') || s.includes('meta') || s.includes('fb')) return 'Facebook';
-        if (s.includes('instagram') || s.includes('ig')) return 'Instagram';
-        if (s.includes('quora')) return 'Quora';
-        if (s.includes('whatsapp') || utmMedium.includes('whatsapp')) return 'Whatsapp';
-        if (utmCampaign.includes('webinar')) return 'Webinars';
-        if (utmMedium.includes('influencer') || utmCampaign.includes('influencer')) return 'Influencer';
-        if (path.startsWith('/lp/')) return 'Landing Page';
-        return s ? s.charAt(0).toUpperCase() + s.slice(1) : 'Paid';
-      })();
-
-      return {
-        Source: hasAnyUtm ? 'paid' : 'organic',
-        SubSource: hasAnyUtm ? subSourcePaid : subSourceOrganic,
-      };
-    })();
-    const fullUrl = (typeof window !== 'undefined') ? window.location.href : sessionReferrer;
+    const fullUrl =
+      typeof window !== 'undefined' ? window.location.href : sessionReferrer;
     const leadOrigin = `${formData.course || ''}|${formType}`;
-    const params = (typeof window !== 'undefined') ? new URLSearchParams(window.location.search) : undefined;
-    const getUtmParam = (key: string): string => {
-      if (!params) return '';
-      const fromUrl = params.get(key) || '';
-      if (fromUrl) return fromUrl;
-      if (typeof window !== 'undefined') {
-        const fromStorage = localStorage.getItem(key) || '';
-        if (fromStorage) return fromStorage;
+
+    const params =
+      typeof window !== 'undefined'
+        ? new URLSearchParams(window.location.search)
+        : new URLSearchParams('');
+    const sourceParam =
+      params.get('source') ||
+      (typeof window !== 'undefined'
+        ? localStorage.getItem('source') || ''
+        : '');
+    const utmSource =
+      params.get('utm_source') ||
+      (typeof window !== 'undefined'
+        ? localStorage.getItem('utm_source') || ''
+        : '');
+    const gclidParam =
+      params.get('gclid') ||
+      (typeof window !== 'undefined'
+        ? localStorage.getItem('gclid') || ''
+        : '');
+    const referrer = typeof document !== 'undefined' ? document.referrer : '';
+    let leadSource = '';
+    if (sourceParam) {
+      leadSource = sourceParam;
+    } else if (utmSource) {
+      leadSource = utmSource;
+    } else if (gclidParam) {
+      leadSource = 'google_ads';
+    } else if (referrer) {
+      try {
+        const refUrl = new URL(referrer);
+        leadSource = /google\./i.test(refUrl.hostname)
+          ? 'google_search'
+          : refUrl.hostname;
+      } catch {
+        leadSource = 'website';
       }
-      return '';
-    };
-    const utmExtras = {
-      utm_id: getUtmParam('utm_id'),
-      utm_source_platform: getUtmParam('utm_source_platform'),
-      utm_creative_format: getUtmParam('utm_creative_format'),
-      utm_audience: getUtmParam('utm_audience'),
-      utm_ad_id: getUtmParam('utm_ad_id'),
-      gclid: getUtmParam('gclid'),
-      fblid: getUtmParam('fblid'),
-    };
+    } else {
+      leadSource = 'website';
+    }
+
+    const leadSubSource =
+      typeof document !== 'undefined' ? document.title : 'website';
 
     const leadData = {
-      form_id: "7e68ae1a-5765-489c-9b62-597b478c0fa0", // Hardcoded for now
+      form_id: '7e68ae1a-5765-489c-9b62-597b478c0fa0', // Hardcoded for now
       // Per requirement: use session ID as visitor_id in lead payload
       visitor_id: sessionId,
       session_id: sessionId,
       leadSource,
+      leadSubSource,
       leadOrigin,
       isSendOtp: isSendOtp,
       answers: {
@@ -622,47 +604,45 @@ const LeadFormModal = () => {
         accept_terms: formData.agreeToTerms,
         dynamic_fields: {
           how_did_you_hear_about_us: formData.howHeard,
-          page_title: (typeof document !== 'undefined' ? document.title : ''),
+          page_title: typeof document !== 'undefined' ? document.title : '',
         },
       },
       // Do not re-send UTM data here; it is captured in session
       location_data: {
-        country: "India", // Hardcoded for now
-        state: "", // To be implemented with location services
+        country: 'India', // Hardcoded for now
+        state: '', // To be implemented with location services
         city: formData.location,
-        pin_code: locationData.pin_code || "",
+        pin_code: locationData.pin_code || '',
       },
+      url: fullUrl,
       session_referrer: fullUrl,
       ip_address: ipAddress,
     };
 
     try {
-      const response = await fetch(
-        "https://api.starforze.com/api/leads",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(leadData),
-        }
-      );
+      const response = await fetch('https://api.starforze.com/api/leads', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(leadData),
+      });
 
       if (response.ok) {
         const result = await response.json();
         // Log the full lead creation response for debugging
-        console.log("Lead created successfully:", result);
+        console.log('Lead created successfully:', result);
         const id = result?.data?._id ?? result?.data?.id ?? null;
         setLeadId(id);
-        console.log("Captured leadId:", id);
+        console.log('Captured leadId:', id);
         setFormStep('otp');
       } else {
         const errorData = await response.json();
-        console.error("Form submission failed:", response.status, errorData);
+        console.error('Form submission failed:', response.status, errorData);
       }
     } catch (error) {
-      console.error("An error occurred:", error);
-      alert("An error occurred. Please try again later.");
+      console.error('An error occurred:', error);
+      alert('An error occurred. Please try again later.');
     } finally {
       setIsSubmitting(false);
     }
@@ -671,26 +651,26 @@ const LeadFormModal = () => {
   const handleOtpVerification = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!leadId) {
-      setOtpError("Lead ID not found. Please try again.");
+      setOtpError('Lead ID not found. Please try again.');
       return;
     }
 
     if (otp.length !== 4) {
-      setOtpError("OTP must be 4 digits.");
+      setOtpError('OTP must be 4 digits.');
       return;
     }
 
     setIsSubmitting(true);
-    setOtpError("");
-    console.log("Verifying OTP with leadId:", leadId, "otp:", otp);
+    setOtpError('');
+    console.log('Verifying OTP with leadId:', leadId, 'otp:', otp);
 
     try {
       const response = await fetch(
         `https://api.starforze.com/api/leads/${leadId}/verify-otp`,
         {
-          method: "POST",
+          method: 'POST',
           headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
           },
           body: JSON.stringify({ otp }),
         }
@@ -698,7 +678,7 @@ const LeadFormModal = () => {
 
       if (response.ok) {
         const result = await response.json();
-        console.log("OTP verification success:", result);
+        console.log('OTP verification success:', result);
         // If calculators gating is active, suppress thank-you and run custom action
         if (suppressThankYouOnOtp) {
           try {
@@ -707,40 +687,48 @@ const LeadFormModal = () => {
             closeLeadForm();
           }
         } else {
-          const inASection = pathname.startsWith("/a");
-          const courseId = (formData.course || "").trim();
+          const inASection = pathname.startsWith('/a');
+          const courseId = (formData.course || '').trim();
           const courseIdToSlug = (id: string): string => {
             switch (id) {
-              case "CPA": return "cpa-us";
-              case "CMA USA": return "cma-usa";
-              case "ACCA": return "acca-uk";
-              case "CIA": return "cia";
-              case "CFA": return "cfa-us";
-              case "EA": return "enrolled-agent";
+              case 'CPA':
+                return 'cpa-us';
+              case 'CMA USA':
+                return 'cma-usa';
+              case 'ACCA':
+                return 'acca-uk';
+              case 'CIA':
+                return 'cia';
+              case 'CFA':
+                return 'cfa-us';
+              case 'EA':
+                return 'enrolled-agent';
               default: {
                 const lower = pathname.toLowerCase();
-                if (lower.includes("cma-usa")) return "cma-usa";
-                if (lower.includes("cpa-us")) return "cpa-us";
-                if (lower.includes("acca-uk")) return "acca-uk";
-                if (lower.includes("cia")) return "cia";
-                if (lower.includes("cfa-us")) return "cfa-us";
-                return "cma-usa";
+                if (lower.includes('cma-usa')) return 'cma-usa';
+                if (lower.includes('cpa-us')) return 'cpa-us';
+                if (lower.includes('acca-uk')) return 'acca-uk';
+                if (lower.includes('cia')) return 'cia';
+                if (lower.includes('cfa-us')) return 'cfa-us';
+                return 'cma-usa';
               }
             }
           };
           const courseSlug = courseIdToSlug(courseId);
-          const target = inASection ? `/a/thank-you/${courseSlug}` : `/thank-you/${courseSlug}`;
+          const target = inASection
+            ? `/a/thank-you/${courseSlug}`
+            : `/thank-you/${courseSlug}`;
           router.push(target);
           // Close the lead form modal so the navigation is visible
           closeLeadForm();
         }
       } else {
         const errorData = await response.json();
-        console.error("OTP verification failed:", response.status, errorData);
-        setOtpError(errorData.message || "Invalid OTP. Please try again.");
+        console.error('OTP verification failed:', response.status, errorData);
+        setOtpError(errorData.message || 'Invalid OTP. Please try again.');
       }
     } catch (error) {
-      setOtpError("An error occurred. Please try again.");
+      setOtpError('An error occurred. Please try again.');
     } finally {
       setIsSubmitting(false);
     }
@@ -748,31 +736,31 @@ const LeadFormModal = () => {
 
   const handleResendOtp = async () => {
     if (!leadId) {
-      setOtpError("No lead found. Please submit the form again.");
+      setOtpError('No lead found. Please submit the form again.');
       return;
     }
     setIsSubmitting(true);
-    setOtpError("");
+    setOtpError('');
     try {
       const response = await fetch(
         `https://api.starforze.com/api/leads/${leadId}/send-otp`,
         {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
         }
       );
       if (response.ok) {
         const result = await response.json();
-        console.log("Resent OTP for lead:", result);
-        setOtp("");
-        setOtpNotice("OTP resent");
+        console.log('Resent OTP for lead:', result);
+        setOtp('');
+        setOtpNotice('OTP resent');
       } else {
         const err = await response.json();
-        setOtpError(err?.message || "Failed to resend OTP.");
+        setOtpError(err?.message || 'Failed to resend OTP.');
       }
     } catch (error) {
-      console.error("Resend OTP error:", error);
-      setOtpError("An error occurred. Please try again.");
+      console.error('Resend OTP error:', error);
+      setOtpError('An error occurred. Please try again.');
     } finally {
       setIsSubmitting(false);
     }
@@ -783,28 +771,33 @@ const LeadFormModal = () => {
     // Prefill from API if leadId exists
     if (!leadId) {
       // Fallback to current formData.phone
-      setEditDialCode("91");
-      setEditPhoneValue(formData.phone || "");
+      setEditDialCode('91');
+      setEditPhoneValue(formData.phone || '');
       return;
     }
     try {
-      const response = await fetch(`https://api.starforze.com/api/leads/${leadId}`);
+      const response = await fetch(
+        `https://api.starforze.com/api/leads/${leadId}`
+      );
       if (response.ok) {
         const result = await response.json();
-        const mobile = result?.data?.mobile || result?.data?.phone_number || "";
-        const ccode = result?.data?.countryCode || result?.data?.dialCode || "91";
+        const mobile = result?.data?.mobile || result?.data?.phone_number || '';
+        const ccode =
+          result?.data?.countryCode || result?.data?.dialCode || '91';
         setEditDialCode(String(ccode));
         // Combine for PhoneInput controlled value: dialCode + mobile
-        const combined = mobile ? `${ccode}${String(mobile).replace(/\D/g, "")}` : formData.phone;
-        setEditPhoneValue(combined || "");
+        const combined = mobile
+          ? `${ccode}${String(mobile).replace(/\D/g, '')}`
+          : formData.phone;
+        setEditPhoneValue(combined || '');
       } else {
-        setEditDialCode("91");
-        setEditPhoneValue(formData.phone || "");
+        setEditDialCode('91');
+        setEditPhoneValue(formData.phone || '');
       }
     } catch (error) {
-      console.error("Fetch lead details error:", error);
-      setEditDialCode("91");
-      setEditPhoneValue(formData.phone || "");
+      console.error('Fetch lead details error:', error);
+      setEditDialCode('91');
+      setEditPhoneValue(formData.phone || '');
     }
   };
 
@@ -819,39 +812,39 @@ const LeadFormModal = () => {
 
   const handleEditPhoneSubmit = async () => {
     if (!leadId) {
-      setOtpError("No lead found to update.");
+      setOtpError('No lead found to update.');
       return;
     }
     setIsSubmitting(true);
-    setOtpError("");
+    setOtpError('');
     // Parse mobile from combined value (dialCode + mobile)
     const dialLen = editDialCode.length;
-    const digitsOnly = editPhoneValue.replace(/\D/g, "");
+    const digitsOnly = editPhoneValue.replace(/\D/g, '');
     const mobile = digitsOnly.slice(dialLen);
     try {
       const updateResp = await fetch(
         `https://api.starforze.com/api/leads/${leadId}/update-mobile`,
         {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ mobile, countryCode: editDialCode }),
         }
       );
       if (!updateResp.ok) {
         const err = await updateResp.json();
-        setOtpError(err?.message || "Failed to update mobile.");
+        setOtpError(err?.message || 'Failed to update mobile.');
         setIsSubmitting(false);
         return;
       }
       // Update local form data phone
       updateFormData({ phone: `${editDialCode}${mobile}` });
       // Do not call send-otp again; updating mobile triggers OTP automatically
-      setOtp("");
+      setOtp('');
       setIsEditingPhone(false);
-      setOtpNotice("Mobile number updated and OTP sent");
+      setOtpNotice('Mobile number updated and OTP sent');
     } catch (error) {
-      console.error("Update mobile/send OTP error:", error);
-      setOtpError("An error occurred. Please try again.");
+      console.error('Update mobile/send OTP error:', error);
+      setOtpError('An error occurred. Please try again.');
     } finally {
       setIsSubmitting(false);
     }
@@ -889,7 +882,11 @@ const LeadFormModal = () => {
                 strokeWidth="2"
                 className="h-5 w-5"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M6 6l12 12M6 18L18 6" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M6 6l12 12M6 18L18 6"
+                />
               </svg>
             </button>
             <div className="grid grid-cols-1 md:grid-cols-2">
@@ -902,7 +899,7 @@ const LeadFormModal = () => {
 
               {/* Right side - Form */}
               <div className="p-8">
-                {formStep === "details" && (
+                {formStep === 'details' && (
                   <DetailsForm
                     formTitle={config.formTitle}
                     submitButtonText={config.submitButtonText}
@@ -912,12 +909,14 @@ const LeadFormModal = () => {
                     handlePhoneChange={handlePhoneChange}
                     phoneError={phoneError}
                     isSubmitting={isSubmitting}
-                    inputRef={inputRef as unknown as React.RefObject<HTMLInputElement | null>}
+                    inputRef={
+                      inputRef as unknown as React.RefObject<HTMLInputElement | null>
+                    }
                     isCourseLocked={isCourseLocked}
                   />
                 )}
 
-                {formStep === "otp" && (
+                {formStep === 'otp' && (
                   <OtpForm
                     phone={formData.phone}
                     otp={otp}
@@ -936,7 +935,7 @@ const LeadFormModal = () => {
                   />
                 )}
 
-                {formStep === "thankyou" && (
+                {formStep === 'thankyou' && (
                   <div className="text-center">
                     <h2 className="text-2xl font-bold text-gray-800 mb-4">
                       Thank You!
