@@ -541,44 +541,10 @@ const LeadFormModal = () => {
       typeof window !== 'undefined'
         ? new URLSearchParams(window.location.search)
         : new URLSearchParams('');
-    const sourceParam =
-      params.get('source') ||
-      (typeof window !== 'undefined'
-        ? localStorage.getItem('source') || ''
-        : '');
-    const utmSource =
-      params.get('utm_source') ||
-      (typeof window !== 'undefined'
-        ? localStorage.getItem('utm_source') || ''
-        : '');
-    const gclidParam =
-      params.get('gclid') ||
-      (typeof window !== 'undefined'
-        ? localStorage.getItem('gclid') || ''
-        : '');
-    const referrer = typeof document !== 'undefined' ? document.referrer : '';
-    const isMeaningful = (val?: string | null) => {
-      const v = (val || '').trim().toLowerCase();
-      return !!v && v !== 'null' && v !== 'undefined';
-    };
 
-    let leadSource = 'website';
-    if (isMeaningful(sourceParam)) {
-      leadSource = (sourceParam || '').trim();
-    } else if (isMeaningful(utmSource)) {
-      leadSource = (utmSource || '').trim();
-    } else if (isMeaningful(gclidParam)) {
-      leadSource = 'google_ads';
-    } else if (isMeaningful(referrer)) {
-      try {
-        const refUrl = new URL(referrer || '');
-        leadSource = /google\./i.test(refUrl.hostname)
-          ? 'google_search'
-          : refUrl.hostname || 'website';
-      } catch {
-        leadSource = 'website';
-      }
-    }
+    const leadSource =
+      (params.get('source') || params.get('utm_source') || '' || '').trim() ||
+      'website';
 
     const leadSubSource =
       typeof document !== 'undefined' ? document.title : 'website';
