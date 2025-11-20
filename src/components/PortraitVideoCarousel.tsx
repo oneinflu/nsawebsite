@@ -90,7 +90,7 @@ const PortraitVideoCarousel: React.FC<Props> = ({ videos, title = 'Student Stori
   };
 
   return (
-    <section id="video-stories" className="relative py-16">
+    <section id="video-stories" className="relative py-8 sm:py-16">
       <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-100" />
       <div className="relative max-w-6xl mx-auto px-4">
         <div className="mb-8 text-center">
@@ -117,11 +117,9 @@ const PortraitVideoCarousel: React.FC<Props> = ({ videos, title = 'Student Stori
         </div>
 
         {/* Horizontal list with drag/scroll */}
-        <motion.div
+        <div
           ref={listRef}
-          className="flex gap-4 overflow-x-auto snap-x snap-mandatory px-1"
-          drag="x"
-          dragConstraints={{ left: -400, right: 0 }}
+          className="flex gap-4 overflow-x-auto snap-x snap-mandatory px-1 cursor-grab active:cursor-grabbing"
         >
           {items.map((item, idx) => (
             <div
@@ -136,8 +134,8 @@ const PortraitVideoCarousel: React.FC<Props> = ({ videos, title = 'Student Stori
 
                 {/* Quote / prompt */}
                 {item.quote && (
-                  <div className="absolute top-3 left-3 right-3">
-                    <p className={`${playfair.className} text-white/95 text-[20px] sm:text-[22px] md:text-[24px] leading-tight drop-shadow-md line-clamp-2`}>{item.quote}</p>
+                  <div className="absolute top-3 left-3 right-3 text-center">
+                    <p className={`${playfair.className} text-white/95 text-[17px] sm:text-[19px] leading-tight drop-shadow-md line-clamp-2`}>{item.quote}</p>
                   </div>
                 )}
 
@@ -158,7 +156,7 @@ const PortraitVideoCarousel: React.FC<Props> = ({ videos, title = 'Student Stori
               </div>
             </div>
           ))}
-        </motion.div>
+        </div>
 
         {/* Modal viewer */}
         <AnimatePresence>

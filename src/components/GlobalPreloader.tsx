@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { usePathname } from 'next/navigation';
 
@@ -19,6 +19,34 @@ export default function GlobalPreloader({
   const pathname = usePathname();
   const [isLoading, setIsLoading] = useState(true);
   const lastPathRef = useRef(pathname);
+
+  // Disable scroll when loading
+  useEffect(() => {
+    if (isLoading) {
+      // Disable scrolling on both html and body
+      document.documentElement.style.overflow = 'hidden';
+      document.body.style.overflow = 'hidden';
+      document.body.style.position = 'fixed';
+      document.body.style.width = '100%';
+      document.body.style.height = '100%';
+    } else {
+      // Re-enable scrolling
+      document.documentElement.style.overflow = '';
+      document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.width = '';
+      document.body.style.height = '';
+    }
+    
+    return () => {
+      // Cleanup: ensure scrolling is restored
+      document.documentElement.style.overflow = '';
+      document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.width = '';
+      document.body.style.height = '';
+    };
+  }, [isLoading]);
 
   useEffect(() => {
     // Initial mount: show briefly
@@ -67,23 +95,23 @@ export default function GlobalPreloader({
           <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-red-900/50 to-black/80" />
 
           {/* Centered content */}
-          <div className="relative h-full w-full flex items-center justify-center">
+          <div className="relative h-full w-full flex items-center justify-center px-[20px] md:px-[32px]">
             <motion.div
               initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.5, ease: 'easeOut' }}
-              className="text-center px-6"
+              className="text-center"
             >
               <motion.img
                 src="/logo.svg"
                 alt="NorthStar Academy"
-                className="mx-auto h-16 sm:h-20 md:h-24 drop-shadow-xl"
+                className="mx-auto h-24 drop-shadow-xl"
                 initial={{ y: 10, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.6, ease: 'easeOut', delay: 0.1 }}
               />
               <motion.p
-                className="mt-4 sm:mt-5 text-white text-lg sm:text-xl md:text-2xl font-semibold tracking-wide drop-shadow-[0_2px_8px_rgba(0,0,0,0.45)]"
+                className="mt-5 text-white text-2xl font-semibold tracking-wide drop-shadow-[0_2px_8px_rgba(0,0,0,0.45)]"
                 initial={{ y: 12, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.6, ease: 'easeOut', delay: 0.2 }}
@@ -93,7 +121,7 @@ export default function GlobalPreloader({
 
               {/* Subtle progress indicator */}
               <motion.div
-                className="mx-auto mt-6 h-1 w-40 sm:w-48 md:w-56 bg-white/20 rounded-full overflow-hidden"
+                className="mx-auto mt-6 h-1 w-56 bg-white/20 rounded-full overflow-hidden"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.4 }}

@@ -26,7 +26,7 @@ const EASyllabus = () => {
       id: 'part-1',
       title: 'SEE Part 1: Individuals',
       subtitle: 'Individual Taxation',
-      description: 'Foundations of U.S. individual tax returns and rules',
+      description: 'Master U.S. individual tax returns, filing rules, and credits',
       topics: [
         'Filing requirements & statuses',
         'Gross income & adjustments',
@@ -43,7 +43,7 @@ const EASyllabus = () => {
       id: 'part-2',
       title: 'SEE Part 2: Businesses',
       subtitle: 'Business Taxation',
-      description: 'Taxation of entities and business operations',
+      description: 'Learn taxation of business entities and their operations',
       topics: [
         'Sole proprietorships & partnerships',
         'Corporations & S corps',
@@ -59,8 +59,8 @@ const EASyllabus = () => {
     {
       id: 'part-3',
       title: 'SEE Part 3: Representation',
-      subtitle: 'Practice, Procedures & Representation',
-      description: 'IRS practice rules, ethics, and taxpayer representation',
+      subtitle: 'Practice, Procedures & Representation ',
+      description: 'Understand IRS practice rules, ethics, and representatn',
       topics: [
         'Circular 230 & ethics',
         'Representation before IRS',
@@ -78,7 +78,7 @@ const EASyllabus = () => {
   const togglePart = (id: string) => setActivePart(activePart === id ? null : id);
 
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-50 to-red-50">
+    <section className="py-10 sm:py-20 bg-gradient-to-br from-gray-50 to-red-50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -91,7 +91,7 @@ const EASyllabus = () => {
             <AcademicCapIcon className="w-4 h-4 mr-2" />
             EA Certification Syllabus
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             SEE 3-Part Structure
             <span className="block text-red-600 mt-2">Clear Clarity</span>
           </h2>
@@ -100,29 +100,29 @@ const EASyllabus = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8 mb-16">
+        <div className="grid md:grid-cols-3 gap-8 mb-16 items-stretch">
           {parts.map((part, index) => (
             <motion.div key={part.id} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: index * 0.1 }}>
               <div className="bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden">
-                <div className={`bg-gradient-to-r ${part.color} p-6 text-white`}> 
+                <div className={`bg-gradient-to-r ${part.color} md:p-3 lg:p-6 text-white`}> 
                   <div className="flex items-center justify-between">
                     <div>
-                      <div className="text-sm opacity-90">{part.subtitle}</div>
-                      <h3 className="text-xl font-bold">{part.title}</h3>
+                      <div className="text-xs opacity-90">{part.subtitle}</div>
+                      <h3 className="text-lg font-bold">{part.title}</h3>
                     </div>
                     <part.icon className="w-8 h-8" />
                   </div>
                 </div>
 
-                <button onClick={() => togglePart(part.id)} className="w-full text-left p-6 flex items-center justify-between">
+                <button onClick={() => togglePart(part.id)} className="w-full text-left lg:p-6 md:p-4 flex items-center justify-between">
                   <div>
                     <p className="text-gray-700 mb-2">{part.description}</p>
                     <div className="text-sm text-gray-600">{part.examFormat}</div>
                   </div>
                   {activePart === part.id ? (
-                    <ChevronUpIcon className="w-6 h-6 text-gray-400" />
+                    <ChevronUpIcon className="w-10 h-6 text-black" />
                   ) : (
-                    <ChevronDownIcon className="w-6 h-6 text-gray-400" />
+                    <ChevronDownIcon className="w-10 h-6 text-black" />
                   )}
                 </button>
 

@@ -65,7 +65,7 @@ const EASalaryROI = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-50 to-red-50">
+    <section className="py-10 sm:py-20 bg-gradient-to-br from-gray-50 to-red-50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -75,8 +75,8 @@ const EASalaryROI = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900">EA Salary & ROI</h2>
-          <p className="text-xl text-gray-600">Typical U.S. ranges and payback outlook</p>
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-gray-900">EA Salary & ROI</h2>
+          <p className="text-base sm:text-xl text-gray-600">Typical U.S. ranges and payback outlook</p>
         </motion.div>
 
         {/* Salary tiles */}
@@ -91,7 +91,7 @@ const EASalaryROI = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mt-16"
+          className="lg:mt-16 mt-8"
         >
           {/* Section header */}
          
@@ -119,38 +119,36 @@ const EASalaryROI = () => {
           </div>
 
           {/* Roles grid */}
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {Object.entries(salaryByCountry[selectedCountry].roles).map(([key, role]) => (
-              <div key={key} className="bg-white rounded-2xl border border-slate-200 shadow p-6">
-                <div className="flex items-center gap-3 mb-2">
-                  <div className="w-10 h-10 bg-gradient-to-br from-red-500 to-purple-600 rounded-lg flex items-center justify-center">
-                    <BriefcaseIcon className="w-5 h-5 text-white" />
+              <div key={key} className="bg-white rounded-2xl border border-slate-200 shadow p-5 sm:p-4 md:p-5">
+                <div className="flex items-start gap-3 mb-4">
+                  <div className="w-10 h-10 sm:w-9 sm:h-9 md:w-10 md:h-10 bg-gradient-to-br from-red-500 to-purple-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <BriefcaseIcon className="w-5 h-5 sm:w-4 sm:h-4 md:w-5 md:h-5 text-white" />
                   </div>
-                  <div>
-                    <p className="font-semibold text-slate-900">{role.title}</p>
-                    <p className="text-sm text-slate-600">{role.subtitle}</p>
+                  <div className="min-w-0 flex-1">
+                    <p className="font-semibold text-slate-900 text-base sm:text-sm md:text-base leading-tight">{role.title}</p>
+                    <p className="text-sm sm:text-xs md:text-sm text-slate-600 line-clamp-1">{role.subtitle}</p>
                   </div>
                 </div>
-                <div className="mt-4">
-                  <div className="flex items-end justify-between">
-                    <div>
-                      <p className="text-xs uppercase tracking-wide text-slate-500">Typical Salary</p>
-                      <p className="text-xl font-bold text-slate-900">
-                        {formatCurrency(role.salary, salaryByCountry[selectedCountry].currency)}
-                      </p>
-                      {salaryByCountry[selectedCountry].currency === 'USD' && (
-                        <p className="text-xs text-slate-500">≈ {formatCurrency(Math.round(role.salary * usdToInrRate), 'INR')}</p>
-                      )}
-                    </div>
-                    <div className="text-right">
-                      <span className="inline-flex items-center gap-1 bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold">
-                        <ArrowTrendingUpIcon className="w-4 h-4" />
-                        {calcRoiPercent(role.salary, salaryByCountry[selectedCountry].currency)}% ROI
-                      </span>
-                      <div className="mt-2 text-xs text-slate-500">
-                        Payback: {calcPaybackMonths(role.salary, salaryByCountry[selectedCountry].currency)} months
-                      </div>
-                    </div>
+                <div className="space-y-3">
+                  <div>
+                    <p className="text-xs uppercase tracking-wide text-slate-500 mb-1">Typical Salary</p>
+                    <p className="text-xl sm:text-lg md:text-xl font-bold text-slate-900 break-words">
+                      {formatCurrency(role.salary, salaryByCountry[selectedCountry].currency)}
+                    </p>
+                    {salaryByCountry[selectedCountry].currency === 'USD' && (
+                      <p className="text-xs text-slate-500 break-words">≈ {formatCurrency(Math.round(role.salary * usdToInrRate), 'INR')}</p>
+                    )}
+                  </div>
+                  <div className="flex flex-row-2 gap-2">
+                    <span className="inline-flex items-center gap-1 bg-green-100 text-green-700 px-3 py-1.5 rounded-full text-xs sm:text-xs md:text-sm font-semibold w-fit">
+                      <ArrowTrendingUpIcon className="w-3 h-3 md:w-4 md:h-4 flex-shrink-0" />
+                      <span className="whitespace-nowrap">{calcRoiPercent(role.salary, salaryByCountry[selectedCountry].currency)}% ROI</span>
+                    </span>
+                    <p className="text-xs text-slate-500">
+                      Payback: {calcPaybackMonths(role.salary, salaryByCountry[selectedCountry].currency)} months
+                    </p>
                   </div>
                 </div>
               </div>
@@ -158,37 +156,37 @@ const EASalaryROI = () => {
           </div>
 
           {/* Investment summary */}
-          <div className="mt-8 bg-gradient-to-r from-slate-50 to-red-50 border border-slate-200 rounded-xl p-6">
-            <div className="flex items-center gap-2 mb-2">
-              <CalculatorIcon className="w-5 h-5 text-red-600" />
-              <p className="font-semibold text-slate-900">ROI Assumptions</p>
+          <div className="mt-8 bg-gradient-to-r from-slate-50 to-red-50 border border-slate-200 rounded-xl p-4 sm:p-6">
+            <div className="flex items-center gap-2 mb-4">
+              <CalculatorIcon className="w-5 h-5 text-red-600 flex-shrink-0" />
+              <p className="font-semibold text-slate-900 text-sm sm:text-base">ROI Assumptions</p>
             </div>
-            <div className="grid sm:grid-cols-3 gap-4 text-sm">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 text-sm">
               <div className="bg-white rounded-lg p-4 border">
-                <p className="text-slate-600">Total Investment</p>
-                <p className="text-lg font-bold text-slate-900">{formatCurrency(totalInvestmentINR, 'INR')}</p>
-                <p className="text-xs text-slate-500">Coaching + Exam Fees (illustrative)</p>
+                <p className="text-slate-600 text-xs sm:text-sm mb-1">Total Investment</p>
+                <p className="text-base sm:text-lg font-bold text-slate-900 break-words">{formatCurrency(totalInvestmentINR, 'INR')}</p>
+                <p className="text-xs text-slate-500 mt-1">Coaching + Exam Fees (illustrative)</p>
               </div>
               <div className="bg-white rounded-lg p-4 border">
-                <p className="text-slate-600">Conversion Rate</p>
-                <p className="text-lg font-bold text-slate-900">$1 = ₹{usdToInrRate}</p>
-                <p className="text-xs text-slate-500">For USD to INR comparisons</p>
+                <p className="text-slate-600 text-xs sm:text-sm mb-1">Conversion Rate</p>
+                <p className="text-base sm:text-lg font-bold text-slate-900">$1 = ₹{usdToInrRate}</p>
+                <p className="text-xs text-slate-500 mt-1">For USD to INR comparisons</p>
               </div>
               <div className="bg-white rounded-lg p-4 border">
-                <p className="text-slate-600">Method</p>
-                <p className="text-lg font-bold text-slate-900">ROI% = Annual Salary / Investment</p>
-                <p className="text-xs text-slate-500">Payback estimated in months</p>
+                <p className="text-slate-600 text-xs sm:text-sm mb-1">Method</p>
+                <p className="text-sm sm:text-base md:text-lg font-bold text-slate-900 break-words leading-tight">ROI% = Annual Salary / Investment</p>
+                <p className="text-xs text-slate-500 mt-1">Payback estimated in months</p>
               </div>
             </div>
             {/* CTA: Placement Report Download */}
             <div className="mt-6 flex flex-col items-center text-center">
-              <p className="text-slate-700 mb-3">Want detailed placement data and salary trends?</p>
+              <p className="text-slate-700 mb-3 text-sm sm:text-base">Want detailed placement data and salary trends?</p>
               <LeadFormButton
                 formType="download-placement-report"
                 variant="secondary"
                 isSendOtp={true}
                 courseId="EA"
-                className="px-6 py-3"
+                className="px-6 py-3 w-full sm:w-auto"
               >
                 Download Placement Report
               </LeadFormButton>

@@ -130,7 +130,7 @@ const MeetYourMentor = () => {
   return (
     <section className="bg-gradient-to-b from-slate-50 to-white">
       {/* Hero Mentor Showcase */}
-      <div className="max-w-7xl mx-auto px-4 py-20">
+      <div className="max-w-7xl mx-auto px-4 py-6 sm:py-20">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left - Visual */}
           <div className="relative">
@@ -151,20 +151,20 @@ const MeetYourMentor = () => {
 
           {/* Right - Copy */}
           <div className="space-y-8">
-            <div>
-              <h2 className="text-5xl font-light text-slate-900 leading-tight mb-6">
+            <div className="text-center lg:text-left">
+              <h2 className="text-3xl sm:text-5xl font-bold text-slate-900 leading-tight lg:mb-6 mb-4">
                 Personal Mentorship that builds
                 <span className="block text-red-600 font-medium">Global Finance Leaders</span>
               </h2>
-              <p className="text-xl text-slate-600 font-light leading-relaxed">
+              <p className="text-lg sm:text-xl text-slate-600 font-light leading-relaxed">
                 A proven coaching model with tailored planning, weekly reviews, and 
                 accountability led by Irfat Sir — designed to turn ambition into outcomes.
               </p>
             </div>
 
             {/* Proof points */}
-            <div className="flex flex-wrap gap-6 text-sm font-medium text-slate-700">
-              <span className="flex items-center gap-2">
+            <div className="flex flex-wrap lg:gap-4  gap-10 justify-center lg:text-md text-lg font-medium text-slate-700 ">
+              <span className="flex items-center gap-2 lg:text-left text-center">
                 <div className="w-2 h-2 bg-red-500 rounded-full"></div>
                 25K+ Students Coached
               </span>
@@ -187,7 +187,7 @@ const MeetYourMentor = () => {
             </blockquote>
 
             {/* CTAs */}
-            <div className="space-y-4">
+            <div className="space-y-4 text-center lg:text-left">
               <LeadFormButton formType='book-webinar' variant='primary' isSendOtp={true}  >
                 Start Mentorship With Irfat Sir
                
@@ -199,7 +199,7 @@ const MeetYourMentor = () => {
       </div>
 
       {/* Stats Strip - Themed */}
-      <div className="bg-gradient-to-br from-red-50 via-white to-red-50 py-12">
+      <div className="bg-gradient-to-br from-red-50 via-white to-red-50 lg:py-12 py-6">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-2 lg:grid-cols-5 gap-6">
             <div className="bg-white rounded-xl p-6 shadow-sm border border-red-100 text-center">
@@ -210,7 +210,7 @@ const MeetYourMentor = () => {
               <div className="text-3xl font-bold text-red-600">{animatedStats.partners}+</div>
               <div className="text-sm text-slate-600 mt-1">Hiring Partners Closely Working</div>
             </div>
-            <div className="bg-white rounded-xl p-6 shadow-sm border border-red-100 text-center">
+            <div className="bg-white rounded-xl md:p-6 py-6 p-1 shadow-sm border border-red-100 text-center">
               <div className="text-3xl font-bold text-red-600">{animatedStats.students.toLocaleString()}+</div>
               <div className="text-sm text-slate-600 mt-1">Students Across 12 Countries</div>
             </div>

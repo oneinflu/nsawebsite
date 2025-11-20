@@ -192,7 +192,7 @@ const PlacementReadiness = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-4xl md:text-5xl font-bold text-gray-900 mb-6"
+            className="text-4xl md:text-4xl font-bold text-gray-900 mb-6"
           >
             Placement Readiness: 
             <span className="bg-gradient-to-r from-red-600 to-purple-600 bg-clip-text text-transparent"> Big 4 Focus</span>

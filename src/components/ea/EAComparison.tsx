@@ -41,11 +41,11 @@ const comparisons = [
 
 const EAComparison = () => {
   return (
-    <section className="py-20 bg-gradient-to-br from-slate-50 via-white to-red-50">
+    <section className="py-10 sm:py-20 bg-gradient-to-br from-slate-50 via-white to-red-50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-slate-900">EA Comparison</h2>
-          <p className="text-xl text-slate-600">See how the EA credential stacks up against CPA and CMA</p>
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-slate-900">EA Comparison</h2>
+          <p className="text-base sm:text-xl text-slate-600">See how the EA credential stacks up against CPA and CMA</p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">

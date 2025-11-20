@@ -294,7 +294,7 @@ const GlobalCareerPath: React.FC = () => {
   };
 
   return (
-    <section className="py-16 bg-gradient-to-br from-gray-50 to-red-50">
+    <section className="lg:py-16 py-12 bg-gradient-to-br from-gray-50 to-red-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -306,7 +306,7 @@ const GlobalCareerPath: React.FC = () => {
           className="text-center mb-12"
         >
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-8">
-            <div className="lg:text-left">
+            <div className="lg:text-left text-center">
               <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
                 Build Your Global Career Path
                 <span className="block text-red-600">Start from Any Course.</span>
@@ -332,7 +332,7 @@ const GlobalCareerPath: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="mb-12"
+          className="lg:mb-12 mb-8"
         >
           <div className="flex overflow-x-auto scrollbar-hide space-x-2 pb-4 lg:justify-center">
             {categories.map((category) => {

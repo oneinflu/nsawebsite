@@ -206,7 +206,7 @@ const GlobalCoursesHub: React.FC = () => {
   };
 
   return (
-    <section id="courses" className="relative py-20 overflow-hidden">
+    <section id="courses" className="relative py-10 sm:py-20 overflow-hidden">
       {/* SEO Structured Data */}
       <script
         type="application/ld+json"
@@ -249,10 +249,10 @@ const GlobalCoursesHub: React.FC = () => {
         </div>
         
         {/* Floating Geometric Shapes */}
-        <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-red-100 to-red-200 rounded-full opacity-20 blur-xl"></div>
-        <div className="absolute top-40 right-20 w-24 h-24 bg-gradient-to-br from-purple-100 to-pink-200 rounded-full opacity-20 blur-lg"></div>
-        <div className="absolute bottom-32 left-1/4 w-40 h-40 bg-gradient-to-br from-green-100 to-emerald-200 rounded-full opacity-15 blur-2xl"></div>
-        <div className="absolute bottom-20 right-1/3 w-28 h-28 bg-gradient-to-br from-orange-100 to-yellow-200 rounded-full opacity-20 blur-xl"></div>
+        <div className="absolute top-10 left-5 w-32 h-32 bg-gradient-to-br from-red-100 to-red-200 rounded-full opacity-20 blur-xl"></div>
+        <div className="absolute top-20 right-5 w-24 h-24 bg-gradient-to-br from-purple-100 to-pink-200 rounded-full opacity-20 blur-lg"></div>
+        <div className="absolute bottom-20 left-5 w-40 h-40 bg-gradient-to-br from-green-100 to-emerald-200 rounded-full opacity-15 blur-2xl"></div>
+        <div className="absolute bottom-10 right-5 w-28 h-28 bg-gradient-to-br from-orange-100 to-yellow-200 rounded-full opacityty-20 blur-xl"></div>
       </div>
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
@@ -274,7 +274,7 @@ const GlobalCoursesHub: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl md:text-5xl font-bold text-gray-900 mb-6"
+            className="text-3xl font-bold text-gray-900 mb-6"
           >
             Master Global Finance &{' '}
             <span className="bg-gradient-to-r from-red-600 to-red-600 bg-clip-text text-transparent">
@@ -287,7 +287,7 @@ const GlobalCoursesHub: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-xl text-gray-600 max-w-3xl mx-auto mb-8"
+            className="text-base text-gray-600 max-w-3xl mx-auto mb-8"
           >
             Master the world&apos;s most respected qualifications in Accounting, Finance, Taxation & Audit — CMA, CPA, CFA, ACCA, CIA & EA certifications all under one roof.
           </motion.p>
@@ -298,25 +298,25 @@ const GlobalCoursesHub: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-wrap justify-center gap-6 text-sm text-gray-600"
+            className="flex flex-wrap justify-center gap-4 text-xs text-gray-600"
           >
             <div className="flex items-center gap-2">
-              <StarIcon className="w-5 h-5 text-yellow-500" />
-              <span className="font-medium">4.8/5 Certified Training Rating</span>
+              <StarIcon className="w-4 h-4 text-yellow-500 flex-shrink-0" />
+              <span className="font-medium">4.8/5 Training Rating</span>
             </div>
             <div className="flex items-center gap-2">
-              <UserGroupIcon className="w-5 h-5 text-red-500" />
-              <span className="font-medium">55,000+ Certified Professionals</span>
+              <UserGroupIcon className="w-4 h-4 text-red-500 flex-shrink-0" />
+              <span className="font-medium">55,000+ Professionals</span>
             </div>
             <div className="flex items-center gap-2">
-              <CheckIcon className="w-5 h-5 text-green-500" />
-              <span className="font-medium">98% Certification Success Rate</span>
+              <CheckIcon className="w-4 h-4 text-green-500 flex-shrink-0" />
+              <span className="font-medium">98% Success Rate</span>
             </div>
           </motion.div>
         </div>
 
         {/* Category Tabs */}
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
+        <div className="flex flex-wrap justify-center gap-3 lg:mb-12 mb-8">
           {categories.map((category, index) => {
             const Icon = category.icon;
             return (
@@ -343,7 +343,7 @@ const GlobalCoursesHub: React.FC = () => {
         {/* Course Grid */}
         <motion.div
           layout
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-8 gap-4"
         >
           <AnimatePresence mode="wait">
             {filteredCourses.map((course, index) => {
@@ -365,7 +365,7 @@ const GlobalCoursesHub: React.FC = () => {
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.4, delay: index * 0.1 }}
                   onClick={() => handleCourseClick(course)}
-                  className="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer border border-gray-100 hover:border-red-200 relative overflow-hidden"
+                  className="group bg-white rounded-2xl lg:p-6 p-4 shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer border border-gray-100 hover:border-red-200 relative overflow-hidden"
                 >
                   {/* Badge */}
                   {course.badge && (
@@ -442,9 +442,9 @@ const GlobalCoursesHub: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="mt-20 text-center"
+          className="lg:mt-20 mt-10 text-center"
         >
-          <div className="bg-gradient-to-r from-red-600 to-red-600 rounded-3xl p-12 text-white relative overflow-hidden">
+          <div className="bg-gradient-to-r from-red-600 to-red-600 rounded-3xl lg:p-12 p-8 text-white relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-r from-red-600/90 to-red-600/90"></div>
             <div className="relative z-10">
               <h3 className="text-3xl md:text-4xl font-bold mb-4">
