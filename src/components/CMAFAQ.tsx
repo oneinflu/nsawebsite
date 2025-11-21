@@ -231,7 +231,7 @@ export default function CMAFAQ() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               
-                <LeadFormButton formType='general' variant='primary' isSendOtp={true} >
+                <LeadFormButton formType='book-free-consultation' variant='primary' isSendOtp={true} >
                   Book Free Consultation
                 </LeadFormButton>
              

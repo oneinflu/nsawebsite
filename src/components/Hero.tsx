@@ -346,7 +346,7 @@ const Hero: React.FC = () => {
               </div>
 
               {/* EMI */}
-              <div className="absolute top-1/2 -left-12 bg-green-200 border-2 border-green-300 rounded-lg p-3 shadow-xl animate-pulse-gentle pointer-events-auto z-40">
+              <div className="absolute top-1/2 right-1 bg-green-200 border-2 border-green-300 rounded-lg p-3 shadow-xl animate-pulse-gentle pointer-events-auto z-40">
                 <div className="flex items-center space-x-2">
                   <CurrencyRupeeIcon className="w-4 h-4 text-green-700" />
                   <div className="text-xs">

@@ -315,14 +315,7 @@ const GlobalCareerPath: React.FC = () => {
                 Choose your stream and see where each qualification can take you.
               </p>
             </div>
-            <div className="mt-6 lg:mt-0">
-              <Link
-                href="/career-fit-quiz"
-                className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-red-600 to-red-600 text-white font-semibold rounded-lg hover:from-red-700 hover:to-red-700 transition-all duration-300 shadow-lg hover:shadow-xl"
-              >
-                Find My Fit →
-              </Link>
-            </div>
+           
           </div>
         </motion.div>
 
@@ -435,7 +428,7 @@ const GlobalCareerPath: React.FC = () => {
             AI-powered roadmap based on your background.
           </p>
           <LeadFormButton 
-            formType="general"
+            formType="get-mentorship"
             isSendOtp={true}
             variant='outline' >
           

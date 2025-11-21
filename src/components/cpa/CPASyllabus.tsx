@@ -523,7 +523,7 @@ export default function CPASyllabus() {
                 Get Complete CPA Syllabus & Study Plan
               </h3>
               <p className="text-red-100 mb-6">
-                Download our comprehensive 50-page CPA study guide with detailed
+                Download our comprehensive CPA study guide with detailed
                 syllabus, exam tips, and personalized study timeline
               </p>
 

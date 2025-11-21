@@ -33,7 +33,7 @@ export default function VideoPlayer({ src, poster, className }: Props) {
       'fullscreen',
     ],
     clickToPlay: true,
-    autopause: true,
+    autopause: false,
     storage: { enabled: false },
   };
 

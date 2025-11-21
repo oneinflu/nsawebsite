@@ -321,7 +321,7 @@ export default function CMASyllabus() {
               Download Full Syllabus
             </LeadFormButton>
             <LeadFormButton
-              formType="general"
+              formType="talk-to-an-expert"
               className='text-base md:text-lg btn-info'
               isSendOtp={true}
             >

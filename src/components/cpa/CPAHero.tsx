@@ -33,7 +33,7 @@ export default function CPAHero() {
   ];
 
   const keyBenefits = [
-    "Work in USA, UAE, India & 50+ countries",
+    "Work in USA, UAE, India & 180+ countries",
     "Average salary: $85,000 - $150,000",
     "Fastest route to US immigration",
     "Global recognition & prestige",
@@ -132,8 +132,7 @@ export default function CPAHero() {
               transition={{ delay: 0.5 }}
               className="text-lg lg:text-xl text-red-100 leading-relaxed"
             >
-              Work in USA, UAE, India & More • Global Recognition • Premium
-              Salaries
+             Global Accounting Career in just 12–18 Months
             </motion.p>
 
             {/* Key Benefits */}
@@ -288,7 +287,7 @@ export default function CPAHero() {
               >
                 <div className="flex items-center gap-2 text-white/80 text-sm">
                   <Globe className="w-4 h-4" />
-                  <span>Recognized in 50+ countries worldwide</span>
+                  <span>Recognized in 180+ countries worldwide</span>
                 </div>
               </motion.div>
             </div>

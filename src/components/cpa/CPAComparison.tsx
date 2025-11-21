@@ -293,11 +293,12 @@ const CPAComparison = () => {
 
         {/* Comparison Table */}
         <div className="mb-16">
-          <h3 className="text-3xl font-bold text-center text-gray-900 mb-8">
+          <h3 className="text-2xl md:text-3xl font-bold text-center text-gray-900 mb-8">
             Decision Helper Tables: Complete Comparison
           </h3>
           
-          <div className="overflow-x-auto">
+          {/* Desktop View - Table Layout */}
+          <div className="hidden lg:block">
             <div className="min-w-full">
               {/* Header */}
               <div className="grid grid-cols-4 gap-4 mb-6">
@@ -329,7 +330,7 @@ const CPAComparison = () => {
                       className="grid grid-cols-4 gap-4 bg-white rounded-xl p-4 shadow-md hover:shadow-lg transition-all duration-300"
                     >
                       <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 bg-gradient-to-r from-red-500 to-purple-500 rounded-lg flex items-center justify-center">
+                        <div className="w-10 h-10 bg-gradient-to-r from-red-500 to-purple-500 rounded-lg flex items-center justify-center flex-shrink-0">
                           <Icon className="w-5 h-5 text-white" />
                         </div>
                         <div>
@@ -354,6 +355,60 @@ const CPAComparison = () => {
                 })}
               </div>
             </div>
+          </div>
+
+          {/* Mobile/Tablet View - Card Layout */}
+          <div className="lg:hidden space-y-6">
+            {comparisonCategories.map((category, index) => {
+              const Icon = category.icon;
+              return (
+                <motion.div
+                  key={category.category}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.05 }}
+                  className="bg-white rounded-xl p-4 shadow-md"
+                >
+                  {/* Category Header */}
+                  <div className="flex items-center gap-3 mb-4 pb-4 border-b border-gray-200">
+                    <div className="w-10 h-10 bg-gradient-to-r from-red-500 to-purple-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Icon className="w-5 h-5 text-white" />
+                    </div>
+                    <div>
+                      <div className="font-semibold text-gray-900">{category.category}</div>
+                      <div className="text-xs text-gray-600">{category.description}</div>
+                    </div>
+                  </div>
+
+                  {/* Scores for each certification */}
+                  <div className="space-y-3">
+                    {Object.entries(certifications).map(([key, cert]) => (
+                      <div key={key} className={`p-3 rounded-lg bg-gradient-to-r ${cert.bgColor}`}>
+                        <div className="flex items-center justify-between mb-2">
+                          <div className="flex items-center gap-2">
+                            <span className="text-xl">{cert.logo}</span>
+                            <span className="font-bold text-gray-900">{key}</span>
+                            {cert.winner && (
+                              <span className="text-xs bg-yellow-400 text-yellow-900 px-2 py-0.5 rounded-full">
+                                WINNER
+                              </span>
+                            )}
+                          </div>
+                          <div className={`inline-flex items-center gap-1 px-2 py-1 rounded-lg ${getScoreColor(category.scores[key as keyof typeof category.scores])}`}>
+                            <span className="text-sm">{getScoreIcon(category.scores[key as keyof typeof category.scores])}</span>
+                            <span className="font-bold text-sm">{category.scores[key as keyof typeof category.scores]}/10</span>
+                          </div>
+                        </div>
+                        <div className="text-xs text-gray-700">
+                          {category.details[key as keyof typeof category.details]}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
 
@@ -409,7 +464,7 @@ const CPAComparison = () => {
           className="text-center"
         >
           <LeadFormButton
-            formType='general'
+            formType='talk-to-our-counseller'
             isSendOtp={true}
             courseId='CPA'
             

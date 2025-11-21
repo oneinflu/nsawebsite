@@ -1,123 +1,131 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-'use client'
+"use client";
 
-import { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import LeadFormButton from './LeadFormButton'
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import LeadFormButton from "./LeadFormButton";
 
 export default function PricingROI() {
-  const [salaryExpectation, ] = useState(15)
-  const [showModal, setShowModal] = useState(false)
-  const [, setSelectedTier] = useState('')
+  const [salaryExpectation] = useState(15);
+  const [showModal, setShowModal] = useState(false);
+  const [, setSelectedTier] = useState("");
   const [, setCountdown] = useState({
     days: 0,
     hours: 2,
     minutes: 17,
-    seconds: 45
-  })
+    seconds: 45,
+  });
 
   // Countdown timer
   useEffect(() => {
     const timer = setInterval(() => {
-      setCountdown(prev => {
+      setCountdown((prev) => {
         if (prev.seconds > 0) {
-          return { ...prev, seconds: prev.seconds - 1 }
+          return { ...prev, seconds: prev.seconds - 1 };
         } else if (prev.minutes > 0) {
-          return { ...prev, minutes: prev.minutes - 1, seconds: 59 }
+          return { ...prev, minutes: prev.minutes - 1, seconds: 59 };
         } else if (prev.hours > 0) {
-          return { ...prev, hours: prev.hours - 1, minutes: 59, seconds: 59 }
+          return { ...prev, hours: prev.hours - 1, minutes: 59, seconds: 59 };
         } else if (prev.days > 0) {
-          return { ...prev, days: prev.days - 1, hours: 23, minutes: 59, seconds: 59 }
+          return {
+            ...prev,
+            days: prev.days - 1,
+            hours: 23,
+            minutes: 59,
+            seconds: 59,
+          };
         }
-        return prev
-      })
-    }, 1000)
+        return prev;
+      });
+    }, 1000);
 
-    return () => clearInterval(timer)
-  }, [])
+    return () => clearInterval(timer);
+  }, []);
 
   // ROI calculations
-  const monthlySalary = salaryExpectation * 1000 / 12 // Convert annual to monthly
-  const breakEvenMonths = Math.ceil(90000 / monthlySalary)
-  const fiveYearIncome = (salaryExpectation * 5) // 5 years total income in lakhs
-  const roiMultiplier = Math.round((fiveYearIncome * 100000) / 90000) // ROI calculation
+  const monthlySalary = (salaryExpectation * 1000) / 12; // Convert annual to monthly
+  const breakEvenMonths = Math.ceil(90000 / monthlySalary);
+  const fiveYearIncome = salaryExpectation * 5; // 5 years total income in lakhs
+  const roiMultiplier = Math.round((fiveYearIncome * 100000) / 90000); // ROI calculation
 
   const pricingTiers = [
     {
-      name: 'Smart',
-      badge: 'Basic',
-      badgeColor: 'bg-gray-100 text-gray-700',
-      price: '₹45,000',
-      emi: '₹2,499/mo',
-      duration: '12 months',
+      name: "Smart",
+      badge: "Basic",
+      badgeColor: "bg-gray-100 text-gray-700",
+      price: "₹45,000",
+      emi: "₹2,499/mo",
+      duration: "12 months",
       features: [
-        'Recorded Video Lectures',
-        'Study Notes & Materials',
-        'Practice Tests & Mock Exams',
-        'Study Planner',
-        'Email Support'
+        "Recorded Video Lectures",
+        "Study Notes & Materials",
+        "Practice Tests & Mock Exams",
+        "Study Planner",
+        "Email Support",
       ],
-      cta: 'View Details',
-      ctaStyle: 'border border-gray-300 text-gray-700 hover:bg-gray-50'
+      cta: "View Details",
+      ctaStyle: "border border-gray-300 text-gray-700 hover:bg-gray-50",
     },
     {
-      name: 'Pro',
-      badge: 'Best Value',
-      badgeColor: 'bg-gradient-to-r from-yellow-400 to-yellow-600 text-white',
-      price: '₹90,000',
-      emi: '₹4,499/mo',
-      duration: '18 months',
+      name: "Pro",
+      badge: "Best Value",
+      badgeColor: "bg-gradient-to-r from-yellow-400 to-yellow-600 text-white",
+      price: "₹90,000",
+      emi: "₹4,499/mo",
+      duration: "18 months",
       features: [
-        'Live Interactive Classes',
-        'All Smart features included',
-        '1-on-1 Mentorship Sessions',
-        'Placement Support & Guidance',
-        'Industry Expert Sessions',
-        'Priority Support'
+        "Live Interactive Classes",
+        "All Smart features included",
+        "1-on-1 Mentorship Sessions",
+        "Placement Support & Guidance",
+        "Industry Expert Sessions",
+        "Priority Support",
       ],
-      cta: 'Enroll with EMI',
-      ctaStyle: 'bg-gradient-to-r from-red-600 to-red-600 text-white hover:from-red-700 hover:to-red-700',
-      popular: true
+      cta: "Enroll with EMI",
+      ctaStyle:
+        "bg-gradient-to-r from-red-600 to-red-600 text-white hover:from-red-700 hover:to-red-700",
+      popular: true,
     },
     {
-      name: 'Elite',
-      badge: 'Premium',
-      badgeColor: 'bg-gradient-to-r from-purple-600 to-pink-600 text-white',
-      price: '₹1,35,000',
-      emi: '₹6,999/mo',
-      duration: '24 months',
+      name: "Elite",
+      badge: "Premium",
+      badgeColor: "bg-gradient-to-r from-purple-600 to-pink-600 text-white",
+      price: "₹1,35,000",
+      emi: "₹6,999/mo",
+      duration: "24 months",
       features: [
-        'All Pro features included',
-        'Personal Mentor Review (Weekly)',
-        'Guaranteed Job Placement',
-        'Resume & Interview Coaching',
-        'Salary Negotiation Support',
-        'Lifetime Career Support'
+        "All Pro features included",
+        "Personal Mentor Review (Weekly)",
+        "Guaranteed Job Placement",
+        "Resume & Interview Coaching",
+        "Salary Negotiation Support",
+        "Lifetime Career Support",
       ],
-      cta: 'Apply for Counsel Call',
-      ctaStyle: 'bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:from-purple-700 hover:to-pink-700'
-    }
-  ]
+      cta: "Apply for Counsel Call",
+      ctaStyle:
+        "bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:from-purple-700 hover:to-pink-700",
+    },
+  ];
 
   const scholarships = [
-    'Merit-based scholarships up to 30%',
-    'Need-based financial assistance',
-    'Early enrollment offers',
-    'Referral program benefits'
-  ]
+    "Merit-based scholarships up to 30%",
+    "Need-based financial assistance",
+    "Early enrollment offers",
+    "Referral program benefits",
+  ];
 
   const trustSeals = [
-    { icon: '🔒', text: 'Secure Payment' },
-    { icon: '📄', text: 'GST Invoice' },
-    { icon: '↩️', text: 'Refund Policy' },
-    { icon: '🎓', text: 'Completion Certificate' }
-  ]
+    { icon: "🔒", text: "Secure Payment" },
+    { icon: "📄", text: "GST Invoice" },
+    { icon: "↩️", text: "Refund Policy" },
+    { icon: "🎓", text: "Completion Certificate" },
+  ];
 
   return (
     <section className="py-8 sm:py-20 bg-gradient-to-br from-slate-50 via-white to-red-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Investment Value Headline */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -128,13 +136,11 @@ export default function PricingROI() {
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Your first salary after CMA/CPA/ACCA recovers your course fees.
-          </p>  
+          </p>
         </motion.div>
 
-        
-       
         {/* Scholarships & EMI */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -145,19 +151,33 @@ export default function PricingROI() {
               <div className="w-12 h-12 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full flex items-center justify-center mr-4">
                 <span className="text-2xl">🎓</span>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900">Scholarships Available</h3>
+              <h3 className="text-2xl font-bold text-gray-900">
+                Scholarships Available
+              </h3>
             </div>
             <ul className="space-y-3 mb-6">
               {scholarships.map((scholarship, idx) => (
                 <li key={idx} className="flex items-center text-gray-700">
-                  <svg className="w-5 h-5 text-yellow-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  <svg
+                    className="w-5 h-5 text-yellow-500 mr-3"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clipRule="evenodd"
+                    />
                   </svg>
                   {scholarship}
                 </li>
               ))}
             </ul>
-            <LeadFormButton formType='general' isSendOtp={true} variant='primary' >
+            <LeadFormButton
+              formType="check-scholarship-eligibilty"
+              isSendOtp={true}
+              variant="primary"
+            >
               Check Scholarship Eligibility
             </LeadFormButton>
           </div>
@@ -182,14 +202,15 @@ export default function PricingROI() {
                 </div>
               </div>
               <p className="text-gray-700">
-                Our mentor-success system actually reduces total money spent on your certification journey.
+                Our mentor-success system actually reduces total money spent on
+                your certification journey.
               </p>
             </div>
           </div>
         </motion.div>
 
         {/* Trust Seals */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -199,14 +220,15 @@ export default function PricingROI() {
             {trustSeals.map((seal, idx) => (
               <div key={idx} className="text-center">
                 <div className="text-3xl mb-2">{seal.icon}</div>
-                <div className="text-sm font-medium text-gray-700">{seal.text}</div>
+                <div className="text-sm font-medium text-gray-700">
+                  {seal.text}
+                </div>
               </div>
             ))}
           </div>
         </motion.div>
 
         {/* Final CTA */}
-     
       </div>
 
       {/* Modal */}
@@ -262,8 +284,18 @@ export default function PricingROI() {
                 onClick={() => setShowModal(false)}
                 className="absolute top-4 right-4 text-gray-400 hover:text-gray-600"
               >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
                 </svg>
               </button>
             </motion.div>
@@ -281,7 +313,7 @@ export default function PricingROI() {
           cursor: pointer;
           box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
         }
-        
+
         .slider::-moz-range-thumb {
           height: 24px;
           width: 24px;
@@ -293,5 +325,5 @@ export default function PricingROI() {
         }
       `}</style>
     </section>
-  )
+  );
 }

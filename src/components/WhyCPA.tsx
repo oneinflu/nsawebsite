@@ -58,7 +58,7 @@ export default function WhyCPA() {
   return (
     <section
       ref={sectionRef}
-      className="py-20 bg-linear-to-br from-slate-50 via-red-50 to-red-50 overflow-hidden"
+      className="py-8 md:py-20 bg-linear-to-br from-slate-50 via-red-50 to-red-50 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -67,14 +67,14 @@ export default function WhyCPA() {
           transition={{ duration: 0.8 }}
           className="text-center md:mb-16 sm:pb-14 pb-8"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-6">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-6">
             Why CPA (US)?
-            <span className="block text-3xl font-medium text-red-600 mt-2">
+            <span className="block text-2xl md:text-3xl font-medium text-red-600 mt-2">
               The Ultimate Accounting Authority
             </span>
           </h2>
           <p className="md:text-xl sm:text-base text-sm text-slate-600 max-w-3xl mx-auto">
-            More than a certification — it&apos;s a professional license that
+            More than a certification , it&apos;s a professional license that
             opens doors to the highest levels of accounting and finance globally
           </p>
         </motion.div>
@@ -269,12 +269,12 @@ export default function WhyCPA() {
               Ready to Become a Licensed CPA?
             </h3>
             <p className="text-red-100 mb-6 max-w-2xl mx-auto">
-              Join 650,000+ CPAs worldwide and unlock unlimited career
+              Join 2,00,000+ CPAs worldwide and unlock unlimited career
               opportunities in accounting and finance
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <LeadFormButton
-                formType="general"
+                formType="cpa-journey"
                 isSendOtp={true}
                 courseId="CPA"
                 className=" text-red-600 sm:px-8 px-5 py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 transform hover:scale-105"
@@ -282,7 +282,7 @@ export default function WhyCPA() {
                 Start Your CPA Journey
               </LeadFormButton>
               <LeadFormButton
-                formType="download-syllabus"
+                formType="download-cpa-guide"
                 isSendOtp={true}
                 courseId="CPA"
                 className="border-2 border-white text-white sm:px-8 px-5 py-3 rounded-xl font-semibold hover:bg-white hover:text-red-600 transition-all duration-300"
