@@ -19,10 +19,10 @@ interface EAPart {
 }
 
 const EASyllabus = () => {
-  const [openPartId, setOpenPartId] = useState<string>('');
+  const [openPartId, setOpenPartId] = useState<string | null>(null);
 
   const handleToggle = (partId: string) => {
-    setOpenPartId(openPartId === partId ? '' : partId);
+    setOpenPartId(openPartId === partId ? null : partId);
   };
 
   const parts: EAPart[] = [

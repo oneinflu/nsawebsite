@@ -17,18 +17,18 @@ export default function AboutHero() {
         <div className="absolute inset-0 bg-gradient-to-b from-white/60 via-white/70 to-white" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20">
-        <div className="grid lg:grid-cols-2 gap-6 sm:gap-10 items-center">
-          <div className="text-center lg:text-left">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
+        <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 items-center">
+          <div className="text-center xl:text-left">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight">
               NorthStar Academy
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-red-600 via-purple-600 to-green-600">India&apos;s Premier Finance & Accounting Training Institute</span>
             </h1>
-            <p className="mt-4 sm:mt-6 text-base sm:text-lg text-slate-700 max-w-2xl mx-auto lg:mx-0">
+            <p className="mt-3 sm:mt-4 lg:mt-6 text-base sm:text-lg text-slate-700 max-w-2xl mx-auto xl:mx-0">
               India's premier training institute for globally recognized certifications like CPA USA, CMA USA, ACCA, and EA. Mentor-led learning, structured curriculum, and career support to accelerate your goals.
             </p>
 
-            <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 justify-center lg:justify-start">
+            <div className="mt-4 sm:mt-6 lg:mt-8 flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 justify-center xl:justify-start">
               <LeadFormButton 
                 formType="general"
                 variant="primary"

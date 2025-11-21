@@ -211,7 +211,7 @@ export default function CFACareerRoles() {
 
           {/* Animated Career Progression Infographic */}
           <motion.div variants={itemVariants} className="mb-20">
-            <div className="bg-white rounded-3xl p-8 shadow-lg border border-slate-200">
+            <div className="bg-white rounded-3xl p-6 shadow-lg border border-slate-200">
               <h3 className="text-2xl font-bold text-slate-900 text-center sm:mb-12 mb-10">
                 Your CFA Career Journey
               </h3>

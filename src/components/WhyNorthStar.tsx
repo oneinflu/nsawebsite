@@ -110,7 +110,7 @@ const WhyNorthStar: React.FC = () => {
   
 
   return (
-    <section className="py-8 sm:py-16 lg:py-20 bg-gradient-to-br from-slate-50 via-white to-red-50 relative overflow-hidden">
+    <section className="py-10 sm:py-15 bg-gradient-to-br from-slate-50 via-white to-red-50 relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
@@ -120,11 +120,11 @@ const WhyNorthStar: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* Main Content Grid */}
-        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center mb-12 sm:mb-16 lg:mb-20">
+        <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center mb-8 sm:mb-16">
           {/* Left Side - Headline & Messaging */}
-          <div className="space-y-4 sm:space-y-6">
-            <div className="space-y-3 sm:space-y-4 text-center lg:text-left">
-              <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-slate-900 leading-tight">
+          <div className="space-y-3 sm:space-y-4 lg:space-y-6">
+            <div className="space-y-3 sm:space-y-4 text-center xl:text-left">
+              <h2 className="text-2xl sm:text-3xl  font-bold text-slate-900 leading-tight">
                 Same Global Certification.
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-purple-600 block">
                   Smarter Path to Achieve It.
@@ -225,7 +225,7 @@ const WhyNorthStar: React.FC = () => {
         </div>
 
         {/* Comparison Table */}
-        <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-200 mb-8 sm:mb-12 lg:mb-16">
+        <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-200 mb-6 sm:mb-10 lg:mb-12">
           <div className="bg-gradient-to-r from-slate-800 to-slate-900 px-4 sm:px-8 py-4 sm:py-6">
             <h3 className="text-base sm:text-lg font-bold text-white text-center">Why Choose NorthStar Over Other Providers?</h3>
           </div>
@@ -292,7 +292,7 @@ const WhyNorthStar: React.FC = () => {
         </div>
 
         {/* Proof Chips */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 mb-8 sm:mb-12 lg:mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 mb-6 sm:mb-10 lg:mb-12">
           {proofChips.map((chip, index) => {
             const IconComponent = chip.icon;
             return (
@@ -309,7 +309,7 @@ const WhyNorthStar: React.FC = () => {
         </div>
 
         {/* Video Testimonials Grid */}
-        <div className="mb-12 sm:mb-16">
+        <div className="mb-8 sm:mb-12">
           <h3 className="text-xl sm:text-2xl font-bold text-slate-900 text-center mb-4 sm:mb-6">Real Success Stories</h3>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
             {testimonialVideos.map((video) => (

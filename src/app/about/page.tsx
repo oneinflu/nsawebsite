@@ -17,8 +17,8 @@ export default function AboutPage() {
     <main>
       <AboutHero />
 
-      <section className="bg-white border-t border-slate-200 py-6 sm:py-10 overflow-hidden">
-        <div className="text-center mb-4 sm:mb-6">
+      <section className="bg-white border-t border-slate-200 py-4 sm:py-6 lg:py-8 overflow-hidden">
+        <div className="text-center mb-3 sm:mb-4 lg:mb-6">
           <p className="text-sm sm:text-base text-slate-600 font-medium">Trusted by students who now work at</p>
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

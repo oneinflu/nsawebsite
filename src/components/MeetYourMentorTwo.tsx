@@ -82,7 +82,7 @@ const MeetYourMentor: React.FC = () => {
   ];
 
   return (
-    <section className="py-10 sm:py-16 lg:py-20 bg-gradient-to-br from-slate-50 via-white to-red-50 relative overflow-hidden">
+    <section className="py-8 sm:py-12 lg:py-16 bg-gradient-to-br from-slate-50 via-white to-red-50 relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
@@ -92,7 +92,7 @@ const MeetYourMentor: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* Main Mentor Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center mb-12 sm:mb-16 lg:mb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center mb-8 sm:mb-12 lg:mb-16">
           {/* Left: Mentor Portrait */}
           <div className="relative">
             <div className="relative">
@@ -117,29 +117,29 @@ const MeetYourMentor: React.FC = () => {
           </div>
 
           {/* Right: Headline & Authority */}
-          <div className="text-center lg:text-left">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-slate-900 mb-4 sm:mb-6 leading-tight">
+          <div className="text-center xl:text-left">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-slate-900 mb-3 sm:mb-4 lg:mb-6 leading-tight">
               Learn from India&apos;s Most
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-purple-600 block">
                 Trusted Global Accounting Mentor
               </span>
             </h2>
 
-            <div className="mb-4 sm:mb-6">
+            <div className="mb-3 sm:mb-4 lg:mb-6">
               <h3 className="text-xl sm:text-2xl font-bold text-slate-800 mb-2">M Irfat</h3>
               <p className="text-base sm:text-lg text-red-600 font-semibold">
                 God of Costing • 15+ Years Experience
               </p>
             </div>
 
-            <p className="text-base sm:text-lg lg:text-xl text-slate-600 leading-relaxed mb-6 sm:mb-8">
+            <p className="text-base sm:text-lg lg:text-xl text-slate-600 leading-relaxed mb-4 sm:mb-6 lg:mb-8">
               A mentor who has guided over <strong className="text-slate-900">55,000 students</strong> to 
               global certifications and careers — including rank holders, 
               Big 4 hires, and international professionals.
             </p>
 
             {/* Quick Stats */}
-            <div className="grid grid-cols-3 gap-3 sm:gap-4 mb-6 sm:mb-8">
+            <div className="grid grid-cols-3 gap-3 sm:gap-4 mb-4 sm:mb-6 lg:mb-8">
               <div className="text-center p-3 sm:p-4 bg-white rounded-xl shadow-sm">
                 <div className="text-xl sm:text-2xl font-bold text-red-600">55,000+</div>
                 <div className="text-xs sm:text-sm text-slate-600">Students Guided</div>
@@ -159,8 +159,8 @@ const MeetYourMentor: React.FC = () => {
         </div>
 
         {/* Value Pillars */}
-        <div className="mb-12 sm:mb-16 lg:mb-20">
-          <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 text-center mb-8 sm:mb-12">
+        <div className="mb-8 sm:mb-12 lg:mb-16">
+          <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 text-center mb-6 sm:mb-8 lg:mb-10">
             Why Students Choose Irfat Sir&apos;s Mentorship
           </h3>
           
@@ -185,8 +185,8 @@ const MeetYourMentor: React.FC = () => {
         </div>
 
         {/* Emotional Quote Strip */}
-        <div className="mb-12 sm:mb-16 lg:mb-20">
-          <div className={`text-center py-10 sm:py-16 px-6 sm:px-8 bg-gradient-to-r from-slate-900 to-red-900 rounded-3xl relative overflow-hidden transition-all duration-1000 ${quoteVisible ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'}`}>
+        <div className="mb-8 sm:mb-12 lg:mb-16">
+          <div className={`text-center py-8 sm:py-12 lg:py-16 px-6 sm:px-8 bg-gradient-to-r from-slate-900 to-red-900 rounded-3xl relative overflow-hidden transition-all duration-1000 ${quoteVisible ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'}`}>
             {/* Background Pattern */}
             <div className="absolute inset-0 opacity-10">
               <div className="absolute inset-0" style={{
@@ -210,9 +210,9 @@ const MeetYourMentor: React.FC = () => {
        
 
         {/* How Mentorship Works */}
-        <div className="mb-12 sm:mb-16">
+        <div className="mb-8 sm:mb-12">
           <div className="bg-gradient-to-r from-red-50 to-purple-50 rounded-3xl p-6 sm:p-8 text-center">
-            <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-6 sm:mb-8">How Mentorship Works</h3>
+            <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-4 sm:mb-6 lg:mb-8">How Mentorship Works</h3>
             
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-4 sm:mb-6">
               {mentorshipFeatures.map((feature, index) => {
@@ -236,13 +236,13 @@ const MeetYourMentor: React.FC = () => {
 
         {/* Primary CTA */}
         <div className="text-center">
-          <div className="bg-gradient-to-r from-slate-900 to-red-900 rounded-3xl p-8 sm:p-12 text-white">
+          <div className="bg-gradient-to-r from-slate-900 to-red-900 rounded-3xl p-7 sm:p-12 text-white">
             <h3 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">Ready to Learn Under Irfat Sir?</h3>
             <p className="text-base sm:text-lg lg:text-xl text-red-200 mb-6 sm:mb-8">Join thousands of successful students who transformed their careers</p>
             
-            <button className="bg-gradient-to-r from-yellow-400 to-orange-500 text-slate-900 px-10 py-4 rounded-2xl font-bold text-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center space-x-2 mx-auto mb-4">
+            <button className="bg-gradient-to-r from-yellow-400 to-orange-500 text-slate-900 sm:px-10 px-2 py-4 rounded-2xl font-bold text-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center space-x-2 mx-auto mb-4">
               <CalendarDaysIcon className="w-5 h-5" />
-              <span>Book Free Counselling with Irfat Sir</span>
+              <span className='sm:text-md text-sm'>Book Free Counselling with Irfat Sir</span>
             </button>
             
             <p className="text-sm text-red-200">

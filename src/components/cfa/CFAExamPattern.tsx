@@ -259,7 +259,7 @@ export default function CFAExamPattern() {
         </motion.div>
 
         {/* Main Content Grid */}
-        <div className="flex lg:flex-cols-2 flex flex-col gap-8 lg:gap-12 items-start px-1">
+        <div className="flex sm:flex-cols-2 flex flex-col gap-8 lg:gap-12 items-start px-1">
           {/* Exam Details Table */}
           <motion.div variants={itemVariants} className="w-full flex flex-col items-center lg:items-start">
             <h3 className="text-2xl sm:text-2xl font-bold text-gray-900 mb-6 sm:mb-8 text-center lg:text-left pr-12">

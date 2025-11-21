@@ -13,11 +13,11 @@ export default function AboutLifeGallery() {
   ];
 
   return (
-    <section className="py-10 sm:py-16 bg-slate-50">
+    <section className="py-8 sm:py-12 lg:py-16 bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-6 sm:mb-8">
           <h2 className="text-2xl sm:text-3xl font-bold text-slate-900">Life at NorthStar</h2>
-          <p className="mt-2 sm:mt-3 text-sm sm:text-base text-slate-700">A glimpse of our community, learning spaces, and mentor-led sessions.</p>
+          <p className="mt-2 text-sm sm:text-base text-slate-700">A glimpse of our community, learning spaces, and mentor-led sessions.</p>
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
