@@ -243,7 +243,7 @@ export default function CFAProgramStructure() {
                           className: "w-8 h-8 text-white",
                         })}
                       </div>
-                      <h3 className="text-2xl font-bold text-slate-900 mb-2">
+                      <h3 className="sm:text-2xl text-xl font-bold text-slate-900 mb-2">
                         {level.level}
                       </h3>
                       <div className="text-sm font-medium text-slate-600 bg-white/70 rounded-full px-2 py-1 inline-block">

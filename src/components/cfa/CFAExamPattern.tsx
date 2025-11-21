@@ -259,17 +259,19 @@ export default function CFAExamPattern() {
         </motion.div>
 
         {/* Main Content Grid */}
-        <div className="md:flex md:flex-cols-2 flex flex-col gap-8 lg:gap-12 items-start px-1">
+        <div className="flex flex-col xl:grid xl:grid-cols-2 gap-8 lg:gap-2 items-start px-1 h-auto">
           {/* Exam Details Table */}
-          <motion.div variants={itemVariants} className="w-full flex flex-col items-center lg:items-start">
-            <h3 className="text-2xl sm:text-2xl font-bold text-gray-900 mb-6 sm:mb-8 text-center lg:text-left pr-12">
+          <motion.div
+            variants={itemVariants}
+            className="w-full flex flex-col items-center lg:items-center"
+          >
+            <h3 className="text-2xl sm:text-2xl font-bold text-gray-900 mb-6 sm:mb-8 text-center">
               Exam Structure & Format
             </h3>
 
             <div className="bg-white rounded-2xl sm:rounded-3xl shadow-2xl border border-gray-200 overflow-hidden w-full max-w-md md:max-w-none">
               <div className="overflow-x-auto md:overflow-visible">
                 <table className="w-full" style={{ minWidth: "600px" }}>
-
                   <thead>
                     <tr className="bg-gradient-to-r from-red-600 via-pink-600 to-purple-600 text-white">
                       <th className="px-3 sm:px-4 md:px-6 py-3 sm:py-4 text-left font-semibold text-xs sm:text-sm md:text-base whitespace-nowrap md:whitespace-normal">
@@ -291,18 +293,18 @@ export default function CFAExamPattern() {
                       <motion.tr
                         key={exam.level}
                         className={`border-b border-gray-100 last:border-b-0 ${
-                          index % 2 === 0 ? 'bg-gray-50' : 'bg-white'
+                          index % 2 === 0 ? "bg-gray-50" : "bg-white"
                         }`}
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ delay: index * 0.1 }}
                         viewport={{ once: true }}
                       >
-                        <td className="px-4 sm:px-6 py-4 sm:py-5">
+                        <td className="px-3 sm:px-4 py-3 sm:py-4">
                           <div className="font-bold text-gray-900 text-sm sm:text-lg mb-1 sm:mb-2">
                             {exam.level}
                           </div>
-                          <div className="text-xs sm:text-sm text-gray-500 leading-relaxed">
+                          <div className="text-[10px] sm:text-xs text-gray-500 leading-relaxed max-w-[160px]  sm:max-w-none">
                             {exam.description}
                           </div>
                         </td>
@@ -327,13 +329,12 @@ export default function CFAExamPattern() {
                 </table>
               </div>
             </div>
-
           </motion.div>
 
           {/* Progress Ring */}
           <motion.div
             variants={itemVariants}
-            className="flex flex-col items-center justify-center w-full mt-8 lg:mt-0 px-4"
+            className="flex flex-col items-center justify-center w-full mt-8 lg:mt-12 px-4"
           >
             <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6 sm:mb-8 text-center">
               Your Journey Progress
