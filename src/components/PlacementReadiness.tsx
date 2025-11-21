@@ -167,7 +167,7 @@ const PlacementReadiness = () => {
  
 
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-50 to-red-50 relative overflow-hidden">
+    <section className="py-8 md:py-20 bg-gradient-to-br from-gray-50 to-red-50 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-10 w-96 h-96 bg-red-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
@@ -192,7 +192,7 @@ const PlacementReadiness = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-4xl md:text-5xl font-bold text-gray-900 mb-6"
+            className="text-2xl md:text-5xl font-bold text-gray-900 mb-6"
           >
             Placement Readiness: 
             <span className="bg-gradient-to-r from-red-600 to-purple-600 bg-clip-text text-transparent"> Big 4 Focus</span>
@@ -203,7 +203,7 @@ const PlacementReadiness = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-xl text-gray-600 max-w-3xl mx-auto"
+            className="text-md md:text-xl text-gray-600 max-w-3xl mx-auto"
           >
             From resume to offer letter - our comprehensive placement program ensures you land your dream job at top accounting firms
           </motion.p>
@@ -211,7 +211,7 @@ const PlacementReadiness = () => {
 
         {/* Visual Process Flow */}
         <div className="mb-16">
-          <div className="grid md:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-4 gap-4 md:gap-8">
             {placementSteps.map((step, index) => {
               const Icon = step.icon;
               const isActive = activeStep === index;
@@ -356,10 +356,10 @@ const PlacementReadiness = () => {
           className="bg-gradient-to-r from-red-600 to-purple-600 rounded-2xl p-8 text-white text-center"
         >
           <div className="max-w-3xl mx-auto">
-            <h3 className="text-2xl font-bold mb-4">
+            <h3 className="text-lg md:text-2xl font-bold mb-4">
               Ready to Land Your Dream Job?
             </h3>
-            <p className="text-lg opacity-90 mb-6">
+            <p className="text-sm md:text-lg opacity-90 mb-6">
               Join our placement program and get personalized support from resume building to offer negotiation
             </p>
             <div className="flex flex-wrap justify-center gap-4">
@@ -367,7 +367,7 @@ const PlacementReadiness = () => {
                 formType='download-placement-report'
                 isSendOtp={true}
                 courseId='CPA'
-                className="text-red-600 px-8 py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300"
+                className="text-sm md:text-md text-red-600 px-8 py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300"
               >
                 <div className="flex items-center gap-2">
                   <Briefcase className="w-5 h-5" />
@@ -378,7 +378,7 @@ const PlacementReadiness = () => {
                 formType='general'
                 isSendOtp={true}
                 courseId='CPA'
-                className="border-2 border-white text-white px-8 py-3 rounded-xl font-semibold hover:bg-white hover:text-red-600 transition-all duration-300"
+                className="text-sm md:text-md border-2 border-white text-white px-8 py-3 rounded-xl font-semibold hover:bg-white hover:text-red-600 transition-all duration-300"
               >
                 <div className="flex items-center gap-2">
                   <Users className="w-5 h-5" />

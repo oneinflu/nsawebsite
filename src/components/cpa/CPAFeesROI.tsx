@@ -75,7 +75,7 @@ export default function CPAFeesROI() {
   }
 
   return (
-    <section className="py-20 bg-gradient-to-br from-green-50 to-red-50">
+    <section className="py-8 md:py-20 bg-gradient-to-br from-green-50 to-red-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -93,7 +93,7 @@ export default function CPAFeesROI() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-4xl font-bold text-slate-900 mb-4"
+            className="text-2xl md:text-4xl font-bold text-slate-900 mb-4"
           >
             CPA Investment & ROI Calculator
           </motion.h2>
@@ -102,7 +102,7 @@ export default function CPAFeesROI() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-xl text-slate-600 max-w-3xl mx-auto"
+            className="text-md md:text-xl text-slate-600 max-w-3xl mx-auto"
           >
             Complete fee breakdown, flexible EMI options, and salary comparison to justify your CPA investment
           </motion.p>
@@ -409,8 +409,8 @@ export default function CPAFeesROI() {
                     <GlobeAltIcon className="w-6 h-6 text-purple-600" />
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold text-slate-900">India vs US Salary Comparison</h3>
-                    <p className="text-slate-600">See the dramatic difference CPA makes to your earning potential</p>
+                    <h3 className="text-lg md:text-2xl font-bold text-slate-900">India vs US Salary Comparison</h3>
+                    <p className="text-sm md:text-md text-slate-600">See the dramatic difference CPA makes to your earning potential</p>
                   </div>
                 </div>
 
@@ -422,21 +422,21 @@ export default function CPAFeesROI() {
                         <MapPinIcon className="w-4 h-4" />
                         India Market
                       </div>
-                      <h4 className="text-xl font-bold text-slate-900">Traditional Accounting Roles</h4>
+                      <h4 className="text-lg md:text-xl font-bold text-slate-900">Traditional Accounting Roles</h4>
                     </div>
 
                     <div className="space-y-4">
                       <div className="bg-slate-50 rounded-lg p-4">
                         <div className="flex justify-between items-center">
                           <div>
-                            <p className="font-semibold text-slate-800">Entry Level (0-2 years)</p>
-                            <p className="text-sm text-slate-600">Junior Accountant, Analyst</p>
+                            <p className="text-sm md:text-md font-semibold text-slate-800">Entry Level (0-2 years)</p>
+                            <p className="text-xs md:text-sm text-slate-600">Junior Accountant, Analyst</p>
                           </div>
                           <div className="text-right">
-                            <p className="text-xl font-bold text-slate-900">
+                            <p className="text-md md:text-xl font-bold text-slate-900">
                               {formatCurrency(salaryComparison.india.entry)}
                             </p>
-                            <p className="text-sm text-slate-500">per annum</p>
+                            <p className="text-xs md:text-sm text-slate-500">per annum</p>
                           </div>
                         </div>
                       </div>
@@ -444,14 +444,14 @@ export default function CPAFeesROI() {
                       <div className="bg-slate-50 rounded-lg p-4">
                         <div className="flex justify-between items-center">
                           <div>
-                            <p className="font-semibold text-slate-800">Mid Level (3-5 years)</p>
-                            <p className="text-sm text-slate-600">Senior Analyst, Manager</p>
+                            <p className="text-sm md:text-md font-semibold text-slate-800">Mid Level (3-5 years)</p>
+                            <p className="text-xs md:text-sm text-slate-600">Senior Analyst, Manager</p>
                           </div>
                           <div className="text-right">
-                            <p className="text-xl font-bold text-slate-900">
+                            <p className="text-md md:text-xl font-bold text-slate-900">
                               {formatCurrency(salaryComparison.india.mid)}
                             </p>
-                            <p className="text-sm text-slate-500">per annum</p>
+                            <p className="text-xs md:text-sm text-slate-500">per annum</p>
                           </div>
                         </div>
                       </div>
@@ -459,14 +459,14 @@ export default function CPAFeesROI() {
                       <div className="bg-slate-50 rounded-lg p-4">
                         <div className="flex justify-between items-center">
                           <div>
-                            <p className="font-semibold text-slate-800">Senior Level (6+ years)</p>
-                            <p className="text-sm text-slate-600">Finance Manager, Controller</p>
+                            <p className="text-sm md:text-md font-semibold text-slate-800">Senior Level (6+ years)</p>
+                            <p className="text-xs md:text-sm text-slate-600">Finance Manager, Controller</p>
                           </div>
                           <div className="text-right">
-                            <p className="text-xl font-bold text-slate-900">
+                            <p className="text-md md:text-xl font-bold text-slate-900">
                               {formatCurrency(salaryComparison.india.senior)}
                             </p>
-                            <p className="text-sm text-slate-500">per annum</p>
+                            <p className="text-xs md:text-sm text-slate-500">per annum</p>
                           </div>
                         </div>
                       </div>
@@ -548,7 +548,7 @@ export default function CPAFeesROI() {
                 </div>
 
                 {/* Lifetime Earnings Comparison */}
-                <div className="mt-12 bg-gradient-to-r from-purple-50 to-red-50 rounded-xl p-8">
+                <div className="mt-12 bg-gradient-to-r from-purple-50 to-red-50 rounded-xl p-4 md:p-8">
                   <h4 className="text-2xl font-bold text-center text-slate-900 mb-8">
                     Lifetime Earnings Comparison (30-year career)
                   </h4>

@@ -108,7 +108,7 @@ const CPAStudyPlanner = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-slate-50 to-red-50 relative overflow-hidden">
+    <section className="py-8 md:py-20 bg-gradient-to-br from-slate-50 to-red-50 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-10 w-72 h-72 bg-red-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse"></div>
@@ -133,7 +133,7 @@ const CPAStudyPlanner = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-4xl md:text-5xl font-bold text-gray-900 mb-6"
+            className="text-2xl md:text-5xl font-bold text-gray-900 mb-6"
           >
             Study Structure + 
             <span className="bg-gradient-to-r from-red-600 to-purple-600 bg-clip-text text-transparent"> Planner Engine</span>
@@ -144,14 +144,14 @@ const CPAStudyPlanner = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-xl text-gray-600 max-w-3xl mx-auto"
+            className="text-md md:text-xl text-gray-600 max-w-3xl mx-auto"
           >
             A comprehensive learning ecosystem designed to maximize your CPA success rate with personalized study plans and expert guidance
           </motion.p>
         </div>
 
         {/* Study Features Grid */}
-        <div className="grid lg:grid-cols-3 gap-8 mb-16">
+        <div className="grid lg:grid-cols-3 gap-4 md:gap-8 mb-16">
           {/* Feature Cards */}
           <div className="lg:col-span-2 grid md:grid-cols-2 gap-6">
             {studyFeatures.map((feature, index) => {
@@ -175,7 +175,7 @@ const CPAStudyPlanner = () => {
                     </div>
                     
                     <h3 className="text-xl font-bold text-gray-900 mb-2">{feature.title}</h3>
-                    <p className="text-gray-600 mb-4">{feature.description}</p>
+                    <p className="text-sm md:text-md text-gray-600 mb-4">{feature.description}</p>
                     
                     <div className="flex items-center justify-between">
                       <span className={`text-sm font-semibold bg-gradient-to-r ${feature.color} bg-clip-text text-transparent`}>
@@ -237,16 +237,16 @@ const CPAStudyPlanner = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100"
+          className="bg-white rounded-2xl p-4 md:p-8 shadow-lg border border-gray-100"
         >
-          <div className="flex items-center justify-between mb-6">
+          <div className="flex flex-col md:flex-row items-center justify-between mb-6 gap-4">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-lg bg-gradient-to-r from-red-500 to-red-600 flex items-center justify-center">
                 <BarChart3 className="w-5 h-5 text-white" />
               </div>
               <div>
-                <h3 className="text-xl font-bold text-gray-900">Performance Analytics Dashboard</h3>
-                <p className="text-gray-600">Real-time insights into your preparation</p>
+                <h3 className="text-md md:text-xl font-bold text-gray-900">Performance Analytics Dashboard</h3>
+                <p className="text-sm md:text-md text-gray-600">Real-time insights into your preparation</p>
               </div>
             </div>
             <motion.button
@@ -346,12 +346,12 @@ const CPAStudyPlanner = () => {
             formType='download-hackdoc'
             isSendOtp={true}
             courseId='CPA'
-            className="inline-flex items-center gap-3 bg-gradient-to-r from-red-600 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:shadow-xl transition-all duration-300"
+            className="inline-flex items-center gap-3 bg-gradient-to-r from-red-600 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold text-sm md:text-lg hover:shadow-xl transition-all duration-300"
           >
             <Calendar className="w-5 h-5" />
             Get Your Personalized Study Plan
           </LeadFormButton>
-          <p className="text-gray-600 mt-4">
+          <p className="text-gray-600 mt-4 text-xs md:text-lg">
             Join 5,000+ students who achieved first-attempt success with our structured approach
           </p>
         </motion.div>

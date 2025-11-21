@@ -58,7 +58,7 @@ export default function WhyCPA() {
   return (
     <section
       ref={sectionRef}
-      className="py-20 bg-linear-to-br from-slate-50 via-red-50 to-red-50 overflow-hidden"
+      className="py-8 md:py-20 bg-linear-to-br from-slate-50 via-red-50 to-red-50 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -67,9 +67,9 @@ export default function WhyCPA() {
           transition={{ duration: 0.8 }}
           className="text-center md:mb-16 sm:pb-14 pb-8"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-6">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-6">
             Why CPA (US)?
-            <span className="block text-3xl font-medium text-red-600 mt-2">
+            <span className="block text-2xl md:text-3xl font-medium text-red-600 mt-2">
               The Ultimate Accounting Authority
             </span>
           </h2>

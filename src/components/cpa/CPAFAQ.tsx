@@ -243,7 +243,7 @@ const CPAFAQ = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-50 to-red-50 relative overflow-hidden">
+    <section className="py-8 md:py-20 bg-gradient-to-br from-gray-50 to-red-50 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-10 w-96 h-96 bg-red-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
@@ -268,7 +268,7 @@ const CPAFAQ = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-4xl md:text-5xl font-bold text-gray-900 mb-6"
+            className="text-2xl md:text-5xl font-bold text-gray-900 mb-6"
           >
             Frequently Asked Questions
             <span className="bg-gradient-to-r from-red-600 to-purple-600 bg-clip-text text-transparent"> About CPA</span>
@@ -279,7 +279,7 @@ const CPAFAQ = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-xl text-gray-600 max-w-3xl mx-auto mb-8"
+            className="text-md md:text-xl text-gray-600 max-w-3xl mx-auto mb-8"
           >
             Get answers to the most common questions about CPA recognition, evaluation process, exam attempts, and Prometric testing details
           </motion.p>
@@ -292,13 +292,13 @@ const CPAFAQ = () => {
             transition={{ delay: 0.3 }}
             className="max-w-md mx-auto relative"
           >
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+            <Search className="absolute  left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
             <input
               type="text"
               placeholder="Search FAQs..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-transparent"
+              className="placeholder-gray-500 w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-transparent"
             />
           </motion.div>
         </div>

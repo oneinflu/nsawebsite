@@ -168,7 +168,7 @@ export default function CPAEligibilityChecker() {
   }
 
   return (
-    <section className="py-20 bg-gradient-to-br from-red-50 to-red-50">
+    <section className="py-8 md:py-20 bg-gradient-to-br from-red-50 to-red-50">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -186,7 +186,7 @@ export default function CPAEligibilityChecker() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-4xl font-bold text-slate-900 mb-4"
+            className="text-2xl md:text-4xl font-bold text-slate-900 mb-4"
           >
             Check Your CPA Eligibility
           </motion.h2>
@@ -195,7 +195,7 @@ export default function CPAEligibilityChecker() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-xl text-slate-600 max-w-2xl mx-auto"
+            className="text-md md:text-xl text-slate-600 max-w-2xl mx-auto"
           >
             Take our quick 4-question assessment to discover if you&apos;re eligible for CPA and get personalized guidance
           </motion.p>

@@ -550,9 +550,9 @@ export default function StateBoardWizard() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -50 }}
             transition={{ duration: 0.5 }}
-            className="bg-white rounded-2xl shadow-xl p-8"
+            className="bg-white rounded-2xl shadow-xl p-4 md:p-8"
           >
-            <h3 className="text-2xl font-bold text-slate-900 mb-8 text-center">
+            <h3 className="text-lg md:text-2xl font-bold text-slate-900 mb-8 text-center">
               {wizardSteps[currentStep].question}
             </h3>
 
@@ -573,11 +573,11 @@ export default function StateBoardWizard() {
                         <IconComponent className="w-6 h-6 text-red-600" />
                       </div>
                       <div className="flex-1">
-                        <h4 className="font-semibold text-slate-800 mb-1">
+                        <h4 className="text-sm md:text-md font-semibold text-slate-800 mb-1">
                           {option.label}
                         </h4>
                         {option.description && (
-                          <p className="text-slate-600 text-sm">
+                          <p className="text-xs md:text-sm text-slate-600 text-sm">
                             {option.description}
                           </p>
                         )}
