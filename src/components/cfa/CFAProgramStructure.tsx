@@ -5,12 +5,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { 
   ChevronDownIcon,
-  
   BookOpenIcon,
- 
   ChartBarIcon,
-  DocumentArrowDownIcon,
-  
   BriefcaseIcon,
   TrophyIcon,
   CheckCircleIcon,
@@ -195,7 +191,7 @@ export default function CFAProgramStructure() {
   }
 
   return (
-    <section className="py-20 bg-gradient-to-br from-slate-50 via-red-50 to-red-50 relative overflow-hidden">
+    <section className="py-8 md:py-20 bg-gradient-to-br from-slate-50 via-red-50 to-red-50 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.1),transparent_50%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(147,51,234,0.1),transparent_50%)]" />
@@ -209,10 +205,10 @@ export default function CFAProgramStructure() {
         >
           {/* Header */}
           <motion.div variants={itemVariants} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
+            <h2 className="text-2xl md:text-5xl font-bold text-slate-900 mb-6">
               CFA Program Structure
             </h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto mb-4">
+            <p className="text-md md:text-xl text-slate-600 max-w-3xl mx-auto mb-4">
                   Simplified Visualization — Your 3-Part Journey to Global Finance Excellence
                 </p>
             <div className="w-24 h-1 bg-gradient-to-r from-red-500 to-purple-500 mx-auto rounded-full" />
@@ -233,7 +229,7 @@ export default function CFAProgramStructure() {
                     <div className="hidden lg:block absolute top-1/2 -right-4 w-8 h-0.5 bg-gradient-to-r from-red-300 to-purple-300 z-10" />
                   )}
                   
-                  <div className={`bg-gradient-to-br ${level.bgColor} rounded-2xl p-8 border border-white/50 shadow-lg backdrop-blur-sm h-full`}>
+                  <div className={`bg-gradient-to-br ${level.bgColor} rounded-2xl p-8 border border-white/50 shadow-lg backdrop-blur-sm`}>
                     {/* Level Header */}
                     <div className="text-center mb-6">
                       <div className={`w-16 h-16 bg-gradient-to-r ${level.color} rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg`}>
@@ -259,7 +255,7 @@ export default function CFAProgramStructure() {
                         <p className="text-slate-600 text-sm">{level.outcome}</p>
                       </div>
 
-                      {/* Expandable Topics */}
+                      {/* Expandable Topics Button */}
                       <button
                         onClick={() => setActiveLevel(activeLevel === level.id ? null : level.id)}
                         className="w-full bg-white/70 hover:bg-white/90 rounded-lg p-3 flex items-center justify-between transition-all duration-200 group"
@@ -272,61 +268,69 @@ export default function CFAProgramStructure() {
                           <ChevronDownIcon className="w-5 h-5 text-slate-600 group-hover:text-slate-800" />
                         </motion.div>
                       </button>
-                    </div>
-                  </div>
 
-                  {/* Expandable Content */}
-                  {activeLevel === level.id && (
-                    <div className="mt-4 animate-in slide-in-from-top-2 duration-300">
-                      <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
-                          <div className="grid md:grid-cols-2 gap-6">
-                            {/* Topics */}
-                            <div>
-                              <h5 className="font-bold text-slate-900 mb-3 flex items-center">
-                                <BookOpenIcon className="w-5 h-5 mr-2 text-red-500" />
-                                Key Topics
-                              </h5>
-                              <ul className="space-y-2">
-                                {level.topics.map((topic, idx) => (
-                                  <li key={idx} className="flex items-start">
-                                    <CheckCircleIcon className="w-4 h-4 text-green-500 mt-0.5 mr-2 flex-shrink-0" />
-                                    <span className="text-slate-700 text-sm">{topic}</span>
-                                  </li>
-                                ))}
-                              </ul>
-                            </div>
+                      {/* Expandable Content */}
+                      <AnimatePresence>
+                        {activeLevel === level.id && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: 'auto', opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.3 }}
+                            className="overflow-hidden"
+                          >
+                            <div className="mt-4 bg-white rounded-lg p-4 border border-gray-200">
+                              <div className="grid md:grid-cols-2 gap-4">
+                                {/* Topics */}
+                                <div>
+                                  <h5 className="font-bold text-slate-900 mb-3 flex items-center text-sm">
+                                    <BookOpenIcon className="w-4 h-4 mr-2 text-red-500" />
+                                    Key Topics
+                                  </h5>
+                                  <ul className="space-y-1.5">
+                                    {level.topics.map((topic, idx) => (
+                                      <li key={idx} className="flex items-start">
+                                        <CheckCircleIcon className="w-3.5 h-3.5 text-green-500 mt-0.5 mr-2 flex-shrink-0" />
+                                        <span className="text-slate-700 text-xs">{topic}</span>
+                                      </li>
+                                    ))}
+                                  </ul>
+                                </div>
 
-                            {/* Skills & Exam Details */}
-                            <div className="space-y-4">
-                              <div>
-                                <h5 className="font-bold text-slate-900 mb-3 flex items-center">
-                                  <BriefcaseIcon className="w-5 h-5 mr-2 text-purple-500" />
-                                  Key Skills
-                                </h5>
-                                <ul className="space-y-2">
-                                  {level.keySkills.map((skill, idx) => (
-                                    <li key={idx} className="flex items-start">
-                                      <ArrowRightIcon className="w-4 h-4 text-purple-500 mt-0.5 mr-2 flex-shrink-0" />
-                                      <span className="text-slate-700 text-sm">{skill}</span>
-                                    </li>
-                                  ))}
-                                </ul>
-                              </div>
+                                {/* Skills & Exam Details */}
+                                <div className="space-y-3">
+                                  <div>
+                                    <h5 className="font-bold text-slate-900 mb-3 flex items-center text-sm">
+                                      <BriefcaseIcon className="w-4 h-4 mr-2 text-purple-500" />
+                                      Key Skills
+                                    </h5>
+                                    <ul className="space-y-1.5">
+                                      {level.keySkills.map((skill, idx) => (
+                                        <li key={idx} className="flex items-start">
+                                          <ArrowRightIcon className="w-3.5 h-3.5 text-purple-500 mt-0.5 mr-2 flex-shrink-0" />
+                                          <span className="text-slate-700 text-xs">{skill}</span>
+                                        </li>
+                                      ))}
+                                    </ul>
+                                  </div>
 
-                              <div className="bg-slate-50 rounded-lg p-4">
-                                <h5 className="font-bold text-slate-900 mb-3">Exam Details</h5>
-                                <div className="space-y-2 text-sm">
-                                  <div><strong>Format:</strong> {level.examDetails.format}</div>
-                                  <div><strong>Questions:</strong> {level.examDetails.questions}</div>
-                                  <div><strong>Study Hours:</strong> {level.examDetails.studyHours}</div>
-                                  <div><strong>Passing Score:</strong> {level.examDetails.passingScore}</div>
+                                  <div className="bg-slate-50 rounded-lg p-3">
+                                    <h5 className="font-bold text-slate-900 mb-2 text-sm">Exam Details</h5>
+                                    <div className="space-y-1.5 text-xs">
+                                      <div><strong>Format:</strong> {level.examDetails.format}</div>
+                                      <div><strong>Questions:</strong> {level.examDetails.questions}</div>
+                                      <div><strong>Study Hours:</strong> {level.examDetails.studyHours}</div>
+                                      <div><strong>Passing Score:</strong> {level.examDetails.passingScore}</div>
+                                    </div>
+                                  </div>
                                 </div>
                               </div>
                             </div>
-                          </div>
-                        </div>
-                      </div>
-                    )}
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  </div>
                 </motion.div>
               ))}
             </div>

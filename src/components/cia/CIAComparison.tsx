@@ -227,77 +227,81 @@ const CIAComparison = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="bg-white rounded-3xl shadow-2xl border border-slate-200 overflow-hidden mb-16"
         >
-          {/* Table Header */}
-          <div className="bg-gradient-to-r from-slate-900 to-slate-800 text-white p-6">
-            <div className="grid grid-cols-5 gap-4 items-center">
-              <div className="font-bold text-lg">Feature</div>
-              {certifications.map((cert) => (
-                <div key={cert} className="text-center">
-                  <div className="font-bold text-lg">{cert}</div>
-                  {cert === "CIA" && (
-                    <div className="text-xs bg-green-500 text-white rounded-full px-3 py-1 mt-2 inline-block">
-                      ✅ BEST CHOICE
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Table Body */}
-          <div className="divide-y divide-slate-200">
-            {features.map((feature, index) => (
-              <motion.div
-                key={feature}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="grid grid-cols-5 gap-4 p-6 hover:bg-slate-50 transition-colors duration-200"
-              >
-                <div className="font-semibold text-slate-900 flex items-center">
-                  {feature}
-                </div>
-                {certifications.map((cert) => {
-                  const data =
-                    comparisonData[feature as keyof typeof comparisonData][
-                      cert as keyof (typeof comparisonData)[keyof typeof comparisonData]
-                    ];
-                  const cellKey = `${feature}-${cert}`;
-
-                  return (
-                    <div
-                      key={cert}
-                      className="text-center relative"
-                      onMouseEnter={() => setHoveredCell(cellKey)}
-                      onMouseLeave={() => setHoveredCell(null)}
-                    >
-                      <div className={`font-bold text-lg ${data.color} mb-1`}>
-                        {data.value}
-                      </div>
-                      <div className="text-sm text-slate-600">
-                        {data.detail}
-                      </div>
-
-                      {/* Hover tooltip */}
-                      {hoveredCell === cellKey && (
-                        <motion.div
-                          initial={{ opacity: 0, scale: 0.9 }}
-                          animate={{ opacity: 1, scale: 1 }}
-                          className="absolute z-10 bg-slate-900 text-white p-3 rounded-lg shadow-lg -top-16 left-1/2 transform -translate-x-1/2 whitespace-nowrap"
-                        >
-                          <div className="text-sm font-semibold">
-                            Score: {data.score}/10
-                          </div>
-                          <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-full">
-                            <div className="w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-slate-900"></div>
-                          </div>
-                        </motion.div>
+          <div className="overflow-x-auto">
+            <div className="min-w-[640px]">
+              {/* Table Header */}
+              <div className="bg-gradient-to-r from-slate-900 to-slate-800 text-white p-4 md:p-6">
+                <div className="grid grid-cols-5 gap-2 md:gap-4 items-center">
+                  <div className="font-bold text-sm md:text-lg">Feature</div>
+                  {certifications.map((cert) => (
+                    <div key={cert} className="text-center">
+                      <div className="font-bold text-sm md:text-lg">{cert}</div>
+                      {cert === "CIA" && (
+                        <div className="text-[10px] md:text-xs bg-green-500 text-white rounded-full px-2 md:px-3 py-1 mt-1 md:mt-2 inline-block">
+                          ✅ BEST
+                        </div>
                       )}
                     </div>
-                  );
-                })}
-              </motion.div>
-            ))}
+                  ))}
+                </div>
+              </div>
+
+              {/* Table Body */}
+              <div className="divide-y divide-slate-200">
+                {features.map((feature, index) => (
+                  <motion.div
+                    key={feature}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    className="grid grid-cols-5 gap-2 md:gap-4 p-3 md:p-6 hover:bg-slate-50 transition-colors duration-200"
+                  >
+                    <div className="font-semibold text-xs md:text-base text-slate-900 flex items-center">
+                      {feature}
+                    </div>
+                    {certifications.map((cert) => {
+                      const data =
+                        comparisonData[feature as keyof typeof comparisonData][
+                          cert as keyof (typeof comparisonData)[keyof typeof comparisonData]
+                        ];
+                      const cellKey = `${feature}-${cert}`;
+
+                      return (
+                        <div
+                          key={cert}
+                          className="text-center relative"
+                          onMouseEnter={() => setHoveredCell(cellKey)}
+                          onMouseLeave={() => setHoveredCell(null)}
+                        >
+                          <div className={`font-bold text-sm md:text-lg ${data.color} mb-1`}>
+                            {data.value}
+                          </div>
+                          <div className="text-[10px] md:text-sm text-slate-600">
+                            {data.detail}
+                          </div>
+
+                          {/* Hover tooltip */}
+                          {hoveredCell === cellKey && (
+                            <motion.div
+                              initial={{ opacity: 0, scale: 0.9 }}
+                              animate={{ opacity: 1, scale: 1 }}
+                              className="absolute z-10 bg-slate-900 text-white p-3 rounded-lg shadow-lg -top-16 left-1/2 transform -translate-x-1/2 whitespace-nowrap"
+                            >
+                              <div className="text-sm font-semibold">
+                                Score: {data.score}/10
+                              </div>
+                              <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-full">
+                                <div className="w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-slate-900"></div>
+                              </div>
+                            </motion.div>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </motion.div>
+                ))}
+              </div>
+            </div>
           </div>
         </motion.div>
 
