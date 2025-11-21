@@ -122,7 +122,7 @@ export default function Footer() {
                 </h3>
               </div>
               <p className="text-red-200 mb-6 text-sm md:text-lg">
-                Free PDF: Complete CPA Certification Guide
+                Free PDF: Complete Guide To Global Finance & Accounting Certification
               </p>
               <LeadFormButton
                 formType="get-free-guide"

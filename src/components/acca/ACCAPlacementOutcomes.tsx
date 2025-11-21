@@ -74,21 +74,21 @@ const ACCAPlacementOutcomes = () => {
       role: "Senior Associate",
       salary: "₹12,00,000",
       student: "Priya S.",
-      date: "March 2024",
+      date: "March 2025",
     },
     {
       company: "EY",
       role: "Audit Associate",
       salary: "₹10,50,000",
       student: "Rahul P.",
-      date: "February 2024",
+      date: "February 2025",
     },
     {
       company: "KPMG",
       role: "Tax Consultant",
       salary: "₹11,55,000",
       student: "Sneha G.",
-      date: "January 2024",
+      date: "January 2025",
     },
   ];
 

@@ -23,7 +23,7 @@ const ACCAHero = () => {
     },
     {
       icon: GlobeAltIcon,
-      text: "150+ Countries",
+      text: "180+ Countries",
       color: "from-green-500 to-green-600"
     },
     {
@@ -33,7 +33,7 @@ const ACCAHero = () => {
     },
     {
       icon: ClockIcon,
-      text: "3–7 Years Journey (Flexible)",
+      text: "2–3 Years Journey (Flexible)",
       color: "from-orange-500 to-orange-600"
     }
   ];
@@ -165,7 +165,7 @@ const ACCAHero = () => {
                 ))}
               </div>
               <div className="text-sm text-gray-600">
-                <div className="font-bold text-gray-900">2,500+ Students</div>
+                <div className="font-bold text-gray-900">2,00,00+ Students</div>
                 <div>Successfully qualified globally</div>
               </div>
             </motion.div>

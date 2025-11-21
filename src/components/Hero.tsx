@@ -142,8 +142,8 @@ const Hero: React.FC = () => {
             {/* 1️⃣ Identity Badge */}
             <div className="inline-flex items-center space-x-3 bg-green-50 border border-green-200 rounded-full px-6 py-3 animate-slide-in-left">
               <CheckIcon className="w-5 h-5 text-green-600 animate-pulse" />
-              <span className="text-green-800 font-medium">
-                Same Certification as USA Students — CMA / CPA / ACCA Global Recognition
+              <span className="text-sm md:text-md text-green-800 font-medium">
+                Same Certification as USA Students - CMA / CPA / ACCA Global Recognition
               </span>
             </div>
 
@@ -302,7 +302,7 @@ const Hero: React.FC = () => {
             <div className="absolute inset-0 pointer-events-none z-30">
               
               {/* Certified Badge */}
-              <div className="absolute md:-top-6 -top-2 -left-2 bg-green-100 border border-green-200 rounded-lg p-3 shadow-xl animate-float pointer-events-auto z-40">
+              <div className="hidden md:block absolute md:-top-10 -top-2 -left-2 bg-green-100 border border-green-200 rounded-lg p-3 shadow-xl animate-float pointer-events-auto z-40">
                 <div className="flex items-center space-x-2">
                   <CheckIcon className="w-4 h-4 text-green-600" />
                   <div className="text-xs">
@@ -324,7 +324,7 @@ const Hero: React.FC = () => {
               </div>
 
               {/* Pass Rate */}
-              <div className="absolute -bottom-4 -left-2 bg-yellow-100 border border-yellow-200 rounded-lg p-3 shadow-xl animate-float-slow-reverse pointer-events-auto z-40">
+              <div className=" absolute -bottom-4 -left-2 bg-yellow-100 border border-yellow-200 rounded-lg p-3 shadow-xl animate-float-slow-reverse pointer-events-auto z-40">
                 <div className="flex items-center space-x-2">
                   <StarIcon className="w-4 h-4 text-yellow-600" />
                   <div className="text-xs">
@@ -346,7 +346,7 @@ const Hero: React.FC = () => {
               </div>
 
               {/* EMI */}
-              <div className="absolute top-1/2 right-1 bg-green-200 border-2 border-green-300 rounded-lg p-3 shadow-xl animate-pulse-gentle pointer-events-auto z-40">
+              <div className="hidden md:block absolute top-1/2 right-1 bg-green-200 border-2 border-green-300 rounded-lg p-3 shadow-xl animate-pulse-gentle pointer-events-auto z-40">
                 <div className="flex items-center space-x-2">
                   <CurrencyRupeeIcon className="w-4 h-4 text-green-700" />
                   <div className="text-xs">

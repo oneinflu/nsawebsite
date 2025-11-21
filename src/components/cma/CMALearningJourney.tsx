@@ -43,23 +43,45 @@ export default function CMALearningJourney() {
           </div>
         </div>
 
-        {/* RIGHT - MENTOR CARD */}
-        <div className="relative flex-1 flex flex-col items-center lg:items-end gap-4 pb-0">
-          {/* info card */}
-          <div className="bg-white/10 backdrop-blur-md px-4 py-3 rounded-xl shadow-lg w-fit">
-            <h2 className="text-xl font-bold text-[#FFD45D]">M. Irfat</h2>
-            <p className="text-sm text-gray-200">World's Leading Expert</p>
-            <p className="text-xs text-[#FFD45D]">
-              CA • CMA USA • CPA • CIMA UK
-            </p>
+        {/* RIGHT - MENTOR SECTION */}
+        <div className="relative flex-1 flex flex-col lg:flex-row items-center lg:items-end gap-4 lg:gap-6 pb-0 w-full">
+          {/* MENTOR CARD - Left of Image */}
+          <div className="bg-white/10 backdrop-blur-md px-6 py-5 rounded-2xl shadow-2xl border border-white/20 w-full max-w-xs lg:max-w-[280px] lg:mb-8">
+            <div className="flex flex-col items-center text-center space-y-3">
+              <div className="w-16 h-16 bg-gradient-to-br from-[#FFD45D] to-yellow-500 rounded-full flex items-center justify-center shadow-lg">
+                <span className="text-2xl font-bold text-blue-900">MI</span>
+              </div>
+              <div>
+                <h2 className="text-2xl font-bold text-[#FFD45D] mb-1">M. Irfat</h2>
+                <p className="text-sm text-gray-200 font-medium">World's Leading Expert</p>
+              </div>
+              <div className="w-full h-px bg-white/20"></div>
+              <div className="space-y-2 w-full">
+                <p className="text-xs text-[#FFD45D] font-semibold">
+                  CA • CMA USA • CPA • CIMA UK
+                </p>
+                <div className="flex items-center justify-center gap-1">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} size={14} fill="#FFD45D" className="text-[#FFD45D]" />
+                  ))}
+                </div>
+                <p className="text-xs text-gray-300 italic">
+                  "Transforming careers through excellence"
+                </p>
+              </div>
+            </div>
           </div>
-          <Image
-            src="/intro-image.png"
-            alt="M. Irfat"
-            width={430}
-            height={430}
-            className="object-contain self-end"
-          />
+
+          {/* MENTOR IMAGE */}
+          <div className="flex-shrink-0">
+            <Image
+              src="/intro-image.png"
+              alt="M. Irfat"
+              width={430}
+              height={430}
+              className="object-contain w-full max-w-[300px] lg:max-w-[430px]"
+            />
+          </div>
         </div>
       </div>
     </section>
