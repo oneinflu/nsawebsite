@@ -93,7 +93,7 @@ const CIAEligibility = () => {
   ];
 
   return (
-    <section id="eligibility" className="py-20 bg-gradient-to-br from-gray-50 to-red-50">
+    <section id="eligibility" className="py-8 md:py-20 bg-gradient-to-br from-gray-50 to-red-50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -107,11 +107,11 @@ const CIAEligibility = () => {
             <CheckCircleIcon className="w-4 h-4 mr-2" />
             Eligibility Made Simple
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-2xl md:text-5xl font-bold text-gray-900 mb-6">
             CIA Eligibility & 
             <span className="block text-green-600 mt-2">Experience Requirements</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Clear path to CIA certification. No experience barriers to get started.
           </p>
         </motion.div>
@@ -126,12 +126,12 @@ const CIAEligibility = () => {
         >
           <div className="text-center">
             <div className="w-16 h-16 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-6">
-              <ExclamationTriangleIcon className="w-8 h-8 text-white" />
+              <ExclamationTriangleIcon className="w-8 h-8 text-black" />
             </div>
-            <h3 className="text-2xl md:text-3xl font-bold mb-4">
+            <h3 className="text-xl md:text-3xl font-bold mb-4">
               &quot;Am I Eligible?&quot; Fear Removed ✅
             </h3>
-            <p className="text-green-100 text-lg mb-8 max-w-2xl mx-auto">
+            <p className="text-white text-md md:text-lg mb-8 max-w-2xl mx-auto">
               <strong>No prior experience required to appear for CIA exams.</strong> You can start your journey today 
               and gain experience while or after completing your certification.
             </p>
@@ -145,9 +145,9 @@ const CIAEligibility = () => {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   className="bg-white bg-opacity-10 rounded-2xl p-6 backdrop-blur-sm"
                 >
-                  <fact.icon className="w-8 h-8 text-white mb-4 mx-auto" />
-                  <h4 className="font-bold text-white mb-2">{fact.title}</h4>
-                  <p className="text-green-100 text-sm">{fact.description}</p>
+                  <fact.icon className="w-8 h-8 text-black mb-4 mx-auto" />
+                  <h4 className="font-bold text-black mb-2">{fact.title}</h4>
+                  <p className="text-green-600 text-sm">{fact.description}</p>
                 </motion.div>
               ))}
             </div>
@@ -160,7 +160,7 @@ const CIAEligibility = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl font-bold text-center text-gray-900 mb-12"
+            className="text-2xl md:text-3xl font-bold text-center text-gray-900 mb-12"
           >
             Your CIA Journey Timeline
           </motion.h3>
@@ -261,7 +261,7 @@ const CIAEligibility = () => {
             <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
               Why This Path Works
             </h3>
-            <p className="text-gray-600 text-lg">
+            <p className="text-sm md:text-lg text-gray-600 text-lg">
               Flexible approach that removes barriers and accelerates your career growth
             </p>
           </div>

@@ -1,93 +1,95 @@
-'use client';
+"use client";
 
-import { motion, AnimatePresence } from 'framer-motion';
-import { useState } from 'react';
-import { 
+import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
+import {
   BuildingOfficeIcon,
   PlayIcon,
   DocumentTextIcon,
   ChartBarIcon,
-  
-  XMarkIcon
-} from '@heroicons/react/24/outline';
-import TrustLogosMarquee from '../TrustLogosMarquee';
-import LeadFormButton from '../LeadFormButton';
+  XMarkIcon,
+} from "@heroicons/react/24/outline";
+import TrustLogosMarquee from "../TrustLogosMarquee";
+import LeadFormButton from "../LeadFormButton";
 
 const ACCAPlacementOutcomes = () => {
   const [activeTestimonial, setActiveTestimonial] = useState(0);
   const [showVideoModal, setShowVideoModal] = useState(false);
   const [activeVideo, setActiveVideo] = useState(0);
 
- 
   const successStories = [
     {
-      name: 'Priya Sharma',
-      role: 'Senior Financial Analyst',
-      company: 'Deloitte',
-      salary: '₹12 LPA',
-      image: '/api/placeholder/80/80',
-      score: 'ACCA Qualified',
-      testimonial: 'NorthStar\'s comprehensive training helped me crack Deloitte. The mock interviews were game-changing!',
-      videoThumbnail: '/api/placeholder/300/200',
-      location: 'Mumbai'
+      name: "Priya Sharma",
+      role: "Senior Financial Analyst",
+      company: "Deloitte",
+      salary: "₹12 LPA",
+      image: "/api/placeholder/80/80",
+      score: "ACCA Qualified",
+      testimonial:
+        "NorthStar's comprehensive training helped me crack Deloitte. The mock interviews were game-changing!",
+      videoThumbnail: "/api/placeholder/300/200",
+      location: "Mumbai",
     },
     {
-      name: 'Rahul Patel',
-      role: 'Audit Associate',
-      company: 'EY',
-      salary: '₹10 LPA',
-      image: '/api/placeholder/80/80',
-      score: 'ACCA Qualified',
-      testimonial: 'The placement support team guided me through every step. Got placed within 3 months of completion!',
-      videoThumbnail: '/api/placeholder/300/200',
-      location: 'Bangalore'
+      name: "Rahul Patel",
+      role: "Audit Associate",
+      company: "EY",
+      salary: "₹10 LPA",
+      image: "/api/placeholder/80/80",
+      score: "ACCA Qualified",
+      testimonial:
+        "The placement support team guided me through every step. Got placed within 3 months of completion!",
+      videoThumbnail: "/api/placeholder/300/200",
+      location: "Bangalore",
     },
     {
-      name: 'Sneha Gupta',
-      role: 'Tax Consultant',
-      company: 'KPMG',
-      salary: '₹11 LPA',
-      image: '/api/placeholder/80/80',
-      score: 'ACCA Qualified',
-      testimonial: 'From a commerce graduate to KPMG - NorthStar made this transformation possible!',
-      videoThumbnail: '/api/placeholder/300/200',
-      location: 'Delhi'
+      name: "Sneha Gupta",
+      role: "Tax Consultant",
+      company: "KPMG",
+      salary: "₹11 LPA",
+      image: "/api/placeholder/80/80",
+      score: "ACCA Qualified",
+      testimonial:
+        "From a commerce graduate to KPMG - NorthStar made this transformation possible!",
+      videoThumbnail: "/api/placeholder/300/200",
+      location: "Delhi",
     },
     {
-      name: 'Arjun Singh',
-      role: 'Financial Controller',
-      company: 'PwC',
-      salary: '₹15 LPA',
-      image: '/api/placeholder/80/80',
-      score: 'ACCA Qualified',
-      testimonial: 'The industry connections and placement support exceeded my expectations. Highly recommend!',
-      videoThumbnail: '/api/placeholder/300/200',
-      location: 'Hyderabad'
-    }
+      name: "Arjun Singh",
+      role: "Financial Controller",
+      company: "PwC",
+      salary: "₹15 LPA",
+      image: "/api/placeholder/80/80",
+      score: "ACCA Qualified",
+      testimonial:
+        "The industry connections and placement support exceeded my expectations. Highly recommend!",
+      videoThumbnail: "/api/placeholder/300/200",
+      location: "Hyderabad",
+    },
   ];
 
   const offerLetters = [
     {
-      company: 'Deloitte',
-      role: 'Senior Associate',
-      salary: '₹12,00,000',
-      student: 'Priya S.',
-      date: 'March 2024'
+      company: "Deloitte",
+      role: "Senior Associate",
+      salary: "₹12,00,000",
+      student: "Priya S.",
+      date: "March 2024",
     },
     {
-      company: 'EY',
-      role: 'Audit Associate',
-      salary: '₹10,50,000',
-      student: 'Rahul P.',
-      date: 'February 2024'
+      company: "EY",
+      role: "Audit Associate",
+      salary: "₹10,50,000",
+      student: "Rahul P.",
+      date: "February 2024",
     },
     {
-      company: 'KPMG',
-      role: 'Tax Consultant',
-      salary: '₹11,55,000',
-      student: 'Sneha G.',
-      date: 'January 2024'
-    }
+      company: "KPMG",
+      role: "Tax Consultant",
+      salary: "₹11,55,000",
+      student: "Sneha G.",
+      date: "January 2024",
+    },
   ];
 
   const nextTestimonial = () => {
@@ -95,7 +97,9 @@ const ACCAPlacementOutcomes = () => {
   };
 
   const prevTestimonial = () => {
-    setActiveTestimonial((prev) => (prev - 1 + successStories.length) % successStories.length);
+    setActiveTestimonial(
+      (prev) => (prev - 1 + successStories.length) % successStories.length
+    );
   };
 
   const openVideoModal = (index: number) => {
@@ -104,7 +108,7 @@ const ACCAPlacementOutcomes = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-red-50 to-red-100">
+    <section className="py-8 md:py-20 bg-gradient-to-br from-red-50 to-red-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 justify-center">
         {/* Header */}
         <motion.div
@@ -115,17 +119,22 @@ const ACCAPlacementOutcomes = () => {
           className="text-center mb-16"
         >
           <div className="flex items-center justify-center mb-6">
-            <BuildingOfficeIcon className="w-12 h-12 text-red-600 mr-4" />
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
-              Placement <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-purple-600">Outcomes</span>
+            <BuildingOfficeIcon className="w-8 h-8 md:w-12 md:h-12 text-red-600 mr-4" />
+            <h2 className="text-xl md:text-5xl font-bold text-gray-900">
+              Placement{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-purple-600">
+                Outcomes
+              </span>
             </h2>
           </div>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+          <p className="text-md md:text-xl text-gray-600 max-w-3xl mx-auto mb-8">
             🔥 Real results from real students - Your success is our proof
           </p>
         </motion.div>
+        <div className="max-w-7xl mx-auto overflow-hidden">
+          <TrustLogosMarquee />
+        </div>
 
-       <TrustLogosMarquee />
         {/* Success Stories Carousel */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -137,8 +146,8 @@ const ACCAPlacementOutcomes = () => {
           <h3 className="text-2xl md:text-3xl font-bold text-center text-gray-900 mb-8">
             Student Success Stories
           </h3>
-          
-          <div className="relative bg-white rounded-3xl p-8 shadow-lg border border-gray-200">
+
+          <div className="relative bg-white rounded-3xl p-2 md:p-8 shadow-lg border border-gray-200">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeTestimonial}
@@ -151,38 +160,42 @@ const ACCAPlacementOutcomes = () => {
                 {/* Student Info */}
                 <div>
                   <div className="flex items-center mb-6">
-                    <div className="w-20 h-20 bg-gradient-to-r from-red-500 to-purple-500 rounded-full flex items-center justify-center text-white font-bold text-2xl mr-6">
-                      {successStories[activeTestimonial].name.split(' ').map(n => n[0]).join('')}
+                    <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-r from-red-500 to-purple-500 rounded-full flex items-center justify-center text-white font-bold text-2xl mr-6">
+                      {successStories[activeTestimonial].name
+                        .split(" ")
+                        .map((n) => n[0])
+                        .join("")}
                     </div>
                     <div>
-                      <h4 className="text-xl font-bold text-gray-900">
+                      <h4 className="text-lg md:text-xl font-bold text-gray-900">
                         {successStories[activeTestimonial].name}
                       </h4>
-                      <p className="text-red-600 font-medium">
+                      <p className="text-sm md:text-md text-red-600 font-medium">
                         {successStories[activeTestimonial].role}
                       </p>
                       <p className="text-gray-600">
-                        {successStories[activeTestimonial].company} • {successStories[activeTestimonial].location}
+                        {successStories[activeTestimonial].company} •{" "}
+                        {successStories[activeTestimonial].location}
                       </p>
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-4 mb-6">
+                  <div className="grid grid-cols-2 gap-2 md:gap-4 mb-6">
                     <div className="bg-green-50 rounded-xl p-4 border border-green-200">
-                      <div className="text-2xl font-bold text-green-600">
+                      <div className="text-lg md:text-2xl font-bold text-green-600">
                         {successStories[activeTestimonial].salary}
                       </div>
                       <div className="text-sm text-green-700">Package</div>
                     </div>
-                    <div className="bg-red-50 rounded-xl p-4 border border-red-200">
-                      <div className="text-lg font-bold text-red-600">
+                    <div className="bg-red-50 rounded-xl p-2 md:p-4 border border-red-200">
+                      <div className="text-lg md:text-2xl font-bold text-red-600">
                         {successStories[activeTestimonial].score}
                       </div>
                       <div className="text-sm text-red-700">Qualification</div>
                     </div>
                   </div>
 
-                  <blockquote className="text-gray-700 text-lg italic mb-6">
+                  <blockquote className="text-gray-700 text-sm md:text-lg italic mb-6">
                     &quot;{successStories[activeTestimonial].testimonial}&quot;
                   </blockquote>
 
@@ -197,8 +210,10 @@ const ACCAPlacementOutcomes = () => {
 
                 {/* Video Thumbnail */}
                 <div className="relative">
-                  <div className="bg-gray-200 rounded-2xl aspect-video flex items-center justify-center cursor-pointer hover:bg-gray-300 transition-colors duration-300"
-                       onClick={() => openVideoModal(activeTestimonial)}>
+                  <div
+                    className="bg-gray-200 rounded-2xl aspect-video flex items-center justify-center cursor-pointer hover:bg-gray-300 transition-colors duration-300"
+                    onClick={() => openVideoModal(activeTestimonial)}
+                  >
                     <PlayIcon className="w-16 h-16 text-gray-600" />
                   </div>
                   <div className="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-medium">
@@ -212,7 +227,7 @@ const ACCAPlacementOutcomes = () => {
             <div className="flex justify-center mt-8 space-x-4">
               <button
                 onClick={prevTestimonial}
-                className="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center hover:bg-gray-300 transition-colors duration-300"
+                className="w-12 h-12 text-black bg-gray-200 rounded-full flex items-center justify-center hover:bg-gray-300 transition-colors duration-300"
               >
                 ←
               </button>
@@ -222,14 +237,14 @@ const ACCAPlacementOutcomes = () => {
                     key={index}
                     onClick={() => setActiveTestimonial(index)}
                     className={`w-3 h-3 rounded-full transition-colors duration-300 ${
-                      index === activeTestimonial ? 'bg-red-600' : 'bg-gray-300'
+                      index === activeTestimonial ? "bg-red-600" : "bg-gray-300"
                     }`}
                   />
                 ))}
               </div>
               <button
                 onClick={nextTestimonial}
-                className="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center hover:bg-gray-300 transition-colors duration-300"
+                className="w-12 h-12 text-black bg-gray-200 rounded-full flex items-center justify-center hover:bg-gray-300 transition-colors duration-300"
               >
                 →
               </button>
@@ -248,7 +263,7 @@ const ACCAPlacementOutcomes = () => {
           <h3 className="text-2xl md:text-3xl font-bold text-center text-gray-900 mb-8">
             Recent Offer Letters
           </h3>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {offerLetters.map((offer, index) => (
               <motion.div
@@ -266,14 +281,20 @@ const ACCAPlacementOutcomes = () => {
                     <p className="text-sm text-gray-600">{offer.date}</p>
                   </div>
                 </div>
-                
+
                 <div className="mb-4">
-                  <div className="text-lg font-bold text-gray-900 mb-1">{offer.role}</div>
-                  <div className="text-2xl font-bold text-green-600">{offer.salary}</div>
+                  <div className="text-lg font-bold text-gray-900 mb-1">
+                    {offer.role}
+                  </div>
+                  <div className="text-2xl font-bold text-green-600">
+                    {offer.salary}
+                  </div>
                 </div>
-                
+
                 <div className="flex justify-between items-center">
-                  <span className="text-sm text-gray-600">Student: {offer.student}</span>
+                  <span className="text-sm text-gray-600">
+                    Student: {offer.student}
+                  </span>
                   <ChartBarIcon className="w-5 h-5 text-gray-400" />
                 </div>
               </motion.div>
@@ -293,9 +314,12 @@ const ACCAPlacementOutcomes = () => {
             <p className="text-lg font-medium mb-4">
               💼 I want a job like this
             </p>
-           <LeadFormButton formType='download-placement-report' variant='outline' isSendOtp={true} >
+            <LeadFormButton
+              formType="download-placement-report"
+              variant="outline"
+              isSendOtp={true}
+            >
               Download Placement Team
-          
             </LeadFormButton>
           </div>
         </motion.div>
@@ -328,14 +352,15 @@ const ACCAPlacementOutcomes = () => {
                     <XMarkIcon className="w-6 h-6 text-gray-600" />
                   </button>
                 </div>
-                
+
                 <div className="bg-gray-200 rounded-xl aspect-video flex items-center justify-center mb-4">
                   <PlayIcon className="w-20 h-20 text-gray-600" />
                 </div>
-                
+
                 <div className="text-center">
                   <p className="text-gray-600 mb-4">
-                    Watch how {successStories[activeVideo].name} transformed their career with NorthStar
+                    Watch how {successStories[activeVideo].name} transformed
+                    their career with NorthStar
                   </p>
                   <button className="bg-red-600 text-white px-6 py-3 rounded-xl font-medium hover:bg-red-700 transition-colors duration-300">
                     Play Video

@@ -144,7 +144,7 @@ export default function CMASyllabus() {
   ];
 
   return (
-    <section className="py-20 bg-slate-50">
+    <section className="py-8 md:py-20 bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -153,13 +153,13 @@ export default function CMASyllabus() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 mb-6">
+          <h2 className="text-3xl sm:text-5xl font-bold text-slate-900 mb-6">
             CMA{' '}
             <span className="bg-gradient-to-r from-red-600 to-red-500 bg-clip-text text-transparent">
               Syllabus
             </span>
           </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto">
             Master strategic financial management and business analytics with our comprehensive CMA curriculum designed for global finance leaders.
           </p>
         </motion.div>
@@ -194,13 +194,20 @@ export default function CMASyllabus() {
                 className="p-6 cursor-pointer hover:bg-slate-50 transition-colors duration-200"
                 onClick={() => setExpandedPart(expandedPart === partIndex ? null : partIndex)}
               >
-                <div className="flex items-center justify-between">
+                <div className="flex items-start justify-between gap-3 sm:items-center sm:gap-4">
+                  {/* LEFT CONTENT */}
                   <div className="flex-1">
-                    <div className="flex items-center gap-4 mb-2">
-                      <span className="px-3 py-1 bg-red-100 text-red-700 rounded-full text-sm font-medium">
+
+                    {/* PART TAG + INFO */}
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:gap-4 mb-2">
+
+                      {/* Part label */}
+                      <span className="w-fit px-3 py-1 bg-red-100 text-red-700 rounded-full text-xs sm:text-sm font-medium">
                         {part.part}
                       </span>
-                      <div className="flex items-center gap-4 text-sm text-slate-500">
+
+                      {/* Duration + Weight */}
+                      <div className="flex items-center gap-4 text-xs sm:text-sm text-slate-500 mt-2 sm:mt-0">
                         <div className="flex items-center gap-1">
                           <ClockIcon className="w-4 h-4" />
                           {part.duration}
@@ -211,16 +218,20 @@ export default function CMASyllabus() {
                         </div>
                       </div>
                     </div>
-                    <h3 className="text-xl font-bold text-slate-900">
+
+                    {/* TITLE */}
+                    <h3 className="text-base sm:text-xl font-bold text-slate-900 leading-snug">
                       {part.title}
                     </h3>
                   </div>
+
+                  {/* DROPDOWN ICON */}
                   <ChevronDownIcon
-                    className={`w-6 h-6 text-slate-400 transition-transform duration-200 ${
-                      expandedPart === partIndex ? 'rotate-180' : ''
-                    }`}
+                    className={`w-5 h-5 sm:w-6 sm:h-6 text-slate-400 flex-shrink-0 transition-transform duration-200 ${expandedPart === partIndex ? 'rotate-180' : ''
+                      }`}
                   />
                 </div>
+
               </div>
 
               {/* Expanded Content */}
@@ -299,20 +310,18 @@ export default function CMASyllabus() {
             Download detailed syllabus, study guides, and practice questions. Start your CMA preparation with expert-curated content.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-         
+
             <LeadFormButton
               formType="download-syllabus"
               isSendOtp={true}
               variant="secondary"
               className='text-base md:text-lg'
-             
+
             >
               Download Full Syllabus
             </LeadFormButton>
             <LeadFormButton
               formType="general"
-              
-             
               className='text-base md:text-lg btn-info'
               isSendOtp={true}
             >

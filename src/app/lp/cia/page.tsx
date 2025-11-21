@@ -9,28 +9,23 @@ import WhoShouldDoCIA from "@/components/cia/WhoShouldDoCIA";
 import WhyCIA from "@/components/cia/WhyCIA";
 
 export const metadata = {
-  title: 'CIA — Learn CIA with NorthStar Academy',
+  title: "CIA — Learn CIA with NorthStar Academy",
   description:
-    'Start your CIA journey with eligibility guidance, syllabus, training experience, study planner, comparison matrix, and FAQs.',
+    "Start your CIA journey with eligibility guidance, syllabus, training experience, study planner, comparison matrix, and FAQs.",
 };
-
 
 export default function CMAUSAPage() {
   return (
     <main className="min-h-screen">
-    
-    
-    
-     <CIAHero />
-     <WhyCIA />
-     <WhoShouldDoCIA />
-     <CIATrainingExperience />
-   <CIASyllabus />
-   <CIAStudyPlanner />
-   <CIAEligibility />
-   <CIAComparison />
-   <CIAFAQ />
-
+      <CIAHero />
+      <WhyCIA />
+      <WhoShouldDoCIA />
+      <CIATrainingExperience />
+      <CIASyllabus />
+      <CIAStudyPlanner />
+      <CIAEligibility />
+      <CIAComparison />
+      <CIAFAQ />
     </main>
   );
 }

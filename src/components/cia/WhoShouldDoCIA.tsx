@@ -154,7 +154,7 @@ const WhoShouldDoCIA = () => {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h2 className="text-2xl md:text-5xl font-bold text-gray-900 mb-6">
               Who Should Do <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-purple-600">CIA?</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -185,13 +185,13 @@ const WhoShouldDoCIA = () => {
         >
           <motion.h2 
             variants={itemVariants}
-            className="text-4xl md:text-5xl font-bold text-gray-900 mb-6"
+            className="text-2xl md:text-5xl font-bold text-gray-900 mb-6"
           >
             Who Should Do <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-purple-600">CIA?</span>
           </motion.h2>
           <motion.p 
             variants={itemVariants}
-            className="text-xl text-gray-600 max-w-3xl mx-auto"
+            className="text-md md:text-xl text-gray-600 max-w-3xl mx-auto"
           >
             Perfect for professionals at every career stage looking to excel in internal audit
           </motion.p>
@@ -203,7 +203,7 @@ const WhoShouldDoCIA = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 mb-20"
         >
           {personas.map((persona, index) => (
             <motion.div
@@ -310,22 +310,22 @@ const WhoShouldDoCIA = () => {
 
           <div className="relative z-10">
             <motion.div variants={itemVariants} className="text-center mb-12">
-              <h3 className="text-3xl md:text-4xl font-bold mb-4">
+              <h3 className="text-2xl md:text-4xl font-bold mb-4">
                 Ready to Transform Your Career?
               </h3>
-              <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+              <p className="text-gray-300 text-md md:text-lg max-w-2xl mx-auto">
                 Join thousands of professionals who&apos;ve elevated their careers with CIA certification
               </p>
             </motion.div>
 
             {/* Micro Nudges */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 mb-12">
               {microNudges.map((nudge, index) => (
                 <motion.div
                   key={index}
                   variants={itemVariants}
                   whileHover={{ scale: 1.05 }}
-                  className="text-center p-6 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20 hover:bg-white/20 transition-all duration-300"
+                  className="text-center p-4 md:p-6 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20 hover:bg-white/20 transition-all duration-300"
                 >
                   <div className="w-16 h-16 bg-gradient-to-r from-red-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
                     <nudge.icon className="w-8 h-8 text-white" />
