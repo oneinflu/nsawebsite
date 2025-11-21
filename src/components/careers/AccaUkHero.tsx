@@ -8,11 +8,11 @@ const AccaUkHero = () => {
     <section className="relative bg-white">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
-          <div className="lg:col-span-2">
-            <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900">
+          <div className="lg:col-span-2 text-center md:text-left">
+            <h1 className="text-2xl md:text-4xl font-extrabold tracking-tight text-slate-900">
               ACCA in UK — Build a Chartered Finance Career
             </h1>
-            <p className="mt-3 text-lg text-slate-700">
+            <p className="mt-3 text-md md:text-lg text-slate-700">
               Step into audit, financial accounting, FP&A, and advisory roles across the UK’s Big 4, mid-tier firms, and leading enterprises.
             </p>
 

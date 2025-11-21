@@ -12,7 +12,7 @@ const rows = [
 
 export default function CpaVsCaExperienceChart() {
   return (
-    <section className="relative mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8 py-12">
+    <section className="relative mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8 py-4 md:py-12">
       <div className="mx-auto text-center">
         <h2 className="text-xl font-bold text-gray-900 sm:text-2xl">Salary by Experience</h2>
         <div className="mt-3 flex items-center justify-center gap-3 text-xs font-medium text-gray-600 sm:text-sm">

@@ -7,12 +7,12 @@ const JobsDemandSnapshot = () => {
     <section className="relative bg-white">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-12">
         {/* Header */}
-        <div className="mb-6">
+        <div className="mb-6 text-center md:text-left">
           <h2 className="text-2xl md:text-3xl font-bold text-slate-900">What the Market Looks Like Right Now</h2>
           <p className="mt-2 text-slate-600">
             There are over <span className="font-semibold text-slate-900">390 CPA jobs</span> currently listed in UAE finance & accounting roles.
           </p>
-          <div className="mt-3 flex flex-wrap gap-2 text-xs">
+          <div className="mt-3 flex flex-wrap gap-2 text-xs justify-center md:justify-start">
             <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-50 text-red-800 border border-red-200">
               <Building2 className="w-3.5 h-3.5" /> Glassdoor <span className="font-semibold">+2</span>
             </span>

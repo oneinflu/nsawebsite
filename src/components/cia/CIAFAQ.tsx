@@ -487,7 +487,7 @@ const CIAFAQ = () => {
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <LeadFormButton
-                formType="general"
+                formType="talk-to-an-expert"
                 isSendOtp={true}
                 courseId="CIA"
                 className=" text-red-600 px-8 py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300"
@@ -498,7 +498,7 @@ const CIAFAQ = () => {
                 </div>
               </LeadFormButton>
               <LeadFormButton
-                formType="download-syllabus"
+                formType="download-cia-study-guide"
                 isSendOtp={true}
                 courseId="CIA"
                 className="border-2 border-white text-white px-8 py-3 rounded-xl font-semibold hover:bg-white hover:text-green-600 transition-all duration-300"

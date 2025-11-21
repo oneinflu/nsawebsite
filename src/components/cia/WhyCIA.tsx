@@ -1,17 +1,17 @@
 /* eslint-disable react-hooks/set-state-in-effect */
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { 
+import { motion } from "framer-motion";
+import {
   LockClosedIcon,
   BriefcaseIcon,
   GlobeAltIcon,
   ArrowTrendingUpIcon,
   ShieldCheckIcon,
-  BuildingOffice2Icon
-} from '@heroicons/react/24/outline';
-import { useState, useEffect } from 'react';
-import LeadFormButton from '../LeadFormButton';
+  BuildingOffice2Icon,
+} from "@heroicons/react/24/outline";
+import { useState, useEffect } from "react";
+import LeadFormButton from "../LeadFormButton";
 
 const WhyCIA = () => {
   const [isClient, setIsClient] = useState(false);
@@ -29,13 +29,13 @@ const WhyCIA = () => {
       description: "Highest standard in governance & controls",
       details: [
         "Master risk assessment frameworks",
-        "Advanced control testing methodologies", 
+        "Advanced control testing methodologies",
         "Regulatory compliance expertise",
-        "Fraud detection & prevention"
+        "Fraud detection & prevention",
       ],
       color: "from-red-500 to-red-600",
       bgColor: "from-red-50 to-red-100",
-      borderColor: "border-red-200"
+      borderColor: "border-red-200",
     },
     {
       icon: BriefcaseIcon,
@@ -46,11 +46,11 @@ const WhyCIA = () => {
         "Fast-track to management positions",
         "Leadership in audit teams",
         "Strategic risk advisory roles",
-        "C-suite reporting opportunities"
+        "C-suite reporting opportunities",
       ],
       color: "from-red-500 to-red-600",
       bgColor: "from-red-50 to-red-100",
-      borderColor: "border-red-200"
+      borderColor: "border-red-200",
     },
     {
       icon: GlobeAltIcon,
@@ -61,12 +61,12 @@ const WhyCIA = () => {
         "International career mobility",
         "Premium salary packages abroad",
         "Visa sponsorship opportunities",
-        "Global network of professionals"
+        "Global network of professionals",
       ],
       color: "from-green-500 to-green-600",
       bgColor: "from-green-50 to-green-100",
-      borderColor: "border-green-200"
-    }
+      borderColor: "border-green-200",
+    },
   ];
 
   const globalCorporations = [
@@ -77,14 +77,14 @@ const WhyCIA = () => {
     { name: "HSBC", logo: "HSBC" },
     { name: "JPMorgan", logo: "JPM" },
     { name: "Goldman Sachs", logo: "GS" },
-    { name: "Microsoft", logo: "MSFT" }
+    { name: "Microsoft", logo: "MSFT" },
   ];
 
   const careerLocations = [
     { country: "GCC", flag: "🇦🇪", opportunities: "Tax-free salaries" },
     { country: "USA", flag: "🇺🇸", opportunities: "Premium packages" },
     { country: "Singapore", flag: "🇸🇬", opportunities: "Regional hub roles" },
-    { country: "India", flag: "🇮🇳", opportunities: "Leadership positions" }
+    { country: "India", flag: "🇮🇳", opportunities: "Leadership positions" },
   ];
 
   const containerVariants = {
@@ -93,9 +93,9 @@ const WhyCIA = () => {
       opacity: 1,
       transition: {
         staggerChildren: 0.2,
-        delayChildren: 0.1
-      }
-    }
+        delayChildren: 0.1,
+      },
+    },
   };
 
   const itemVariants = {
@@ -104,9 +104,9 @@ const WhyCIA = () => {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.6
-      }
-    }
+        duration: 0.6,
+      },
+    },
   };
 
   const pillarVariants = {
@@ -115,9 +115,9 @@ const WhyCIA = () => {
       opacity: 1,
       scale: 1,
       transition: {
-        duration: 0.5
-      }
-    }
+        duration: 0.5,
+      },
+    },
   };
 
   if (!isClient) {
@@ -126,7 +126,10 @@ const WhyCIA = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Why Choose <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-purple-600">CIA</span>
+              Why Choose{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-purple-600">
+                CIA
+              </span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Strong Career Positioning with Three Powerful Pillars
@@ -155,13 +158,16 @@ const WhyCIA = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <motion.h2 
+          <motion.h2
             variants={itemVariants}
             className="text-2xl md:text-5xl font-bold text-gray-900 mb-6"
           >
-            Why Choose <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-purple-600">CIA</span>
+            Why Choose{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-purple-600">
+              CIA
+            </span>
           </motion.h2>
-          <motion.p 
+          <motion.p
             variants={itemVariants}
             className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto"
           >
@@ -181,22 +187,26 @@ const WhyCIA = () => {
             <motion.div
               key={index}
               variants={pillarVariants}
-              whileHover={{ 
+              whileHover={{
                 scale: 1.05,
                 rotateY: 5,
-                transition: { duration: 0.3 }
+                transition: { duration: 0.3 },
               }}
               onHoverStart={() => setHoveredPillar(index)}
               onHoverEnd={() => setHoveredPillar(null)}
               className={`relative bg-white rounded-3xl p-8 shadow-xl border-2 ${pillar.borderColor} hover:shadow-2xl transition-all duration-500 cursor-pointer group`}
             >
               {/* Background Gradient */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${pillar.bgColor} rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
-              
+              <div
+                className={`absolute inset-0 bg-gradient-to-br ${pillar.bgColor} rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
+              ></div>
+
               <div className="relative z-10">
                 {/* Icon & Emoji */}
                 <div className="flex items-center justify-center mb-6">
-                  <div className={`p-4 rounded-2xl bg-gradient-to-r ${pillar.color} mr-4`}>
+                  <div
+                    className={`p-4 rounded-2xl bg-gradient-to-r ${pillar.color} mr-4`}
+                  >
                     <pillar.icon className="w-8 h-8 text-white" />
                   </div>
                   <div className="text-4xl">{pillar.emoji}</div>
@@ -215,16 +225,19 @@ const WhyCIA = () => {
                 {/* Details - Show on Hover */}
                 <motion.div
                   initial={{ opacity: 0, height: 0 }}
-                  animate={{ 
+                  animate={{
                     opacity: hoveredPillar === index ? 1 : 0,
-                    height: hoveredPillar === index ? 'auto' : 0
+                    height: hoveredPillar === index ? "auto" : 0,
                   }}
                   transition={{ duration: 0.3 }}
                   className="overflow-hidden"
                 >
                   <div className="space-y-2 pt-4 border-t border-gray-200">
                     {pillar.details.map((detail, detailIndex) => (
-                      <div key={detailIndex} className="flex items-center text-sm text-gray-700">
+                      <div
+                        key={detailIndex}
+                        className="flex items-center text-sm text-gray-700"
+                      >
                         <ShieldCheckIcon className="w-4 h-4 text-green-500 mr-2 flex-shrink-0" />
                         {detail}
                       </div>
@@ -233,7 +246,9 @@ const WhyCIA = () => {
                 </motion.div>
 
                 {/* Pillar Number */}
-                <div className={`absolute -top-4 -right-4 w-12 h-12 bg-gradient-to-r ${pillar.color} rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg`}>
+                <div
+                  className={`absolute -top-4 -right-4 w-12 h-12 bg-gradient-to-r ${pillar.color} rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg`}
+                >
                   {index + 1}
                 </div>
               </div>
@@ -251,9 +266,12 @@ const WhyCIA = () => {
         >
           {/* Background Pattern */}
           <div className="absolute inset-0 opacity-10">
-            <div className="absolute inset-0" style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-            }}></div>
+            <div
+              className="absolute inset-0"
+              style={{
+                backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+              }}
+            ></div>
           </div>
 
           <div className="relative z-10">
@@ -262,12 +280,16 @@ const WhyCIA = () => {
                 Global Career Map
               </h3>
               <p className="text-red-100 text-md md:text-lg max-w-2xl mx-auto">
-                CIA opens doors to premium opportunities across the world&apos;s leading corporations
+                CIA opens doors to premium opportunities across the world&apos;s
+                leading corporations
               </p>
             </motion.div>
 
             {/* Global Locations */}
-            <motion.div variants={itemVariants} className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 mb-12">
+            <motion.div
+              variants={itemVariants}
+              className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 mb-12"
+            >
               {careerLocations.map((location, index) => (
                 <motion.div
                   key={index}
@@ -275,8 +297,12 @@ const WhyCIA = () => {
                   className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center border border-white/20 hover:bg-white/20 transition-all duration-300"
                 >
                   <div className="text-4xl mb-3">{location.flag}</div>
-                  <div className="font-bold text-lg mb-2">{location.country}</div>
-                  <div className="text-red-100 text-sm">{location.opportunities}</div>
+                  <div className="font-bold text-lg mb-2">
+                    {location.country}
+                  </div>
+                  <div className="text-red-100 text-sm">
+                    {location.opportunities}
+                  </div>
                 </motion.div>
               ))}
             </motion.div>
@@ -319,10 +345,10 @@ const WhyCIA = () => {
           viewport={{ once: true }}
           className="text-center mt-16"
         >
-          <LeadFormButton 
-        formType='download-placement-report'
-        isSendOtp={true}
-        courseId='CIA'
+          <LeadFormButton
+            formType="cia-career-opportunity"
+            isSendOtp={true}
+            courseId="CIA"
             className="bg-gradient-to-r from-red-600 to-purple-600 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 inline-flex items-center"
           >
             <BuildingOffice2Icon className="w-6 h-6 mr-3" />

@@ -225,7 +225,7 @@ const WhyACCA = () => {
 
           {/* CTA */}
           <div className="text-center mt-12">
-           <LeadFormButton formType='general' variant='primary' isSendOtp={true} >
+           <LeadFormButton formType='acca-journey' variant='primary' isSendOtp={true} >
               Start Your ACCA Journey
             </LeadFormButton>
           </div>

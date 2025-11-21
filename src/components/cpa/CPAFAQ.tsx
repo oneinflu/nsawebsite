@@ -480,8 +480,8 @@ const CPAFAQ = () => {
             <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-green-600 rounded-xl flex items-center justify-center mx-auto mb-4">
               <Clock className="w-6 h-6 text-white" />
             </div>
-            <div className="text-2xl font-bold text-gray-900 mb-2">365 d</div>
-            <div className="text-gray-600">Exam Availabilty</div>
+            <div className="text-2xl font-bold text-gray-900 mb-2">365</div>
+            <div className="text-gray-600">Days Exam Availablity</div>
           </motion.div>
 
           <motion.div
@@ -494,8 +494,8 @@ const CPAFAQ = () => {
             <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mx-auto mb-4">
               <RefreshCw className="w-6 h-6 text-white" />
             </div>
-            <div className="text-2xl font-bold text-gray-900 mb-2">∞</div>
-            <div className="text-gray-600">Unlimited Attempts</div>
+            <div className="text-2xl font-bold text-gray-900 mb-2">30</div>
+            <div className="text-gray-600">Months Score Validity</div>
           </motion.div>
 
           <motion.div

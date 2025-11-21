@@ -55,7 +55,7 @@ export default function Footer() {
     { name: "AICPA (USA)", logo: "🏛️" },
     { name: "ACCA (UK)", logo: "🏛️" },
     { name: "Prometric", logo: "🏢" },
-    { name: "ISO Certified", logo: "🔒" },
+    { name: "EA(IRS)", logo: "🔒" },
   ];
 
   const socialLinks = [
@@ -87,8 +87,8 @@ export default function Footer() {
   ];
 
   const brandBadges = [
-    { icon: "⭐", text: "55,000+ Students" },
-    { icon: "🧠", text: "Mentor-Led" },
+    { icon: "⭐", text: "2,00,000+ Students" },
+    { icon: "🧠", text: "Global Mentor" },
     { icon: "🌍", text: "International Certifications" },
     { icon: "🏢", text: "Big 4 Career Pathways" },
   ];
@@ -116,13 +116,13 @@ export default function Footer() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
             <div className="bg-gradient-to-r from-red-900 to-red-900 rounded-2xl p-8 text-center border border-red-800">
               <div className="flex items-center justify-center mb-4">
-                <span className="text-3xl mr-3">📩</span>
-                <h3 className="text-2xl font-bold">
+                <span className="text-xl md:text-3xl mr-3">📩</span>
+                <h3 className="text-lg md:text-2xl font-bold">
                   Download the Ultimate Guide to Global Finance Careers
                 </h3>
               </div>
-              <p className="text-red-200 mb-6 text-lg">
-                Free PDF: CMA vs CPA vs ACCA Comparison Guide
+              <p className="text-red-200 mb-6 text-sm md:text-lg">
+                Free PDF: Complete CPA Certification Guide
               </p>
               <LeadFormButton
                 formType="get-free-guide"
@@ -375,7 +375,7 @@ export default function Footer() {
             <div className="flex flex-col md:flex-row items-center justify-between">
               <div className="mb-4 md:mb-0">
                 <p className="text-gray-300 text-center md:text-left">
-                  Join 100K+ finance aspirants learning with us
+                  Join 2,00,000+ finance aspirants learning with us
                 </p>
               </div>
               <div className="flex space-x-4">

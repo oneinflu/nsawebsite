@@ -51,12 +51,12 @@ const FaqUaeForCpa = () => {
   return (
     <section className="relative bg-white">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-12">
-        <header className="mb-8">
+        <header className="mb-8 text-center md:text-left">
           <h2 className="text-2xl md:text-3xl font-bold text-slate-900">Common Questions About CPA (US) Jobs in UAE</h2>
           <p className="mt-2 text-slate-600">Aspirational yet practical guidance to help you plan your move.</p>
         </header>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
           {faqs.map(({ icon: Icon, question, answer, color }) => (
             <div
               key={question}

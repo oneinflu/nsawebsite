@@ -338,7 +338,7 @@ export default function CFANorthStarAdvantage() {
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 
-                <LeadFormButton formType='general' variant='outline' isSendOtp={true} >
+                <LeadFormButton formType='book-demo-session' variant='outline' isSendOtp={true} className='text-white'>
                   Book Demo Class
                 </LeadFormButton>
                 

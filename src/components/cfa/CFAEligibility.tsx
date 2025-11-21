@@ -239,7 +239,7 @@ export default function CFAEligibility() {
                 <p className="text-slate-300 text-lg mb-8 max-w-2xl mx-auto">
                   Get instant clarity on your CFA eligibility with our quick assessment
                 </p>
-               <LeadFormButton formType='general' variant='outline' isSendOtp={true} className='mt-10'>
+               <LeadFormButton formType='check-eligibilty' variant='outline' isSendOtp={true} className='mt-10'>
                 
                  
                   Check Eligibility Instantly

@@ -8,7 +8,7 @@ export default function SalaryCareerGrowthCfa() {
 
   return (
     <section className="container mx-auto max-w-6xl px-4 py-8">
-      <div className="rounded-3xl bg-white p-8 shadow-sm ring-1 ring-slate-200">
+      <div className="rounded-3xl bg-white p-4 md:p-8 shadow-sm ring-1 ring-slate-200">
         <div className="flex items-center gap-3">
           <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-red-600 to-purple-600 text-white flex items-center justify-center">$</div>
           <div>
@@ -17,7 +17,7 @@ export default function SalaryCareerGrowthCfa() {
           </div>
         </div>
 
-        <div className="mt-6 overflow-hidden rounded-2xl border border-slate-200">
+        <div className="mt-6 overflow-auto rounded-2xl border border-slate-200">
           <table className="min-w-full divide-y divide-slate-200">
             <thead className="bg-slate-50">
               <tr>

@@ -297,7 +297,7 @@ const WhyCFA = () => {
           </motion.div>
 
           {/* Bottom CTA Hint */}
-           <LeadFormButton formType='general' variant='primary' isSendOtp={true} className='mt-6 sm:mt-8 lg:mt-10 w-full sm:w-auto mx-auto'>
+           <LeadFormButton formType='cfa-journey' variant='primary' isSendOtp={true} className='mt-6 sm:mt-8 lg:mt-10 w-full sm:w-auto mx-auto'>
                Ready to join the elite? Start your CFA journey
               </LeadFormButton>
            

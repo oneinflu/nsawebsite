@@ -18,8 +18,8 @@ const RolesSectorsUk = () => {
 
   return (
     <section className="relative bg-white">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-12">
-        <header className="mb-6">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-4 md:py-12">
+        <header className="mb-6 text-center md:text-left">
           <h2 className="text-2xl md:text-3xl font-bold text-slate-900">Roles & Sectors You Can Target</h2>
           <p className="mt-2 text-slate-600">ACCA maps to core audit and finance roles across UK industries.</p>
         </header>

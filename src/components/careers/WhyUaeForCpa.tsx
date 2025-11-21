@@ -30,8 +30,8 @@ const WhyUaeForCpa = () => {
   return (
     <section className="relative bg-white">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-12">
-        <header className="mb-8">
-          <h2 className="text-2xl md:text-3xl font-bold text-slate-900">Why UAE for CPA (US) Professionals</h2>
+        <header className="mb-8 text-center md:text-left">
+          <h2 className="text-2xl md:text-3xl font-bold text-slate-900 ">Why UAE for CPA (US) Professionals</h2>
           <p className="mt-2 text-slate-600">Three reasons the UAE is a powerful launchpad for global finance careers.</p>
         </header>
 

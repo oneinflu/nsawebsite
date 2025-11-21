@@ -416,7 +416,7 @@ const ACCATimelinePlanner = () => {
             </div>
           </div>
 
-          <LeadFormButton formType="general" variant="outline" isSendOtp={true}>
+          <LeadFormButton formType="acca-journey" variant="outline" isSendOtp={true}>
             Start Your ACCA Journey
           </LeadFormButton>
         </motion.div>

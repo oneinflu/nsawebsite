@@ -11,7 +11,17 @@ const fadeUp = {
   visible: { opacity: 1, y: 0 },
 };
 
-function CountUp({ end, prefix = '', suffix = '', durationMs = 1200 }: { end: number; prefix?: string; suffix?: string; durationMs?: number }) {
+function CountUp({
+  end,
+  prefix = "",
+  suffix = "",
+  durationMs = 1200,
+}: {
+  end: number;
+  prefix?: string;
+  suffix?: string;
+  durationMs?: number;
+}) {
   const [value, setValue] = React.useState(0);
   React.useEffect(() => {
     let raf: number;
@@ -24,7 +34,13 @@ function CountUp({ end, prefix = '', suffix = '', durationMs = 1200 }: { end: nu
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
   }, [end, durationMs]);
-  return <span>{prefix}{value}{suffix}</span>;
+  return (
+    <span>
+      {prefix}
+      {value}
+      {suffix}
+    </span>
+  );
 }
 
 export default function CpaVsCmaHero() {
@@ -43,41 +59,52 @@ export default function CpaVsCmaHero() {
       <div className="container mx-auto max-w-6xl px-4 pt-16">
         <div className="relative mb-10 flex items-center justify-center">
           {/* Faint gradient divider line */}
-          <div className="absolute left-1/2 top-0 h-24 -translate-x-1/2 bg-gradient-to-b from-transparent via-slate-200 to-transparent w-[2px]" aria-hidden="true" />
+          <div
+            className="absolute left-1/2 top-0 h-24 -translate-x-1/2 bg-gradient-to-b from-transparent via-slate-200 to-transparent w-[2px]"
+            aria-hidden="true"
+          />
           <h1 className="text-center text-2xl md:text-3xl font-semibold text-slate-900">
-            <span className="bg-gradient-to-r from-blue-600 via-slate-900 to-orange-500 bg-clip-text text-transparent">CPA (US) earns up to 40% more in less than half the time.</span>
+            <span className="bg-gradient-to-r from-blue-600 via-slate-900 to-orange-500 bg-clip-text text-transparent">
+              CPA (US) earns up to 40% more in less than half the time.
+            </span>
           </h1>
         </div>
       </div>
 
       {/* Two-column comparison */}
-      <div className="container mx-auto max-w-6xl px-4 pb-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16">
+      <div className="container mx-auto max-w-6xl px-4 md:pb-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Left: CPA */}
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.4 }}
-            transition={{ duration: 0.5, ease: 'easeOut' }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
             variants={fadeUp}
             className="rounded-3xl ring-1 ring-slate-200 bg-gradient-to-br from-white to-blue-50 p-8 shadow-sm hover:shadow-md transition-shadow"
           >
             <div className="flex items-center gap-3">
-              <div className="h-10 w-10 rounded-xl bg-blue-600 text-white flex items-center justify-center">US</div>
-              <h2 className="text-xl md:text-2xl font-semibold text-slate-900">CPA (US)</h2>
+              <div className="h-10 w-10 rounded-xl bg-blue-600 text-white flex items-center justify-center">
+                US
+              </div>
+              <h2 className="text-xl md:text-2xl font-semibold text-slate-900">
+                CPA (US)
+              </h2>
             </div>
 
             <div className="mt-6 flex items-center gap-3">
               <GraduationCap className="h-5 w-5 text-blue-600" />
               <div className="text-slate-600">Duration</div>
             </div>
-            <div className="mt-1 text-lg font-medium text-slate-900">12–18 months</div>
+            <div className="mt-1 text-lg font-medium text-slate-900">
+              12–18 months
+            </div>
 
             <div className="mt-6 flex items-center gap-3">
               <DollarSign className="h-5 w-5 text-blue-600" />
               <div className="text-slate-600">Avg Salary (India)</div>
             </div>
-            <div className="mt-1 text-4xl md:text-5xl font-bold text-slate-900">
+            <div className="mt-1 text-2xl md:text-5xl font-bold text-slate-900">
               <CountUp end={9} prefix="₹" suffix=" LPA" />
               <span className="mx-1">–</span>
               <CountUp end={12} prefix="₹" suffix=" LPA" />
@@ -87,17 +114,21 @@ export default function CpaVsCmaHero() {
               <Globe className="h-5 w-5 text-blue-600" />
               <div className="text-slate-600">Global Reach</div>
             </div>
-            <div className="mt-1 text-lg font-medium text-slate-900">🌍 100+ countries</div>
+            <div className="mt-1 text-lg font-medium text-slate-900">
+              🌍 100+ countries
+            </div>
 
             <div className="mt-6 flex items-center gap-3">
               <GraduationCap className="h-5 w-5 text-slate-700" />
               <div className="text-slate-600">Certification</div>
             </div>
-            <div className="mt-1 text-lg font-medium text-slate-900">Certified Public Accountant</div>
+            <div className="mt-1 text-lg font-medium text-slate-900">
+              Certified Public Accountant
+            </div>
 
             <div className="mt-8">
               <Link
-               href='/cpa-course-details'
+                href="/cpa-course-details"
                 className="rounded-xl bg-blue-600 hover:bg-blue-700 px-5 py-3 text-white"
               >
                 Explore CPA (US) →
@@ -110,26 +141,32 @@ export default function CpaVsCmaHero() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.4 }}
-            transition={{ duration: 0.6, ease: 'easeOut' }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
             variants={fadeUp}
             className="rounded-3xl ring-1 ring-slate-200 bg-gradient-to-br from-white to-orange-50 p-8 shadow-sm hover:shadow-md transition-shadow"
           >
             <div className="flex items-center gap-3">
-              <div className="h-10 w-10 rounded-xl bg-orange-500 text-white flex items-center justify-center">IN</div>
-              <h2 className="text-xl md:text-2xl font-semibold text-slate-900">CA (India)</h2>
+              <div className="h-10 w-10 rounded-xl bg-orange-500 text-white flex items-center justify-center">
+                IN
+              </div>
+              <h2 className="text-xl md:text-2xl font-semibold text-slate-900">
+                CA (India)
+              </h2>
             </div>
 
             <div className="mt-6 flex items-center gap-3">
               <GraduationCap className="h-5 w-5 text-orange-500" />
               <div className="text-slate-600">Duration</div>
             </div>
-            <div className="mt-1 text-lg font-medium text-slate-900">4–5 years</div>
+            <div className="mt-1 text-lg font-medium text-slate-900">
+              4–5 years
+            </div>
 
             <div className="mt-6 flex items-center gap-3">
               <DollarSign className="h-5 w-5 text-orange-500" />
               <div className="text-slate-600">Avg Salary (India)</div>
             </div>
-            <div className="mt-1 text-4xl md:text-5xl font-bold text-slate-900">
+            <div className="mt-1 text-2xl md:text-5xl font-bold text-slate-900">
               <CountUp end={7} prefix="₹" suffix=" LPA" />
               <span className="mx-1">–</span>
               <CountUp end={9} prefix="₹" suffix=" LPA" />
@@ -139,17 +176,25 @@ export default function CpaVsCmaHero() {
               <Globe className="h-5 w-5 text-orange-500" />
               <div className="text-slate-600">Global Reach</div>
             </div>
-            <div className="mt-1 text-lg font-medium text-slate-900">🇮🇳 India-centric qualification</div>
+            <div className="mt-1 text-lg font-medium text-slate-900">
+              🇮🇳 India-centric qualification
+            </div>
 
             <div className="mt-6 flex items-center gap-3">
               <GraduationCap className="h-5 w-5 text-slate-700" />
               <div className="text-slate-600">Certification</div>
             </div>
-            <div className="mt-1 text-lg font-medium text-slate-900">Chartered Accountant</div>
+            <div className="mt-1 text-lg font-medium text-slate-900">
+              Chartered Accountant
+            </div>
 
             <div className="mt-8">
-              <LeadFormButton formType="general" isSendOtp={true} className="inline-flex rounded-xl border border-orange-500 px-5 py-3 text-orange-700 hover:bg-orange-50 font-semibold">
-               Book Free Consultation
+              <LeadFormButton
+                formType="general"
+                isSendOtp={true}
+                className="inline-flex rounded-xl border border-orange-500 px-5 py-3 text-orange-700 hover:bg-orange-50 font-semibold"
+              >
+                Book Free Consultation
               </LeadFormButton>
             </div>
           </motion.div>
@@ -175,8 +220,12 @@ export default function CpaVsCmaHero() {
       {/* Sticky bottom CTA on mobile */}
       <div className="fixed inset-x-0 bottom-0 z-30 mx-auto max-w-6xl md:hidden">
         <div className="m-4 rounded-2xl bg-white/90 backdrop-blur ring-1 ring-slate-200 p-4 shadow-lg flex items-center justify-between">
-          <div className="text-sm font-medium text-slate-800">Compare and plan your path</div>
-          <LeadFormButton variant="secondary" className="px-4 py-2">Book Call</LeadFormButton>
+          <div className="text-sm font-medium text-slate-800">
+            Compare and plan your path
+          </div>
+          <LeadFormButton variant="secondary" className="px-4 py-2">
+            Book Call
+          </LeadFormButton>
         </div>
       </div>
     </section>

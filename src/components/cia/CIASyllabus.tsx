@@ -422,7 +422,7 @@ const CIASyllabus = () => {
               and preparation tips for all 3 parts
             </p>
             <LeadFormButton
-              formType="download-syllabus"
+              formType="download-cia-study-guide"
               isSendOtp={true}
               courseId="CIA"
               className=" text-red-600 px-8 py-4 rounded-xl font-bold text-sm md:text-lg shadow-xl hover:shadow-2xl transition-all duration-300 inline-flex items-center"

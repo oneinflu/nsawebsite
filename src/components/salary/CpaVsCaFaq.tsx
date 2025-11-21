@@ -23,7 +23,7 @@ const faqs = [
 export default function CpaVsCaFaq() {
   return (
     <section className="bg-white">
-      <div className="mx-auto max-w-6xl px-6 py-16 md:py-20">
+      <div className="mx-auto max-w-6xl px-6 py-10">
         <div className="text-center mb-10">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-gray-900">
             Frequently Asked Questions

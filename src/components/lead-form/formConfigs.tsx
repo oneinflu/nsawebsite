@@ -35,7 +35,17 @@ export type FormType =
   | "request-emi-plan"
   | "get-personalized-study-plan"
   | "start-placement-program"
-  | "talk-to-alumni";
+  | "talk-to-alumni"
+  | "cia-career-opportunity"
+  | "cia-journey"
+  | "book-demo-session"
+  | "download-cia-study-guide"
+  | "experience-the-northstar"
+  | "check-eligibilty"
+  | "cfa-roadmap"
+  | "cfa-journey"
+  | "salary-guide"
+  | "acca-journey";
 
 const iconCheck = (
   <svg
@@ -576,5 +586,255 @@ export const formConfigs: Record<FormType, FormConfig> = {
     formTitle: "Get in touch",
     submitButtonText: "Submit",
     formName: "Talk to Alumni",
+  },
+  "cia-career-opportunity": {
+    title: "CIA Career Opportunity",
+    description:
+      "Provide your details and our expert counselor will connect with you shortly.",
+    features: [
+      {
+        title: "Personalized Guidance",
+        description: "Get tailored advice for your career path",
+        icon: iconCheck,
+      },
+      {
+        title: "High Success Rates",
+        description: "95% pass rate across programs",
+        icon: iconChart,
+      },
+      {
+        title: "Experienced Mentors",
+        description: "Learn from industry experts",
+        icon: iconCheck,
+      },
+    ],
+    formTitle: "Get in touch",
+    submitButtonText: "Submit",
+    formName: "CIA Career Opportunity",
+  },
+  "cia-journey": {
+    title: "CIA Journey",
+    description:
+      "Provide your details and our expert counselor will connect with you shortly.",
+    features: [
+      {
+        title: "Personalized Guidance",
+        description: "Get tailored advice for your career path",
+        icon: iconCheck,
+      },
+      {
+        title: "High Success Rates",
+        description: "95% pass rate across programs",
+        icon: iconChart,
+      },
+      {
+        title: "Experienced Mentors",
+        description: "Learn from industry experts",
+        icon: iconCheck,
+      },
+    ],
+    formTitle: "Get in touch",
+    submitButtonText: "Submit",
+    formName: "CIA Journey",
+  },
+  "book-demo-session": {
+    title: "Book Demo Session",
+    description:
+      "Provide your details and our expert counselor will connect with you shortly.",
+    features: [
+      {
+        title: "Personalized Guidance",
+        description: "Get tailored advice for your career path",
+        icon: iconCheck,
+      },
+      {
+        title: "High Success Rates",
+        description: "95% pass rate across programs",
+        icon: iconChart,
+      },
+      {
+        title: "Experienced Mentors",
+        description: "Learn from industry experts",
+        icon: iconCheck,
+      },
+    ],
+    formTitle: "Get in touch",
+    submitButtonText: "Submit",
+    formName: "Book Demo Session",
+  },
+  "download-cia-study-guide": {
+    title: "Download CIA Study Guide",
+    description:
+      "Provide your details and our expert counselor will connect with you shortly.",
+    features: [
+      {
+        title: "Personalized Guidance",
+        description: "Get tailored advice for your career path",
+        icon: iconCheck,
+      },
+      {
+        title: "High Success Rates",
+        description: "95% pass rate across programs",
+        icon: iconChart,
+      },
+      {
+        title: "Experienced Mentors",
+        description: "Learn from industry experts",
+        icon: iconCheck,
+      },
+    ],
+    formTitle: "Get in touch",
+    submitButtonText: "Submit",
+    formName: "Download CIA Study Guide",
+  },
+  "experience-the-northstar": {
+    title: "Experience The Northstar",
+    description:
+      "Provide your details and our expert counselor will connect with you shortly.",
+    features: [
+      {
+        title: "Personalized Guidance",
+        description: "Get tailored advice for your career path",
+        icon: iconCheck,
+      },
+      {
+        title: "High Success Rates",
+        description: "95% pass rate across programs",
+        icon: iconChart,
+      },
+      {
+        title: "Experienced Mentors",
+        description: "Learn from industry experts",
+        icon: iconCheck,
+      },
+    ],
+    formTitle: "Get in touch",
+    submitButtonText: "Submit",
+    formName: "Experience The Northstar",
+  },
+  "check-eligibilty": {
+    title: "Check Eligibilty",
+    description:
+      "Provide your details and our expert counselor will connect with you shortly.",
+    features: [
+      {
+        title: "Personalized Guidance",
+        description: "Get tailored advice for your career path",
+        icon: iconCheck,
+      },
+      {
+        title: "High Success Rates",
+        description: "95% pass rate across programs",
+        icon: iconChart,
+      },
+      {
+        title: "Experienced Mentors",
+        description: "Learn from industry experts",
+        icon: iconCheck,
+      },
+    ],
+    formTitle: "Get in touch",
+    submitButtonText: "Submit",
+    formName: "Check Eligibilty",
+  },
+  "cfa-roadmap": {
+    title: "Download CFA Roadmap",
+    description:
+      "Provide your details and our expert counselor will connect with you shortly.",
+    features: [
+      {
+        title: "Personalized Guidance",
+        description: "Get tailored advice for your career path",
+        icon: iconCheck,
+      },
+      {
+        title: "High Success Rates",
+        description: "95% pass rate across programs",
+        icon: iconChart,
+      },
+      {
+        title: "Experienced Mentors",
+        description: "Learn from industry experts",
+        icon: iconCheck,
+      },
+    ],
+    formTitle: "Get in touch",
+    submitButtonText: "Submit",
+    formName: "CFA Roadmap",
+  },
+  "cfa-journey": {
+    title: "CFA Journey",
+    description:
+      "Provide your details and our expert counselor will connect with you shortly.",
+    features: [
+      {
+        title: "Personalized Guidance",
+        description: "Get tailored advice for your career path",
+        icon: iconCheck,
+      },
+      {
+        title: "High Success Rates",
+        description: "95% pass rate across programs",
+        icon: iconChart,
+      },
+      {
+        title: "Experienced Mentors",
+        description: "Learn from industry experts",
+        icon: iconCheck,
+      },
+    ],
+    formTitle: "Get in touch",
+    submitButtonText: "Submit",
+    formName: "CFA Journey",
+  },
+  "salary-guide": {
+    title: "Salary Guide",
+    description:
+      "Provide your details and our expert counselor will connect with you shortly.",
+    features: [
+      {
+        title: "Personalized Guidance",
+        description: "Get tailored advice for your career path",
+        icon: iconCheck,
+      },
+      {
+        title: "High Success Rates",
+        description: "95% pass rate across programs",
+        icon: iconChart,
+      },
+      {
+        title: "Experienced Mentors",
+        description: "Learn from industry experts",
+        icon: iconCheck,
+      },
+    ],
+    formTitle: "Get in touch",
+    submitButtonText: "Submit",
+    formName: "Salary Guide",
+  },
+  "acca-journey": {
+    title: "ACCA Journey",
+    description:
+      "Provide your details and our expert counselor will connect with you shortly.",
+    features: [
+      {
+        title: "Personalized Guidance",
+        description: "Get tailored advice for your career path",
+        icon: iconCheck,
+      },
+      {
+        title: "High Success Rates",
+        description: "95% pass rate across programs",
+        icon: iconChart,
+      },
+      {
+        title: "Experienced Mentors",
+        description: "Learn from industry experts",
+        icon: iconCheck,
+      },
+    ],
+    formTitle: "Get in touch",
+    submitButtonText: "Submit",
+    formName: "ACCA Journey",
   },
 };

@@ -172,7 +172,7 @@ const CFAFAQs: React.FC = () => {
                 <LeadFormButton formType='general' variant='outline' isSendOtp={true} >
                   Schedule Free Consultation
                 </LeadFormButton>
-                <LeadFormButton formType='download-hackdoc' variant='secondary' isSendOtp={true} >
+                <LeadFormButton formType='get-free-guide' variant='secondary' isSendOtp={true} >
                   Download CFA Guide
                 </LeadFormButton>
               </div>

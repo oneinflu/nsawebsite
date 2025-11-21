@@ -114,7 +114,7 @@ const EAEligibility = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <LeadFormButton
-                formType="general"
+                formType="check-eligibilty"
                 isSendOtp={true}
                 courseId="EA"
                 variant="primary"
@@ -124,7 +124,7 @@ const EAEligibility = () => {
                 Check Eligibility
               </LeadFormButton>
               <LeadFormButton
-                formType="general"
+                formType="talk-to-an-expert"
                 isSendOtp={true}
                 variant="outline"
                 className="inline-flex items-center gap-2 justify-center"
