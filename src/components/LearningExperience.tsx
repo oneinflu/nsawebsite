@@ -112,7 +112,7 @@ const LearningExperience = () => {
   return (
     <section ref={sectionRef} className="bg-gradient-to-b from-slate-50 to-white py-10 sm:py-20 overflow-hidden">
       {/* Row 1: Visual Demo + Learning System Overview */}
-      <div className="max-w-7xl mx-auto px-4 mb-20">
+      <div className="max-w-7xl mx-auto lg:px-4 px-12 mb-20">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left - Visual Demo */}
           <div className="relative">

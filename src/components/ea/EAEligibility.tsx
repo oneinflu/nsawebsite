@@ -35,7 +35,7 @@ const EAEligibility = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center lg:mb-16 mb-10"
         >
           <div className="inline-flex items-center bg-red-100 text-red-800 px-4 py-2 rounded-full text-sm font-medium mb-6">
             <CheckCircleIcon className="w-4 h-4 mr-2" />

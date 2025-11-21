@@ -215,7 +215,7 @@ const EAFAQ = () => {
           className="text-center lg:mb-16 mb-8"
         >
           <div className="flex items-center justify-center lg:mb-6 mb-3">
-            <QuestionMarkCircleIcon className="w-8 h-8 sm:w-12 sm:h-12 text-red-600 mr-2 sm:mr-4 flex-shrink-0" />
+            <QuestionMarkCircleIcon className="w-8 h-8 sm:w-12 sm:h-12 text-red-600 mr-2 lg:mr-4 flex-shrink-0" />
             <h2 className="text-xl sm:text-4xl md:text-5xl font-bold text-gray-900">
               Frequently Asked <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-purple-600">Questions</span>
             </h2>
@@ -304,7 +304,7 @@ const EAFAQ = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mt-16 text-center"
+          className="lg:mt-16 mt-10 text-center"
         >
           <div className="bg-gradient-to-r from-red-600 to-purple-600 rounded-3xl p-8 md:p-12 text-white">
             <ChatBubbleLeftRightIcon className="w-16 h-16 mx-auto mb-6 text-red-200" />

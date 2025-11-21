@@ -110,13 +110,13 @@ const WhyCFA = () => {
 
   if (!isClient) {
     return (
-      <section className="py-20 bg-gradient-to-br from-slate-50 to-red-50">
+      <section className="py-10 sm:py-16 lg:py-20 bg-gradient-to-br from-slate-50 to-red-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
               Why CFA <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-purple-600">(US)?</span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto">
               Positioning for Ambition — Join the Elite Global Tribe
             </p>
           </div>
@@ -126,12 +126,12 @@ const WhyCFA = () => {
   }
 
   return (
-    <section className="py-20 bg-gradient-to-br from-slate-50 to-red-50 relative overflow-hidden">
+    <section className="py-10 sm:py-16 lg:py-20 bg-gradient-to-br from-slate-50 to-red-50 relative overflow-hidden">
       {/* Background Elements */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-red-300 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
-        <div className="absolute top-40 right-10 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"></div>
-        <div className="absolute bottom-20 left-1/2 w-72 h-72 bg-red-300 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-4000"></div>
+      <div className="absolute inset-0 opacity-20 pointer-events-none">
+        <div className="absolute top-10 left-5 w-48 h-48 sm:w-64 sm:h-64 lg:w-72 lg:h-72 bg-red-300 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
+        <div className="absolute top-20 right-5 w-48 h-48 sm:w-64 sm:h-64 lg:w-72 lg:h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"></div>
+        <div className="absolute bottom-10 left-1/2 w-48 h-48 sm:w-64 sm:h-64 lg:w-72 lg:h-72 bg-red-300 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-4000"></div>
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -141,25 +141,25 @@ const WhyCFA = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-12 lg:mb-16"
         >
           <motion.h2 
             variants={itemVariants}
-            className="text-4xl md:text-5xl font-bold text-gray-900 mb-6"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6"
           >
             Why CFA <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-purple-600">(US)?</span>
           </motion.h2>
           <motion.p 
             variants={itemVariants}
-            className="text-xl text-gray-600 max-w-3xl mx-auto mb-4"
+            className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto mb-3 sm:mb-4"
           >
             Positioning for Ambition — Join the Elite Global Tribe
           </motion.p>
           <motion.div
             variants={itemVariants}
-            className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-amber-100 to-yellow-100 rounded-full border border-amber-200"
+            className="inline-flex items-center px-3 sm:px-4 py-2 bg-gradient-to-r from-amber-100 to-yellow-100 rounded-full border border-amber-200"
           >
-            <span className="text-amber-800 font-semibold text-sm">✨ CFA = Elite Global Tribe</span>
+            <span className="text-amber-800 font-semibold text-xs sm:text-sm">✨ CFA = Elite Global Tribe</span>
           </motion.div>
         </motion.div>
 
@@ -169,7 +169,7 @@ const WhyCFA = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
-          className="space-y-8 mb-20"
+          className="space-y-4 sm:space-y-6 lg:space-y-8 mb-12 sm:mb-16 lg:mb-20"
         >
           {features.map((feature, index) => (
             <motion.div
@@ -181,27 +181,27 @@ const WhyCFA = () => {
               }}
               onHoverStart={() => setHoveredCard(index)}
               onHoverEnd={() => setHoveredCard(null)}
-              className={`relative bg-white rounded-3xl p-8 shadow-xl border-2 ${feature.borderColor} hover:shadow-2xl transition-all duration-500 cursor-pointer group`}
+              className={`relative bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 shadow-xl border-2 ${feature.borderColor} hover:shadow-2xl transition-all duration-500 cursor-pointer group`}
             >
               {/* Background Gradient */}
               <div className={`absolute inset-0 bg-gradient-to-br ${feature.bgColor} rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
               
               <div className="relative z-10">
-                <div className="flex items-start space-x-6">
+                <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
                   {/* Icon Section */}
-                  <div className="flex-shrink-0">
-                    <div className={`p-4 rounded-2xl bg-gradient-to-r ${feature.color} mb-2`}>
-                      <feature.icon className="w-8 h-8 text-white" />
+                  <div className="flex-shrink-0 mx-auto sm:mx-0">
+                    <div className={`p-3 sm:p-4 rounded-2xl bg-gradient-to-r ${feature.color} mb-2`}>
+                      <feature.icon className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                     </div>
-                    <div className="text-3xl text-center">{feature.emoji}</div>
+                    <div className="text-2xl sm:text-3xl text-center">{feature.emoji}</div>
                   </div>
 
                   {/* Content Section */}
-                  <div className="flex-1">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                  <div className="flex-1 text-center sm:text-left">
+                    <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2 sm:mb-3">
                       {feature.title}
                     </h3>
-                    <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+                    <p className="text-sm sm:text-base lg:text-lg text-gray-600 mb-4 sm:mb-6 leading-relaxed">
                       {feature.description}
                     </p>
 
@@ -270,7 +270,7 @@ const WhyCFA = () => {
           {/* Company Logos Grid */}
           <motion.div
             variants={containerVariants}
-            className="grid grid-cols-2 md:grid-cols-5 gap-6 max-w-4xl mx-auto"
+            className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 sm:gap-4 lg:gap-6 max-w-4xl mx-auto"
           >
             {eliteCompanies.map((company, index) => (
               <motion.div
@@ -283,13 +283,13 @@ const WhyCFA = () => {
                 }}
                 className="group"
               >
-                <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300 hover:border-red-300">
+                <div className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300 hover:border-red-300">
                   <div className="text-center">
-                    <div className="w-16 h-16 bg-gradient-to-br from-red-600 to-purple-600 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
-                      <span className="text-white font-bold text-lg">{company.logo}</span>
+                    <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-red-600 to-purple-600 rounded-lg sm:rounded-xl flex items-center justify-center mx-auto mb-2 sm:mb-3 group-hover:scale-110 transition-transform duration-300">
+                      <span className="text-white font-bold text-sm sm:text-lg">{company.logo}</span>
                     </div>
-                    <h4 className="font-bold text-gray-900 text-sm mb-1">{company.name}</h4>
-                    <p className="text-xs text-gray-500">{company.tier}</p>
+                    <h4 className="font-bold text-gray-900 text-xs sm:text-sm mb-1 truncate">{company.name}</h4>
+                    <p className="text-[10px] sm:text-xs text-gray-500 truncate">{company.tier}</p>
                   </div>
                 </div>
               </motion.div>
@@ -297,7 +297,7 @@ const WhyCFA = () => {
           </motion.div>
 
           {/* Bottom CTA Hint */}
-           <LeadFormButton formType='general' variant='primary' isSendOtp={true} className='mt-10'>
+           <LeadFormButton formType='general' variant='primary' isSendOtp={true} className='mt-6 sm:mt-8 lg:mt-10 w-full sm:w-auto mx-auto'>
                Ready to join the elite? Start your CFA journey
               </LeadFormButton>
            

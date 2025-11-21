@@ -53,7 +53,7 @@ const features = [
 
 const EAWhyNorthStar = () => {
   return (
-    <section className="py-10 sm:py-24 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
+    <section className="py-10 sm:py-10 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
       {/* Background accents */}
       <div className="absolute inset-0 opacity-30 pointer-events-none">
         <div className="absolute top-12 left-8 w-64 h-64 bg-red-200 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
