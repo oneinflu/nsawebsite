@@ -1,11 +1,18 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import Image from 'next/image';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { CheckCircleIcon, PlayCircleIcon, UserGroupIcon, GlobeAltIcon, AcademicCapIcon, CurrencyDollarIcon } from '@heroicons/react/24/outline';
-import { TrendingUp } from 'lucide-react';
-import LeadFormButton from '../LeadFormButton';
+import { useState, useEffect } from "react";
+import Image from "next/image";
+import { motion, useScroll, useTransform } from "framer-motion";
+import {
+  CheckCircleIcon,
+  PlayCircleIcon,
+  UserGroupIcon,
+  GlobeAltIcon,
+  AcademicCapIcon,
+  CurrencyDollarIcon,
+} from "@heroicons/react/24/outline";
+import { Phone, TrendingUp } from "lucide-react";
+import LeadFormButton from "../LeadFormButton";
 
 export default function CMAHero() {
   const [isSticky, setIsSticky] = useState(false);
@@ -17,28 +24,44 @@ export default function CMAHero() {
       setIsSticky(window.scrollY > 100);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const keyBadges = [
-    { icon: CheckCircleIcon, text: 'IMA® USA Certification', color: 'bg-violet-50 text-violet-700 border-violet-200' },
-    { icon: GlobeAltIcon, text: 'Global Opportunities (100+ Countries)', color: 'bg-red-50 text-red-700 border-red-200' },
-    { icon: PlayCircleIcon, text: 'Live + Recorded Learning', color: 'bg-red-50 text-red-700 border-red-200' },
-    { icon: UserGroupIcon, text: 'Big 4 & MNC Placements', color: 'bg-purple-50 text-purple-700 border-purple-200' }
+    {
+      icon: CheckCircleIcon,
+      text: "IMA® USA Certification",
+      color: "bg-violet-50 text-violet-700 border-violet-200",
+    },
+    {
+      icon: GlobeAltIcon,
+      text: "Global Opportunities (150+ Countries)",
+      color: "bg-red-50 text-red-700 border-red-200",
+    },
+    {
+      icon: PlayCircleIcon,
+      text: "Live + Recorded Learning",
+      color: "bg-red-50 text-red-700 border-red-200",
+    },
+    {
+      icon: UserGroupIcon,
+      text: "Big 4 & MNC Placements",
+      color: "bg-purple-50 text-purple-700 border-purple-200",
+    },
   ];
 
   const salaryProgression = [
-    { level: 'Entry Level', salary: '$65,000', icon: CurrencyDollarIcon },
-    { level: 'Mid Level', salary: '$85,000', icon: TrendingUp },
-    { level: 'Senior Level', salary: '$120,000+', icon: AcademicCapIcon }
+    { level: "Entry Level", salary: "$65,000", icon: CurrencyDollarIcon },
+    { level: "Mid Level", salary: "$85,000", icon: TrendingUp },
+    { level: "Senior Level", salary: "$120,000+", icon: AcademicCapIcon },
   ];
 
   const studentAvatars = [
-    '/students/1.jpg',
-    '/students/2.jpg',
-    '/students/3.jpg',
-    '/students/4.jpeg',
+    "/students/1.jpg",
+    "/students/2.jpg",
+    "/students/3.jpg",
+    "/students/4.jpeg",
   ];
 
   return (
@@ -50,8 +73,8 @@ export default function CMAHero() {
         <div className="absolute -bottom-8 left-20 w-72 h-72 bg-red-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-4000"></div>
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16">
-        <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[80vh]">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 md:pt-20 pb-16">
+        <div className="grid lg:grid-cols-2 md:gap-12 items-center min-h-[80vh] ">
           {/* Left Content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -74,10 +97,10 @@ export default function CMAHero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="space-y-4"
+              className="space-y-4 text-center md:text-start"
             >
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight">
-                Become a{' '}
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-slate-900 leading-tight">
+                Become a{" "}
                 <span className="bg-gradient-to-r from-red-500 to-red-500 bg-clip-text text-transparent">
                   Certified Management Accountant
                 </span>
@@ -86,8 +109,8 @@ export default function CMAHero() {
                   (CMA – USA)
                 </span>
               </h1>
-              <p className="text-xl sm:text-2xl text-slate-600 font-medium">
-                Global Finance Career in{' '}
+              <p className="text-lg sm:text-2xl text-slate-600 font-medium">
+                Global Finance Career in just{" "}
                 <span className="text-red-600 font-bold">6–9 Months</span>
               </p>
             </motion.div>
@@ -97,7 +120,7 @@ export default function CMAHero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="flex flex-wrap items-center gap-6 text-sm text-slate-600"
+              className="flex flex-col md:flex-row text-center items-center gap-3 md:gap-6 text-sm text-slate-600"
             >
               <div className="flex items-center gap-2">
                 <div className="flex -space-x-2">
@@ -113,7 +136,7 @@ export default function CMAHero() {
                     />
                   ))}
                 </div>
-                <span className="font-medium">5000+ Students Placed</span>
+                <span className="font-medium">2,00,000+ Students Placed</span>
               </div>
               <div className="flex items-center gap-1">
                 <span className="text-yellow-400">★★★★★</span>
@@ -137,7 +160,9 @@ export default function CMAHero() {
                   className={`flex items-center gap-3 px-4 py-3 rounded-lg border ${badge.color} backdrop-blur-sm`}
                 >
                   <badge.icon className="w-5 h-5 flex-shrink-0" />
-                  <span className="font-medium text-sm">{badge.text}</span>
+                  <span className="font-medium text-sm md:text-xs">
+                    {badge.text}
+                  </span>
                 </motion.div>
               ))}
             </motion.div>
@@ -150,15 +175,15 @@ export default function CMAHero() {
               className="flex flex-col sm:flex-row gap-4"
             >
               <LeadFormButton
-                formType='general'
-              courseId="CMA USA"
+                formType="general"
+                courseId="CMA USA"
                 variant="primary"
-                className="px-8 py-4 transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl"
+                className="px-8 flex items-center gap-1 py-4 transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl"
                 isSendOtp={true}
               >
-                📞 Book Free Counselling
+                <Phone /> Book Free Counselling
               </LeadFormButton>
-              
+
               <button className="px-6 py-4 text-slate-600 font-medium hover:text-red-600 transition-colors duration-200 flex items-center gap-2">
                 <PlayCircleIcon className="w-5 h-5" />
                 Watch Success Stories
@@ -173,10 +198,7 @@ export default function CMAHero() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative"
           >
-            <motion.div
-              style={{ y }}
-              className="space-y-8"
-            >
+            <motion.div style={{ y }} className="space-y-8">
               {/* 3D CMA Credential Card */}
               <motion.div
                 initial={{ opacity: 0, rotateY: -30 }}
@@ -184,7 +206,7 @@ export default function CMAHero() {
                 transition={{ delay: 0.6, duration: 0.8 }}
                 className="relative"
               >
-                <div className="bg-gradient-to-br from-red-900 via-red-700 to-red-500   rounded-2xl p-8 shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-300">
+                <div className="bg-gradient-to-br md:mt-6 from-red-900 via-red-700 to-red-500 rounded-2xl p-8 shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-300">
                   <div className="text-white space-y-4">
                     <div className="flex justify-between items-start">
                       <div>
@@ -196,9 +218,15 @@ export default function CMAHero() {
                       </div>
                     </div>
                     <div className="space-y-2">
-                      <p className="text-sm text-red-100">Certified Management Accountant</p>
-                      <p className="text-lg font-semibold">Global Recognition</p>
-                      <p className="text-sm text-red-100">Valid in 100+ Countries</p>
+                      <p className="text-sm text-red-100">
+                        Certified Management Accountant
+                      </p>
+                      <p className="text-lg font-semibold">
+                        Global Recognition
+                      </p>
+                      <p className="text-sm text-red-100">
+                        Valid in 150+ Countries
+                      </p>
                     </div>
                     <div className="flex justify-between items-center pt-4 border-t border-white/20">
                       <span className="text-sm">IMA® Authorized</span>
@@ -217,7 +245,9 @@ export default function CMAHero() {
               >
                 <div className="text-3xl font-bold text-green-600">98%</div>
                 <p className="text-green-700 font-medium">Pass Rate</p>
-                <p className="text-sm text-green-600 mt-1">With NorthStar Academy</p>
+                <p className="text-sm text-green-600 mt-1">
+                  With NorthStar Academy
+                </p>
               </motion.div>
 
               {/* Salary & Career Progression */}
@@ -225,7 +255,7 @@ export default function CMAHero() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1 }}
-                className="bg-white rounded-xl p-6 shadow-lg border border-slate-200"
+                className="bg-white rounded-xl p-6 shadow-lg border border-slate-200 mb-26 2xl:mb-0"
               >
                 <h4 className="font-bold text-slate-900 mb-4 flex items-center gap-2">
                   <TrendingUp className="w-5 h-5 text-red-600" />
@@ -233,12 +263,19 @@ export default function CMAHero() {
                 </h4>
                 <div className="space-y-3">
                   {salaryProgression.map((item, index) => (
-                    <div key={index} className="flex items-center justify-between">
+                    <div
+                      key={index}
+                      className="flex items-center justify-between"
+                    >
                       <div className="flex items-center gap-2">
                         <item.icon className="w-4 h-4 text-slate-500" />
-                        <span className="text-sm text-slate-600">{item.level}</span>
+                        <span className="text-sm text-slate-600">
+                          {item.level}
+                        </span>
                       </div>
-                      <span className="font-semibold text-slate-900">{item.salary}</span>
+                      <span className="font-semibold text-slate-900">
+                        {item.salary}
+                      </span>
                     </div>
                   ))}
                 </div>
@@ -251,21 +288,25 @@ export default function CMAHero() {
       {/* Sticky CTA */}
       <motion.div
         initial={{ y: 100, opacity: 0 }}
-        animate={{ 
-          y: isSticky ? 0 : 100, 
-          opacity: isSticky ? 1 : 0 
+        animate={{
+          y: isSticky ? 0 : 100,
+          opacity: isSticky ? 1 : 0,
         }}
         transition={{ duration: 0.3 }}
         className="fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 shadow-lg z-50 p-4"
       >
         <div className="max-w-4xl mx-auto flex items-center justify-between">
           <div>
-            <p className="font-semibold text-slate-900">Ready to Start Your CMA Journey?</p>
-            <p className="text-sm text-slate-600">Join 5000+ successful students</p>
+            <p className="font-semibold text-slate-900">
+              Ready to Start Your CMA Journey?
+            </p>
+            <p className="text-sm text-slate-600">
+              Join 2,00,000+ successful students
+            </p>
           </div>
           <div className="flex gap-2">
             <LeadFormButton
-              formType='general'
+              formType="general"
               courseId="CMA USA"
               variant="primary"
               className="px-6 py-3 bg-gradient-to-r from-red-500 to-red-500 text-white hover:from-red-600 hover:to-red-700 shadow-md"
@@ -292,7 +333,6 @@ export default function CMAHero() {
               {/* Desktop: original text */}
               <span className="hidden md:inline">Book Free Call</span>
             </LeadFormButton>
-           
           </div>
         </div>
       </motion.div>

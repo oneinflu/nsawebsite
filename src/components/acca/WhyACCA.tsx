@@ -24,7 +24,7 @@ const WhyACCA = () => {
         "Global mobility for career opportunities",
         "International networking opportunities"
       ],
-      color: "from-red-500 to-cyan-500",
+      color: "from-red-500 to-red-800",
       bgColor: "from-red-50 to-cyan-50"
     },
     {
@@ -95,7 +95,7 @@ const WhyACCA = () => {
   
 
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-50 to-red-50">
+    <section className="py-8 md:py-20 bg-gradient-to-br from-gray-50 to-red-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -103,12 +103,12 @@ const WhyACCA = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-6 md:mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
             Why <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-purple-600">ACCA (UK)?</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
             Unlock global opportunities with the world&apos;s most recognized accounting qualification
           </p>
         </motion.div>
@@ -135,16 +135,16 @@ const WhyACCA = () => {
 
               <div className="relative z-10">
                 {/* Icon */}
-                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${feature.color} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                  <feature.icon className="w-8 h-8 text-white" />
+                <div className={`w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-gradient-to-r ${feature.color} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                  <feature.icon className="w-6 h-6 md:w-8 md:h-8 text-white" />
                 </div>
 
                 {/* Content */}
-                <h3 className="text-2xl font-bold text-gray-900 mb-3">{feature.title}</h3>
-                <p className="text-gray-600 text-lg mb-6">{feature.description}</p>
+                <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">{feature.title}</h3>
+                <p className="text-gray-600 text-md md:text-lg mb-6">{feature.description}</p>
 
                 {/* Details */}
-                <ul className="space-y-3">
+                <ul className="space-y-2 md:space-y-3">
                   {feature.details.map((detail, detailIndex) => (
                     <li key={detailIndex} className="flex items-start">
                       <div className="w-2 h-2 bg-gradient-to-r from-red-500 to-purple-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
@@ -168,13 +168,13 @@ const WhyACCA = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-gray-100"
+          className="bg-white rounded-3xl p-4 md:p-12 shadow-xl border border-gray-100"
         >
           <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-gray-900 mb-4">
+            <h3 className="text-xl md:text-3xl font-bold text-gray-900 mb-4">
               Finance Roles ACCA Unlocks
             </h3>
-            <p className="text-gray-600 text-lg">
+            <p className="text-gray-600 text-md md:text-lg">
               Your aspirational career journey with ACCA qualification
             </p>
           </div>
@@ -227,7 +227,6 @@ const WhyACCA = () => {
           <div className="text-center mt-12">
            <LeadFormButton formType='general' variant='primary' isSendOtp={true} >
               Start Your ACCA Journey
-              
             </LeadFormButton>
           </div>
         </motion.div>

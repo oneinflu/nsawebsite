@@ -99,13 +99,13 @@ const ACCAExemptionsChecker = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <div className="flex items-center justify-center mb-6">
-            <DocumentCheckIcon className="w-12 h-12 text-red-600 mr-4" />
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
+          <div className="flex items-center justify-center mb-6 gap-2">
+            <DocumentCheckIcon className="w-8 h-8 md:w-12 md:h-12 text-red-600 " />
+            <h2 className="text-xl md:text-5xl font-bold text-gray-900">
               ACCA <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-purple-600">Exemptions Checker</span>
             </h2>
           </div>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-md md:text-xl text-gray-600 max-w-3xl mx-auto">
             Discover how many papers you can skip and fast-track your ACCA journey
           </p>
         </motion.div>
@@ -116,7 +116,7 @@ const ACCAExemptionsChecker = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="bg-white rounded-3xl p-8 md:p-12 shadow-2xl border border-gray-100"
+          className="bg-white rounded-3xl p-4 md:p-12 shadow-2xl border border-gray-100"
         >
           <AnimatePresence mode="wait">
             {!showResult ? (

@@ -32,7 +32,7 @@ const CIATrainingExperience = () => {
       uxElement: {
         type: 'mentor',
         content: {
-          mentorImage: '/api/placeholder/120/120',
+          mentorImage: '/api/placeholder/120/120.jpg',
           mentorName: 'Rajesh Kumar, CIA',
           mentorTitle: 'Senior Internal Audit Manager, Deloitte',
           quote: 'I guide each student personally through their CIA journey. My 8+ years in Big 4 helps students understand real-world applications.',
@@ -166,11 +166,11 @@ const CIATrainingExperience = () => {
         return (
           <div className="bg-white rounded-2xl p-6 shadow-lg">
             <div className="flex items-start space-x-4 mb-4">
-              <img 
+              {/* <img 
                 src={uxElement.content.mentorImage} 
                 alt={uxElement.content.mentorName}
                 className="w-16 h-16 rounded-full object-cover"
-              />
+              /> */}
               <div className="flex-1">
                 <h4 className="font-bold text-gray-900">{uxElement.content.mentorName}</h4>
                 <p className="text-sm text-gray-600 mb-2">{uxElement.content.mentorTitle}</p>
@@ -306,7 +306,7 @@ const CIATrainingExperience = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-slate-50 to-red-50">
+    <section className="py-8 md:py-20 bg-gradient-to-br from-slate-50 to-red-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -320,13 +320,13 @@ const CIATrainingExperience = () => {
             <StarIcon className="w-4 h-4 mr-2" />
             NorthStar Training Experience
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Why We Win —
+          <h2 className="text-2xl md:text-5xl font-bold text-gray-900 mb-6">
+            Why We Win -
             <span className="block text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-purple-600 mt-2">
               Training Excellence
             </span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             <span className="font-semibold text-red-600">Guided</span> + 
             <span className="font-semibold text-green-600 mx-2">Practical</span> + 
             <span className="font-semibold text-purple-600">Real-world</span> approach to CIA success
@@ -435,12 +435,12 @@ const CIATrainingExperience = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="text-center">
               <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <ArrowTrendingUpIcon className="w-8 h-8 text-white" />
               </div>
-              <div className="text-3xl font-bold text-gray-900 mb-2">94%</div>
+              <div className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">94%</div>
               <div className="text-sm text-gray-600">First Attempt Pass Rate</div>
             </div>
             
@@ -448,7 +448,7 @@ const CIATrainingExperience = () => {
               <div className="w-16 h-16 bg-gradient-to-r from-red-500 to-red-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <UserGroupIcon className="w-8 h-8 text-white" />
               </div>
-              <div className="text-3xl font-bold text-gray-900 mb-2">2,500+</div>
+              <div className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">2,500+</div>
               <div className="text-sm text-gray-600">Students Trained</div>
             </div>
             
@@ -456,7 +456,7 @@ const CIATrainingExperience = () => {
               <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <AcademicCapIcon className="w-8 h-8 text-white" />
               </div>
-              <div className="text-3xl font-bold text-gray-900 mb-2">1,800+</div>
+              <div className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">1,800+</div>
               <div className="text-sm text-gray-600">CIA Certified Alumni</div>
             </div>
             
@@ -464,7 +464,7 @@ const CIATrainingExperience = () => {
               <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-orange-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <StarIcon className="w-8 h-8 text-white" />
               </div>
-              <div className="text-3xl font-bold text-gray-900 mb-2">4.9/5</div>
+              <div className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">4.9/5</div>
               <div className="text-sm text-gray-600">Student Satisfaction</div>
             </div>
           </div>

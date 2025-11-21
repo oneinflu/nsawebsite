@@ -88,7 +88,7 @@ export default function CMAFeesROI() {
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-8 md:py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -97,13 +97,13 @@ export default function CMAFeesROI() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 mb-6">
+          <h2 className="text-3xl sm:text-5xl font-bold text-slate-900 mb-6">
             CMA Investment &{' '}
             <span className="bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
               ROI Analysis
             </span>
           </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto">
             Understand the complete investment required for CMA certification and discover how it pays for itself within months of completion.
           </p>
         </motion.div>
@@ -115,31 +115,28 @@ export default function CMAFeesROI() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h3 className="text-2xl font-bold text-slate-900 mb-6">
+            <h3 className="text-2xl text-center md:text-start font-bold text-slate-900 mb-6">
               Complete Fee Structure
             </h3>
             <div className="space-y-4">
               {feeStructure.map((item, index) => (
                 <div
                   key={index}
-                  className={`p-4 rounded-lg border ${
-                    item.highlight
+                  className={`p-4 rounded-lg border ${item.highlight
                       ? 'bg-red-50 border-red-200'
                       : 'bg-slate-50 border-slate-200'
-                  }`}
+                    }`}
                 >
                   <div className="flex justify-between items-center">
                     <div>
-                      <h4 className={`font-semibold ${
-                        item.highlight ? 'text-red-900' : 'text-slate-900'
-                      }`}>
+                      <h4 className={`font-semibold ${item.highlight ? 'text-red-900' : 'text-slate-900'
+                        }`}>
                         {item.component}
                       </h4>
                       <p className="text-sm text-slate-600">{item.description}</p>
                     </div>
-                    <div className={`text-xl font-bold ${
-                      item.highlight ? 'text-red-600' : 'text-slate-900'
-                    }`}>
+                    <div className={`text-xl font-bold ${item.highlight ? 'text-red-600' : 'text-slate-900'
+                      }`}>
                       {item.amount}
                     </div>
                   </div>
@@ -168,7 +165,7 @@ export default function CMAFeesROI() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <h3 className="text-2xl font-bold text-slate-900 mb-6">
+            <h3 className="text-2xl text-center md:text-start font-bold text-slate-900 mb-6">
               Return on Investment
             </h3>
             <div className="grid grid-cols-2 gap-4 mb-6">
@@ -236,7 +233,7 @@ export default function CMAFeesROI() {
         >
           <div className="flex items-center justify-center gap-2 mb-4">
             <TrendingUp className="w-6 h-6" />
-            <h3 className="text-2xl font-bold">
+            <h3 className="text-xl md:text-2xl font-bold">
               Your Investment Pays for Itself in Under 3 Months
             </h3>
           </div>
@@ -245,7 +242,7 @@ export default function CMAFeesROI() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <LeadFormButton formType="download-syllabus" variant="outline" className="px-8 py-4 bg-white text-green-600 font-semibold rounded-lg hover:bg-slate-50 transform hover:scale-105 transition-all duration-200">
-             Talk to Expert
+              Talk to Expert
             </LeadFormButton>
             <LeadFormButton formType="general" variant="secondary" className="px-8 py-4 bg-green-700 text-white font-semibold rounded-lg hover:bg-green-800 transition-colors duration-200">
               Start Your Journey Today

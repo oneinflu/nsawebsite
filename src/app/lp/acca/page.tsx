@@ -19,17 +19,15 @@ export const metadata = {
 export default function CMAUSAPage() {
   return (
     <main className="min-h-screen">
-    <ACCAHero />
-     <WhyACCA />
-       <ACCAStudySupport />
-     <ACCAExemptionsChecker />
-     <ACCASyllabus />
-     <ACCATimelinePlanner />
-     <ACCAPlacementOutcomes />
-       <ACCAGlobalSalaryROI />
-  
-     <ACCAFAQ />
-
+      <ACCAHero />
+      <WhyACCA />
+      <ACCAStudySupport />
+      <ACCAExemptionsChecker />
+      <ACCASyllabus />
+      <ACCATimelinePlanner />
+      <ACCAPlacementOutcomes />
+      <ACCAGlobalSalaryROI />
+      <ACCAFAQ />
     </main>
   );
 }

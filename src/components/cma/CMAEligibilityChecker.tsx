@@ -388,13 +388,13 @@ const handlePhoneChange = (value: string, country?: { dialCode?: string }) => {
   const eligibilityResult = getEligibilityStatus(eligibilityScore);
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-8 md:py-20 bg-white">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-white rounded-2xl shadow-xl border border-slate-100 overflow-hidden">
           {/* Mobile-only layout */}
           <div className="md:hidden">
             <div className="p-6">
-              <h2 className="text-2xl font-bold text-slate-900">Check Your CMA USA Eligibility</h2>
+              <h2 className="text-xl md:text-2xl font-bold text-slate-900">Check Your CMA USA Eligibility</h2>
               <p className="mt-2 text-slate-600 text-sm">Quick 3-step check with personalized guidance. Verify your phone to begin.</p>
             </div>
             <div className="border-t border-slate-100" />

@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { 
+import {
   PlayIcon,
   ChatBubbleLeftRightIcon,
   ChartBarIcon,
@@ -155,7 +155,7 @@ const ACCAStudySupport = () => {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-50 to-red-50">
+    <section className="py-8 md:py-20 bg-gradient-to-br from-gray-50 to-red-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -166,15 +166,15 @@ const ACCAStudySupport = () => {
           className="text-center mb-16"
         >
           <div className="flex items-center justify-center mb-6">
-            <ShieldCheckIcon className="w-12 h-12 text-red-600 mr-4" />
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
+            <ShieldCheckIcon className="w-8 h-8 md:w-12 md:h-12 text-red-600 mr-4" />
+            <h2 className="text-2xl md:text-5xl font-bold text-gray-900">
               NorthStar <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-purple-600">Experience</span>
             </h2>
           </div>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+          <p className="text-md md:text-xl text-gray-600 max-w-3xl mx-auto mb-8">
             Comprehensive study support designed for ACCA success
           </p>
-          
+
           {/* Promise Badge */}
           <motion.div
             initial={{ scale: 0 }}
@@ -184,7 +184,7 @@ const ACCAStudySupport = () => {
             className="inline-flex items-center bg-gradient-to-r from-red-500 to-pink-500 text-white px-6 py-3 rounded-full font-bold text-lg shadow-lg"
           >
             <HeartIcon className="w-6 h-6 mr-2" />
-            🔥 &quot;No Student Left Behind&quot; Promise
+            <span className='text-sm md:text-lg'>🔥 &quot;No Student Left Behind&quot; Promise</span>
           </motion.div>
         </motion.div>
 
@@ -197,18 +197,18 @@ const ACCAStudySupport = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className={`bg-gradient-to-br ${feature.bgColor} rounded-3xl p-8 shadow-lg border border-white/50 hover:shadow-xl transition-all duration-300`}
+              className={`bg-gradient-to-br ${feature.bgColor} rounded-3xl p-4 md:p-8 shadow-lg border border-white/50 hover:shadow-xl transition-all duration-300`}
             >
               {/* Feature Header */}
               <div className="flex items-center mb-6">
-                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${feature.color} flex items-center justify-center mr-6`}>
-                  <feature.icon className="w-8 h-8 text-white" />
+                <div className={`w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-gradient-to-r ${feature.color} flex items-center justify-center mr-6`}>
+                  <feature.icon className="w-6 h-6 md:w-8 md:h-8 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                  <h3 className="text-md md:text-2xl font-bold text-gray-900 mb-2">
                     {feature.title}
                   </h3>
-                  <p className="text-gray-600">{feature.description}</p>
+                  <p className="text-sm md:text-md text-gray-600">{feature.description}</p>
                 </div>
               </div>
 
@@ -218,11 +218,11 @@ const ACCAStudySupport = () => {
               </div>
 
               {/* Stats */}
-              <div className="grid grid-cols-3 gap-4">
+              <div className="grid grid-cols-3 gap-2 md:gap-4">
                 {feature.stats.map((stat, statIndex) => (
                   <div key={statIndex} className="text-center">
                     <div className="bg-white rounded-xl p-3 shadow-sm border border-gray-200">
-                      <div className="text-sm font-medium text-gray-700">{stat}</div>
+                      <div className="text-xs md:text-sm font-medium text-gray-700">{stat}</div>
                     </div>
                   </div>
                 ))}
@@ -237,31 +237,31 @@ const ACCAStudySupport = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="bg-white rounded-3xl p-8 md:p-12 shadow-lg border border-gray-200"
+          className="bg-white rounded-3xl p-4 md:p-12 shadow-lg border border-gray-200"
         >
           <div className="text-center mb-8">
-            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+            <h3 className="text-xl md:text-3xl font-bold text-gray-900 mb-4">
               Why Students Choose NorthStar
             </h3>
-            <p className="text-gray-600 text-lg">
+            <p className="text-gray-600 text-sm md:text-lg">
               Proven track record of ACCA success
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="text-center">
-              <div className="text-4xl font-bold text-red-600 mb-2">92%</div>
-              <div className="text-gray-700 font-medium">Pass Rate</div>
-              <div className="text-sm text-gray-500">Above industry average</div>
+              <div className="text-2xl md:text-4xl font-bold text-red-600 mb-2">92%</div>
+              <div className="text-sm md:text-lg text-gray-700 font-medium">Pass Rate</div>
+              <div className="text-xs md:text-sm text-gray-500">Above industry average</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-green-600 mb-2">5000+</div>
-              <div className="text-gray-700 font-medium">Students Trained</div>
-              <div className="text-sm text-gray-500">Across 50+ countries</div>
+              <div className="text-2xl md:text-4xl font-bold text-green-600 mb-2">5000+</div>
+              <div className="text-sm md:text-lg text-gray-700 font-medium">Students Trained</div>
+              <div className="text-xs md:text-sm text-gray-500">Across 50+ countries</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-purple-600 mb-2">4.8</div>
-              <div className="text-gray-700 font-medium">Student Rating</div>
+              <div className="text-2xl md:text-4xl font-bold text-purple-600 mb-2">4.8</div>
+              <div className="text-xs md:text-sm md:text-lg text-gray-700 font-medium">Student Rating</div>
               <div className="flex justify-center mt-1">
                 {[...Array(5)].map((_, i) => (
                   <StarIcon key={i} className={`w-4 h-4 ${i < 5 ? 'text-yellow-400 fill-current' : 'text-gray-300'}`} />
@@ -269,9 +269,9 @@ const ACCAStudySupport = () => {
               </div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-orange-600 mb-2">85%</div>
-              <div className="text-gray-700 font-medium">Job Placement</div>
-              <div className="text-sm text-gray-500">Within 6 months</div>
+              <div className="text-2xl md:text-4xl font-bold text-orange-600 mb-2">85%</div>
+              <div className="text-sm md:text-lg text-gray-700 font-medium">Job Placement</div>
+              <div className="text-xs md:text-sm text-gray-500">Within 6 months</div>
             </div>
           </div>
         </motion.div>
@@ -284,17 +284,17 @@ const ACCAStudySupport = () => {
           transition={{ duration: 0.6 }}
           className="text-center mt-16"
         >
-          <div className="bg-gradient-to-r from-red-600 to-purple-600 rounded-3xl p-8 md:p-12 text-white">
-            <h3 className="text-2xl md:text-3xl font-bold mb-4">
+          <div className="bg-red-500 rounded-3xl p-4 md:p-12 text-white">
+            <h3 className="text-xl md:text-3xl font-bold mb-4">
               Ready to Experience the NorthStar Difference?
             </h3>
-            <p className="text-red-100 text-lg mb-8 max-w-2xl mx-auto">
+            <p className="text-red-100 text-md md:text-lg mb-8 max-w-2xl mx-auto">
               Join thousands of successful ACCA students who chose NorthStar for their journey
             </p>
-            
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-               <LeadFormButton formType='general' variant='outline' isSendOtp={true} >Talk to counsellor</LeadFormButton>
-            
+              <LeadFormButton formType='general' variant='outline' isSendOtp={true} >Talk to counsellor</LeadFormButton>
+
             </div>
           </div>
         </motion.div>

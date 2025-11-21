@@ -17,63 +17,151 @@ type Story = {
 };
 
 const stories: Story[] = [
-  {
-    id: 1,
-    type: 'testimonial',
-    text:
-      "Excited to announce my graduation from NorthStar's CMA Accelerator. The mentorship and real-world projects made all the difference!",
-    name: 'Abhishika K.N',
-    role: 'Engineer',
-    company: 'Version 2',
-    avatar: '/students/1.jpg',
-  },
+  // TEXT → TESTIMONIAL
   {
     id: 2,
-    type: 'video',
-    name: 'Workshop Highlight',
-    role: 'CMA Cohort',
-    company: 'NorthStar',
-    videoSrc: '/life/Office.mp4',
-  },
-  {
-    id: 3,
-    type: 'testimonial',
+    type: "testimonial",
     text:
-      'From CMA lessons to handling real accounts at global firms — this journey has been life-changing.',
-    name: 'Vinyas',
-    role: 'Associate',
-    company: 'KPMG',
-    avatar: '/students/2.jpg',
+      "Starting my journey with WNS is a proud moment. NSA gave me the clarity, confidence, and push I needed to reach here.",
+    name: "Harini Sri Karthikeyan, CMA",
+    role: "CMA Graduate",
+    company: "WNS Associate",
+    avatar: "/cma-testimonial/Harini.jpg",
   },
+
+  // VIDEO (unchanged)
+  {
+    id: 1,
+    type: "video",
+    thumbnail: "/images/home/stories/simran.jpg",
+    videoSrc: "/life/Office.mp4",
+    name: "Simran Khatri, CMA",
+    role: "CMA Graduate",
+    company: "KPMG",
+    avatar: "/images/home/stories/Simran.jpg",
+  },
+
+  // VIDEO (unchanged)
   {
     id: 4,
-    type: 'testimonial',
-    text:
-      'My first international client after NorthStar’s LinkedIn workshop. Optimized profile and Featured section did the magic.',
-    name: 'Akash Pandey',
-    role: 'Growth Coach',
-    company: 'Instagram',
-    avatar: '/students/3.jpg',
+    type: "video",
+    thumbnail: "/images/home/stories/rid.jpg",
+    videoSrc: "/life/Office.mp4",
+    name: "Ridwan P, CMA",
+    role: "CMA Graduate",
+    company: "Deloitte",
+    avatar: "/images/home/stories/ajais.jpg",
   },
+
+  // TEXT → TESTIMONIAL
   {
     id: 5,
-    type: 'video',
-    name: 'CMA Lab Tour',
-    role: 'Learning Experience',
-    company: 'NorthStar',
-    videoSrc: '/life/Office.mp4',
-  },
-  {
-    id: 6,
-    type: 'testimonial',
+    type: "testimonial",
     text:
-      'Turned CMA knowledge into a corporate role. Getting placed at a global brand was my proudest moment.',
-    name: 'Anas KP',
-    role: 'Finance Analyst',
-    company: 'HP',
-    avatar: '/students/4.jpeg',
+      "NSA’s placement process was super smooth. I felt well-prepared and confident when the opportunity came. Their structure truly works.",
+    name: "Ninad Waingankar, CMA",
+    role: "Senior Analyst II",
+    company: "—", // old data didn't mention company directly
+    avatar: "/cma-testimonial/ninad.png",
+  },
+
+  // VIDEO (unchanged)
+  {
+    id: 7,
+    type: "video",
+    thumbnail: "/images/home/stories/sree.jpg",
+    videoSrc: "/life/Office.mp4",
+    name: "Sree Vardhan Birlangi",
+    role: "CMA Graduate",
+    company: "",
+    avatar: "/images/home/stories/ajais.jpg",
+  },
+
+  // TEXT → TESTIMONIAL
+  {
+    id: 8,
+    type: "testimonial",
+    text:
+      "Thanks to NorthStar Academy, I didn’t feel lost in the placement process. Everything was simple, sorted, and focused on results.",
+    name: "S Anagha, CMA",
+    role: "Tax Analyst",
+    company: "E&Y",
+    avatar: "/cma-testimonial/Anagha.jpg",
+  },
+
+  // VIDEO (unchanged)
+  {
+    id: 10,
+    type: "video",
+    thumbnail: "/images/home/stories/devika.jpg",
+    videoSrc: "/life/Office.mp4",
+    name: "Devika Satish",
+    role: "CMA Graduate",
+    company: "",
+    avatar: "/images/home/stories/ajais.jpg",
+  },
+
+  // TEXT → TESTIMONIAL
+  {
+    id: 11,
+    type: "testimonial",
+    text:
+      "I’m already placed! NSA helped me build job-ready skills early. That made all the difference.",
+    name: "Elwin Sabu, CMA",
+    role: "Accountant",
+    company: "Paperchase Accountancy",
+    avatar: "/cma-testimonial/sabu.jpg",
+  },
+
+  // VIDEO (unchanged)
+  {
+    id: 13,
+    type: "video",
+    thumbnail: "/images/home/stories/roshel.jpg",
+    videoSrc: "/life/Office.mp4",
+    name: "Roshel Vaz, CMA",
+    role: "CMA Graduate",
+    company: "",
+    avatar: "/images/home/stories/roshel.jpg",
+  },
+
+  // TEXT → TESTIMONIAL
+  {
+    id: 14,
+    type: "testimonial",
+    text:
+      "Thanks to NorthStar Academy, I didn’t feel lost in the placement process. Everything was simple, sorted, and focused on results.",
+    name: "Anubhab Ranjan, CMA",
+    role: "Analyst",
+    company: "TCS",
+    avatar: "/cma-testimonial/anubhab.png",
+  },
+
+  // VIDEO (unchanged)
+  {
+    id: 15,
+    type: "video",
+    thumbnail: "/images/home/stories/shaz.jpg",
+    videoSrc: "/life/Office.mp4",
+    name: "Muhammed Shaz, CMA",
+    role: "CMA Graduate",
+    company: "Sharp & Tonnan",
+    avatar: "/images/home/stories/ajais.jpg",
+  },
+
+  // TEXT → TESTIMONIAL
+  {
+    id: 16,
+    type: "testimonial",
+    text:
+      "Thank you Northstar Academy NSA and M Irfat Sir for the guidance and support. I feel so lucky to have been a part of this journey.",
+    name: "Dr. Nikhil Mehta, CMA",
+    role: "CMA USA",
+    company: "",
+    avatar: "/cma-testimonial/nikhil.png",
   },
 ];
+
 
 const CARD_WIDTH = 'w-72 md:w-80';
 const CARD_HEIGHT = 'h-[340px]';

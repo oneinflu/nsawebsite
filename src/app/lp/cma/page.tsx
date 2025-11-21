@@ -4,6 +4,7 @@ import CMAGlobalPlacements from '@/components/cma/CMAGlobalPlacements';
 import CMAHero from '@/components/cma/CMAHero';
 import CMAImageMarquee from '@/components/cma/CMAImageMarquee';
 import CMALearningExperience from '@/components/cma/CMALearningExperience';
+import CMALearningJourney from '@/components/cma/CMALearningJourney';
 
 import CMASyllabus from '@/components/cma/CMASyllabus';
 import CMATestimonialVideo from '@/components/cma/CMATestimonialVideo';
@@ -23,17 +24,15 @@ export default function CMAUSAPage() {
     <main className="min-h-screen">
       <CMAHero />
       <CMAImageMarquee />
-     <WhyCMA />
+      <WhyCMA />
       <CMALearningExperience />
-     <CMASyllabus />
-    <CMAGlobalPlacements />
-    <CMATestimonialVideo />
-     <CMAFeesROI />
-     <CMAEligibilityChecker />
-    
-    
-     <CMAFAQ />
-
+      <CMASyllabus />
+      <CMAGlobalPlacements />
+      <CMATestimonialVideo />
+      <CMAFeesROI />
+      <CMAEligibilityChecker />
+      <CMAFAQ />
+      <CMALearningJourney />
     </main>
   );
 }

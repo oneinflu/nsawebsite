@@ -1,21 +1,20 @@
-'use client';
+"use client";
 
-import { motion, AnimatePresence } from 'framer-motion';
-import { useState } from 'react';
-import { 
+import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
+import {
   ChevronDownIcon,
   ChevronUpIcon,
   BookOpenIcon,
   ClockIcon,
   ChartBarIcon,
-  
   DocumentArrowDownIcon,
   XMarkIcon,
   AcademicCapIcon,
   BriefcaseIcon,
-  ShieldCheckIcon
-} from '@heroicons/react/24/outline';
-import LeadFormButton from '../LeadFormButton';
+  ShieldCheckIcon,
+} from "@heroicons/react/24/outline";
+import LeadFormButton from "../LeadFormButton";
 
 // Type definitions
 interface CIAPart {
@@ -40,131 +39,133 @@ const CIASyllabus = () => {
   const [activePart, setActivePart] = useState<string | null>(null);
   const [showLeadModal, setShowLeadModal] = useState(false);
   const [leadFormData, setLeadFormData] = useState({
-    name: '',
-    phone: '',
-    email: ''
+    name: "",
+    phone: "",
+    email: "",
   });
 
   const ciaParts: CIAPart[] = [
     {
-      id: 'part-1',
+      id: "part-1",
       partNumber: 1,
-      title: 'Essentials of Internal Auditing',
-      subtitle: 'Foundation & Standards',
-      description: 'Master the fundamental principles, standards, and ethics of internal auditing',
+      title: "Essentials of Internal Auditing",
+      subtitle: "Foundation & Standards",
+      description:
+        "Master the fundamental principles, standards, and ethics of internal auditing",
       whatYouLearn: [
-        'Internal Audit Basics & Standards',
-        'Independence and Objectivity',
-        'Proficiency and Due Professional Care',
-        'Quality Assurance Programs',
-        'Governance, Risk Management & Control',
-        'Fraud Risks and Controls'
+        "Internal Audit Basics & Standards",
+        "Independence and Objectivity",
+        "Proficiency and Due Professional Care",
+        "Quality Assurance Programs",
+        "Governance, Risk Management & Control",
+        "Fraud Risks and Controls",
       ],
-      outcome: 'Internal Audit Fundamentals',
-      studyHours: '150-200 hours',
+      outcome: "Internal Audit Fundamentals",
+      studyHours: "150-200 hours",
       difficulty: 6,
       roleImpact: [
-        'Foundation for audit career',
-        'Understanding of IA standards',
-        'Risk assessment capabilities',
-        'Compliance knowledge'
+        "Foundation for audit career",
+        "Understanding of IA standards",
+        "Risk assessment capabilities",
+        "Compliance knowledge",
       ],
-      examFormat: '125 questions, 2.5 hours',
-      passingScore: '600/800 points',
-      color: 'from-red-500 to-red-600',
-      bgColor: 'from-red-50 to-red-50',
-      icon: BookOpenIcon
+      examFormat: "125 questions, 2.5 hours",
+      passingScore: "600/800 points",
+      color: "from-red-500 to-red-600",
+      bgColor: "from-red-50 to-red-50",
+      icon: BookOpenIcon,
     },
     {
-      id: 'part-2',
+      id: "part-2",
       partNumber: 2,
-      title: 'Practice of Internal Auditing',
-      subtitle: 'Perform Engagements',
-      description: 'Learn to plan, execute, and communicate internal audit engagements effectively',
+      title: "Practice of Internal Auditing",
+      subtitle: "Perform Engagements",
+      description:
+        "Learn to plan, execute, and communicate internal audit engagements effectively",
       whatYouLearn: [
-        'Managing the Internal Audit Activity',
-        'Planning the Engagement',
-        'Performing the Engagement',
-        'Communicating Engagement Results',
-        'Monitoring Progress',
-        'Information Technology Risks',
-        'Financial Management & Finance'
+        "Managing the Internal Audit Activity",
+        "Planning the Engagement",
+        "Performing the Engagement",
+        "Communicating Engagement Results",
+        "Monitoring Progress",
+        "Information Technology Risks",
+        "Financial Management & Finance",
       ],
-      outcome: 'Risk & Control Execution',
-      studyHours: '180-250 hours',
+      outcome: "Risk & Control Execution",
+      studyHours: "180-250 hours",
       difficulty: 7,
       roleImpact: [
-        'Hands-on audit execution',
-        'Project management skills',
-        'Communication abilities',
-        'Technical audit competence'
+        "Hands-on audit execution",
+        "Project management skills",
+        "Communication abilities",
+        "Technical audit competence",
       ],
-      examFormat: '100 questions, 2 hours',
-      passingScore: '600/800 points',
-      color: 'from-green-500 to-emerald-600',
-      bgColor: 'from-green-50 to-emerald-50',
-      icon: ShieldCheckIcon
+      examFormat: "100 questions, 2 hours",
+      passingScore: "600/800 points",
+      color: "from-green-500 to-emerald-600",
+      bgColor: "from-green-50 to-emerald-50",
+      icon: ShieldCheckIcon,
     },
     {
-      id: 'part-3',
+      id: "part-3",
       partNumber: 3,
-      title: 'Business Knowledge for Internal Auditing',
-      subtitle: 'Business + IT + Risk Strategy',
-      description: 'Develop strategic business acumen and advanced risk management expertise',
+      title: "Business Knowledge for Internal Auditing",
+      subtitle: "Business + IT + Risk Strategy",
+      description:
+        "Develop strategic business acumen and advanced risk management expertise",
       whatYouLearn: [
-        'Business Acumen',
-        'Information Security',
-        'Information Technology',
-        'Financial Management',
-        'Global Business Environment',
-        'Strategic Management',
-        'Operations Management'
+        "Business Acumen",
+        "Information Security",
+        "Information Technology",
+        "Financial Management",
+        "Global Business Environment",
+        "Strategic Management",
+        "Operations Management",
       ],
-      outcome: 'Leadership Readiness',
-      studyHours: '200-280 hours',
+      outcome: "Leadership Readiness",
+      studyHours: "200-280 hours",
       difficulty: 8,
       roleImpact: [
-        'Strategic thinking ability',
-        'Business advisory skills',
-        'Leadership preparation',
-        'C-suite communication'
+        "Strategic thinking ability",
+        "Business advisory skills",
+        "Leadership preparation",
+        "C-suite communication",
       ],
-      examFormat: '100 questions, 2 hours',
-      passingScore: '600/800 points',
-      color: 'from-purple-500 to-violet-600',
-      bgColor: 'from-purple-50 to-violet-50',
-      icon: AcademicCapIcon
-    }
+      examFormat: "100 questions, 2 hours",
+      passingScore: "600/800 points",
+      color: "from-purple-500 to-violet-600",
+      bgColor: "from-purple-50 to-violet-50",
+      icon: AcademicCapIcon,
+    },
   ];
 
   const togglePart = (partId: string) => {
     setActivePart(activePart === partId ? null : partId);
   };
 
-  
   const handleSubmitLeadForm = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('CIA Syllabus download request:', leadFormData);
+    console.log("CIA Syllabus download request:", leadFormData);
     setShowLeadModal(false);
     // Handle form submission and trigger download
   };
 
   const getDifficultyColor = (difficulty: number) => {
-    if (difficulty <= 4) return 'text-green-600 bg-green-100';
-    if (difficulty <= 6) return 'text-yellow-600 bg-yellow-100';
-    if (difficulty <= 7) return 'text-orange-600 bg-orange-100';
-    return 'text-red-600 bg-red-100';
+    if (difficulty <= 4) return "text-green-600 bg-green-100";
+    if (difficulty <= 6) return "text-yellow-600 bg-yellow-100";
+    if (difficulty <= 7) return "text-orange-600 bg-orange-100";
+    return "text-red-600 bg-red-100";
   };
 
   const getDifficultyLabel = (difficulty: number) => {
-    if (difficulty <= 4) return 'Moderate';
-    if (difficulty <= 6) return 'Challenging';
-    if (difficulty <= 7) return 'Difficult';
-    return 'Very Difficult';
+    if (difficulty <= 4) return "Moderate";
+    if (difficulty <= 6) return "Challenging";
+    if (difficulty <= 7) return "Difficult";
+    return "Very Difficult";
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-50 to-red-50">
+    <section className="py-8 md:py-20 bg-gradient-to-br from-gray-50 to-red-50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -178,13 +179,16 @@ const CIASyllabus = () => {
             <AcademicCapIcon className="w-4 h-4 mr-2" />
             CIA Certification Syllabus
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-2xl md:text-5xl font-bold text-gray-900 mb-6">
             CIA 3-Part Structure
-            <span className="block text-red-600 mt-2">Easy Clarity</span>
+            <span className="text-md block text-red-600 mt-2">
+              Easy Clarity
+            </span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Master internal auditing through a structured 3-part journey. Each part builds your expertise 
-            from fundamentals to strategic leadership readiness.
+          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            Master internal auditing through a structured 3-part journey. Each
+            part builds your expertise from fundamentals to strategic leadership
+            readiness.
           </p>
         </motion.div>
 
@@ -199,16 +203,26 @@ const CIASyllabus = () => {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className={`bg-gradient-to-br ${part.bgColor} rounded-2xl p-6 border border-gray-200`}
             >
-              <div className={`w-12 h-12 bg-gradient-to-r ${part.color} rounded-xl flex items-center justify-center mb-4`}>
+              <div
+                className={`w-12 h-12 bg-gradient-to-r ${part.color} rounded-xl flex items-center justify-center mb-4`}
+              >
                 <part.icon className="w-6 h-6 text-white" />
               </div>
               <div className="flex items-center mb-3">
-                <span className="text-2xl font-bold text-gray-900">Part {part.partNumber}</span>
-                <span className={`ml-3 px-3 py-1 rounded-full text-xs font-medium ${getDifficultyColor(part.difficulty)}`}>
+                <span className="text-2xl font-bold text-gray-900">
+                  Part {part.partNumber}
+                </span>
+                <span
+                  className={`ml-3 px-3 py-1 rounded-full text-xs font-medium ${getDifficultyColor(
+                    part.difficulty
+                  )}`}
+                >
                   {getDifficultyLabel(part.difficulty)}
                 </span>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">{part.title}</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">
+                {part.title}
+              </h3>
               <p className="text-gray-600 mb-4">{part.subtitle}</p>
               <div className="space-y-2 text-sm">
                 <div className="flex items-center text-gray-700">
@@ -238,34 +252,42 @@ const CIASyllabus = () => {
               {/* Accordion Header */}
               <button
                 onClick={() => togglePart(part.id)}
-                className="w-full p-6 text-left hover:bg-gray-50 transition-colors duration-200"
+                className="w-full p-4 md:p-6 text-left hover:bg-gray-50 transition-colors duration-200"
               >
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-4">
-                    <div className={`w-12 h-12 bg-gradient-to-r ${part.color} rounded-xl flex items-center justify-center`}>
-                      <part.icon className="w-6 h-6 text-white" />
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                  <div className="flex items-start md:items-center gap-3 md:gap-4 flex-1">
+                    <div
+                      className={`w-10 h-10 md:w-12 md:h-12 bg-gradient-to-r ${part.color} rounded-xl flex items-center justify-center flex-shrink-0`}
+                    >
+                      <part.icon className="w-5 h-5 md:w-6 md:h-6 text-white" />
                     </div>
-                    <div>
-                      <div className="flex items-center space-x-3 mb-1">
-                        <h3 className="text-xl font-bold text-gray-900">
+                    <div className="flex-1 min-w-0">
+                      <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-3 mb-1">
+                        <h3 className="text-base md:text-xl font-bold text-gray-900">
                           Part {part.partNumber}: {part.title}
                         </h3>
-                        <span className={`px-3 py-1 rounded-full text-xs font-medium ${getDifficultyColor(part.difficulty)}`}>
+                        <span
+                          className={`px-2 md:px-3 py-1 rounded-full text-xs font-medium ${getDifficultyColor(
+                            part.difficulty
+                          )} w-fit`}
+                        >
                           {getDifficultyLabel(part.difficulty)}
                         </span>
                       </div>
-                      <p className="text-gray-600">{part.description}</p>
+                      <p className="text-sm md:text-base text-gray-600">
+                        {part.description}
+                      </p>
                     </div>
                   </div>
-                  <div className="flex items-center space-x-4">
-                    <div className="text-right text-sm text-gray-600">
+                  <div className="flex items-center justify-between md:justify-end gap-4 md:gap-4">
+                    <div className="text-left md:text-right text-xs md:text-sm text-gray-600">
                       <div className="font-medium">{part.studyHours}</div>
-                      <div>{part.examFormat}</div>
+                      <div className="hidden md:block">{part.examFormat}</div>
                     </div>
                     {activePart === part.id ? (
-                      <ChevronUpIcon className="w-6 h-6 text-gray-400" />
+                      <ChevronUpIcon className="w-5 h-5 md:w-6 md:h-6 text-gray-400 flex-shrink-0" />
                     ) : (
-                      <ChevronDownIcon className="w-6 h-6 text-gray-400" />
+                      <ChevronDownIcon className="w-5 h-5 md:w-6 md:h-6 text-gray-400 flex-shrink-0" />
                     )}
                   </div>
                 </div>
@@ -276,7 +298,7 @@ const CIASyllabus = () => {
                 {activePart === part.id && (
                   <motion.div
                     initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: 'auto', opacity: 1 }}
+                    animate={{ height: "auto", opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.3 }}
                     className="border-t border-gray-200"
@@ -293,7 +315,9 @@ const CIASyllabus = () => {
                             {part.whatYouLearn.map((topic, idx) => (
                               <li key={idx} className="flex items-start">
                                 <div className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                                <span className="text-gray-700 text-sm">{topic}</span>
+                                <span className="text-gray-700 text-sm">
+                                  {topic}
+                                </span>
                               </li>
                             ))}
                           </ul>
@@ -309,7 +333,9 @@ const CIASyllabus = () => {
                             {part.roleImpact.map((impact, idx) => (
                               <li key={idx} className="flex items-start">
                                 <div className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                                <span className="text-gray-700 text-sm">{impact}</span>
+                                <span className="text-gray-700 text-sm">
+                                  {impact}
+                                </span>
                               </li>
                             ))}
                           </ul>
@@ -323,26 +349,42 @@ const CIASyllabus = () => {
                           </h4>
                           <div className="space-y-3">
                             <div className="bg-white rounded-lg p-3 border">
-                              <div className="text-sm text-gray-600">Format</div>
-                              <div className="font-medium text-gray-900">{part.examFormat}</div>
+                              <div className="text-sm text-gray-600">
+                                Format
+                              </div>
+                              <div className="font-medium text-gray-900">
+                                {part.examFormat}
+                              </div>
                             </div>
                             <div className="bg-white rounded-lg p-3 border">
-                              <div className="text-sm text-gray-600">Passing Score</div>
-                              <div className="font-medium text-gray-900">{part.passingScore}</div>
+                              <div className="text-sm text-gray-600">
+                                Passing Score
+                              </div>
+                              <div className="font-medium text-gray-900">
+                                {part.passingScore}
+                              </div>
                             </div>
                             <div className="bg-white rounded-lg p-3 border">
-                              <div className="text-sm text-gray-600">Study Time</div>
-                              <div className="font-medium text-gray-900">{part.studyHours}</div>
+                              <div className="text-sm text-gray-600">
+                                Study Time
+                              </div>
+                              <div className="font-medium text-gray-900">
+                                {part.studyHours}
+                              </div>
                             </div>
                             <div className="bg-white rounded-lg p-3 border">
-                              <div className="text-sm text-gray-600">Difficulty</div>
+                              <div className="text-sm text-gray-600">
+                                Difficulty
+                              </div>
                               <div className="flex items-center">
                                 <div className="flex space-x-1 mr-2">
                                   {[...Array(10)].map((_, i) => (
                                     <div
                                       key={i}
                                       className={`w-2 h-2 rounded-full ${
-                                        i < part.difficulty ? 'bg-red-500' : 'bg-gray-200'
+                                        i < part.difficulty
+                                          ? "bg-red-500"
+                                          : "bg-gray-200"
                                       }`}
                                     />
                                   ))}
@@ -375,20 +417,22 @@ const CIASyllabus = () => {
             <h3 className="text-2xl md:text-3xl font-bold mb-4">
               Download CIA Syllabus & Study Plan
             </h3>
-            <p className="text-red-100 text-lg mb-8 max-w-2xl mx-auto">
-              Get detailed syllabus breakdown, study schedules, exam strategies, and preparation tips for all 3 parts
+            <p className="text-red-100 text-md md:text-lg mb-8 max-w-2xl mx-auto">
+              Get detailed syllabus breakdown, study schedules, exam strategies,
+              and preparation tips for all 3 parts
             </p>
-            <LeadFormButton 
-        formType='download-syllabus'
-        isSendOtp={true}
-        courseId='CIA'
-              className=" text-red-600 px-8 py-4 rounded-xl font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 inline-flex items-center"
+            <LeadFormButton
+              formType="download-syllabus"
+              isSendOtp={true}
+              courseId="CIA"
+              className=" text-red-600 px-8 py-4 rounded-xl font-bold text-sm md:text-lg shadow-xl hover:shadow-2xl transition-all duration-300 inline-flex items-center"
             >
               <DocumentArrowDownIcon className="w-6 h-6 mr-3" />
               Download Complete Study Guide 🚀
             </LeadFormButton>
             <div className="mt-4 text-red-100 text-sm">
-              ✅ Part-wise study hours ✅ Difficulty breakdown ✅ Role impact analysis
+              ✅ Part-wise study hours ✅ Difficulty breakdown ✅ Role impact
+              analysis
             </div>
           </div>
         </motion.div>
@@ -421,14 +465,19 @@ const CIASyllabus = () => {
                     <XMarkIcon className="w-6 h-6 text-gray-600" />
                   </button>
                 </div>
-                
+
                 <form onSubmit={handleSubmitLeadForm} className="space-y-4">
                   <div>
                     <input
                       type="text"
                       placeholder="Full Name"
                       value={leadFormData.name}
-                      onChange={(e) => setLeadFormData({...leadFormData, name: e.target.value})}
+                      onChange={(e) =>
+                        setLeadFormData({
+                          ...leadFormData,
+                          name: e.target.value,
+                        })
+                      }
                       className="w-full p-4 border border-gray-300 rounded-xl focus:border-red-500 focus:outline-none"
                       required
                     />
@@ -438,7 +487,12 @@ const CIASyllabus = () => {
                       type="tel"
                       placeholder="Phone Number"
                       value={leadFormData.phone}
-                      onChange={(e) => setLeadFormData({...leadFormData, phone: e.target.value})}
+                      onChange={(e) =>
+                        setLeadFormData({
+                          ...leadFormData,
+                          phone: e.target.value,
+                        })
+                      }
                       className="w-full p-4 border border-gray-300 rounded-xl focus:border-red-500 focus:outline-none"
                       required
                     />
@@ -448,12 +502,17 @@ const CIASyllabus = () => {
                       type="email"
                       placeholder="Email Address"
                       value={leadFormData.email}
-                      onChange={(e) => setLeadFormData({...leadFormData, email: e.target.value})}
+                      onChange={(e) =>
+                        setLeadFormData({
+                          ...leadFormData,
+                          email: e.target.value,
+                        })
+                      }
                       className="w-full p-4 border border-gray-300 rounded-xl focus:border-red-500 focus:outline-none"
                       required
                     />
                   </div>
-                  
+
                   <button
                     type="submit"
                     className="w-full py-4 bg-gradient-to-r from-red-600 to-purple-600 text-white rounded-xl font-bold text-lg hover:shadow-lg transition-all duration-300"
@@ -461,7 +520,7 @@ const CIASyllabus = () => {
                     Download Study Guide
                   </button>
                 </form>
-                
+
                 <div className="mt-6 text-center">
                   <p className="text-sm text-gray-600">
                     📧 Instant download link sent to your email

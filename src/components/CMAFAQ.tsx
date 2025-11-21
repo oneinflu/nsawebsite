@@ -18,7 +18,7 @@ export default function CMAFAQ() {
         },
         {
           q: 'Is CMA globally recognized?',
-          a: 'Yes, CMA (USA) is recognized in 100+ countries worldwide including USA, UK, Canada, Australia, UAE, Singapore, and India. It\'s highly valued by multinational corporations and Big 4 accounting firms globally.'
+          a: 'Yes, CMA (USA) is recognized in 150+ countries worldwide including USA, UK, Canada, Australia, UAE, Singapore, and India. It\'s highly valued by multinational corporations and Big 4 accounting firms globally.'
         },
         {
           q: 'What are the career opportunities after CMA?',
@@ -121,7 +121,7 @@ export default function CMAFAQ() {
   };
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-8 md:py-20 bg-white">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -133,13 +133,13 @@ export default function CMAFAQ() {
           <div className="inline-flex items-center justify-center w-16 h-16 bg-red-100 rounded-full mb-6">
             <QuestionMarkCircleIcon className="w-8 h-8 text-red-600" />
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
+          <h2 className="text-2xl md:text-5xl font-bold text-slate-900 mb-6">
             CMA{' '}
             <span className="bg-gradient-to-r from-red-600 to-red-600 bg-clip-text text-transparent">
               FAQ
             </span>
           </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+          <p className="text-md md:text-xl text-slate-600 max-w-3xl mx-auto">
             Get answers to the most commonly asked questions about CMA certification, 
             eligibility, career prospects, and our training programs.
           </p>
@@ -156,7 +156,7 @@ export default function CMAFAQ() {
             >
               {/* Category Header */}
               <div className="mb-6">
-                <h3 className="text-2xl font-bold text-slate-900 mb-2">
+                <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-2">
                   {category.category}
                 </h3>
                 <div className="w-20 h-1 bg-gradient-to-r from-red-600 to-red-600 rounded-full"></div>
@@ -179,7 +179,7 @@ export default function CMAFAQ() {
                         onClick={() => toggleFAQ(globalIndex)}
                         className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-slate-100 transition-colors duration-200"
                       >
-                        <h4 className="text-lg font-semibold text-slate-900 pr-4">
+                        <h4 className="text-md md:text-lg font-semibold text-slate-900 pr-4">
                           {faq.q}
                         </h4>
                         <ChevronDownIcon
@@ -199,7 +199,7 @@ export default function CMAFAQ() {
                             className="overflow-hidden"
                           >
                             <div className="px-6 pb-4 border-t border-slate-200">
-                              <p className="text-slate-700 leading-relaxed pt-4">
+                              <p className="text-sm md:text-lg text-slate-700 leading-relaxed pt-4">
                                 {faq.a}
                               </p>
                             </div>
@@ -222,10 +222,10 @@ export default function CMAFAQ() {
           className="mt-16 text-center"
         >
           <div className="bg-gradient-to-r from-red-50 to-red-50 rounded-2xl p-8 md:p-12">
-            <h3 className="text-3xl font-bold text-slate-900 mb-4">
+            <h3 className="text-xl md:text-3xl font-bold text-slate-900 mb-4">
               Still Have Questions?
             </h3>
-            <p className="text-lg text-slate-600 mb-8 max-w-2xl mx-auto">
+            <p className="text-md md:text-lg text-slate-600 mb-8 max-w-2xl mx-auto">
               Our CMA experts are here to help! Book a free consultation to get personalized 
               answers about your CMA journey, career goals, and study plan.
             </p>

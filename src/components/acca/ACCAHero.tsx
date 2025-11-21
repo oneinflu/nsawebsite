@@ -1,12 +1,12 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { 
-  GlobeAltIcon, 
-  BuildingOfficeIcon, 
+import {
+  GlobeAltIcon,
+  BuildingOfficeIcon,
   ClockIcon,
   CheckCircleIcon,
-  
+
   DocumentCheckIcon
 } from '@heroicons/react/24/outline';
 import { useState } from 'react';
@@ -72,7 +72,7 @@ const ACCAHero = () => {
     }
   };
 
-  
+
 
   return (
     <section className="relative min-h-screen bg-gradient-to-br from-red-50 via-red-50 to-purple-50 overflow-hidden">
@@ -93,38 +93,38 @@ const ACCAHero = () => {
             className="space-y-8"
           >
             {/* Headline */}
-            <motion.div  className="space-y-4">
-              <h1 className="text-4xl md:text-6xl font-bold text-gray-900 leading-tight">
+            <motion.div className="space-y-4 text-center md:text-left">
+              <h1 className="text-3xl  md:text-6xl font-bold text-gray-900 leading-tight">
                 Become a Globally Recognized{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-purple-600">
                   Chartered Accountant
                 </span>
                 <br />
-                <span className="text-2xl md:text-3xl text-red-600 font-medium">(ACCA – UK)</span>
+                <span className="text-xl md:text-3xl text-red-600 font-medium">(ACCA – UK)</span>
               </h1>
-              <p className="text-xl md:text-2xl text-gray-600 leading-relaxed">
+              <p className="text-md md:text-2xl text-gray-600 leading-relaxed">
                 Flexible journey with worldwide career opportunities in finance, audit, taxation & consulting.
               </p>
             </motion.div>
 
             {/* Credibility Badges */}
-            <motion.div  className="grid grid-cols-2 gap-4">
+            <motion.div className="grid grid-cols-2 gap-2 md:gap-4">
               {credibilityBadges.map((badge, index) => (
                 <motion.div
                   key={index}
                   whileHover={{ scale: 1.05 }}
-                  className="flex items-center bg-white rounded-xl p-4 shadow-lg border border-gray-100"
+                  className="flex items-center bg-white rounded-xl p-2 md:p-4 shadow-lg border border-gray-100"
                 >
                   <div className={`w-10 h-10 rounded-lg bg-gradient-to-r ${badge.color} flex items-center justify-center mr-3`}>
                     <badge.icon className="w-5 h-5 text-white" />
                   </div>
-                  <span className="font-medium text-gray-800 text-sm">{badge.text}</span>
+                  <span className="font-medium text-gray-800 text-xs md:text-sm">{badge.text}</span>
                 </motion.div>
               ))}
             </motion.div>
 
             {/* CTAs */}
-            <motion.div  className="space-y-4">
+            <motion.div className="space-y-4">
               <div className="flex flex-col sm:flex-row gap-4">
                 {/* Primary CTA */}
                 <LeadFormButton formType='general' variant='primary' isSendOtp={true} >
@@ -144,7 +144,7 @@ const ACCAHero = () => {
                       window.location.hash = 'exemptions';
                     }
                   }}
-                  className="bg-white text-red-600 border-2 border-red-600 px-8 py-4 rounded-xl font-bold text-lg hover:bg-red-50 transition-all duration-300 flex items-center justify-center"
+                  className="bg-white text-red-600 border-2 border-red-600 md:px-8 py-2 md:py-4 rounded-xl font-bold text-lg hover:bg-red-50 transition-all duration-300 flex items-center justify-center"
                 >
                   <DocumentCheckIcon className="w-6 h-6 mr-3" />
                   Check Exemptions
@@ -152,11 +152,11 @@ const ACCAHero = () => {
               </div>
 
               {/* Tertiary CTA */}
-             
+
             </motion.div>
 
             {/* Trust Indicators */}
-            <motion.div  className="flex items-center space-x-6 pt-4">
+            <motion.div className="flex items-center space-x-6 pt-4">
               <div className="flex -space-x-2">
                 {[1, 2, 3, 4].map((i) => (
                   <div key={i} className="w-10 h-10 rounded-full bg-gradient-to-br from-red-400 to-purple-500 border-2 border-white flex items-center justify-center">
@@ -187,31 +187,29 @@ const ACCAHero = () => {
                   transition={{ duration: 0.6, delay: 0.4 + index * 0.2 }}
                   onHoverStart={() => setHoveredCard(index)}
                   onHoverEnd={() => setHoveredCard(null)}
-                  className={`relative bg-white rounded-2xl p-6 shadow-xl border border-gray-100 transform transition-all duration-300 ${
-                    hoveredCard === index ? 'scale-105 shadow-2xl' : ''
-                  } ${
-                    index === 1 ? 'ml-8' : index === 2 ? 'ml-16' : ''
-                  }`}
+                  className={`relative bg-white rounded-2xl p-6 shadow-xl border border-gray-100 transform transition-all duration-300 ${hoveredCard === index ? 'scale-105 shadow-2xl' : ''
+                    } ${index === 1 ? 'ml-8' : index === 2 ? 'ml-16' : ''
+                    }`}
                 >
                   {/* Animated Highlight */}
                   <motion.div
                     className={`absolute inset-0 rounded-2xl bg-gradient-to-r ${level.color} opacity-0 transition-opacity duration-300`}
                     animate={{ opacity: hoveredCard === index ? 0.1 : 0 }}
                   />
-                  
+
                   <div className="relative z-10">
                     <div className="flex items-center mb-4">
-                      <div className={`w-12 h-12 rounded-xl bg-gradient-to-r ${level.color} flex items-center justify-center mr-4`}>
+                      <div className={`w-10 h-10 md:w-12 md:h-12 rounded-xl bg-gradient-to-r ${level.color} flex items-center justify-center mr-4`}>
                         <span className="text-white font-bold text-lg">{index + 1}</span>
                       </div>
                       <div>
-                        <h3 className="text-xl font-bold text-gray-900">{level.level}</h3>
+                        <h3 className="text-lg md:text-xl font-bold text-gray-900">{level.level}</h3>
                         <p className="text-sm text-gray-600">Level {index + 1}</p>
                       </div>
                     </div>
-                    
-                    <p className="text-gray-700 mb-4">{level.description}</p>
-                    
+
+                    <p className="text-sm md:text-lg text-gray-700 mb-4">{level.description}</p>
+
                     <div className="flex flex-wrap gap-2">
                       {level.papers.map((paper, paperIndex) => (
                         <span

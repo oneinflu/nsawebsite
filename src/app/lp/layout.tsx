@@ -9,9 +9,11 @@ export default function ASectionLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <>
-      <SimpleHeader />
-      {children}
-      <SimpleFooter />
+      <div className="overflow-hidden">
+        <SimpleHeader />
+        {children}
+        <SimpleFooter />
+      </div>
     </>
   );
 }

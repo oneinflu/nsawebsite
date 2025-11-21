@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-'use client'
+"use client";
 
-import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { 
-  ChevronRightIcon, 
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  ChevronRightIcon,
   ChevronLeftIcon,
   AcademicCapIcon,
   GlobeAltIcon,
@@ -13,230 +13,258 @@ import {
   CheckCircleIcon,
   StarIcon,
   ArrowPathIcon,
-  PhoneIcon
-} from '@heroicons/react/24/outline'
+  PhoneIcon,
+} from "@heroicons/react/24/outline";
 
 interface WizardStep {
-  id: string
-  question: string
+  id: string;
+  question: string;
   options: Array<{
-    id: string
-    label: string
-    description?: string
-    icon?: any
-  }>
+    id: string;
+    label: string;
+    description?: string;
+    icon?: any;
+  }>;
 }
 
 interface StateBoard {
-  name: string
-  code: string
-  requirements: string[]
-  benefits: string[]
-  difficulty: 'Easy' | 'Medium' | 'Hard'
-  popularity: number
-  recommended: boolean
+  name: string;
+  code: string;
+  requirements: string[];
+  benefits: string[];
+  difficulty: "Easy" | "Medium" | "Hard";
+  popularity: number;
+  recommended: boolean;
 }
 
 export default function StateBoardWizard() {
-  const [currentStep, setCurrentStep] = useState(0)
-  const [answers, setAnswers] = useState<Record<string, string>>({})
-  const [showResults, setShowResults] = useState(false)
-  const [showContactModal, setShowContactModal] = useState(false)
+  const [currentStep, setCurrentStep] = useState(0);
+  const [answers, setAnswers] = useState<Record<string, string>>({});
+  const [showResults, setShowResults] = useState(false);
+  const [showContactModal, setShowContactModal] = useState(false);
 
   const wizardSteps: WizardStep[] = [
     {
-      id: 'education',
-      question: 'What is your educational background?',
+      id: "education",
+      question: "What is your educational background?",
       options: [
         {
-          id: 'bcom',
-          label: 'B.Com / B.Com (Hons)',
-          description: 'Bachelor of Commerce',
-          icon: AcademicCapIcon
+          id: "bcom",
+          label: "B.Com / B.Com (Hons)",
+          description: "Bachelor of Commerce",
+          icon: AcademicCapIcon,
         },
         {
-          id: 'ca',
-          label: 'CA / CA Inter',
-          description: 'Chartered Accountant',
-          icon: DocumentCheckIcon
+          id: "ca",
+          label: "CA / CA Inter",
+          description: "Chartered Accountant",
+          icon: DocumentCheckIcon,
         },
         {
-          id: 'mba',
-          label: 'MBA Finance',
-          description: 'Master of Business Administration',
-          icon: AcademicCapIcon
+          id: "mba",
+          label: "MBA Finance",
+          description: "Master of Business Administration",
+          icon: AcademicCapIcon,
         },
         {
-          id: 'other',
-          label: 'Other Degree',
-          description: 'Engineering, Science, Arts, etc.',
-          icon: AcademicCapIcon
-        }
-      ]
+          id: "other",
+          label: "Other Degree",
+          description: "Engineering, Science, Arts, etc.",
+          icon: AcademicCapIcon,
+        },
+      ],
     },
     {
-      id: 'license',
-      question: 'Do you need a CPA license to practice in a US state?',
+      id: "license",
+      question: "Do you need a CPA license to practice in a US state?",
       options: [
         {
-          id: 'yes',
-          label: 'Yes, I want to practice in the US',
-          description: 'Need license for public accounting practice',
-          icon: DocumentCheckIcon
+          id: "yes",
+          label: "Yes, I want to practice in the US",
+          description: "Need license for public accounting practice",
+          icon: DocumentCheckIcon,
         },
         {
-          id: 'no',
-          label: 'No, just the certification',
-          description: 'For career advancement & credibility',
-          icon: CheckCircleIcon
+          id: "no",
+          label: "No, just the certification",
+          description: "For career advancement & credibility",
+          icon: CheckCircleIcon,
         },
         {
-          id: 'maybe',
-          label: 'Not sure yet',
-          description: 'Want to keep options open',
-          icon: ArrowPathIcon
-        }
-      ]
+          id: "maybe",
+          label: "Not sure yet",
+          description: "Want to keep options open",
+          icon: ArrowPathIcon,
+        },
+      ],
     },
     {
-      id: 'mobility',
-      question: 'What are your international career goals?',
+      id: "mobility",
+      question: "What are your international career goals?",
       options: [
         {
-          id: 'usa',
-          label: 'Work in USA',
-          description: 'Relocate to United States',
-          icon: GlobeAltIcon
+          id: "usa",
+          label: "Work in USA",
+          description: "Relocate to United States",
+          icon: GlobeAltIcon,
         },
         {
-          id: 'middle_east',
-          label: 'Middle East opportunities',
-          description: 'UAE, Saudi Arabia, Qatar, etc.',
-          icon: GlobeAltIcon
+          id: "middle_east",
+          label: "Middle East opportunities",
+          description: "UAE, Saudi Arabia, Qatar, etc.",
+          icon: GlobeAltIcon,
         },
         {
-          id: 'india',
-          label: 'Stay in India',
-          description: 'Work with MNCs in India',
-          icon: MapPinIcon
+          id: "india",
+          label: "Stay in India",
+          description: "Work with MNCs in India",
+          icon: MapPinIcon,
         },
         {
-          id: 'global',
-          label: 'Global flexibility',
-          description: 'Want maximum mobility options',
-          icon: GlobeAltIcon
-        }
-      ]
-    }
-  ]
+          id: "global",
+          label: "Global flexibility",
+          description: "Want maximum mobility options",
+          icon: GlobeAltIcon,
+        },
+      ],
+    },
+  ];
 
   const stateBoards: StateBoard[] = [
     {
-      name: 'New York',
-      code: 'NY',
-      requirements: ['150 credit hours', '1 year experience', 'Ethics exam'],
-      benefits: ['Global recognition', 'No residency requirement', 'Reciprocity with 54 jurisdictions'],
-      difficulty: 'Medium',
+      name: "New York",
+      code: "NY",
+      requirements: ["150 credit hours", "1 year experience", "Ethics exam"],
+      benefits: [
+        "Global recognition",
+        "No residency requirement",
+        "Reciprocity with 54 jurisdictions",
+      ],
+      difficulty: "Medium",
       popularity: 95,
-      recommended: true
+      recommended: true,
     },
     {
-      name: 'Washington',
-      code: 'WA',
-      requirements: ['150 credit hours', '1 year experience', 'No ethics exam'],
-      benefits: ['No ethics exam', 'Easy licensing process', 'Good for international candidates'],
-      difficulty: 'Easy',
+      name: "Washington",
+      code: "WA",
+      requirements: ["150 credit hours", "1 year experience", "No ethics exam"],
+      benefits: [
+        "No ethics exam",
+        "Easy licensing process",
+        "Good for international candidates",
+      ],
+      difficulty: "Easy",
       popularity: 88,
-      recommended: true
+      recommended: true,
     },
     {
-      name: 'Guam',
-      code: 'GU',
-      requirements: ['120 credit hours', '2 years experience', 'No ethics exam'],
-      benefits: ['Lower education requirement', 'US territory benefits', 'Cost-effective'],
-      difficulty: 'Easy',
+      name: "Guam",
+      code: "GU",
+      requirements: [
+        "120 credit hours",
+        "2 years experience",
+        "No ethics exam",
+      ],
+      benefits: [
+        "Lower education requirement",
+        "US territory benefits",
+        "Cost-effective",
+      ],
+      difficulty: "Easy",
       popularity: 75,
-      recommended: true
+      recommended: true,
     },
     {
-      name: 'California',
-      code: 'CA',
-      requirements: ['150 credit hours', '1 year experience', 'Ethics exam', 'Additional requirements'],
-      benefits: ['Large market', 'High demand', 'Premium opportunities'],
-      difficulty: 'Hard',
+      name: "California",
+      code: "CA",
+      requirements: [
+        "150 credit hours",
+        "1 year experience",
+        "Ethics exam",
+        "Additional requirements",
+      ],
+      benefits: ["Large market", "High demand", "Premium opportunities"],
+      difficulty: "Hard",
       popularity: 70,
-      recommended: false
-    }
-  ]
+      recommended: false,
+    },
+  ];
 
   const getRecommendedBoards = () => {
-    const education = answers.education
-    const license = answers.license
-    const mobility = answers.mobility
-
-    let recommended = [...stateBoards]
-
-    // Filter based on answers
-    if (education === 'other' || license === 'no') {
-      // Prioritize easier options
+    const education = answers.education;
+    const license = answers.license;
+    const mobility = answers.mobility;
+    let recommended = [...stateBoards];
+    if (education === "other" || license === "no") {
       recommended = recommended.sort((a, b) => {
-        if (a.difficulty === 'Easy' && b.difficulty !== 'Easy') return -1
-        if (b.difficulty === 'Easy' && a.difficulty !== 'Easy') return 1
-        return b.popularity - a.popularity
-      })
+        if (a.difficulty === "Easy" && b.difficulty !== "Easy") return -1;
+        if (b.difficulty === "Easy" && a.difficulty !== "Easy") return 1;
+        return b.popularity - a.popularity;
+      });
     }
 
-    if (mobility === 'usa') {
-      // Prioritize NY and WA for US work
+    if (mobility === "usa") {
       recommended = recommended.sort((a, b) => {
-        if ((a.code === 'NY' || a.code === 'WA') && !(b.code === 'NY' || b.code === 'WA')) return -1
-        if ((b.code === 'NY' || b.code === 'WA') && !(a.code === 'NY' || a.code === 'WA')) return 1
-        return b.popularity - a.popularity
-      })
+        if (
+          (a.code === "NY" || a.code === "WA") &&
+          !(b.code === "NY" || b.code === "WA")
+        )
+          return -1;
+        if (
+          (b.code === "NY" || b.code === "WA") &&
+          !(a.code === "NY" || a.code === "WA")
+        )
+          return 1;
+        return b.popularity - a.popularity;
+      });
     }
 
-    return recommended.slice(0, 3)
-  }
+    return recommended.slice(0, 3);
+  };
 
   const handleAnswer = (optionId: string) => {
-    setAnswers(prev => ({
+    setAnswers((prev) => ({
       ...prev,
-      [wizardSteps[currentStep].id]: optionId
-    }))
+      [wizardSteps[currentStep].id]: optionId,
+    }));
 
     if (currentStep < wizardSteps.length - 1) {
-      setCurrentStep(prev => prev + 1)
+      setCurrentStep((prev) => prev + 1);
     } else {
-      setShowResults(true)
+      setShowResults(true);
     }
-  }
+  };
 
   const goBack = () => {
     if (currentStep > 0) {
-      setCurrentStep(prev => prev - 1)
+      setCurrentStep((prev) => prev - 1);
     }
-  }
+  };
 
   const resetWizard = () => {
-    setCurrentStep(0)
-    setAnswers({})
-    setShowResults(false)
-  }
+    setCurrentStep(0);
+    setAnswers({});
+    setShowResults(false);
+  };
 
   const getDifficultyColor = (difficulty: string) => {
     switch (difficulty) {
-      case 'Easy': return 'text-green-600 bg-green-50'
-      case 'Medium': return 'text-yellow-600 bg-yellow-50'
-      case 'Hard': return 'text-red-600 bg-red-50'
-      default: return 'text-gray-600 bg-gray-50'
+      case "Easy":
+        return "text-green-600 bg-green-50";
+      case "Medium":
+        return "text-yellow-600 bg-yellow-50";
+      case "Hard":
+        return "text-red-600 bg-red-50";
+      default:
+        return "text-gray-600 bg-gray-50";
     }
-  }
+  };
 
   if (showResults) {
-    const recommendedBoards = getRecommendedBoards()
-    
+    const recommendedBoards = getRecommendedBoards();
+
     return (
-      <section className="py-20 bg-gradient-to-br from-red-50 to-red-50">
+      <section className="py-20  bg-linear-to-br from-red-50 to-red-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -263,7 +291,9 @@ export default function StateBoardWizard() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: index * 0.2 }}
                 className={`bg-white rounded-2xl p-6 shadow-lg border-2 ${
-                  index === 0 ? 'border-red-500 ring-4 ring-red-100' : 'border-slate-200'
+                  index === 0
+                    ? "border-red-500 ring-4 ring-red-100"
+                    : "border-slate-200"
                 }`}
               >
                 <div className="flex items-start justify-between mb-4">
@@ -282,8 +312,8 @@ export default function StateBoardWizard() {
                           key={i}
                           className={`w-4 h-4 ${
                             i < Math.floor(board.popularity / 20)
-                              ? 'text-yellow-400 fill-current'
-                              : 'text-gray-300'
+                              ? "text-yellow-400 fill-current"
+                              : "text-gray-300"
                           }`}
                         />
                       ))}
@@ -292,30 +322,44 @@ export default function StateBoardWizard() {
                       </span>
                     </div>
                   </div>
-                  
-                  <span className={`px-3 py-1 rounded-full text-sm font-medium ${getDifficultyColor(board.difficulty)}`}>
+
+                  <span
+                    className={`px-3 py-1 rounded-full text-sm font-medium ${getDifficultyColor(
+                      board.difficulty
+                    )}`}
+                  >
                     {board.difficulty}
                   </span>
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <h4 className="font-semibold text-slate-800 mb-3">Requirements</h4>
+                    <h4 className="font-semibold text-slate-800 mb-3">
+                      Requirements
+                    </h4>
                     <ul className="space-y-2">
                       {board.requirements.map((req, reqIndex) => (
-                        <li key={reqIndex} className="flex items-center gap-2 text-slate-600">
+                        <li
+                          key={reqIndex}
+                          className="flex items-center gap-2 text-slate-600"
+                        >
                           <CheckCircleIcon className="w-4 h-4 text-green-500 flex-shrink-0" />
                           {req}
                         </li>
                       ))}
                     </ul>
                   </div>
-                  
+
                   <div>
-                    <h4 className="font-semibold text-slate-800 mb-3">Key Benefits</h4>
+                    <h4 className="font-semibold text-slate-800 mb-3">
+                      Key Benefits
+                    </h4>
                     <ul className="space-y-2">
                       {board.benefits.map((benefit, benefitIndex) => (
-                        <li key={benefitIndex} className="flex items-center gap-2 text-slate-600">
+                        <li
+                          key={benefitIndex}
+                          className="flex items-center gap-2 text-slate-600"
+                        >
                           <StarIcon className="w-4 h-4 text-red-500 flex-shrink-0" />
                           {benefit}
                         </li>
@@ -337,10 +381,10 @@ export default function StateBoardWizard() {
               Need Expert Guidance on State Board Selection?
             </h3>
             <p className="text-red-100 mb-6 max-w-2xl mx-auto">
-              Our CPA advisors have helped 1000+ students choose the right state board. 
-              Get personalized guidance based on your specific situation.
+              Our CPA advisors have helped 1000+ students choose the right state
+              board. Get personalized guidance based on your specific situation.
             </p>
-            
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
                 onClick={() => setShowContactModal(true)}
@@ -349,7 +393,7 @@ export default function StateBoardWizard() {
                 <PhoneIcon className="w-5 h-5" />
                 Talk to CPA Advisor
               </button>
-              
+
               <button
                 onClick={resetWizard}
                 className="border-2 border-white text-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-red-600 transition-all duration-300 flex items-center justify-center gap-2"
@@ -380,7 +424,7 @@ export default function StateBoardWizard() {
                     Speak with our CPA advisor about your state board selection
                   </p>
                 </div>
-                
+
                 <form className="space-y-4">
                   <input
                     type="text"
@@ -405,19 +449,30 @@ export default function StateBoardWizard() {
                     Schedule Call Back
                   </button>
                 </form>
-                
+
                 <div className="text-center mt-4">
                   <p className="text-sm text-slate-500">
-                    ✅ Free consultation • ✅ Expert guidance • ✅ Call within 2 hours
+                    ✅ Free consultation • ✅ Expert guidance • ✅ Call within 2
+                    hours
                   </p>
                 </div>
-                
+
                 <button
                   onClick={() => setShowContactModal(false)}
                   className="absolute top-4 right-4 text-slate-400 hover:text-slate-600"
                 >
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  <svg
+                    className="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M6 18L18 6M6 6l12 12"
+                    />
                   </svg>
                 </button>
               </motion.div>
@@ -425,69 +480,69 @@ export default function StateBoardWizard() {
           )}
         </AnimatePresence>
       </section>
-    )
+    );
   }
 
   return (
-    <section className="py-20 bg-gradient-to-br from-slate-50 to-red-50">
+    <section className="2xl:py-20 py-14 bg-linear-to-br from-slate-50 to-red-50">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Header */}
-        <div className="text-center mb-12">
+        <div className="text-center sm:mb-12 mb-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 bg-red-100 text-red-800 px-4 py-2 rounded-full text-sm font-medium mb-4"
+            className="inline-flex items-center sm:text-base text-sm gap-2 bg-red-100 text-red-800 px-4 py-2 rounded-full text-sm font-medium mb-4"
           >
             <MapPinIcon className="w-4 h-4" />
             State Board Selection Wizard
           </motion.div>
-          
+
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-4xl font-bold text-slate-900 mb-4"
+            className="md:text-4xl sm:text-3xl text-2xl font-bold text-slate-900 mb-4"
           >
             Which CPA State Board is Right for You?
           </motion.h2>
-          
+
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-xl text-slate-600 max-w-2xl mx-auto"
+            className="sm:text-xl text-base text-slate-600 max-w-2xl mx-auto"
           >
-            Answer 3 quick questions to get personalized state board recommendations based on your background and career goals
+            Answer 3 quick questions to get personalized state board
+            recommendations based on your background and career goals
           </motion.p>
         </div>
 
-        {/* Progress Bar */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
-          className="mb-12"
+          className="sm:mb-12 mb-8"
         >
           <div className="flex items-center justify-between mb-4">
             <span className="text-sm font-medium text-slate-600">
               Question {currentStep + 1} of {wizardSteps.length}
             </span>
             <span className="text-sm font-medium text-slate-600">
-              {Math.round(((currentStep + 1) / wizardSteps.length) * 100)}% Complete
+              {Math.round(((currentStep + 1) / wizardSteps.length) * 100)}%
+              Complete
             </span>
           </div>
           <div className="w-full bg-slate-200 rounded-full h-2">
             <motion.div
-              className="bg-gradient-to-r from-red-500 to-red-500 h-2 rounded-full"
+              className="bg-linear-to-r from-red-500 to-red-500 h-2 rounded-full"
               initial={{ width: 0 }}
-              animate={{ width: `${((currentStep + 1) / wizardSteps.length) * 100}%` }}
+              animate={{
+                width: `${((currentStep + 1) / wizardSteps.length) * 100}%`,
+              }}
               transition={{ duration: 0.5 }}
             />
           </div>
         </motion.div>
 
-        {/* Question Card */}
         <AnimatePresence mode="wait">
           <motion.div
             key={currentStep}
@@ -503,7 +558,7 @@ export default function StateBoardWizard() {
 
             <div className="space-y-4">
               {wizardSteps[currentStep].options.map((option, index) => {
-                const IconComponent = option.icon
+                const IconComponent = option.icon;
                 return (
                   <motion.button
                     key={option.id}
@@ -530,7 +585,7 @@ export default function StateBoardWizard() {
                       <ChevronRightIcon className="w-5 h-5 text-slate-400 group-hover:text-red-500 transition-colors" />
                     </div>
                   </motion.button>
-                )
+                );
               })}
             </div>
 
@@ -541,14 +596,14 @@ export default function StateBoardWizard() {
                 disabled={currentStep === 0}
                 className={`flex items-center gap-2 px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
                   currentStep === 0
-                    ? 'text-slate-400 cursor-not-allowed'
-                    : 'text-slate-600 hover:text-slate-800 hover:bg-slate-100'
+                    ? "text-slate-400 cursor-not-allowed"
+                    : "text-slate-600 hover:text-slate-800 hover:bg-slate-100"
                 }`}
               >
                 <ChevronLeftIcon className="w-4 h-4" />
                 Previous
               </button>
-              
+
               <div className="text-sm text-slate-500 flex items-center">
                 Click an option to continue
               </div>
@@ -580,5 +635,5 @@ export default function StateBoardWizard() {
         </motion.div>
       </div>
     </section>
-  )
+  );
 }

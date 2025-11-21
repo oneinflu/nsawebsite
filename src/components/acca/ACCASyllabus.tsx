@@ -339,7 +339,7 @@ const ACCASyllabus = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-50 to-red-50">
+    <section className="py-8 md:py-20 bg-gradient-to-br from-gray-50 to-red-50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -350,12 +350,12 @@ const ACCASyllabus = () => {
           className="text-center mb-16"
         >
           <div className="flex items-center justify-center mb-6">
-            <BookOpenIcon className="w-12 h-12 text-red-600 mr-4" />
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
+            <BookOpenIcon className="w-8 h-8 md:w-12 md:h-12 text-red-600 mr-4" />
+            <h2 className="text-xl md:text-5xl font-bold text-gray-900">
               ACCA <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-purple-600">Syllabus & Levels</span>
             </h2>
           </div>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-md md:text-xl text-gray-600 max-w-3xl mx-auto">
             Clear and digestible breakdown of all ACCA papers with practical skills and study guidance
           </p>
         </motion.div>
@@ -374,26 +374,26 @@ const ACCASyllabus = () => {
               {/* Level Header */}
               <motion.button
                 onClick={() => toggleLevel(level.id)}
-                className="w-full p-8 text-left flex items-center justify-between hover:bg-white/20 transition-all duration-300"
+                className="w-full p-4 md:p-8 text-left flex items-center justify-between hover:bg-white/20 transition-all duration-300"
                 whileHover={{ scale: 1.01 }}
               >
                 <div className="flex items-center">
-                  <div className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${level.color} flex items-center justify-center mr-6`}>
+                  <div className={`w-12 h-12 md:w-16 md:h-16 rounded-full md:rounded-2xl bg-gradient-to-r ${level.color} flex items-center justify-center mr-6`}>
                     <span className="text-white font-bold text-xl">{levelIndex + 1}</span>
                   </div>
                   <div>
-                    <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
+                    <h3 className="text-lg md:text-3xl font-bold text-gray-900 mb-2">
                       {level.title}
                     </h3>
-                    <p className="text-lg text-gray-600 mb-1">{level.subtitle}</p>
-                    <p className="text-gray-700">{level.description}</p>
+                    <p className="text-sm md:text-lg text-gray-600 mb-1">{level.subtitle}</p>
+                    <p className="text-xs md:text-md text-gray-700">{level.description}</p>
                   </div>
                 </div>
                 <div className="flex-shrink-0">
                   {activeLevel === level.id ? (
-                    <ChevronUpIcon className="w-8 h-8 text-gray-600" />
+                    <ChevronUpIcon className="w-4 h-4 md:w-8 md:h-8 text-gray-600" />
                   ) : (
-                    <ChevronDownIcon className="w-8 h-8 text-gray-600" />
+                    <ChevronDownIcon className="w-4 h-4 md:w-8 md:h-8 text-gray-600" />
                   )}
                 </div>
               </motion.button>
@@ -408,8 +408,8 @@ const ACCASyllabus = () => {
                     transition={{ duration: 0.3 }}
                     className="overflow-hidden"
                   >
-                    <div className="px-8 pb-8">
-                      <div className="bg-white rounded-2xl p-6 shadow-lg">
+                    <div className="px-2 md:px-8 pb-8">
+                      <div className="bg-white rounded-2xl p-2 md:p-6 shadow-lg">
                         {/* Subjects Grid */}
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                           {level.subjects.map((subject, subjectIndex) => (
@@ -528,11 +528,11 @@ const ACCASyllabus = () => {
           transition={{ duration: 0.6 }}
           className="text-center mt-16"
         >
-          <div className="bg-gradient-to-r from-red-600 to-purple-600 rounded-3xl p-8 md:p-12 text-white">
-            <h3 className="text-2xl md:text-3xl font-bold mb-4">
+          <div className="bg-red-500 rounded-3xl p-8 md:p-12 text-white">
+            <h3 className="text-xl md:text-3xl font-bold mb-4">
               Get Complete ACCA Syllabus Guide
             </h3>
-            <p className="text-red-100 text-lg mb-8 max-w-2xl mx-auto">
+            <p className="text-red-100 text-sm md:text-lg mb-8 max-w-2xl mx-auto">
               Download detailed syllabus with study tips, exam strategies, and recommended study schedules
             </p>
             <LeadFormButton formType='download-syllabus' variant='outline' isSendOtp={true} >
