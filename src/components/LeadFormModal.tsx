@@ -65,45 +65,6 @@ const LeadFormModal = () => {
   const entryTimeRef = useRef<Date | null>(null);
   const lastUrlRef = useRef<string>("");
 
-  // Persist UTM params from URL to localStorage on mount
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    try {
-      const keys = [
-        "utm_source",
-        "utm_medium",
-        "utm_campaign",
-        "utm_term",
-        "utm_content",
-        "utm_id",
-        "utm_source_platform",
-        "utm_creative_format",
-        "utm_audience",
-        "utm_ad_id",
-        "gclid",
-        "fblid",
-        // Additional ad/utm params to capture
-        "utm_adgroup",
-        "utm_adname",
-        "sitelink",
-        "matchtype",
-        "category",
-        "device",
-        "network",
-        "promotion",
-        "placement",
-        "geo",
-      ];
-      const params = new URLSearchParams(window.location.search);
-      keys.forEach((k) => {
-        const v = params.get(k);
-        if (v) localStorage.setItem(k, v);
-      });
-    } catch (err) {
-      console.warn("Failed to parse UTM params from URL", err);
-    }
-  }, []);
-
   // Ensure visitor_id exists in localStorage (session_id is created via backend API)
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -567,146 +528,26 @@ const LeadFormModal = () => {
       ? fullDigits.slice(countryCode.length)
       : fullDigits;
 
-    // Gather tracking fields
-    const visitorId =
-      typeof window !== "undefined"
-        ? localStorage.getItem("nsa_visitor_id") || ""
-        : "";
     const sessionId =
       typeof window !== "undefined"
         ? localStorage.getItem("nsa_session_id") || ""
         : "";
-    const leadSource = (() => {
-      if (typeof window === "undefined")
-        return { Source: "organic", SubSource: "Website" };
-      const title =
-        (typeof document !== "undefined" ? document.title : "") || "";
-      const path =
-        pathname ||
-        (typeof window !== "undefined" ? window.location.pathname : "");
-      const ref = typeof document !== "undefined" ? document.referrer : "";
-      const refHost = (() => {
-        try {
-          return ref ? new URL(ref).hostname : "";
-        } catch {
-          return "";
-        }
-      })();
 
-      const params = new URLSearchParams(window.location.search);
-      const utmKeys = [
-        "utm_source",
-        "utm_medium",
-        "utm_campaign",
-        "utm_term",
-        "utm_content",
-        "utm_id",
-        "utm_source_platform",
-        "utm_creative_format",
-        "utm_audience",
-        "utm_ad_id",
-        "gclid",
-        "fblid",
-        "utm_adgroup",
-        "utm_adname",
-        "sitelink",
-        "matchtype",
-        "category",
-        "device",
-        "network",
-        "promotion",
-        "placement",
-        "geo",
-      ];
-      const hasAnyUtm = utmKeys.some((k) => !!params.get(k));
-
-      const toTitle = (s: string) => s.replace(/\s+/g, " ").trim();
-
-      const mapCoursePage = () => {
-        if (path.startsWith("/cpa-course-details"))
-          return "Website | CPA US Course Page";
-        if (path.startsWith("/cma-usa-course-details"))
-          return "Website | CMA US Course Page";
-        if (path.startsWith("/enrolled-agent-course-details"))
-          return "Website | EA Course Page";
-        if (path.startsWith("/acca-course-details"))
-          return "Website | ACCA Course Page";
-        if (path.startsWith("/cfa-us")) return "Website | CFA US Course Page";
-        if (path.startsWith("/cia")) return "Website | CIA Course Page";
-        return null;
-      };
-
-      const subSourceOrganic = (() => {
-        if (path.startsWith("/blogs")) return "Website | Blogs";
-        if (path.startsWith("/contact")) return "Website | Contact Us";
-        const courseLabel = mapCoursePage();
-        if (courseLabel) return courseLabel;
-        if (refHost.includes("instagram.com")) return "Instagram";
-        if (refHost.includes("whatsapp.com") || refHost.includes("wa.me"))
-          return "Whatsapp";
-        const sameHost =
-          typeof window !== "undefined" ? window.location.hostname : "";
-        if (ref && refHost && sameHost && refHost !== sameHost) {
-          return "Referral";
-        }
-        return `Website`;
-      })();
-
-      const utmSource = (params.get("utm_source") || "").toLowerCase();
-      const utmMedium = (params.get("utm_medium") || "").toLowerCase();
-      const utmCampaign = (params.get("utm_campaign") || "").toLowerCase();
-      const subSourcePaid = (() => {
-        const s = utmSource;
-        if (s.includes("google") || s.includes("adwords") || s.includes("gads"))
-          return "Google";
-        if (s.includes("facebook") || s.includes("meta") || s.includes("fb"))
-          return "Facebook";
-        if (s.includes("instagram") || s.includes("ig")) return "Instagram";
-        if (s.includes("quora")) return "Quora";
-        if (s.includes("whatsapp") || utmMedium.includes("whatsapp"))
-          return "Whatsapp";
-        if (utmCampaign.includes("webinar")) return "Webinars";
-        if (
-          utmMedium.includes("influencer") ||
-          utmCampaign.includes("influencer")
-        )
-          return "Influencer";
-        if (path.startsWith("/lp/")) return "Landing Page";
-        return s ? s.charAt(0).toUpperCase() + s.slice(1) : "Paid";
-      })();
-
-      return {
-        Source: hasAnyUtm || path.includes("/lp") ? "paid" : "organic",
-        SubSource: hasAnyUtm ? subSourcePaid : subSourceOrganic,
-      };
-    })();
     const fullUrl =
       typeof window !== "undefined" ? window.location.href : sessionReferrer;
     const leadOrigin = `${formData.course || ""}|${formType}`;
+
     const params =
       typeof window !== "undefined"
         ? new URLSearchParams(window.location.search)
-        : undefined;
-    const getUtmParam = (key: string): string => {
-      if (!params) return "";
-      const fromUrl = params.get(key) || "";
-      if (fromUrl) return fromUrl;
-      if (typeof window !== "undefined") {
-        const fromStorage = localStorage.getItem(key) || "";
-        if (fromStorage) return fromStorage;
-      }
-      return "";
-    };
+        : new URLSearchParams("");
 
-    const utmExtras = {
-      utm_id: getUtmParam("utm_id"),
-      utm_source_platform: getUtmParam("utm_source_platform"),
-      utm_creative_format: getUtmParam("utm_creative_format"),
-      utm_audience: getUtmParam("utm_audience"),
-      utm_ad_id: getUtmParam("utm_ad_id"),
-      gclid: getUtmParam("gclid"),
-      fblid: getUtmParam("fblid"),
-    };
+    const leadSource =
+      (params.get("source") || params.get("utm_source") || "" || "").trim() ||
+      "website";
+
+    const leadSubSource =
+      typeof document !== "undefined" ? document.title : "website";
 
     const leadData = {
       form_id: "7e68ae1a-5765-489c-9b62-597b478c0fa0", // Hardcoded for now
@@ -714,6 +555,7 @@ const LeadFormModal = () => {
       visitor_id: sessionId,
       session_id: sessionId,
       leadSource,
+      leadSubSource,
       leadOrigin,
       isSendOtp: isSendOtp,
       answers: {
@@ -741,6 +583,7 @@ const LeadFormModal = () => {
         city: formData.location,
         pin_code: locationData.pin_code || "",
       },
+      url: fullUrl,
       session_referrer: fullUrl,
       ip_address: ipAddress,
     };
