@@ -84,7 +84,7 @@ const ACCAStudySupport = () => {
           </div>
         </div>
       ),
-      stats: ['24/7 Support', '5000+ Active Students', '< 2 Min Response']
+      stats: ['24/7 Support', '2,00,000+ Active Students', '< 2 Min Response']
     },
     {
       title: 'Mock Tests & Analytics Engine',
@@ -260,7 +260,7 @@ const ACCAStudySupport = () => {
               <div className="text-xs md:text-sm text-gray-500">Across 50+ countries</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl md:text-4xl font-bold text-purple-600 mb-2">4.8</div>
+              <div className="text-2xl md:text-4xl font-bold text-purple-600 mb-2">4.9</div>
               <div className="text-xs md:text-sm md:text-lg text-gray-700 font-medium">Student Rating</div>
               <div className="flex justify-center mt-1">
                 {[...Array(5)].map((_, i) => (
@@ -269,9 +269,9 @@ const ACCAStudySupport = () => {
               </div>
             </div>
             <div className="text-center">
-              <div className="text-2xl md:text-4xl font-bold text-orange-600 mb-2">85%</div>
+              <div className="text-2xl md:text-4xl font-bold text-orange-600 mb-2">100%</div>
               <div className="text-sm md:text-lg text-gray-700 font-medium">Job Placement</div>
-              <div className="text-xs md:text-sm text-gray-500">Within 6 months</div>
+              <div className="text-xs md:text-sm text-gray-500">Within 18 months</div>
             </div>
           </div>
         </motion.div>

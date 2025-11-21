@@ -54,7 +54,7 @@ const BrandingPanel: React.FC<BrandingPanelProps> = ({ title, description, featu
             </div>
           </div>
           <p className="text-white font-medium text-center text-sm">
-            Join over <span className="font-bold text-red-200">10,000+</span> successful students who trusted NorthStar Academy for their career growth
+            Join over <span className="font-bold text-red-200">2,00,000+</span> successful students who trusted NorthStar Academy for their career growth
           </p>
         </div>
       </div>

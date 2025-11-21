@@ -17,9 +17,9 @@ const WhyACCA = () => {
     {
       icon: GlobeAltIcon,
       title: "Global Recognition",
-      description: "150+ countries + Global MNC acceptance",
+      description: "180+ countries + Global MNC acceptance",
       details: [
-        "Recognized in 150+ countries worldwide",
+        "Recognized in 180+ countries worldwide",
         "Accepted by Big 4 and Fortune 500 companies",
         "Global mobility for career opportunities",
         "International networking opportunities"

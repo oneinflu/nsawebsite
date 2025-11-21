@@ -1,9 +1,12 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDownIcon, QuestionMarkCircleIcon } from '@heroicons/react/24/outline';
-import LeadFormButton from '../LeadFormButton';
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  ChevronDownIcon,
+  QuestionMarkCircleIcon,
+} from "@heroicons/react/24/outline";
+import LeadFormButton from "../LeadFormButton";
 
 interface FAQ {
   id: string;
@@ -13,30 +16,35 @@ interface FAQ {
 
 const faqs: FAQ[] = [
   {
-    id: 'who-should-pursue',
-    question: 'Who should pursue CFA?',
-    answer: 'CFA is ideal for finance professionals seeking global recognition in investment management, equity research, portfolio management, and financial analysis. Perfect for graduates in finance, economics, or commerce who want to advance their careers in investment banking, asset management, or corporate finance. The program suits both fresh graduates and experienced professionals looking to enhance their credentials in the global finance industry.'
+    id: "who-should-pursue",
+    question: "Who should pursue CFA?",
+    answer:
+      "CFA is ideal for finance professionals seeking global recognition in investment management, equity research, portfolio management, and financial analysis. Perfect for graduates in finance, economics, or commerce who want to advance their careers in investment banking, asset management, or corporate finance. The program suits both fresh graduates and experienced professionals looking to enhance their credentials in the global finance industry.",
   },
   {
-    id: 'cfa-with-job',
-    question: 'Can I do CFA along with a job?',
-    answer: 'Yes, absolutely! CFA is designed for working professionals. Most candidates (over 70%) pursue CFA while working full-time. The program requires 300+ hours of study per level, which can be managed with proper time management. Many employers support CFA studies and may even sponsor the program. Our flexible learning schedules, weekend classes, and online resources make it possible to balance work and CFA preparation effectively.'
+    id: "cfa-with-job",
+    question: "Can I do CFA along with a job?",
+    answer:
+      "Yes, absolutely! CFA is designed for working professionals. Most candidates (over 70%) pursue CFA while working full-time. The program requires 300+ hours of study per level, which can be managed with proper time management. Many employers support CFA studies and may even sponsor the program. Our flexible learning schedules, weekend classes, and online resources make it possible to balance work and CFA preparation effectively.",
   },
   {
-    id: 'difficulty-comparison',
-    question: 'What is CFA exam difficulty vs CA/CMA?',
-    answer: 'CFA focuses on global investment analysis and portfolio management, while CA emphasizes accounting and auditing, and CMA covers cost and management accounting. CFA has a lower pass rate (40-50%) compared to CA/CMA, making it more challenging. However, CFA offers better global recognition and higher salary potential in investment roles. The difficulty varies by individual background - finance graduates find CFA more aligned with their knowledge, while accounting students may find CA/CMA more familiar.'
+    id: "difficulty-comparison",
+    question: "What is CFA exam difficulty vs CA/CMA?",
+    answer:
+      "CFA focuses on global investment analysis and portfolio management, while CA emphasizes accounting and auditing, and CMA covers cost and management accounting. CFA has a lower pass rate (40-50%) compared to CA/CMA, making it more challenging. However, CFA offers better global recognition and higher salary potential in investment roles. The difficulty varies by individual background - finance graduates find CFA more aligned with their knowledge, while accounting students may find CA/CMA more familiar.",
   },
   {
-    id: 'india-recognition',
-    question: 'Is CFA recognized in India?',
-    answer: 'Yes, CFA is highly recognized and valued in India. Major financial institutions like ICICI Bank, HDFC Bank, Kotak Mahindra, Axis Bank, and multinational firms like Goldman Sachs, JP Morgan, and Morgan Stanley actively recruit CFA charterholders. The CFA Institute has a strong presence in India with local societies in Mumbai, Delhi, Bangalore, and other cities. Indian CFA charterholders command premium salaries and have excellent career prospects in investment banking, asset management, and corporate finance.'
+    id: "india-recognition",
+    question: "Is CFA recognized in India?",
+    answer:
+      "Yes, CFA is highly recognized and valued in India. Major financial institutions like ICICI Bank, HDFC Bank, Kotak Mahindra, Axis Bank, and multinational firms like Goldman Sachs, JP Morgan, and Morgan Stanley actively recruit CFA charterholders. The CFA Institute has a strong presence in India with local societies in Mumbai, Delhi, Bangalore, and other cities. Indian CFA charterholders command premium salaries and have excellent career prospects in investment banking, asset management, and corporate finance.",
   },
   {
-    id: 'completion-time',
-    question: 'How long does it take to complete all levels?',
-    answer: 'Typically 2.5 to 4 years to complete all three levels. Level 1 can be taken twice a year (February and August), while Levels 2 and 3 are offered once annually. Most candidates follow this timeline: Level 1 (6-12 months preparation), Level 2 (12-18 months after Level 1), and Level 3 (12-18 months after Level 2). With our structured program and expert guidance, many students complete faster. You also need 4 years of relevant work experience to earn the CFA charter, which can be accumulated before, during, or after the exams.'
-  }
+    id: "completion-time",
+    question: "How long does it take to complete all levels?",
+    answer:
+      "Typically 2.5 to 4 years to complete all three levels. Level 1 can be taken twice a year (February and August), while Levels 2 and 3 are offered once annually. Most candidates follow this timeline: Level 1 (6-12 months preparation), Level 2 (12-18 months after Level 1), and Level 3 (12-18 months after Level 2). With our structured program and expert guidance, many students complete faster. You also need 4 years of relevant work experience to earn the CFA charter, which can be accumulated before, during, or after the exams.",
+  },
 ];
 
 const CFAFAQs: React.FC = () => {
@@ -50,14 +58,14 @@ const CFAFAQs: React.FC = () => {
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "mainEntity": faqs.map(faq => ({
+    mainEntity: faqs.map((faq) => ({
       "@type": "Question",
-      "name": faq.question,
-      "acceptedAnswer": {
+      name: faq.question,
+      acceptedAnswer: {
         "@type": "Answer",
-        "text": faq.answer
-      }
-    }))
+        text: faq.answer,
+      },
+    })),
   };
 
   return (
@@ -67,7 +75,7 @@ const CFAFAQs: React.FC = () => {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
-      
+
       <section className="sm:py-15 py-10 bg-gradient-to-br from-slate-50 via-red-50 to-red-100 relative overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0">
@@ -91,13 +99,14 @@ const CFAFAQs: React.FC = () => {
               </div>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Frequently Asked{' '}
+              Frequently Asked{" "}
               <span className="bg-gradient-to-r from-red-600 to-red-600 bg-clip-text text-transparent">
                 Questions
               </span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Get answers to the most common questions about CFA certification, career prospects, and our program
+              Get answers to the most common questions about CFA certification,
+              career prospects, and our program
             </p>
           </motion.div>
 
@@ -129,15 +138,15 @@ const CFAFAQs: React.FC = () => {
                     <ChevronDownIcon className="h-6 w-6 text-red-600" />
                   </motion.div>
                 </button>
-                
+
                 <AnimatePresence>
                   {openFAQ === faq.id && (
                     <motion.div
                       id={`faq-answer-${faq.id}`}
                       initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: 'auto', opacity: 1 }}
+                      animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3, ease: 'easeInOut' }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
                       className="overflow-hidden"
                     >
                       <div className="px-8 pb-6 pt-2">
@@ -166,13 +175,23 @@ const CFAFAQs: React.FC = () => {
                 Still Have Questions?
               </h3>
               <p className="text-red-100 mb-6 text-lg">
-                Our CFA experts are here to guide you through your certification journey
+                Our CFA experts are here to guide you through your certification
+                journey
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <LeadFormButton formType='general' variant='outline' isSendOtp={true} >
+                <LeadFormButton
+                  formType="free-consultation"
+                  variant="outline"
+                  isSendOtp={true}
+                  className="text-white"
+                >
                   Schedule Free Consultation
                 </LeadFormButton>
-                <LeadFormButton formType='get-free-guide' variant='secondary' isSendOtp={true} >
+                <LeadFormButton
+                  formType="get-free-guide"
+                  variant="secondary"
+                  isSendOtp={true}
+                >
                   Download CFA Guide
                 </LeadFormButton>
               </div>

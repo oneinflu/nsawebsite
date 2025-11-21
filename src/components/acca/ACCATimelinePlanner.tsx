@@ -407,7 +407,7 @@ const ACCATimelinePlanner = () => {
               <div className="text-red-100">Total Papers</div>
             </div>
             <div className="bg-white/10 rounded-2xl p-6 backdrop-blur-sm">
-              <div className="text-3xl font-bold mb-2">3-4</div>
+              <div className="text-3xl font-bold mb-2">2-3</div>
               <div className="text-red-100">Years Duration</div>
             </div>
             <div className="bg-white/10 rounded-2xl p-6 backdrop-blur-sm">

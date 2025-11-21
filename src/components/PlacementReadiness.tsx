@@ -19,11 +19,11 @@ import PortraitVideoCarousel from "@/components/PortraitVideoCarousel";
 
 const portraitVideos = [
   {
-    url: "https://northstaracademy.b-cdn.net/US%20CMA%20Qualified/US%20CPA%20-%20Teatmonail/Prathamesh%20Placement.MP4",
+    url: "https://northstaracademy.b-cdn.net/northstaracademy/story10.mp4",
     quote: "From Aspirant to Achiever",
   },
   {
-    url: "https://northstaracademy.b-cdn.net/US%20CMA%20Qualified/US%20CPA%20-%20Teatmonail/Dipen%20.mp4",
+    url: "https://northstaracademy.b-cdn.net/northstaracademy/story12.mp4",
     quote: "Mentor-led Success Journey",
   },
   {

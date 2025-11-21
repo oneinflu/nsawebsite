@@ -41,6 +41,7 @@ const FORM_TYPES: readonly FormType[] = [
   "cfa-journey",
   "salary-guide",
   "acca-journey",
+  "free-consultation"
   
 ] as const;
 
