@@ -19,7 +19,7 @@ export default function JobsDemandSnapshotGlobal() {
 
   return (
     <section className="container mx-auto max-w-6xl px-4 py-8">
-      <div className="rounded-3xl bg-white p-8 shadow-sm ring-1 ring-slate-200">
+      <div className="rounded-3xl bg-white p-4 md:p-8 shadow-sm ring-1 ring-slate-200">
         <div className="flex items-center gap-3">
           <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-amber-500 to-pink-500 text-white flex items-center justify-center">★</div>
           <div>

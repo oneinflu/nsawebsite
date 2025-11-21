@@ -105,7 +105,7 @@ function BarRow({ country, cpa, cma }: Row) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.4, ease: "easeOut" }}
-      className="grid grid-cols-[120px_1fr] items-start gap-4 sm:grid-cols-[160px_1fr]"
+      className="grid grid-cols-[120px_1fr] items-start md:gap-4 sm:grid-cols-[160px_1fr]"
     >
       <div className="text-sm sm:text-base font-semibold text-gray-800">{country}</div>
       <div className="flex w-full flex-col gap-2">

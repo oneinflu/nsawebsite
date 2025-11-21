@@ -23,7 +23,7 @@ const caSteps: Step[] = [
 
 export default function CpaVsCaTimeRoi() {
   return (
-    <section className="relative mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8 py-14">
+    <section className="relative mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8 py-4">
       <div className="mx-auto text-center">
         <h2 className="text-xl font-bold text-gray-900 sm:text-2xl">Get There Faster — 5x ROI Advantage</h2>
       </div>

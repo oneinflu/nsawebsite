@@ -44,7 +44,8 @@ export type FormType =
   | "check-eligibilty"
   | "cfa-roadmap"
   | "cfa-journey"
-  | "salary-guide";
+  | "salary-guide"
+  | "acca-journey";
 
 const iconCheck = (
   <svg
@@ -810,5 +811,30 @@ export const formConfigs: Record<FormType, FormConfig> = {
     formTitle: "Get in touch",
     submitButtonText: "Submit",
     formName: "Salary Guide",
+  },
+  "acca-journey": {
+    title: "ACCA Journey",
+    description:
+      "Provide your details and our expert counselor will connect with you shortly.",
+    features: [
+      {
+        title: "Personalized Guidance",
+        description: "Get tailored advice for your career path",
+        icon: iconCheck,
+      },
+      {
+        title: "High Success Rates",
+        description: "95% pass rate across programs",
+        icon: iconChart,
+      },
+      {
+        title: "Experienced Mentors",
+        description: "Learn from industry experts",
+        icon: iconCheck,
+      },
+    ],
+    formTitle: "Get in touch",
+    submitButtonText: "Submit",
+    formName: "ACCA Journey",
   },
 };

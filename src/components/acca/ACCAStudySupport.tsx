@@ -293,7 +293,7 @@ const ACCAStudySupport = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <LeadFormButton formType='general' variant='outline' isSendOtp={true} >Talk to counsellor</LeadFormButton>
+              <LeadFormButton formType='talk-to-our-counseller' variant='outline' isSendOtp={true} >Talk to counsellor</LeadFormButton>
 
             </div>
           </div>

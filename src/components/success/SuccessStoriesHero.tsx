@@ -25,21 +25,21 @@ export default function SuccessStoriesHero() {
       {/* Decorative radial accent */}
       <div className="pointer-events-none absolute -top-24 -left-24 h-64 w-64 rounded-full bg-gradient-to-tr from-pink-200 to-indigo-200 blur-3xl opacity-50" />
 
-      <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-16">
+      <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 sm:py-16 py-10">
         <div className="grid gap-10 lg:grid-cols-2 items-center">
           {/* Copy side */}
-          <div>
+          <div className="text-center">
             <p className="font-semibold tracking-wide text-pink-600">Alumni Spotlight</p>
             <h1 className="mt-2 text-4xl sm:text-5xl font-bold leading-tight">
               <span className="text-slate-900">Real stories that </span>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-fuchsia-600 to-pink-600">spark ambition</span>
             </h1>
-            <p className="mt-5 max-w-2xl text-lg text-slate-700">
+            <p className="mt-5 mx-auto max-w-2xl text-lg text-slate-700">
               Discover how mentor-led learning at NorthStar turns focused preparation into global careers across CMA, CPA, ACCA, and EA.
             </p>
 
             {/* Avatar group */}
-            <div className="mt-6 flex items-center gap-2">
+            <div className="mt-6 flex items-center justify-center gap-2">
               {["/students/1.jpg","/students/2.jpg","/students/3.jpg","/students/4.jpeg"].map((src, i) => (
                 <div key={src} className="relative h-10 w-10 -ml-1 first:ml-0">
                   <Image src={src} alt={`Alumni ${i+1}`} fill className="rounded-full ring-2 ring-white object-cover" />
@@ -49,7 +49,7 @@ export default function SuccessStoriesHero() {
             </div>
 
             {/* CTAs arranged uniquely */}
-            <div className="mt-8 flex flex-wrap gap-4">
+            <div className="mt-8 flex flex-wrap justify-center gap-4">
               <LeadFormButton formType="general" variant="primary" isSendOtp={true}>
                 Book Free Counseling
               </LeadFormButton>

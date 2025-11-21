@@ -40,6 +40,7 @@ const FORM_TYPES: readonly FormType[] = [
   "cfa-roadmap",
   "cfa-journey",
   "salary-guide",
+  "acca-journey",
   
 ] as const;
 

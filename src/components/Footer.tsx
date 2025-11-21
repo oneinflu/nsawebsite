@@ -55,7 +55,7 @@ export default function Footer() {
     { name: "AICPA (USA)", logo: "🏛️" },
     { name: "ACCA (UK)", logo: "🏛️" },
     { name: "Prometric", logo: "🏢" },
-    { name: "ISO Certified", logo: "🔒" },
+    { name: "EA(IRS)", logo: "🔒" },
   ];
 
   const socialLinks = [
@@ -116,13 +116,13 @@ export default function Footer() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
             <div className="bg-gradient-to-r from-red-900 to-red-900 rounded-2xl p-8 text-center border border-red-800">
               <div className="flex items-center justify-center mb-4">
-                <span className="text-3xl mr-3">📩</span>
-                <h3 className="text-2xl font-bold">
+                <span className="text-xl md:text-3xl mr-3">📩</span>
+                <h3 className="text-lg md:text-2xl font-bold">
                   Download the Ultimate Guide to Global Finance Careers
                 </h3>
               </div>
-              <p className="text-red-200 mb-6 text-lg">
-                Free PDF: CMA vs CPA vs ACCA Comparison Guide
+              <p className="text-red-200 mb-6 text-sm md:text-lg">
+                Free PDF: Complete CPA Certification Guide
               </p>
               <LeadFormButton
                 formType="get-free-guide"

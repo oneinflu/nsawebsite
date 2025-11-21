@@ -34,8 +34,8 @@ const rows: Row[] = [
 const SalaryCareerGrowthUae = () => {
   return (
     <section className="relative bg-white">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-12">
-        <header className="mb-6">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+        <header className="mb-6 text-center md:text-left">
           <h2 className="text-2xl md:text-3xl font-bold text-slate-900">How Your Salary & Career Can Progress</h2>
         </header>
 

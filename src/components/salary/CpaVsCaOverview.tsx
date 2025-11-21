@@ -77,7 +77,7 @@ export default function CpaVsCaOverview() {
         }}
       />
 
-      <div className="rounded-3xl bg-white/90 p-8 ring-1 ring-slate-200 shadow-sm backdrop-blur">
+      <div className="rounded-3xl bg-white/90 p-4 md:p-8 ring-1 ring-slate-200 shadow-sm backdrop-blur">
         <h2 className="text-xl md:text-2xl font-semibold text-slate-900 text-center">
           CPA (US) vs CA (India): The Core Comparison
         </h2>

@@ -68,7 +68,7 @@ const CFAFAQs: React.FC = () => {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       
-      <section className="py-20 bg-gradient-to-br from-slate-50 via-red-50 to-red-100 relative overflow-hidden">
+      <section className="sm:py-15 py-10 bg-gradient-to-br from-slate-50 via-red-50 to-red-100 relative overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0">
           <div className="absolute top-20 left-10 w-72 h-72 bg-red-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse"></div>
@@ -83,7 +83,7 @@ const CFAFAQs: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center sm:mb-16 mb-10"
           >
             <div className="flex items-center justify-center mb-6">
               <div className="bg-gradient-to-r from-red-500 to-red-600 p-3 rounded-2xl shadow-lg">

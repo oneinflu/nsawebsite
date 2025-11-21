@@ -174,7 +174,7 @@ const PlacementReadiness = () => {
   // Auto-advance videos
 
   return (
-    <section className="py-8 md:py-20 bg-gradient-to-br from-gray-50 to-red-50 relative overflow-hidden">
+    <section className="py-8 sm:py-12 lg:py-16 bg-gradient-to-br from-gray-50 to-red-50 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-10 w-96 h-96 bg-red-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
@@ -183,7 +183,7 @@ const PlacementReadiness = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-8 sm:mb-12 lg:mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -221,8 +221,8 @@ const PlacementReadiness = () => {
         </div>
 
         {/* Visual Process Flow */}
-        <div className="mb-16">
-          <div className="grid md:grid-cols-4 gap-4 md:gap-8">
+        <div className="mb-8 sm:mb-12 lg:mb-16">
+          <div className="grid md:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
             {placementSteps.map((step, index) => {
               const Icon = step.icon;
               const isActive = activeStep === index;
@@ -306,10 +306,10 @@ const PlacementReadiness = () => {
                         initial={{ opacity: 0, x: -10 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: index * 0.1 }}
-                        className="flex items-center gap-3"
+                        className="flex items-center gap-2 sm:gap-3"
                       >
-                        <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
-                        <span className="text-gray-700">{detail}</span>
+                        <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 flex-shrink-0" />
+                        <span className="text-sm sm:text-base text-gray-700">{detail}</span>
                       </motion.li>
                     ))}
                   </ul>
@@ -322,10 +322,10 @@ const PlacementReadiness = () => {
                       className: "w-16 h-16 text-white",
                     })}
                   </div>
-                  <div className="text-3xl font-bold text-gray-900 mb-2">
+                  <div className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
                     {placementSteps[activeStep].stats}
                   </div>
-                  <div className="text-gray-600">Success Rate</div>
+                  <div className="text-sm sm:text-base text-gray-600">Success Rate</div>
                 </div>
               </div>
             </motion.div>
@@ -333,8 +333,8 @@ const PlacementReadiness = () => {
         </div>
 
         {/* Company Logos Carousel */}
-        <div className="mb-16">
-          <h3 className="text-2xl font-bold text-center text-gray-900 mb-8">
+        <div className="mb-8 sm:mb-12">
+          <h3 className="text-xl sm:text-2xl font-bold text-center text-gray-900 mb-4 sm:mb-6 lg:mb-8">
             Our Alumni Work At
           </h3>
           <div className="relative overflow-hidden">

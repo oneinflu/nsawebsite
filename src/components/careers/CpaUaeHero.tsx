@@ -24,7 +24,7 @@ const CpaUaeHero = () => {
             </div>
 
             {/* Headline */}
-            <h1 className="text-4xl md:text-5xl font-bold text-slate-900 leading-tight">
+            <h1 className="text-2xl md:text-5xl font-bold text-slate-900 leading-tight">
               Launch Your Global Career:
               <span className="block">
                 <span className="bg-gradient-to-r from-red-600 to-purple-600 bg-clip-text text-transparent">CPA (US) Jobs in UAE</span> Await
@@ -32,7 +32,7 @@ const CpaUaeHero = () => {
             </h1>
 
             {/* Sub-headline */}
-            <p className="text-lg md:text-xl text-slate-700 leading-relaxed">
+            <p className="text-sm text-center md:text-left md:text-xl text-slate-700 leading-relaxed">
               From Dubai to Abu Dhabi — earn top salaries, work with global firms, and leverage your CPA (US) qualification for Middle East finance roles.
             </p>
 
