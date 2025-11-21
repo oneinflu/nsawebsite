@@ -125,7 +125,7 @@ export default function CFAEligibility() {
   }
 
   return (
-    <section className="py-20 bg-white relative overflow-hidden">
+    <section className="sm:py-15 py-10 bg-white relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(59,130,246,0.05),transparent_50%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_70%,rgba(147,51,234,0.05),transparent_50%)]" />
@@ -156,12 +156,12 @@ export default function CFAEligibility() {
             {/* Left Column - Eligibility Requirements */}
             <motion.div variants={itemVariants}>
               <div className="bg-gradient-to-br from-red-50 to-red-50 rounded-3xl p-8 h-full">
-                <div className="flex items-center gap-3 mb-8">
+                <div className="flex items-center md:justify-center gap-3 mb-8">
                   <div className="w-12 h-12 bg-red-500 rounded-xl flex items-center justify-center">
                     <CheckCircleIcon className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold text-slate-900">Eligibility Requirements</h3>
+                    <h3 className="sm:text-2xl text-xl font-bold text-slate-900 ">Eligibility Requirements</h3>
                     <p className="text-slate-600">Basic requirements to register for CFA</p>
                   </div>
                 </div>
@@ -170,13 +170,13 @@ export default function CFAEligibility() {
                   {eligibilityRequirements.map((requirement) => {
                     const IconComponent = requirement.icon;
                     return (
-                      <div key={requirement.id} className="bg-white rounded-2xl p-6 shadow-sm border border-red-100">
+                      <div key={requirement.id} className="bg-white rounded-2xl sm:p-6 p-4 shadow-sm border border-red-100">
                         <div className="flex items-start gap-4">
                           <div className="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center flex-shrink-0">
                             <IconComponent className="w-5 h-5 text-red-600" />
                           </div>
                           <div>
-                            <h4 className="font-semibold text-slate-900 mb-2">{requirement.title}</h4>
+                            <h4 className="sm:font-semibold font-bold text-slate-900 mb-2 text-md">{requirement.title}</h4>
                             <p className="text-slate-600 text-sm leading-relaxed">{requirement.description}</p>
                           </div>
                         </div>

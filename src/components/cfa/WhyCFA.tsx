@@ -283,7 +283,7 @@ const WhyCFA = () => {
                 }}
                 className="group"
               >
-                <div className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300 hover:border-red-300">
+                <div className="bg-white rounded-xl sm:rounded-2xl p-3 sm:p-3 shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300 hover:border-red-300">
                   <div className="text-center">
                     <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-red-600 to-purple-600 rounded-lg sm:rounded-xl flex items-center justify-center mx-auto mb-2 sm:mb-3 group-hover:scale-110 transition-transform duration-300">
                       <span className="text-white font-bold text-sm sm:text-lg">{company.logo}</span>
