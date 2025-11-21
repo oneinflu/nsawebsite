@@ -56,20 +56,43 @@ const LeadFormModal = () => {
   const [ipAddress, setIpAddress] = useState("");
   const [sessionReferrer, setSessionReferrer] = useState("");
   const [otpNotice, setOtpNotice] = useState<string>("");
-  const [locationData, setLocationData] = useState<{ country: string; region: string; city: string; pin_code: string }>({ country: "", region: "", city: "", pin_code: "" });
+  const [locationData, setLocationData] = useState<{
+    country: string;
+    region: string;
+    city: string;
+    pin_code: string;
+  }>({ country: "", region: "", city: "", pin_code: "" });
   const entryTimeRef = useRef<Date | null>(null);
   const lastUrlRef = useRef<string>("");
 
   // Persist UTM params from URL to localStorage on mount
   useEffect(() => {
-    if (typeof window === 'undefined') return;
+    if (typeof window === "undefined") return;
     try {
       const keys = [
-        'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content',
-        'utm_id', 'utm_source_platform', 'utm_creative_format', 'utm_audience',
-        'utm_ad_id', 'gclid', 'fblid',
+        "utm_source",
+        "utm_medium",
+        "utm_campaign",
+        "utm_term",
+        "utm_content",
+        "utm_id",
+        "utm_source_platform",
+        "utm_creative_format",
+        "utm_audience",
+        "utm_ad_id",
+        "gclid",
+        "fblid",
         // Additional ad/utm params to capture
-        'utm_adgroup', 'utm_adname', 'sitelink', 'matchtype', 'category', 'device', 'network', 'promotion', 'placement', 'geo'
+        "utm_adgroup",
+        "utm_adname",
+        "sitelink",
+        "matchtype",
+        "category",
+        "device",
+        "network",
+        "promotion",
+        "placement",
+        "geo",
       ];
       const params = new URLSearchParams(window.location.search);
       keys.forEach((k) => {
@@ -77,21 +100,24 @@ const LeadFormModal = () => {
         if (v) localStorage.setItem(k, v);
       });
     } catch (err) {
-      console.warn('Failed to parse UTM params from URL', err);
+      console.warn("Failed to parse UTM params from URL", err);
     }
   }, []);
 
   // Ensure visitor_id exists in localStorage (session_id is created via backend API)
   useEffect(() => {
-    if (typeof window === 'undefined') return;
-    const VISITOR_KEY = 'nsa_visitor_id';
+    if (typeof window === "undefined") return;
+    const VISITOR_KEY = "nsa_visitor_id";
     try {
       if (!localStorage.getItem(VISITOR_KEY)) {
-        const vid = (crypto && 'randomUUID' in crypto) ? crypto.randomUUID() : `${Date.now()}-${Math.random().toString(36).slice(2)}`;
+        const vid =
+          crypto && "randomUUID" in crypto
+            ? crypto.randomUUID()
+            : `${Date.now()}-${Math.random().toString(36).slice(2)}`;
         localStorage.setItem(VISITOR_KEY, vid);
       }
     } catch (err) {
-      console.warn('Failed to initialize visitor ID', err);
+      console.warn("Failed to initialize visitor ID", err);
     }
   }, []);
 
@@ -108,7 +134,7 @@ const LeadFormModal = () => {
 
     fetchIp();
     // Use full current URL as session_referrer per requirement
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       setSessionReferrer(window.location.href);
     } else {
       setSessionReferrer("direct");
@@ -119,15 +145,15 @@ const LeadFormModal = () => {
   useEffect(() => {
     const fetchGeo = async () => {
       try {
-        const res = await fetch('https://ipapi.co/json/');
+        const res = await fetch("https://ipapi.co/json/");
         if (!res.ok) return;
         const data = await res.json();
-        console.log('Geolocation data:', data);
+        console.log("Geolocation data:", data);
         setLocationData({
-          country: data?.country_name || '',
-          region: data?.region || data?.region_code || '',
-          city: data?.city || '',
-          pin_code: data?.postal || '',
+          country: data?.country_name || "",
+          region: data?.region || data?.region_code || "",
+          city: data?.city || "",
+          pin_code: data?.postal || "",
         });
       } catch (e) {
         // Swallow errors silently; location data is optional
@@ -138,7 +164,7 @@ const LeadFormModal = () => {
 
   // Initialize session tracking and finalize visits on unload/route changes
   useEffect(() => {
-    if (typeof window === 'undefined') return;
+    if (typeof window === "undefined") return;
     // Set entry time for the current page
     entryTimeRef.current = new Date();
     // Store full absolute URL (protocol + host + path + query + hash)
@@ -149,46 +175,50 @@ const LeadFormModal = () => {
         const now = new Date();
         const entryTime = entryTimeRef.current || now;
         const exitTime = now;
-        const time_spent_seconds = Math.max(1, Math.round((exitTime.getTime() - entryTime.getTime()) / 1000));
+        const time_spent_seconds = Math.max(
+          1,
+          Math.round((exitTime.getTime() - entryTime.getTime()) / 1000)
+        );
         const pageEntry = {
           url: lastUrlRef.current || window.location.href,
-          title: (typeof document !== 'undefined' ? document.title : ''),
+          title: typeof document !== "undefined" ? document.title : "",
           time_spent_seconds,
           entry_time: entryTime.toISOString(),
           exit_time: exitTime.toISOString(),
         };
 
-        const SESSION_KEY = 'nsa_session_id';
-        const TIMES_KEY = 'nsa_session_times';
-        const existingSessionId = localStorage.getItem(SESSION_KEY) || '';
-        const visitorId = localStorage.getItem('nsa_visitor_id') || '';
+        const SESSION_KEY = "nsa_session_id";
+        const TIMES_KEY = "nsa_session_times";
+        const existingSessionId = localStorage.getItem(SESSION_KEY) || "";
+        const visitorId = localStorage.getItem("nsa_visitor_id") || "";
 
         // Build UTM data from URL first, then localStorage fallback (POST only)
         const params = new URLSearchParams(window.location.search);
-        const getUtm = (k: string) => (params.get(k) || localStorage.getItem(k) || '');
+        const getUtm = (k: string) =>
+          params.get(k) || localStorage.getItem(k) || "";
         const utm_data = {
-          utm_source: getUtm('utm_source'),
-          utm_medium: getUtm('utm_medium'),
-          utm_campaign: getUtm('utm_campaign'),
-          utm_term: getUtm('utm_term'),
-          utm_content: getUtm('utm_content'),
-          utm_id: getUtm('utm_id'),
-          utm_source_platform: getUtm('utm_source_platform'),
-          utm_creative_format: getUtm('utm_creative_format'),
-          utm_audience: getUtm('utm_audience'),
-          utm_ad_id: getUtm('utm_ad_id'),
-          gclid: getUtm('gclid'),
-          fblid: getUtm('fblid'),
-          utm_adgroup: getUtm('utm_adgroup'),
-          utm_adname: getUtm('utm_adname'),
-          sitelink: getUtm('sitelink'),
-          matchtype: getUtm('matchtype'),
-          category: getUtm('category'),
-          device: getUtm('device'),
-          network: getUtm('network'),
-          promotion: getUtm('promotion'),
-          placement: getUtm('placement'),
-          geo: getUtm('geo'),
+          utm_source: getUtm("utm_source"),
+          utm_medium: getUtm("utm_medium"),
+          utm_campaign: getUtm("utm_campaign"),
+          utm_term: getUtm("utm_term"),
+          utm_content: getUtm("utm_content"),
+          utm_id: getUtm("utm_id"),
+          utm_source_platform: getUtm("utm_source_platform"),
+          utm_creative_format: getUtm("utm_creative_format"),
+          utm_audience: getUtm("utm_audience"),
+          utm_ad_id: getUtm("utm_ad_id"),
+          gclid: getUtm("gclid"),
+          fblid: getUtm("fblid"),
+          utm_adgroup: getUtm("utm_adgroup"),
+          utm_adname: getUtm("utm_adname"),
+          sitelink: getUtm("sitelink"),
+          matchtype: getUtm("matchtype"),
+          category: getUtm("category"),
+          device: getUtm("device"),
+          network: getUtm("network"),
+          promotion: getUtm("promotion"),
+          placement: getUtm("placement"),
+          geo: getUtm("geo"),
         };
 
         if (!existingSessionId) {
@@ -196,10 +226,10 @@ const LeadFormModal = () => {
           const payload = {
             ip_address: ipAddress,
             location_data: {
-              country: locationData.country || '',
-              region: locationData.region || '',
-              city: locationData.city || '',
-              pin_code: locationData.pin_code || '',
+              country: locationData.country || "",
+              region: locationData.region || "",
+              city: locationData.city || "",
+              pin_code: locationData.pin_code || "",
             },
             utm_data,
             session_referrer: window.location.href,
@@ -207,14 +237,14 @@ const LeadFormModal = () => {
             times,
           };
           try {
-            const resp = await fetch('https://api.starforze.com/api/session', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
+            const resp = await fetch("https://api.starforze.com/api/session", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
               body: JSON.stringify(payload),
             });
             if (resp.ok) {
               const result = await resp.json();
-              const sid = result?.data?._id || result?.data?.id || '';
+              const sid = result?.data?._id || result?.data?.id || "";
               if (sid) {
                 localStorage.setItem(SESSION_KEY, sid);
                 const total_visits = result?.data?.total_visits;
@@ -225,8 +255,11 @@ const LeadFormModal = () => {
             // Ignore network errors; do not block navigation
           }
         } else {
-          const prevTimes = parseInt(localStorage.getItem(TIMES_KEY) || '1', 10);
-          const times = (isNaN(prevTimes) ? 1 : prevTimes + 1);
+          const prevTimes = parseInt(
+            localStorage.getItem(TIMES_KEY) || "1",
+            10
+          );
+          const times = isNaN(prevTimes) ? 1 : prevTimes + 1;
           const payload = {
             pages_visited: [pageEntry],
             times,
@@ -234,11 +267,14 @@ const LeadFormModal = () => {
             utm_data,
           };
           try {
-            const resp = await fetch(`https://api.starforze.com/api/session/${existingSessionId}`, {
-              method: 'PATCH',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify(payload),
-            });
+            const resp = await fetch(
+              `https://api.starforze.com/api/session/${existingSessionId}`,
+              {
+                method: "PATCH",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(payload),
+              }
+            );
             if (resp.ok) {
               const result = await resp.json();
               const total_visits = result?.data?.total_visits;
@@ -252,72 +288,78 @@ const LeadFormModal = () => {
         // Swallow errors silently; we don't want to break page exit
       }
     };
-    const onBeforeUnload = () => { finalizePage(); };
-    window.addEventListener('beforeunload', onBeforeUnload);
+    const onBeforeUnload = () => {
+      finalizePage();
+    };
+    window.addEventListener("beforeunload", onBeforeUnload);
     return () => {
-      window.removeEventListener('beforeunload', onBeforeUnload);
+      window.removeEventListener("beforeunload", onBeforeUnload);
       // Do not auto-finalize on dependency changes; beforeunload and route-change handle it
     };
   }, [ipAddress, locationData]);
 
   // Finalize the previous page visit when the route changes, then start a new entry time
   useEffect(() => {
-    if (typeof window === 'undefined') return;
+    if (typeof window === "undefined") return;
     const finalizePrev = async () => {
       // Call the same logic as beforeunload to record the previous page
       try {
         const now = new Date();
         const entryTime = entryTimeRef.current || now;
         const exitTime = now;
-        const time_spent_seconds = Math.max(1, Math.round((exitTime.getTime() - entryTime.getTime()) / 1000));
+        const time_spent_seconds = Math.max(
+          1,
+          Math.round((exitTime.getTime() - entryTime.getTime()) / 1000)
+        );
         const pageEntry = {
           url: lastUrlRef.current || window.location.href,
-          title: (typeof document !== 'undefined' ? document.title : ''),
+          title: typeof document !== "undefined" ? document.title : "",
           time_spent_seconds,
           entry_time: entryTime.toISOString(),
           exit_time: exitTime.toISOString(),
         };
 
-        const SESSION_KEY = 'nsa_session_id';
-        const TIMES_KEY = 'nsa_session_times';
-        const existingSessionId = localStorage.getItem(SESSION_KEY) || '';
+        const SESSION_KEY = "nsa_session_id";
+        const TIMES_KEY = "nsa_session_times";
+        const existingSessionId = localStorage.getItem(SESSION_KEY) || "";
 
         if (!existingSessionId) {
           // If a session doesn't exist yet, create it on the first route change using minimal data
           const times = 1;
           const params = new URLSearchParams(window.location.search);
-          const getUtm = (k: string) => (params.get(k) || localStorage.getItem(k) || '');
+          const getUtm = (k: string) =>
+            params.get(k) || localStorage.getItem(k) || "";
           const utm_data = {
-            utm_source: getUtm('utm_source'),
-            utm_medium: getUtm('utm_medium'),
-            utm_campaign: getUtm('utm_campaign'),
-            utm_term: getUtm('utm_term'),
-            utm_content: getUtm('utm_content'),
-            utm_id: getUtm('utm_id'),
-            utm_source_platform: getUtm('utm_source_platform'),
-            utm_creative_format: getUtm('utm_creative_format'),
-            utm_audience: getUtm('utm_audience'),
-            utm_ad_id: getUtm('utm_ad_id'),
-            gclid: getUtm('gclid'),
-            fblid: getUtm('fblid'),
-            utm_adgroup: getUtm('utm_adgroup'),
-            utm_adname: getUtm('utm_adname'),
-            sitelink: getUtm('sitelink'),
-            matchtype: getUtm('matchtype'),
-            category: getUtm('category'),
-            device: getUtm('device'),
-            network: getUtm('network'),
-            promotion: getUtm('promotion'),
-            placement: getUtm('placement'),
-            geo: getUtm('geo'),
+            utm_source: getUtm("utm_source"),
+            utm_medium: getUtm("utm_medium"),
+            utm_campaign: getUtm("utm_campaign"),
+            utm_term: getUtm("utm_term"),
+            utm_content: getUtm("utm_content"),
+            utm_id: getUtm("utm_id"),
+            utm_source_platform: getUtm("utm_source_platform"),
+            utm_creative_format: getUtm("utm_creative_format"),
+            utm_audience: getUtm("utm_audience"),
+            utm_ad_id: getUtm("utm_ad_id"),
+            gclid: getUtm("gclid"),
+            fblid: getUtm("fblid"),
+            utm_adgroup: getUtm("utm_adgroup"),
+            utm_adname: getUtm("utm_adname"),
+            sitelink: getUtm("sitelink"),
+            matchtype: getUtm("matchtype"),
+            category: getUtm("category"),
+            device: getUtm("device"),
+            network: getUtm("network"),
+            promotion: getUtm("promotion"),
+            placement: getUtm("placement"),
+            geo: getUtm("geo"),
           };
           const payload = {
             ip_address: ipAddress,
             location_data: {
-              country: locationData.country || '',
-              region: locationData.region || '',
-              city: locationData.city || '',
-              pin_code: locationData.pin_code || '',
+              country: locationData.country || "",
+              region: locationData.region || "",
+              city: locationData.city || "",
+              pin_code: locationData.pin_code || "",
             },
             utm_data,
             session_referrer: window.location.href,
@@ -325,14 +367,14 @@ const LeadFormModal = () => {
             times,
           };
           try {
-            const resp = await fetch('https://api.starforze.com/api/session', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
+            const resp = await fetch("https://api.starforze.com/api/session", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
               body: JSON.stringify(payload),
             });
             if (resp.ok) {
               const result = await resp.json();
-              const sid = result?.data?._id || result?.data?.id || '';
+              const sid = result?.data?._id || result?.data?.id || "";
               if (sid) {
                 localStorage.setItem(SESSION_KEY, sid);
                 const total_visits = result?.data?.total_visits;
@@ -341,34 +383,38 @@ const LeadFormModal = () => {
             }
           } catch {}
         } else {
-          const prevTimes = parseInt(localStorage.getItem(TIMES_KEY) || '1', 10);
-          const times = (isNaN(prevTimes) ? 1 : prevTimes + 1);
+          const prevTimes = parseInt(
+            localStorage.getItem(TIMES_KEY) || "1",
+            10
+          );
+          const times = isNaN(prevTimes) ? 1 : prevTimes + 1;
           // Build UTM data for PATCH updates as well
           const params2 = new URLSearchParams(window.location.search);
-          const getUtm2 = (k: string) => (params2.get(k) || localStorage.getItem(k) || '');
+          const getUtm2 = (k: string) =>
+            params2.get(k) || localStorage.getItem(k) || "";
           const utm_data = {
-            utm_source: getUtm2('utm_source'),
-            utm_medium: getUtm2('utm_medium'),
-            utm_campaign: getUtm2('utm_campaign'),
-            utm_term: getUtm2('utm_term'),
-            utm_content: getUtm2('utm_content'),
-            utm_id: getUtm2('utm_id'),
-            utm_source_platform: getUtm2('utm_source_platform'),
-            utm_creative_format: getUtm2('utm_creative_format'),
-            utm_audience: getUtm2('utm_audience'),
-            utm_ad_id: getUtm2('utm_ad_id'),
-            gclid: getUtm2('gclid'),
-            fblid: getUtm2('fblid'),
-            utm_adgroup: getUtm2('utm_adgroup'),
-            utm_adname: getUtm2('utm_adname'),
-            sitelink: getUtm2('sitelink'),
-            matchtype: getUtm2('matchtype'),
-            category: getUtm2('category'),
-            device: getUtm2('device'),
-            network: getUtm2('network'),
-            promotion: getUtm2('promotion'),
-            placement: getUtm2('placement'),
-            geo: getUtm2('geo'),
+            utm_source: getUtm2("utm_source"),
+            utm_medium: getUtm2("utm_medium"),
+            utm_campaign: getUtm2("utm_campaign"),
+            utm_term: getUtm2("utm_term"),
+            utm_content: getUtm2("utm_content"),
+            utm_id: getUtm2("utm_id"),
+            utm_source_platform: getUtm2("utm_source_platform"),
+            utm_creative_format: getUtm2("utm_creative_format"),
+            utm_audience: getUtm2("utm_audience"),
+            utm_ad_id: getUtm2("utm_ad_id"),
+            gclid: getUtm2("gclid"),
+            fblid: getUtm2("fblid"),
+            utm_adgroup: getUtm2("utm_adgroup"),
+            utm_adname: getUtm2("utm_adname"),
+            sitelink: getUtm2("sitelink"),
+            matchtype: getUtm2("matchtype"),
+            category: getUtm2("category"),
+            device: getUtm2("device"),
+            network: getUtm2("network"),
+            promotion: getUtm2("promotion"),
+            placement: getUtm2("placement"),
+            geo: getUtm2("geo"),
           };
           const payload = {
             pages_visited: [pageEntry],
@@ -377,11 +423,14 @@ const LeadFormModal = () => {
             utm_data,
           };
           try {
-            const resp = await fetch(`https://api.starforze.com/api/session/${existingSessionId}`, {
-              method: 'PATCH',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify(payload),
-            });
+            const resp = await fetch(
+              `https://api.starforze.com/api/session/${existingSessionId}`,
+              {
+                method: "PATCH",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(payload),
+              }
+            );
             if (resp.ok) {
               const result = await resp.json();
               const total_visits = result?.data?.total_visits;
@@ -422,8 +471,10 @@ const LeadFormModal = () => {
     if (lower.includes("cpa")) detected = "CPA";
     else if (lower.includes("cma")) detected = "CMA USA";
     else if (lower.includes("acca")) detected = "ACCA";
-    else if (lower.includes("enrolled-agent") || lower.includes("ea")) detected = "EA";
-    else if (lower.includes("cfa-us") || lower.includes("cfa")) detected = "CFA";
+    else if (lower.includes("enrolled-agent") || lower.includes("ea"))
+      detected = "EA";
+    else if (lower.includes("cfa-us") || lower.includes("cfa"))
+      detected = "CFA";
     else if (lower.includes("cia")) detected = "CIA";
     if (detected) {
       updateFormData({ course: detected });
@@ -435,7 +486,6 @@ const LeadFormModal = () => {
     if (isOpen) {
       const getLS = (k: string) => localStorage.getItem(k) || "";
       updateFormData({
-       
         utm_source: getLS("utm_source"),
         utm_medium: getLS("utm_medium"),
         utm_campaign: getLS("utm_campaign"),
@@ -466,11 +516,19 @@ const LeadFormModal = () => {
 
   // Google Places autocomplete removed: manual input or IP-based detection handled in DetailsForm
 
-  const handlePhoneChange = (value: string, country?: { dialCode?: string }) => {
+  const handlePhoneChange = (
+    value: string,
+    country?: { dialCode?: string }
+  ) => {
     const digitsOnly = (value || "").replace(/\D/g, "");
-    const dial = (country?.dialCode || formData.country_code || "").replace(/\D/g, "");
+    const dial = (country?.dialCode || formData.country_code || "").replace(
+      /\D/g,
+      ""
+    );
     // Derive local number for validation
-    const local = digitsOnly.startsWith(dial) ? digitsOnly.slice(dial.length) : digitsOnly;
+    const local = digitsOnly.startsWith(dial)
+      ? digitsOnly.slice(dial.length)
+      : digitsOnly;
     // Basic validation: for India (91), enforce 10-digit local number
     if ((dial || "91") === "91" && local.length !== 10) {
       setPhoneError("Please enter a valid 10-digit Indian mobile number");
@@ -483,7 +541,8 @@ const LeadFormModal = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     // Validate phone before submission
-    const countryCode = (formData.country_code || "").replace(/\D/g, "") || "91";
+    const countryCode =
+      (formData.country_code || "").replace(/\D/g, "") || "91";
     const fullDigits = (formData.phone || "").replace(/\D/g, "");
     const localPhoneForCheck = fullDigits.startsWith(countryCode)
       ? fullDigits.slice(countryCode.length)
@@ -509,94 +568,144 @@ const LeadFormModal = () => {
       : fullDigits;
 
     // Gather tracking fields
-    const visitorId = (typeof window !== 'undefined') ? (localStorage.getItem('nsa_visitor_id') || '') : '';
-    const sessionId = (typeof window !== 'undefined') ? (localStorage.getItem('nsa_session_id') || '') : '';
+    const visitorId =
+      typeof window !== "undefined"
+        ? localStorage.getItem("nsa_visitor_id") || ""
+        : "";
+    const sessionId =
+      typeof window !== "undefined"
+        ? localStorage.getItem("nsa_session_id") || ""
+        : "";
     const leadSource = (() => {
-      if (typeof window === 'undefined') return { Source: 'organic', SubSource: 'Website' };
-      const title = (typeof document !== 'undefined' ? document.title : '') || '';
-      const path = pathname || (typeof window !== 'undefined' ? window.location.pathname : '');
-      const ref = (typeof document !== 'undefined' ? document.referrer : '');
+      if (typeof window === "undefined")
+        return { Source: "organic", SubSource: "Website" };
+      const title =
+        (typeof document !== "undefined" ? document.title : "") || "";
+      const path =
+        pathname ||
+        (typeof window !== "undefined" ? window.location.pathname : "");
+      const ref = typeof document !== "undefined" ? document.referrer : "";
       const refHost = (() => {
-        try { return ref ? new URL(ref).hostname : ''; } catch { return ''; }
+        try {
+          return ref ? new URL(ref).hostname : "";
+        } catch {
+          return "";
+        }
       })();
 
       const params = new URLSearchParams(window.location.search);
       const utmKeys = [
-        'utm_source','utm_medium','utm_campaign','utm_term','utm_content','utm_id',
-        'utm_source_platform','utm_creative_format','utm_audience','utm_ad_id',
-        'gclid','fblid','utm_adgroup','utm_adname','sitelink','matchtype','category',
-        'device','network','promotion','placement','geo'
+        "utm_source",
+        "utm_medium",
+        "utm_campaign",
+        "utm_term",
+        "utm_content",
+        "utm_id",
+        "utm_source_platform",
+        "utm_creative_format",
+        "utm_audience",
+        "utm_ad_id",
+        "gclid",
+        "fblid",
+        "utm_adgroup",
+        "utm_adname",
+        "sitelink",
+        "matchtype",
+        "category",
+        "device",
+        "network",
+        "promotion",
+        "placement",
+        "geo",
       ];
       const hasAnyUtm = utmKeys.some((k) => !!params.get(k));
 
-      const toTitle = (s: string) => s.replace(/\s+/g, ' ').trim();
+      const toTitle = (s: string) => s.replace(/\s+/g, " ").trim();
 
       const mapCoursePage = () => {
-        if (path.startsWith('/cpa-course-details')) return 'Website | CPA US Course Page';
-        if (path.startsWith('/cma-usa-course-details')) return 'Website | CMA US Course Page';
-        if (path.startsWith('/enrolled-agent-course-details')) return 'Website | EA Course Page';
-        if (path.startsWith('/acca-course-details')) return 'Website | ACCA Course Page';
-        if (path.startsWith('/cfa-us')) return 'Website | CFA US Course Page';
-        if (path.startsWith('/cia')) return 'Website | CIA Course Page';
+        if (path.startsWith("/cpa-course-details"))
+          return "Website | CPA US Course Page";
+        if (path.startsWith("/cma-usa-course-details"))
+          return "Website | CMA US Course Page";
+        if (path.startsWith("/enrolled-agent-course-details"))
+          return "Website | EA Course Page";
+        if (path.startsWith("/acca-course-details"))
+          return "Website | ACCA Course Page";
+        if (path.startsWith("/cfa-us")) return "Website | CFA US Course Page";
+        if (path.startsWith("/cia")) return "Website | CIA Course Page";
         return null;
       };
 
       const subSourceOrganic = (() => {
-        if (path.startsWith('/blogs')) return 'Website | Blogs';
-        if (path.startsWith('/contact')) return 'Website | Contact Us';
+        if (path.startsWith("/blogs")) return "Website | Blogs";
+        if (path.startsWith("/contact")) return "Website | Contact Us";
         const courseLabel = mapCoursePage();
         if (courseLabel) return courseLabel;
-        if (refHost.includes('instagram.com')) return 'Instagram';
-        if (refHost.includes('whatsapp.com') || refHost.includes('wa.me')) return 'Whatsapp';
-        const sameHost = (typeof window !== 'undefined' ? window.location.hostname : '');
+        if (refHost.includes("instagram.com")) return "Instagram";
+        if (refHost.includes("whatsapp.com") || refHost.includes("wa.me"))
+          return "Whatsapp";
+        const sameHost =
+          typeof window !== "undefined" ? window.location.hostname : "";
         if (ref && refHost && sameHost && refHost !== sameHost) {
-          return 'Referral';
+          return "Referral";
         }
         return `Website`;
       })();
 
-      const utmSource = (params.get('utm_source') || '').toLowerCase();
-      const utmMedium = (params.get('utm_medium') || '').toLowerCase();
-      const utmCampaign = (params.get('utm_campaign') || '').toLowerCase();
+      const utmSource = (params.get("utm_source") || "").toLowerCase();
+      const utmMedium = (params.get("utm_medium") || "").toLowerCase();
+      const utmCampaign = (params.get("utm_campaign") || "").toLowerCase();
       const subSourcePaid = (() => {
         const s = utmSource;
-        if (s.includes('google') || s.includes('adwords') || s.includes('gads')) return 'Google';
-        if (s.includes('facebook') || s.includes('meta') || s.includes('fb')) return 'Facebook';
-        if (s.includes('instagram') || s.includes('ig')) return 'Instagram';
-        if (s.includes('quora')) return 'Quora';
-        if (s.includes('whatsapp') || utmMedium.includes('whatsapp')) return 'Whatsapp';
-        if (utmCampaign.includes('webinar')) return 'Webinars';
-        if (utmMedium.includes('influencer') || utmCampaign.includes('influencer')) return 'Influencer';
-        if (path.startsWith('/lp/')) return 'Landing Page';
-        return s ? s.charAt(0).toUpperCase() + s.slice(1) : 'Paid';
+        if (s.includes("google") || s.includes("adwords") || s.includes("gads"))
+          return "Google";
+        if (s.includes("facebook") || s.includes("meta") || s.includes("fb"))
+          return "Facebook";
+        if (s.includes("instagram") || s.includes("ig")) return "Instagram";
+        if (s.includes("quora")) return "Quora";
+        if (s.includes("whatsapp") || utmMedium.includes("whatsapp"))
+          return "Whatsapp";
+        if (utmCampaign.includes("webinar")) return "Webinars";
+        if (
+          utmMedium.includes("influencer") ||
+          utmCampaign.includes("influencer")
+        )
+          return "Influencer";
+        if (path.startsWith("/lp/")) return "Landing Page";
+        return s ? s.charAt(0).toUpperCase() + s.slice(1) : "Paid";
       })();
 
       return {
-        Source: hasAnyUtm ? 'paid' : 'organic',
+        Source: hasAnyUtm || path.includes("/lp") ? "paid" : "organic",
         SubSource: hasAnyUtm ? subSourcePaid : subSourceOrganic,
       };
     })();
-    const fullUrl = (typeof window !== 'undefined') ? window.location.href : sessionReferrer;
-    const leadOrigin = `${formData.course || ''}|${formType}`;
-    const params = (typeof window !== 'undefined') ? new URLSearchParams(window.location.search) : undefined;
+    const fullUrl =
+      typeof window !== "undefined" ? window.location.href : sessionReferrer;
+    const leadOrigin = `${formData.course || ""}|${formType}`;
+    const params =
+      typeof window !== "undefined"
+        ? new URLSearchParams(window.location.search)
+        : undefined;
     const getUtmParam = (key: string): string => {
-      if (!params) return '';
-      const fromUrl = params.get(key) || '';
+      if (!params) return "";
+      const fromUrl = params.get(key) || "";
       if (fromUrl) return fromUrl;
-      if (typeof window !== 'undefined') {
-        const fromStorage = localStorage.getItem(key) || '';
+      if (typeof window !== "undefined") {
+        const fromStorage = localStorage.getItem(key) || "";
         if (fromStorage) return fromStorage;
       }
-      return '';
+      return "";
     };
+
     const utmExtras = {
-      utm_id: getUtmParam('utm_id'),
-      utm_source_platform: getUtmParam('utm_source_platform'),
-      utm_creative_format: getUtmParam('utm_creative_format'),
-      utm_audience: getUtmParam('utm_audience'),
-      utm_ad_id: getUtmParam('utm_ad_id'),
-      gclid: getUtmParam('gclid'),
-      fblid: getUtmParam('fblid'),
+      utm_id: getUtmParam("utm_id"),
+      utm_source_platform: getUtmParam("utm_source_platform"),
+      utm_creative_format: getUtmParam("utm_creative_format"),
+      utm_audience: getUtmParam("utm_audience"),
+      utm_ad_id: getUtmParam("utm_ad_id"),
+      gclid: getUtmParam("gclid"),
+      fblid: getUtmParam("fblid"),
     };
 
     const leadData = {
@@ -618,11 +727,11 @@ const LeadFormModal = () => {
         education: formData.education,
         professional: formData.professional,
         course_id: formData.course,
-        study_mode: formData.studyMode || 'Online',
+        study_mode: formData.studyMode || "Online",
         accept_terms: formData.agreeToTerms,
         dynamic_fields: {
           how_did_you_hear_about_us: formData.howHeard,
-          page_title: (typeof document !== 'undefined' ? document.title : ''),
+          page_title: typeof document !== "undefined" ? document.title : "",
         },
       },
       // Do not re-send UTM data here; it is captured in session
@@ -637,16 +746,13 @@ const LeadFormModal = () => {
     };
 
     try {
-      const response = await fetch(
-        "https://api.starforze.com/api/leads",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(leadData),
-        }
-      );
+      const response = await fetch("https://api.starforze.com/api/leads", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(leadData),
+      });
 
       if (response.ok) {
         const result = await response.json();
@@ -655,7 +761,7 @@ const LeadFormModal = () => {
         const id = result?.data?._id ?? result?.data?.id ?? null;
         setLeadId(id);
         console.log("Captured leadId:", id);
-        setFormStep('otp');
+        setFormStep("otp");
       } else {
         const errorData = await response.json();
         console.error("Form submission failed:", response.status, errorData);
@@ -711,12 +817,18 @@ const LeadFormModal = () => {
           const courseId = (formData.course || "").trim();
           const courseIdToSlug = (id: string): string => {
             switch (id) {
-              case "CPA": return "cpa-us";
-              case "CMA USA": return "cma-usa";
-              case "ACCA": return "acca-uk";
-              case "CIA": return "cia";
-              case "CFA": return "cfa-us";
-              case "EA": return "enrolled-agent";
+              case "CPA":
+                return "cpa-us";
+              case "CMA USA":
+                return "cma-usa";
+              case "ACCA":
+                return "acca-uk";
+              case "CIA":
+                return "cia";
+              case "CFA":
+                return "cfa-us";
+              case "EA":
+                return "enrolled-agent";
               default: {
                 const lower = pathname.toLowerCase();
                 if (lower.includes("cma-usa")) return "cma-usa";
@@ -729,7 +841,9 @@ const LeadFormModal = () => {
             }
           };
           const courseSlug = courseIdToSlug(courseId);
-          const target = inASection ? `/a/thank-you/${courseSlug}` : `/thank-you/${courseSlug}`;
+          const target = inASection
+            ? `/a/thank-you/${courseSlug}`
+            : `/thank-you/${courseSlug}`;
           router.push(target);
           // Close the lead form modal so the navigation is visible
           closeLeadForm();
@@ -788,14 +902,19 @@ const LeadFormModal = () => {
       return;
     }
     try {
-      const response = await fetch(`https://api.starforze.com/api/leads/${leadId}`);
+      const response = await fetch(
+        `https://api.starforze.com/api/leads/${leadId}`
+      );
       if (response.ok) {
         const result = await response.json();
         const mobile = result?.data?.mobile || result?.data?.phone_number || "";
-        const ccode = result?.data?.countryCode || result?.data?.dialCode || "91";
+        const ccode =
+          result?.data?.countryCode || result?.data?.dialCode || "91";
         setEditDialCode(String(ccode));
         // Combine for PhoneInput controlled value: dialCode + mobile
-        const combined = mobile ? `${ccode}${String(mobile).replace(/\D/g, "")}` : formData.phone;
+        const combined = mobile
+          ? `${ccode}${String(mobile).replace(/\D/g, "")}`
+          : formData.phone;
         setEditPhoneValue(combined || "");
       } else {
         setEditDialCode("91");
@@ -889,7 +1008,11 @@ const LeadFormModal = () => {
                 strokeWidth="2"
                 className="h-5 w-5"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M6 6l12 12M6 18L18 6" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M6 6l12 12M6 18L18 6"
+                />
               </svg>
             </button>
             <div className="grid grid-cols-1 md:grid-cols-2">
@@ -912,7 +1035,9 @@ const LeadFormModal = () => {
                     handlePhoneChange={handlePhoneChange}
                     phoneError={phoneError}
                     isSubmitting={isSubmitting}
-                    inputRef={inputRef as unknown as React.RefObject<HTMLInputElement | null>}
+                    inputRef={
+                      inputRef as unknown as React.RefObject<HTMLInputElement | null>
+                    }
                     isCourseLocked={isCourseLocked}
                   />
                 )}

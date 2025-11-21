@@ -1,59 +1,63 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { 
-  Play, 
- 
-  Calendar, 
-  Star, 
-  MapPin, 
-  DollarSign, 
+import { useState } from "react";
+import { motion } from "framer-motion";
+import {
+  Play,
+  Calendar,
+  Star,
+  MapPin,
+  DollarSign,
   Award,
   CheckCircle,
   ArrowRight,
-  Globe
-} from 'lucide-react';
-import LeadFormButton from '../LeadFormButton';
+  Globe,
+} from "lucide-react";
+import LeadFormButton from "../LeadFormButton";
 
 export default function CPAHero() {
-  const [selectedState, setSelectedState] = useState('California');
+  const [selectedState, setSelectedState] = useState("California");
   const [showCounsellingModal, setShowCounsellingModal] = useState(false);
 
   const usStates = [
-    'California', 'New York', 'Texas', 'Florida', 'Illinois', 
-    'Pennsylvania', 'Ohio', 'Georgia', 'North Carolina', 'Michigan'
+    "California",
+    "New York",
+    "Texas",
+    "Florida",
+    "Illinois",
+    "Pennsylvania",
+    "Ohio",
+    "Georgia",
+    "North Carolina",
+    "Michigan",
   ];
 
   const keyBenefits = [
-    'Work in USA, UAE, India & 50+ countries',
-    'Average salary: $85,000 - $150,000',
-    'Fastest route to US immigration',
-    'Global recognition & prestige'
+    "Work in USA, UAE, India & 50+ countries",
+    "Average salary: $85,000 - $150,000",
+    "Fastest route to US immigration",
+    "Global recognition & prestige",
   ];
 
   return (
-    <section className="relative min-h-screen bg-gradient-to-br from-red-900 via-red-800 to-red-900 overflow-hidden">
-      {/* Background Elements */}
+    <section className="relative lg:min-h-[800px] min-h-screen  sm:px-8 px-5 lg:max-h-[1000px] border-black bg-linear-to-br from-red-900 via-red-800 to-red-900 overflow-hidden">
       <div className="absolute inset-0">
-        {/* Animated background pattern */}
         <motion.div
           className="absolute inset-0 opacity-10"
           animate={{
-            backgroundPosition: ['0% 0%', '100% 100%'],
+            backgroundPosition: ["0% 0%", "100% 100%"],
           }}
           transition={{
             duration: 20,
             repeat: Infinity,
-            repeatType: 'reverse',
+            repeatType: "reverse",
           }}
           style={{
-            backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)',
-            backgroundSize: '50px 50px',
+            backgroundImage:
+              "radial-gradient(circle, white 1px, transparent 1px)",
+            backgroundSize: "50px 50px",
           }}
         />
-        
-        {/* Floating elements */}
         {[...Array(6)].map((_, i) => (
           <motion.div
             key={i}
@@ -67,7 +71,7 @@ export default function CPAHero() {
               duration: 8,
               repeat: Infinity,
               delay: i * 1.5,
-              ease: 'easeInOut',
+              ease: "easeInOut",
             }}
             style={{
               left: `${10 + i * 15}%`,
@@ -77,16 +81,14 @@ export default function CPAHero() {
         ))}
       </div>
 
-      <div className="relative z-10 container mx-auto px-4 py-20">
-        <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[80vh]">
-          {/* Left Content */}
+      <div className="relative z-10 container mx-auto px-4 py-16">
+        <div className="grid lg:grid-cols-2 sm:gap-12 gap-6 lg:text-left  items-center text-center min-h-[90%]">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-white space-y-8"
+            className="text-white sm:space-y-8 space-y-4"
           >
-            {/* Badge */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -94,7 +96,9 @@ export default function CPAHero() {
               className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2"
             >
               <Award className="w-4 h-4 text-yellow-400" />
-              <span className="text-sm font-medium">Highest Global Accounting License</span>
+              <span className="text-sm font-medium">
+                Highest Global Accounting License
+              </span>
             </motion.div>
 
             {/* Main Headline */}
@@ -103,19 +107,19 @@ export default function CPAHero() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
-                className="text-4xl lg:text-6xl font-bold leading-tight"
+                className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight"
               >
-                Become a{' '}
-                <span className="bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">
+                Become a{" "}
+                <span className="bg-linear-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">
                   Certified Public Accountant
                 </span>
               </motion.h1>
-              
+
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
-                className="text-xl lg:text-2xl font-semibold text-red-100"
+                className="text-base sm:text-xl lg:text-2xl font-semibold text-red-100"
               >
                 (CPA – USA)
               </motion.div>
@@ -128,7 +132,8 @@ export default function CPAHero() {
               transition={{ delay: 0.5 }}
               className="text-lg lg:text-xl text-red-100 leading-relaxed"
             >
-              Work in USA, UAE, India & More • Global Recognition • Premium Salaries
+              Work in USA, UAE, India & More • Global Recognition • Premium
+              Salaries
             </motion.p>
 
             {/* Key Benefits */}
@@ -144,9 +149,9 @@ export default function CPAHero() {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.7 + index * 0.1 }}
-                  className="flex items-center gap-3"
+                  className="flex lg:items-center text-center  items-start lg:justify-start justify-center gap-3"
                 >
-                  <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0" />
+                  <CheckCircle className="w-5 h-5 text-green-400 shrink-0" />
                   <span className="text-red-100">{benefit}</span>
                 </motion.div>
               ))}
@@ -157,12 +162,13 @@ export default function CPAHero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8 }}
-              className="flex flex-col sm:flex-row gap-4 pt-4"
+              className="flex flex-col sm:flex-row lg:justify-start justify-center gap-4 pt-4"
             >
-             <LeadFormButton formType='general' isSendOtp={true} courseId='CPA'
-               
-                
-                className="bg-gradient-to-r from-orange-500 to-red-500 text-white font-bold py-4 px-8 rounded-xl shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2"
+              <LeadFormButton
+                formType="general"
+                isSendOtp={true}
+                courseId="CPA"
+                className="bg-linear-to-r cursor-pointer from-orange-600 to-red-700 text-white font-bold py-4 px-8 rounded-xl shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2"
               >
                 <Calendar className="w-5 h-5" />
                 Book Free Counselling
@@ -172,36 +178,30 @@ export default function CPAHero() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-white/10 backdrop-blur-sm border border-white/20 text-white font-semibold py-4 px-8 rounded-xl hover:bg-white/20 transition-all flex items-center justify-center gap-2"
+                className="bg-white/10 cursor-pointer backdrop-blur-sm border border-white/20 text-white font-semibold py-4 px-8 rounded-xl hover:bg-white/20 transition-all flex items-center justify-center gap-2"
               >
                 <Play className="w-5 h-5" />
                 Watch Success Stories
               </motion.button>
             </motion.div>
-
-            {/* WhatsApp Assistant */}
-           
           </motion.div>
-
-          {/* Right Visual */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
             className="relative"
           >
-            <div className="relative bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl p-8 shadow-2xl">
-              {/* US Skyline Illustration */}
+            <div className="relative  bg-white/10 backdrop-blur-sm border-white/20 rounded-3xl  sm:px-8 px-4 xl:py-16 sm:py-10 py-8 shadow-2xl">
               <div className="mb-6">
-                <div className="flex items-end justify-center gap-2 h-32 mb-4">
+                <div className="flex items-end justify-center gap-2 sm:h-32 h-20 mb-4">
                   {[60, 80, 100, 75, 90, 65, 85].map((height, index) => (
                     <motion.div
                       key={index}
                       initial={{ height: 0 }}
                       animate={{ height: `${height}%` }}
                       transition={{ delay: 1 + index * 0.1, duration: 0.6 }}
-                      className="bg-gradient-to-t from-red-400 to-red-200 rounded-t-lg"
-                      style={{ width: '20px' }}
+                      className="bg-linear-to-t from-red-400 to-red-200 rounded-t-lg"
+                      style={{ width: "20px" }}
                     />
                   ))}
                 </div>
@@ -210,12 +210,11 @@ export default function CPAHero() {
                 </div>
               </div>
 
-              {/* CPA Certificate */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 1.2 }}
-                className="bg-white rounded-xl p-4 mb-6 shadow-lg"
+                className="bg-white rounded-xl sm:p-4 p-2 sm:mb-6 mb-4 shadow-lg"
               >
                 <div className="flex items-center gap-3">
                   <div className="w-12 h-12 bg-red-600 rounded-lg flex items-center justify-center">
@@ -223,23 +222,26 @@ export default function CPAHero() {
                   </div>
                   <div>
                     <div className="font-bold text-gray-800">CPA License</div>
-                    <div className="text-sm text-gray-600">Certified Public Accountant</div>
+                    <div className="text-sm text-gray-600">
+                      Certified Public Accountant
+                    </div>
                   </div>
                 </div>
               </motion.div>
 
-              {/* Salary Badge */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1.4 }}
-                className="bg-green-500 text-white rounded-xl p-4 mb-6"
+                className="bg-green-500 text-white rounded-xl sm:p-4 p-2 sm:mb-6 mb-4"
               >
                 <div className="flex items-center gap-3">
                   <DollarSign className="w-8 h-8" />
                   <div>
                     <div className="font-bold text-lg">$85K - $150K</div>
-                    <div className="text-sm opacity-90">Average Annual Salary</div>
+                    <div className="text-sm opacity-90">
+                      Average Annual Salary
+                    </div>
                   </div>
                 </div>
               </motion.div>
@@ -253,9 +255,11 @@ export default function CPAHero() {
               >
                 <div className="flex items-center gap-2 text-white">
                   <MapPin className="w-4 h-4" />
-                  <span className="text-sm font-medium">Choose Your State Board:</span>
+                  <span className="text-sm font-medium">
+                    Choose Your State Board:
+                  </span>
                 </div>
-                
+
                 <div className="relative">
                   <select
                     value={selectedState}
@@ -263,7 +267,11 @@ export default function CPAHero() {
                     className="w-full bg-white/20 border border-white/30 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:ring-2 focus:ring-orange-500"
                   >
                     {usStates.map((state) => (
-                      <option key={state} value={state} className="text-gray-800">
+                      <option
+                        key={state}
+                        value={state}
+                        className="text-gray-800"
+                      >
                         {state}
                       </option>
                     ))}
@@ -276,7 +284,7 @@ export default function CPAHero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1.8 }}
-                className="mt-6 pt-4 border-t border-white/20"
+                className="sm:mt-6 mt-3 sm:pt-4 pt-3 border-t border-white/20"
               >
                 <div className="flex items-center gap-2 text-white/80 text-sm">
                   <Globe className="w-4 h-4" />
@@ -319,7 +327,9 @@ export default function CPAHero() {
             className="bg-white rounded-2xl p-6 max-w-md w-full"
             onClick={(e) => e.stopPropagation()}
           >
-            <h3 className="text-xl font-bold text-gray-800 mb-4">Book Free CPA Counselling</h3>
+            <h3 className="text-xl font-bold text-gray-800 mb-4">
+              Book Free CPA Counselling
+            </h3>
             <form className="space-y-4">
               <input
                 type="text"
