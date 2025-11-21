@@ -132,7 +132,7 @@ export default function CFAGlobalSalaryMap() {
 
   if (!isClient) {
     return (
-      <section className="sm:py-15 py-10 bg-gradient-to-br from-slate-900 to-red-900">
+      <section className="sm:py-16 py-10 bg-gradient-to-br from-slate-900 to-red-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-white mb-4">

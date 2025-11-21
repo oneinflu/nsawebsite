@@ -125,8 +125,7 @@ export default function CFAEligibility() {
   }
 
   return (
-    <section className="sm:py-15 py-10 bg-white relative overflow-hidden">
-      {/* Background Elements */}
+    <section className="sm:py-16 py-10 bg-white relative overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(59,130,246,0.05),transparent_50%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_70%,rgba(147,51,234,0.05),transparent_50%)]" />
       

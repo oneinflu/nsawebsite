@@ -183,7 +183,7 @@ export default function CFACareerRoles() {
   }
 
   return (
-    <section className="sm:py-15 py-10 bg-gradient-to-br from-slate-50 via-red-50 to-purple-50 relative overflow-hidden">
+    <section className="sm:py-16 py-10 bg-gradient-to-br from-slate-50 via-red-50 to-purple-50 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.05),transparent_50%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(147,51,234,0.05),transparent_50%)]" />

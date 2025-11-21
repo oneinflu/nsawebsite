@@ -257,7 +257,7 @@ const PlacementReadiness = () => {
                       <Icon className="w-8 h-8 text-white" />
                     </div>
 
-                    <h3 className="text-xl font-bold text-gray-900 mb-2 text-center">
+                    <h3 className="sm:text-xl font-bold text-gray-900 mb-2 text-center">
                       {step.title}
                     </h3>
                     <p className="text-gray-600 text-center mb-4">
@@ -274,9 +274,9 @@ const PlacementReadiness = () => {
                     {isActive && (
                       <motion.div
                         initial={{ width: 0 }}
-                        animate={{ width: "100%" }}
+                        animate={{ width: "98%" }}
                         transition={{ duration: 4 }}
-                        className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-red-500 to-purple-500 rounded-b-2xl"
+                        className="absolute bottom-0 left-1 h-1 bg-gradient-to-r from-red-500 to-purple-500 rounded-b-3xl"
                       />
                     )}
                   </div>

@@ -82,7 +82,7 @@ const EASyllabus = () => {
 
 
   return (
-    <section className="py-10 sm:py-15 bg-gradient-to-br from-gray-50 to-red-50">
+    <section className="py-10 sm:py-16 bg-gradient-to-br from-gray-50 to-red-50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -104,7 +104,7 @@ const EASyllabus = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-12 sm:mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-12 sm:mb-16 ">
           {parts.map((part, index) => (
             <motion.div 
               key={part.id} 
@@ -112,9 +112,9 @@ const EASyllabus = () => {
               whileInView={{ opacity: 1, y: 0 }} 
               viewport={{ once: true }} 
               transition={{ duration: 0.6, delay: index * 0.1 }} 
-              className="flex"
+              className="flex h-auto"
             >
-              <div className="bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden flex flex-col w-full">
+              <div className="bg-white border-4  rounded-2xl shadow-xl border border-gray-200 overflow-hidden flex flex-col w-full">
                 <div className={`bg-gradient-to-r ${part.color} p-6 sm:p-5 md:p-4 text-white`}> 
                   <div className="flex items-center justify-between gap-3">
                     <div className="flex-1 min-w-0">

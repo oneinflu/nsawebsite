@@ -110,7 +110,7 @@ const WhyNorthStar: React.FC = () => {
   
 
   return (
-    <section className="py-10 sm:py-15 bg-gradient-to-br from-slate-50 via-white to-red-50 relative overflow-hidden">
+    <section className="py-10 sm:py-12 bg-gradient-to-br from-slate-50 via-white to-red-50 relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
@@ -126,7 +126,7 @@ const WhyNorthStar: React.FC = () => {
             <div className="space-y-3 sm:space-y-4 text-center xl:text-left">
               <h2 className="text-2xl sm:text-3xl  font-bold text-slate-900 leading-tight">
                 Same Global Certification.
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-purple-600 block">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-purple-600 block mt-1">
                   Smarter Path to Achieve It.
                 </span>
               </h2>

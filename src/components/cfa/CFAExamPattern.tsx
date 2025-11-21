@@ -259,7 +259,7 @@ export default function CFAExamPattern() {
         </motion.div>
 
         {/* Main Content Grid */}
-        <div className="flex sm:flex-cols-2 flex flex-col gap-8 lg:gap-12 items-start px-1">
+        <div className="md:flex md:flex-cols-2 flex flex-col gap-8 lg:gap-12 items-start px-1">
           {/* Exam Details Table */}
           <motion.div variants={itemVariants} className="w-full flex flex-col items-center lg:items-start">
             <h3 className="text-2xl sm:text-2xl font-bold text-gray-900 mb-6 sm:mb-8 text-center lg:text-left pr-12">
@@ -269,6 +269,7 @@ export default function CFAExamPattern() {
             <div className="bg-white rounded-2xl sm:rounded-3xl shadow-2xl border border-gray-200 overflow-hidden w-full max-w-md md:max-w-none">
               <div className="overflow-x-auto md:overflow-visible">
                 <table className="w-full" style={{ minWidth: "600px" }}>
+
                   <thead>
                     <tr className="bg-gradient-to-r from-red-600 via-pink-600 to-purple-600 text-white">
                       <th className="px-3 sm:px-4 md:px-6 py-3 sm:py-4 text-left font-semibold text-xs sm:text-sm md:text-base whitespace-nowrap md:whitespace-normal">
