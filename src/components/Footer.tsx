@@ -87,8 +87,8 @@ export default function Footer() {
   ];
 
   const brandBadges = [
-    { icon: "⭐", text: "55,000+ Students" },
-    { icon: "🧠", text: "Mentor-Led" },
+    { icon: "⭐", text: "2,00,000+ Students" },
+    { icon: "🧠", text: "Global Mentor" },
     { icon: "🌍", text: "International Certifications" },
     { icon: "🏢", text: "Big 4 Career Pathways" },
   ];
@@ -375,7 +375,7 @@ export default function Footer() {
             <div className="flex flex-col md:flex-row items-center justify-between">
               <div className="mb-4 md:mb-0">
                 <p className="text-gray-300 text-center md:text-left">
-                  Join 100K+ finance aspirants learning with us
+                  Join 2,00,000+ finance aspirants learning with us
                 </p>
               </div>
               <div className="flex space-x-4">

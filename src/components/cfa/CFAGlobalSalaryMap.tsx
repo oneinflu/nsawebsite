@@ -239,7 +239,7 @@ export default function CFAGlobalSalaryMap() {
               Download our comprehensive PDF guide with detailed salary data, career progression paths, and market insights across 50+ countries.
             </p>
             
-            <LeadFormButton formType='download-placement-report' variant='outline' isSendOtp={true} className='mt-10'>
+            <LeadFormButton formType='salary-guide' variant='outline' isSendOtp={true} className='mt-10 text-white'>
               <span>Get the 2025 Salary Guide (PDF)</span>
               
             </LeadFormButton>

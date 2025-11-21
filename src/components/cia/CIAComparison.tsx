@@ -273,7 +273,9 @@ const CIAComparison = () => {
                           onMouseEnter={() => setHoveredCell(cellKey)}
                           onMouseLeave={() => setHoveredCell(null)}
                         >
-                          <div className={`font-bold text-sm md:text-lg ${data.color} mb-1`}>
+                          <div
+                            className={`font-bold text-sm md:text-lg ${data.color} mb-1`}
+                          >
                             {data.value}
                           </div>
                           <div className="text-[10px] md:text-sm text-slate-600">
@@ -375,7 +377,7 @@ const CIAComparison = () => {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <LeadFormButton
-                formType="general"
+                formType="talk-to-an-expert"
                 isSendOtp={true}
                 courseId="CIA"
                 className="text-red-600 px-8 py-4 rounded-xl font-bold text-md md:text-lg hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-3"

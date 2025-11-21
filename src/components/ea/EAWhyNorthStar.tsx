@@ -121,7 +121,7 @@ const EAWhyNorthStar = () => {
           className="text-center"
         >
           <LeadFormButton
-            formType="general"
+            formType="experience-the-northstar"
             isSendOtp={true}
             courseId="EA"
             variant="primary"

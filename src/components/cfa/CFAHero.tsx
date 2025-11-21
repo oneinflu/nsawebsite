@@ -186,7 +186,7 @@ const CFAHero = () => {
 
               {/* Secondary CTA */}
               <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
-                <LeadFormButton formType='download-syllabus' variant='secondary' isSendOtp={true} className="w-full sm:w-auto">
+                <LeadFormButton formType='cfa-roadmap' variant='secondary' isSendOtp={true} className="w-full sm:w-auto">
                   Download CFA Roadmap
                </LeadFormButton>
 
