@@ -114,21 +114,21 @@ export default function PricingROI() {
   ]
 
   return (
-    <section className="py-20 bg-gradient-to-br from-slate-50 via-white to-red-50">
+    <section className="py-8 sm:py-20 bg-gradient-to-br from-slate-50 via-white to-red-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Investment Value Headline */}
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center lg:mb-16 mb-8"
         >
-          <h2 className="text-5xl font-bold bg-gradient-to-r from-gray-900 via-red-900 to-red-900 bg-clip-text text-transparent mb-6">
+          <h2 className="text-3xl sm:text-5xl font-bold bg-gradient-to-r from-gray-900 via-red-900 to-red-900 bg-clip-text text-transparent mb-6">
             Invest Once. Grow for a Lifetime.
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Your first salary after CMA/CPA/ACCA recovers your course fees.
-          </p>
+          </p>  
         </motion.div>
 
         
@@ -193,7 +193,7 @@ export default function PricingROI() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-white rounded-2xl shadow-lg p-8 mb-16"
+          className="bg-white rounded-2xl shadow-lg p-8 lg:mb-16 mb-8"
         >
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {trustSeals.map((seal, idx) => (

@@ -183,7 +183,7 @@ export default function CFACareerRoles() {
   }
 
   return (
-    <section className="py-20 bg-gradient-to-br from-slate-50 via-red-50 to-purple-50 relative overflow-hidden">
+    <section className="sm:py-15 py-10 bg-gradient-to-br from-slate-50 via-red-50 to-purple-50 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.05),transparent_50%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(147,51,234,0.05),transparent_50%)]" />
@@ -196,12 +196,12 @@ export default function CFACareerRoles() {
           viewport={{ once: true, margin: "-100px" }}
         >
           {/* Header */}
-          <motion.div variants={itemVariants} className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 bg-purple-50 text-purple-600 px-4 py-2 rounded-full text-sm font-medium mb-6">
+          <motion.div variants={itemVariants} className="text-center sm:mb-16 mb-10">
+            <div className="inline-flex items-center gap-2 bg-purple-50 text-purple-600 px-4 py-2 rounded-full text-sm font-medium sm:mb-6 mb-3">
               <span className="text-2xl">5️⃣</span>
               <span>Career Impact</span>
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 sm:mb-6 mb-3">
               Career &amp; <span className="bg-gradient-to-r from-red-600 to-purple-600 bg-clip-text text-transparent">Job Roles</span>
             </h2>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto">
@@ -212,7 +212,7 @@ export default function CFACareerRoles() {
           {/* Animated Career Progression Infographic */}
           <motion.div variants={itemVariants} className="mb-20">
             <div className="bg-white rounded-3xl p-8 shadow-lg border border-slate-200">
-              <h3 className="text-2xl font-bold text-slate-900 text-center mb-12">
+              <h3 className="text-2xl font-bold text-slate-900 text-center sm:mb-12 mb-10">
                 Your CFA Career Journey
               </h3>
               

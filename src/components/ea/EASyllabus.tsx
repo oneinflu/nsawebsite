@@ -19,14 +19,18 @@ interface EAPart {
 }
 
 const EASyllabus = () => {
-  const [activePart, setActivePart] = useState<string | null>(null);
+  const [openPartId, setOpenPartId] = useState<string>('');
+
+  const handleToggle = (partId: string) => {
+    setOpenPartId(openPartId === partId ? '' : partId);
+  };
 
   const parts: EAPart[] = [
     {
       id: 'part-1',
       title: 'SEE Part 1: Individuals',
       subtitle: 'Individual Taxation',
-      description: 'Foundations of U.S. individual tax returns and rules',
+      description: 'Master U.S. individual tax returns, filing rules, and credits',
       topics: [
         'Filing requirements & statuses',
         'Gross income & adjustments',
@@ -43,7 +47,7 @@ const EASyllabus = () => {
       id: 'part-2',
       title: 'SEE Part 2: Businesses',
       subtitle: 'Business Taxation',
-      description: 'Taxation of entities and business operations',
+      description: 'Learn taxation of business entities and their operations',
       topics: [
         'Sole proprietorships & partnerships',
         'Corporations & S corps',
@@ -59,8 +63,8 @@ const EASyllabus = () => {
     {
       id: 'part-3',
       title: 'SEE Part 3: Representation',
-      subtitle: 'Practice, Procedures & Representation',
-      description: 'IRS practice rules, ethics, and taxpayer representation',
+      subtitle: 'Practice, Procedures & Representation ',
+      description: 'Understand IRS practice rules, ethics, and representatn',
       topics: [
         'Circular 230 & ethics',
         'Representation before IRS',
@@ -75,65 +79,76 @@ const EASyllabus = () => {
     },
   ];
 
-  const togglePart = (id: string) => setActivePart(activePart === id ? null : id);
+
 
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-50 to-red-50">
+    <section className="py-10 sm:py-15 bg-gradient-to-br from-gray-50 to-red-50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-12 lg:mb-16"
         >
-          <div className="inline-flex items-center bg-red-100 text-red-800 px-4 py-2 rounded-full text-sm font-medium mb-6">
+          <div className="inline-flex items-center bg-red-100 text-red-800 px-4 py-2 rounded-full text-sm font-medium mb-4 sm:mb-6">
             <AcademicCapIcon className="w-4 h-4 mr-2" />
             EA Certification Syllabus
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 px-4">
             SEE 3-Part Structure
             <span className="block text-red-600 mt-2">Clear Clarity</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
             Master U.S. taxation across individuals, businesses, and representation to earn the EA credential.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-12 sm:mb-16">
           {parts.map((part, index) => (
-            <motion.div key={part.id} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: index * 0.1 }}>
-              <div className="bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden">
-                <div className={`bg-gradient-to-r ${part.color} p-6 text-white`}> 
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <div className="text-sm opacity-90">{part.subtitle}</div>
-                      <h3 className="text-xl font-bold">{part.title}</h3>
+            <motion.div 
+              key={part.id} 
+              initial={{ opacity: 0, y: 30 }} 
+              whileInView={{ opacity: 1, y: 0 }} 
+              viewport={{ once: true }} 
+              transition={{ duration: 0.6, delay: index * 0.1 }} 
+              className="flex"
+            >
+              <div className="bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden flex flex-col w-full">
+                <div className={`bg-gradient-to-r ${part.color} p-6 sm:p-5 md:p-4 text-white`}> 
+                  <div className="flex items-center justify-between gap-3">
+                    <div className="flex-1 min-w-0">
+                      <div className="text-xs md:text-[10px] opacity-90 mb-1">{part.subtitle}</div>
+                      <h3 className="text-base sm:text-md font-bold leading-tight">{part.title}</h3>
                     </div>
-                    <part.icon className="w-8 h-8" />
+                    <part.icon className="w-7 h-7 sm:w-8 sm:h-8 flex-shrink-0" />
                   </div>
                 </div>
 
-                <button onClick={() => togglePart(part.id)} className="w-full text-left p-6 flex items-center justify-between">
-                  <div>
-                    <p className="text-gray-700 mb-2">{part.description}</p>
-                    <div className="text-sm text-gray-600">{part.examFormat}</div>
+                <button 
+                  type="button"
+                  onClick={() => handleToggle(part.id)} 
+                  className="w-full text-left p-4 sm:p-5 lg:p-6 flex items-start justify-between gap-3 hover:bg-gray-50 transition-colors"
+                >
+                  <div className="flex-1 min-w-0">
+                    <p className="text-gray-700 mb-2 text-sm sm:text-base leading-snug">{part.description}</p>
+                    <div className="text-xs sm:text-sm text-gray-600">{part.examFormat}</div>
                   </div>
-                  {activePart === part.id ? (
-                    <ChevronUpIcon className="w-6 h-6 text-gray-400" />
+                  {openPartId === part.id ? (
+                    <ChevronUpIcon className="w-5 h-5 sm:w-6 sm:h-6 text-gray-400 flex-shrink-0 mt-1" />
                   ) : (
-                    <ChevronDownIcon className="w-6 h-6 text-gray-400" />
+                    <ChevronDownIcon className="w-5 h-5 sm:w-6 sm:h-6 text-gray-400 flex-shrink-0 mt-1" />
                   )}
                 </button>
 
-                {activePart === part.id && (
-                  <div className={`bg-gradient-to-br ${part.bgColor} p-6 border-t border-gray-100`}> 
-                    <h4 className="font-bold text-gray-900 mb-3">Key Topics</h4>
-                    <ul className="space-y-2 text-sm text-gray-700">
+                {openPartId === part.id && (
+                  <div className={`bg-gradient-to-br ${part.bgColor} p-4 sm:p-5 lg:p-6 border-t border-gray-100`}> 
+                    <h4 className="font-bold text-gray-900 mb-3 text-sm sm:text-base">Key Topics</h4>
+                    <ul className="space-y-2 text-xs sm:text-sm text-gray-700">
                       {part.topics.map((t, i) => (
-                        <li key={i} className="flex items-start">
-                          <span className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 mr-2"></span>
-                          {t}
+                        <li key={i} className="flex items-start gap-2">
+                          <span className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-1.5 sm:mt-2 flex-shrink-0"></span>
+                          <span className="flex-1">{t}</span>
                         </li>
                       ))}
                     </ul>
@@ -153,11 +168,11 @@ const EASyllabus = () => {
         transition={{ duration: 0.6 }}
         className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"
       >
-        <div className="mt-8 text-center bg-gradient-to-r from-red-600 to-purple-600 rounded-2xl p-8 text-white relative overflow-hidden">
+        <div className="mt-6 sm:mt-8 text-center bg-gradient-to-r from-red-600 to-purple-600 rounded-2xl p-6 sm:p-8 lg:p-10 text-white relative overflow-hidden">
           <div className="absolute inset-0 bg-black/10" />
           <div className="relative z-10">
-            <h3 className="text-2xl md:text-3xl font-bold mb-3">Get Complete EA Syllabus Guide</h3>
-            <p className="text-red-100 text-lg mb-8 max-w-2xl mx-auto">
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4">Get Complete EA Syllabus Guide</h3>
+            <p className="text-red-100 text-sm sm:text-base lg:text-lg mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed">
               Download detailed EA syllabus with study schedules, exam strategies, and representation practice tips for all 3 parts.
             </p>
             <LeadFormButton
@@ -165,12 +180,12 @@ const EASyllabus = () => {
               isSendOtp={true}
               courseId="EA"
               variant="outline"
-              className="inline-flex items-center gap-2"
+              className="inline-flex items-center gap-2 w-full sm:w-auto justify-center"
             >
-              <DocumentArrowDownIcon className="w-6 h-6" />
+              <DocumentArrowDownIcon className="w-5 h-5 sm:w-6 sm:h-6" />
               Download Full Syllabus
             </LeadFormButton>
-            <div className="mt-4 text-red-100 text-sm">
+            <div className="mt-4 text-red-100 text-xs sm:text-sm leading-relaxed">
               ✅ Part-wise study hours ✅ Topic breakdown ✅ Exam format and tips
             </div>
           </div>

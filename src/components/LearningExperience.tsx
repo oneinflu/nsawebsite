@@ -110,9 +110,9 @@ const LearningExperience = () => {
  
 
   return (
-    <section ref={sectionRef} className="bg-gradient-to-b from-slate-50 to-white py-20 overflow-hidden">
+    <section ref={sectionRef} className="bg-gradient-to-b from-slate-50 to-white py-10 sm:py-20 overflow-hidden">
       {/* Row 1: Visual Demo + Learning System Overview */}
-      <div className="max-w-7xl mx-auto px-4 mb-20">
+      <div className="max-w-7xl mx-auto lg:px-4 px-12 mb-20">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left - Visual Demo */}
           <div className="relative">
@@ -176,15 +176,15 @@ const LearningExperience = () => {
           {/* Right - Content */}
           <div className={`space-y-8 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <div>
-              <h2 className="text-5xl font-light text-slate-900 leading-tight mb-6">
+              <h2 className="text-5xl font-bold lg:text-left text-center text-slate-900 leading-tight mb-6">
                 A Learning System
-                <span className="block text-red-600 font-medium">Engineered for Global Results</span>
+                <span className="block text-3xl text-red-600 font-medium">Engineered for Global Results</span>
               </h2>
-              <p className="text-xl text-slate-600 font-light leading-relaxed mb-4">
+              <p className="text-xl text-slate-600 font-light leading-relaxed mb-4 lg:text-left text-center">
                 Smart structure + mentorship support + analytics insight.
                 Everything you need to become a world-class finance professional.
               </p>
-              <p className="text-sm text-slate-500 italic">
+              <p className="text-sm text-slate-500 italic lg:text-left text-center">
                 Learning made easy. Doubts made simple. Success made predictable.
               </p>
             </div>
@@ -209,7 +209,7 @@ const LearningExperience = () => {
       </div>
 
       {/* Row 2: Feature Blocks */}
-      <div className="max-w-7xl mx-auto px-4 mb-20">
+      <div className="max-w-7xl mx-auto px-4 lg:mb-20 mb-5">
         <div className="grid md:grid-cols-2 gap-8">
           {features.map((feature, index) => {
             const Icon = feature.icon;

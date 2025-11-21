@@ -193,6 +193,19 @@ const Header: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Disable body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMobileMenuOpen]);
+
   const handleMenuToggle = (menu: string) => {
     setActiveMenu(activeMenu === menu ? null : menu);
   };
@@ -317,7 +330,7 @@ const Header: React.FC = () => {
             </nav>
 
             {/* Action Buttons */}
-            <div className="flex items-center space-x-3">
+            <div className="flex items-center space-x-2">
               {/* WhatsApp Button */}
               <motion.a
                 href="https://wa.link/rwc7kj"
@@ -333,16 +346,16 @@ const Header: React.FC = () => {
               </motion.a>
 
               {/* Primary CTA */}
-              <LeadFormButton
-              formType="general"
-              isSendOtp={true}
-             variant='primary'
-             
-             
-            >
-            
-                Book Free Call
-              </LeadFormButton>
+              <div className="lg:block">
+                <LeadFormButton
+                  formType="general"
+                  isSendOtp={true}
+                  variant='primary'
+                  className="text-xs px-3 py-2 lg:text-lg lg:px-4 lg:py-2"
+                >
+                  Book Free Call
+                </LeadFormButton>
+              </div>
 
               {/* Login Icon */}
               {/* <motion.button
@@ -361,9 +374,9 @@ const Header: React.FC = () => {
                 whileTap={{ scale: 0.95 }}
               >
                 {isMobileMenuOpen ? (
-                  <XMarkIcon className="w-5 h-5" />
+                  <XMarkIcon className="w-6 h-6" />
                 ) : (
-                  <Bars3Icon className="w-5 h-5" />
+                  <Bars3Icon className="w-8 h-8" />
                 )}
               </motion.button>
             </div>

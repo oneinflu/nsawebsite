@@ -591,7 +591,7 @@ export default function CPAFeesROI() {
           <div className="bg-gradient-to-r from-red-600 to-red-600 rounded-2xl p-8 text-white">
             <h3 className="text-2xl font-bold mb-4">Ready to Transform Your Career?</h3>
             <p className="text-red-100 mb-6 max-w-2xl mx-auto">
-              Join 5000+ professionals who chose NorthStar for their CPA journey. 
+              Join 2,00,000+ professionals who chose NorthStar for their CPA journey. 
               Get personalized guidance and flexible payment options.
             </p>
             

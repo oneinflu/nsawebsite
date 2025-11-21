@@ -203,13 +203,13 @@ export default function CFADecisionHelper() {
 
   if (!isClient) {
     return (
-      <section className="py-20 bg-gradient-to-br from-red-50 to-red-100">
+      <section className="py-10 sm:py-16 lg:py-20 bg-gradient-to-br from-red-50 to-red-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
               CFA vs MBA vs FRM vs CA
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto">
               Compare certifications to find your perfect fit
             </p>
           </div>

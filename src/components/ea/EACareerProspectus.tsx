@@ -21,7 +21,7 @@ const highlights = [
 
 const EACareerProspectus = () => {
   return (
-    <section className="py-24 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
+    <section className="py-6 sm:py-16 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
       {/* Decorative blobs for on-brand feel */}
       <div className="absolute inset-0 opacity-30 pointer-events-none">
         <div className="absolute top-20 left-10 w-64 h-64 bg-red-200 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
@@ -36,12 +36,12 @@ const EACareerProspectus = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center lg:mb-16 mb-8"
         >
-          <div className="inline-flex items-center bg-gradient-to-r from-red-100 to-purple-100 text-red-800 px-4 py-2 rounded-full text-sm font-medium mb-6">
+          <div className="inline-flex items-center bg-gradient-to-r from-red-100 to-purple-100 text-red-800 px-4 py-2 rounded-full text-sm font-medium lg:mb-6 mb-4">
             EA Career Prospectus
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             Where the <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-purple-600">EA</span> Credential Takes You
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
@@ -50,7 +50,7 @@ const EACareerProspectus = () => {
         </motion.div>
 
         {/* Highlights Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 lg:mb-16 mb-8">
           {highlights.map((h, index) => (
             <motion.div
               key={h.label}
@@ -78,7 +78,7 @@ const EACareerProspectus = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mt-20 bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-gray-200"
+          className="lg:mt-20 mt-10 bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-gray-200"
         >
           <div className="text-center mb-8">
             <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Ready to Build Your EA Career?</h3>

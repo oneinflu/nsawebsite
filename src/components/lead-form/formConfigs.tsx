@@ -21,29 +21,74 @@ export type FormType =
   | "download-syllabus"
   | "download-placement-report"
   | "download-hackdoc"
-  | "book-webinar";
+  | "book-webinar"
+  | "talk-to-our-counseller";
 
 const iconCheck = (
-  <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+  <svg
+    className="w-5 h-5 text-white"
+    fill="none"
+    stroke="currentColor"
+    viewBox="0 0 24 24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
+      d="M5 13l4 4L19 7"
+    />
   </svg>
 );
 
 const iconChart = (
-  <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19V9m4 10V5m4 14v-3M5 19h14" />
+  <svg
+    className="w-5 h-5 text-white"
+    fill="none"
+    stroke="currentColor"
+    viewBox="0 0 24 24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
+      d="M9 19V9m4 10V5m4 14v-3M5 19h14"
+    />
   </svg>
 );
 
 const iconDoc = (
-  <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 21h10a2 2 0 002-2V7l-5-5H7a2 2 0 00-2 2v15a2 2 0 002 2z" />
+  <svg
+    className="w-5 h-5 text-white"
+    fill="none"
+    stroke="currentColor"
+    viewBox="0 0 24 24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
+      d="M7 21h10a2 2 0 002-2V7l-5-5H7a2 2 0 00-2 2v15a2 2 0 002 2z"
+    />
   </svg>
 );
 
 const iconCalendar = (
-  <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+  <svg
+    className="w-5 h-5 text-white"
+    fill="none"
+    stroke="currentColor"
+    viewBox="0 0 24 24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
+      d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+    />
   </svg>
 );
 
@@ -53,9 +98,21 @@ export const formConfigs: Record<FormType, FormConfig> = {
     description:
       "Provide your details and our expert counselor will connect with you shortly.",
     features: [
-      { title: "Personalized Guidance", description: "Get tailored advice for your career path", icon: iconCheck },
-      { title: "High Success Rates", description: "95% pass rate across programs", icon: iconChart },
-      { title: "Experienced Mentors", description: "Learn from industry experts", icon: iconCheck },
+      {
+        title: "Personalized Guidance",
+        description: "Get tailored advice for your career path",
+        icon: iconCheck,
+      },
+      {
+        title: "High Success Rates",
+        description: "95% pass rate across programs",
+        icon: iconChart,
+      },
+      {
+        title: "Experienced Mentors",
+        description: "Learn from industry experts",
+        icon: iconCheck,
+      },
     ],
     formTitle: "Get in Touch",
     submitButtonText: "Submit",
@@ -65,9 +122,21 @@ export const formConfigs: Record<FormType, FormConfig> = {
     title: "Download Syllabus",
     description: "Get the latest syllabus for your chosen course.",
     features: [
-      { title: "Latest Curriculum", description: "Up-to-date syllabus and modules", icon: iconDoc },
-      { title: "Exam Blueprint", description: "Topic-wise weightage and structure", icon: iconChart },
-      { title: "Study Tips", description: "Guidance from mentors", icon: iconCheck },
+      {
+        title: "Latest Curriculum",
+        description: "Up-to-date syllabus and modules",
+        icon: iconDoc,
+      },
+      {
+        title: "Exam Blueprint",
+        description: "Topic-wise weightage and structure",
+        icon: iconChart,
+      },
+      {
+        title: "Study Tips",
+        description: "Guidance from mentors",
+        icon: iconCheck,
+      },
     ],
     formTitle: "Download Syllabus",
     submitButtonText: "Download",
@@ -77,9 +146,21 @@ export const formConfigs: Record<FormType, FormConfig> = {
     title: "Placement Report",
     description: "Explore our student success and recent placements.",
     features: [
-      { title: "Top Recruiters", description: "Connections with leading corporates", icon: iconChart },
-      { title: "Salary Insights", description: "Compensation trends for freshers", icon: iconDoc },
-      { title: "Success Stories", description: "Real outcomes from our alumni", icon: iconCheck },
+      {
+        title: "Top Recruiters",
+        description: "Connections with leading corporates",
+        icon: iconChart,
+      },
+      {
+        title: "Salary Insights",
+        description: "Compensation trends for freshers",
+        icon: iconDoc,
+      },
+      {
+        title: "Success Stories",
+        description: "Real outcomes from our alumni",
+        icon: iconCheck,
+      },
     ],
     formTitle: "Download Placement Report",
     submitButtonText: "Download",
@@ -89,9 +170,21 @@ export const formConfigs: Record<FormType, FormConfig> = {
     title: "Download HackDoc",
     description: "Get our preparation hacks and condensed notes.",
     features: [
-      { title: "Quick References", description: "Concise notes for revision", icon: iconDoc },
-      { title: "Exam Hacks", description: "Strategies to maximize scores", icon: iconCheck },
-      { title: "Practice Tips", description: "Methods to retain concepts", icon: iconChart },
+      {
+        title: "Quick References",
+        description: "Concise notes for revision",
+        icon: iconDoc,
+      },
+      {
+        title: "Exam Hacks",
+        description: "Strategies to maximize scores",
+        icon: iconCheck,
+      },
+      {
+        title: "Practice Tips",
+        description: "Methods to retain concepts",
+        icon: iconChart,
+      },
     ],
     formTitle: "Download HackDoc",
     submitButtonText: "Download",
@@ -101,12 +194,49 @@ export const formConfigs: Record<FormType, FormConfig> = {
     title: "Register for Webinar",
     description: "Join our upcoming webinar or book a live demo.",
     features: [
-      { title: "Live Q&A", description: "Interact with mentors and alumni", icon: iconCalendar },
-      { title: "Program Overview", description: "Get clarity on curriculum & outcomes", icon: iconDoc },
-      { title: "Admissions Help", description: "Understand eligibility and next steps", icon: iconCheck },
+      {
+        title: "Live Q&A",
+        description: "Interact with mentors and alumni",
+        icon: iconCalendar,
+      },
+      {
+        title: "Program Overview",
+        description: "Get clarity on curriculum & outcomes",
+        icon: iconDoc,
+      },
+      {
+        title: "Admissions Help",
+        description: "Understand eligibility and next steps",
+        icon: iconCheck,
+      },
     ],
     formTitle: "Register for Webinar",
     submitButtonText: "Register",
     formName: "Webinar/Demo Registration",
+  },
+  "talk-to-our-counseller": {
+    title: "Talk to our Counseller",
+    description:
+      "Provide your details and our expert counselor will connect with you shortly.",
+    features: [
+      {
+        title: "Personalized Guidance",
+        description: "Get tailored advice for your career path",
+        icon: iconCheck,
+      },
+      {
+        title: "High Success Rates",
+        description: "95% pass rate across programs",
+        icon: iconChart,
+      },
+      {
+        title: "Experienced Mentors",
+        description: "Learn from industry experts",
+        icon: iconCheck,
+      },
+    ],
+    formTitle: "Get in Touch",
+    submitButtonText: "Submit",
+    formName: "Lead Form Modal",
   },
 };

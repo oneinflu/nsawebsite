@@ -53,7 +53,7 @@ const features = [
 
 const EAWhyNorthStar = () => {
   return (
-    <section className="py-24 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
+    <section className="py-10 sm:py-10 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
       {/* Background accents */}
       <div className="absolute inset-0 opacity-30 pointer-events-none">
         <div className="absolute top-12 left-8 w-64 h-64 bg-red-200 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
@@ -68,21 +68,21 @@ const EAWhyNorthStar = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-16"
         >
           <div className="inline-flex items-center bg-gradient-to-r from-red-100 to-purple-100 text-red-800 px-4 py-2 rounded-full text-sm font-medium mb-6">
             Why NorthStar Academy
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             Built for <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-purple-600">EA Success</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Mentorship, analytics, and placements — a system that makes tax representation careers achievable and fast.
           </p>
         </motion.div>
 
         {/* Split section: Mentor Spotlight and Value Props */}
-        <div className="grid lg:grid-cols-1 gap-12 items-center mb-20">
+        <div className="grid lg:grid-cols-1 gap-6 sm:gap-12 items-center mb-10 sm:mb-20">
           {/* Mentor Spotlight Card */}
          
           {/* Value Props Grid */}

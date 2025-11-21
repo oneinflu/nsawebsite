@@ -74,7 +74,7 @@ export default function WhyCPA() {
             </span>
           </h2>
           <p className="md:text-xl sm:text-base text-sm text-slate-600 max-w-3xl mx-auto">
-            More than a certification — it&apos;s a professional license that
+            More than a certification , it&apos;s a professional license that
             opens doors to the highest levels of accounting and finance globally
           </p>
         </motion.div>
@@ -269,7 +269,7 @@ export default function WhyCPA() {
               Ready to Become a Licensed CPA?
             </h3>
             <p className="text-red-100 mb-6 max-w-2xl mx-auto">
-              Join 650,000+ CPAs worldwide and unlock unlimited career
+              Join 2,00,000+ CPAs worldwide and unlock unlimited career
               opportunities in accounting and finance
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

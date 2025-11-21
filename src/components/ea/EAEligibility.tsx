@@ -28,24 +28,24 @@ const EAEligibility = () => {
   ];
 
   return (
-    <section id="eligibility" className="py-20 bg-gradient-to-br from-gray-50 to-red-50">
+    <section id="eligibility" className="py-10 sm:py-20 bg-gradient-to-br from-gray-50 to-red-50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center lg:mb-16 mb-10"
         >
           <div className="inline-flex items-center bg-red-100 text-red-800 px-4 py-2 rounded-full text-sm font-medium mb-6">
             <CheckCircleIcon className="w-4 h-4 mr-2" />
             Eligibility Made Simple
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             EA Eligibility &
             <span className="block text-red-600 mt-2">Registration Requirements</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Clear path to becoming an IRS Enrolled Agent. Start with PTIN, pass the SEE exams, and complete suitability.
           </p>
         </motion.div>
@@ -55,7 +55,7 @@ const EAEligibility = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="bg-gradient-to-r from-red-500 to-red-600 rounded-3xl p-8 md:p-12 text-white mb-16"
+          className="bg-gradient-to-r from-red-500 to-red-600 rounded-3xl p-8 md:p-12 text-white lg:mb-16 mb-8"
         >
           <div className="text-center">
             <h3 className="text-2xl md:text-3xl font-bold mb-4">Key Requirements</h3>
@@ -112,13 +112,13 @@ const EAEligibility = () => {
             <p className="text-red-100 mb-6">
               Unsure if you qualify? Get a quick eligibility assessment and guidance on next steps.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <LeadFormButton
                 formType="general"
                 isSendOtp={true}
                 courseId="EA"
                 variant="primary"
-                className="inline-flex items-center gap-2"
+                className="inline-flex items-center gap-2 justify-center"
               >
                 <DocumentArrowDownIcon className="w-5 h-5" />
                 Check Eligibility
@@ -127,7 +127,7 @@ const EAEligibility = () => {
                 formType="general"
                 isSendOtp={true}
                 variant="outline"
-                className="inline-flex items-center gap-2"
+                className="inline-flex items-center gap-2 justify-center"
               >
                 <ChatBubbleLeftRightIcon className="w-5 h-5" />
                 Talk to an Expert

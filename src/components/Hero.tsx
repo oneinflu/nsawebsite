@@ -133,11 +133,11 @@ const Hero: React.FC = () => {
       <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23e0e7ff%22%20fill-opacity%3D%220.3%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%221%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-40"></div>
       
       {/* Main Hero Container */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8  pt-10 pb-16">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center min-h-[80vh]">
           
           {/* LEFT SIDE - Sales Psychology + Funnel Entry */}
-          <div className="space-y-8">
+          <div className="space-y-5">
             
             {/* 1️⃣ Identity Badge */}
             <div className="inline-flex items-center space-x-3 bg-green-50 border border-green-200 rounded-full px-6 py-3 animate-slide-in-left">
@@ -149,7 +149,7 @@ const Hero: React.FC = () => {
 
             {/* 2️⃣ Core Headline */}
             <div className="space-y-4">
-              <h1 className="text-4xl lg:text-6xl font-bold leading-tight">
+              <h1 className="md:text-4xl lg:text-6xl text-3xl font-bold leading-tight lg:text-left text-center">
                 <span className="bg-gradient-to-r from-red-600 via-purple-600 to-red-600 bg-clip-text text-transparent">
                   Become a Globally Certified
                 </span>
@@ -158,14 +158,14 @@ const Hero: React.FC = () => {
                   Finance Professional
                 </span>
                 <br />
-                <span className="text-2xl lg:text-4xl text-slate-600">
+                <span className="text-xl lg:text-4xl text-slate-600">
                   in the Smartest Indian Way 🇮🇳
                 </span>
               </h1>
             </div>
 
             {/* 3️⃣ Subtext */}
-            <div className="text-lg text-slate-600 space-y-2">
+            <div className="text-lg text-slate-600 space-y-2 lg:text-left text-center">
               <p className="font-semibold text-slate-800">CMA (US), CPA (US) & ACCA (UK)</p>
               <p>Mentor-led learning · Big 4 Opportunities · Proven Success Systems</p>
             </div>
@@ -270,8 +270,8 @@ const Hero: React.FC = () => {
                     <span className="text-xl font-bold">{currentCert.flag}</span>
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-slate-800">{currentCert.fullName}</h3>
-                    <p className="text-slate-600">{currentCert.authority}</p>
+                    <h3 className="lg:text-xl  text-md font-bold text-slate-800 ">{currentCert.fullName}</h3>
+                    <p className="text-slate-600 text-sm">{currentCert.authority}</p>
                   </div>
                 </div>
                 
@@ -302,7 +302,7 @@ const Hero: React.FC = () => {
             <div className="absolute inset-0 pointer-events-none z-30">
               
               {/* Certified Badge */}
-              <div className="absolute -top-4 -left-4 bg-green-100 border border-green-200 rounded-lg p-3 shadow-xl animate-float pointer-events-auto z-40">
+              <div className="absolute md:-top-6 -top-2 -left-2 bg-green-100 border border-green-200 rounded-lg p-3 shadow-xl animate-float pointer-events-auto z-40">
                 <div className="flex items-center space-x-2">
                   <CheckIcon className="w-4 h-4 text-green-600" />
                   <div className="text-xs">
@@ -313,7 +313,7 @@ const Hero: React.FC = () => {
               </div>
 
               {/* Big 4 Careers */}
-              <div className="absolute -top-8 -right-8 bg-red-100 border border-red-200 rounded-lg p-3 shadow-xl animate-float-slow pointer-events-auto z-40">
+              <div className="absolute -top-8 -right-4 bg-red-100 border border-red-200 rounded-lg p-3 shadow-xl animate-float-slow pointer-events-auto z-40">
                 <div className="flex items-center space-x-2">
                   <BriefcaseIcon className="w-4 h-4 text-red-600" />
                   <div className="text-xs">
@@ -324,7 +324,7 @@ const Hero: React.FC = () => {
               </div>
 
               {/* Pass Rate */}
-              <div className="absolute -bottom-4 -left-8 bg-yellow-100 border border-yellow-200 rounded-lg p-3 shadow-xl animate-float-slow-reverse pointer-events-auto z-40">
+              <div className="absolute -bottom-4 -left-2 bg-yellow-100 border border-yellow-200 rounded-lg p-3 shadow-xl animate-float-slow-reverse pointer-events-auto z-40">
                 <div className="flex items-center space-x-2">
                   <StarIcon className="w-4 h-4 text-yellow-600" />
                   <div className="text-xs">
@@ -335,7 +335,7 @@ const Hero: React.FC = () => {
               </div>
 
               {/* Irfat Sir */}
-              <div className="absolute bottom-8 -right-4 bg-purple-100 border border-purple-200 rounded-lg p-3 shadow-xl animate-float pointer-events-auto z-40">
+              <div className="absolute bottom-8 -right-2 bg-purple-100 border border-purple-200 rounded-lg p-3 shadow-xl animate-float pointer-events-auto z-40">
                 <div className="flex items-center space-x-2">
                   <UserGroupIcon className="w-4 h-4 text-purple-600" />
                   <div className="text-xs">
@@ -346,7 +346,7 @@ const Hero: React.FC = () => {
               </div>
 
               {/* EMI */}
-              <div className="absolute top-1/2 -left-12 bg-green-200 border-2 border-green-300 rounded-lg p-3 shadow-xl animate-pulse-gentle pointer-events-auto z-40">
+              <div className="absolute top-1/2 right-1 bg-green-200 border-2 border-green-300 rounded-lg p-3 shadow-xl animate-pulse-gentle pointer-events-auto z-40">
                 <div className="flex items-center space-x-2">
                   <CurrencyRupeeIcon className="w-4 h-4 text-green-700" />
                   <div className="text-xs">

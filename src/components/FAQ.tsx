@@ -106,7 +106,7 @@ export default function FAQ() {
   })).filter(category => category.questions.length > 0)
 
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-50 via-white to-red-50">
+    <section className="py-10 sm:py-20 bg-gradient-to-br from-gray-50 via-white to-red-50">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div 
@@ -115,7 +115,7 @@ export default function FAQ() {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-2xl sm:text-4xl font-bold text-gray-900 mb-4">
             Questions? We have clear answers.
           </h2>
           <p className="text-xl text-gray-600 mb-8">
@@ -151,25 +151,27 @@ export default function FAQ() {
               {/* Category Header */}
               <button
                 onClick={() => setOpenCategory(openCategory === category.category ? null : category.category)}
-                className="w-full px-8 py-6 text-left flex items-center justify-between hover:bg-gray-50 transition-colors duration-200"
+                className="w-full px-4 sm:px-8 py-6 text-left flex items-center justify-between hover:bg-gray-50 transition-colors duration-200"
               >
-                <div className="flex items-center">
-                  <span className="text-2xl mr-4">{category.icon}</span>
-                  <h3 className="text-xl font-bold text-gray-900">{category.category}</h3>
-                  <span className="ml-3 bg-red-100 text-red-600 px-3 py-1 rounded-full text-sm font-medium">
+                <div className="flex items-center gap-2 sm:gap-3">
+                  <span className="text-xl sm:text-2xl flex-shrink-0">{category.icon}</span>
+                  <h3 className="text-base sm:text-xl font-bold text-gray-900">{category.category}</h3>
+                </div>
+                <div className="flex items-center gap-2 sm:gap-3">
+                  <span className="bg-red-100 text-red-600 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium whitespace-nowrap">
                     {category.questions.length} questions
                   </span>
+                  <motion.svg
+                    animate={{ rotate: openCategory === category.category ? 180 : 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="w-6 h-6 text-gray-400 flex-shrink-0"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </motion.svg>
                 </div>
-                <motion.svg
-                  animate={{ rotate: openCategory === category.category ? 180 : 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="w-6 h-6 text-gray-400"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </motion.svg>
               </button>
 
               {/* Questions */}
