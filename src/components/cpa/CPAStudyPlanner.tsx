@@ -343,7 +343,7 @@ const CPAStudyPlanner = () => {
           className="text-center mt-12"
         >
           <LeadFormButton 
-            formType='download-hackdoc'
+            formType='get-personalized-study-plan'
             isSendOtp={true}
             courseId='CPA'
             className="inline-flex items-center gap-3 bg-gradient-to-r from-red-600 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold text-sm md:text-lg hover:shadow-xl transition-all duration-300"
@@ -352,7 +352,7 @@ const CPAStudyPlanner = () => {
             Get Your Personalized Study Plan
           </LeadFormButton>
           <p className="text-gray-600 mt-4 text-xs md:text-lg">
-            Join 5,000+ students who achieved first-attempt success with our structured approach
+            Join 2,00,000+ students who achieved first-attempt success with our structured approach
           </p>
         </motion.div>
       </div>

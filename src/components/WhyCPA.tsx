@@ -274,7 +274,7 @@ export default function WhyCPA() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <LeadFormButton
-                formType="general"
+                formType="cpa-journey"
                 isSendOtp={true}
                 courseId="CPA"
                 className=" text-red-600 sm:px-8 px-5 py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 transform hover:scale-105"
@@ -282,7 +282,7 @@ export default function WhyCPA() {
                 Start Your CPA Journey
               </LeadFormButton>
               <LeadFormButton
-                formType="download-syllabus"
+                formType="download-cpa-guide"
                 isSendOtp={true}
                 courseId="CPA"
                 className="border-2 border-white text-white sm:px-8 px-5 py-3 rounded-xl font-semibold hover:bg-white hover:text-red-600 transition-all duration-300"

@@ -390,7 +390,7 @@ const PlacementReadiness = () => {
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <LeadFormButton
-                formType="download-placement-report"
+                formType="start-placement-program"
                 isSendOtp={true}
                 courseId="CPA"
                 className="text-sm md:text-md text-red-600 px-8 py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300"
@@ -401,7 +401,7 @@ const PlacementReadiness = () => {
                 </div>
               </LeadFormButton>
               <LeadFormButton
-                formType="general"
+                formType="talk-to-alumni"
                 isSendOtp={true}
                 courseId="CPA"
                 className="text-sm md:text-md border-2 border-white text-white px-8 py-3 rounded-xl font-semibold hover:bg-white hover:text-red-600 transition-all duration-300"

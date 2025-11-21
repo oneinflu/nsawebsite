@@ -597,7 +597,7 @@ export default function CPAFeesROI() {
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <LeadFormButton
-                formType='general'
+                formType='request-emi-plan'
                 isSendOtp={true}
                 courseId='CPA'
                 className="text-red-600 px-8 py-4 rounded-xl font-semibold hover:shadow-xl transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2"

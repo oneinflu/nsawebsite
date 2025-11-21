@@ -17,6 +17,20 @@ const FORM_TYPES: readonly FormType[] = [
   "download-placement-report",
   "download-hackdoc",
   "book-webinar",
+  "talk-to-our-counseller",
+  "get-mentorship",
+  "check-scholarship-eligibilty",
+  "reserve-you-seat-now",
+  "get-free-guide",
+  "talk-to-an-expert",
+  "book-free-consultation",
+  "get-personalized-recommendation",
+  "cpa-journey",
+  "download-cpa-guide",
+  "request-emi-plan",
+  "get-personalized-study-plan",
+  "start-placement-program",
+  "talk-to-alumni",
 ] as const;
 
 const isFormType = (t: string): t is FormType => {

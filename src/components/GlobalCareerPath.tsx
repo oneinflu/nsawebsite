@@ -428,7 +428,7 @@ const GlobalCareerPath: React.FC = () => {
             AI-powered roadmap based on your background.
           </p>
           <LeadFormButton 
-            formType="general"
+            formType="get-mentorship"
             isSendOtp={true}
             variant='outline' >
           

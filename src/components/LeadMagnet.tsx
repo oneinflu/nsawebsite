@@ -213,7 +213,7 @@ export default function LeadMagnet() {
           
           <p className="text-gray-600 mb-4">Lock your mentorship spot now.</p>
           
-          <LeadFormButton formType="general" variant="primary">
+          <LeadFormButton formType="reserve-you-seat-now" variant="primary">
             Reserve Your Seat Now
           </LeadFormButton>
         </motion.div>

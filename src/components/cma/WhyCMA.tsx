@@ -141,7 +141,7 @@ export default function WhyCMA() {
             </LeadFormButton>
 
             <LeadFormButton
-              formType='general'
+              formType='talk-to-an-expert'
               variant='outline'
               className='text-base md:text-lg text-black'
               isSendOtp={true}

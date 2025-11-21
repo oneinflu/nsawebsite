@@ -22,7 +22,20 @@ export type FormType =
   | "download-placement-report"
   | "download-hackdoc"
   | "book-webinar"
-  | "talk-to-our-counseller";
+  | "talk-to-our-counseller"
+  | "get-mentorship"
+  | "check-scholarship-eligibilty"
+  | "reserve-you-seat-now"
+  | "get-free-guide"
+  | "talk-to-an-expert"
+  | "book-free-consultation"
+  | "get-personalized-recommendation"
+  | "cpa-journey"
+  | "download-cpa-guide"
+  | "request-emi-plan"
+  | "get-personalized-study-plan"
+  | "start-placement-program"
+  | "talk-to-alumni";
 
 const iconCheck = (
   <svg
@@ -235,8 +248,333 @@ export const formConfigs: Record<FormType, FormConfig> = {
         icon: iconCheck,
       },
     ],
-    formTitle: "Get in Touch",
+    formTitle: "Get in touch",
     submitButtonText: "Submit",
-    formName: "Lead Form Modal",
+    formName: "Talk to our Counseller",
+  },
+  "get-mentorship": {
+    title: "Get Mentorship",
+    description:
+      "Provide your details and our expert counselor will connect with you shortly.",
+    features: [
+      {
+        title: "Personalized Guidance",
+        description: "Get tailored advice for your career path",
+        icon: iconCheck,
+      },
+      {
+        title: "High Success Rates",
+        description: "95% pass rate across programs",
+        icon: iconChart,
+      },
+      {
+        title: "Experienced Mentors",
+        description: "Learn from industry experts",
+        icon: iconCheck,
+      },
+    ],
+    formTitle: "Get in touch",
+    submitButtonText: "Submit",
+    formName: "Get Mentorship",
+  },
+  "check-scholarship-eligibilty": {
+    title: "Check Scholarship Eligibility",
+    description:
+      "Provide your details and our expert counselor will connect with you shortly.",
+    features: [
+      {
+        title: "Personalized Guidance",
+        description: "Get tailored advice for your career path",
+        icon: iconCheck,
+      },
+      {
+        title: "High Success Rates",
+        description: "95% pass rate across programs",
+        icon: iconChart,
+      },
+      {
+        title: "Experienced Mentors",
+        description: "Learn from industry experts",
+        icon: iconCheck,
+      },
+    ],
+    formTitle: "Get in touch",
+    submitButtonText: "Submit",
+    formName: "Check Scholarship Eligibility",
+  },
+  "reserve-you-seat-now": {
+    title: "Reserve Your Seat Now",
+    description:
+      "Provide your details and our expert counselor will connect with you shortly.",
+    features: [
+      {
+        title: "Personalized Guidance",
+        description: "Get tailored advice for your career path",
+        icon: iconCheck,
+      },
+      {
+        title: "High Success Rates",
+        description: "95% pass rate across programs",
+        icon: iconChart,
+      },
+      {
+        title: "Experienced Mentors",
+        description: "Learn from industry experts",
+        icon: iconCheck,
+      },
+    ],
+    formTitle: "Get in touch",
+    submitButtonText: "Submit",
+    formName: "Reserve Your Seat Now",
+  },
+  "get-free-guide": {
+    title: "Get Free Guide",
+    description:
+      "Provide your details and our expert counselor will connect with you shortly.",
+    features: [
+      {
+        title: "Personalized Guidance",
+        description: "Get tailored advice for your career path",
+        icon: iconCheck,
+      },
+      {
+        title: "High Success Rates",
+        description: "95% pass rate across programs",
+        icon: iconChart,
+      },
+      {
+        title: "Experienced Mentors",
+        description: "Learn from industry experts",
+        icon: iconCheck,
+      },
+    ],
+    formTitle: "Get in touch",
+    submitButtonText: "Submit",
+    formName: "Get Free Guide",
+  },
+  "talk-to-an-expert": {
+    title: "Talk to An Expert",
+    description:
+      "Provide your details and our expert counselor will connect with you shortly.",
+    features: [
+      {
+        title: "Personalized Guidance",
+        description: "Get tailored advice for your career path",
+        icon: iconCheck,
+      },
+      {
+        title: "High Success Rates",
+        description: "95% pass rate across programs",
+        icon: iconChart,
+      },
+      {
+        title: "Experienced Mentors",
+        description: "Learn from industry experts",
+        icon: iconCheck,
+      },
+    ],
+    formTitle: "Get in touch",
+    submitButtonText: "Submit",
+    formName: "Talk to An Expert",
+  },
+  "book-free-consultation": {
+    title: "Book Free Consultation",
+    description:
+      "Provide your details and our expert counselor will connect with you shortly.",
+    features: [
+      {
+        title: "Personalized Guidance",
+        description: "Get tailored advice for your career path",
+        icon: iconCheck,
+      },
+      {
+        title: "High Success Rates",
+        description: "95% pass rate across programs",
+        icon: iconChart,
+      },
+      {
+        title: "Experienced Mentors",
+        description: "Learn from industry experts",
+        icon: iconCheck,
+      },
+    ],
+    formTitle: "Get in touch",
+    submitButtonText: "Submit",
+    formName: "Book Free Consultation",
+  },
+  "get-personalized-recommendation": {
+    title: "Get Personalized Recommendation",
+    description:
+      "Provide your details and our expert counselor will connect with you shortly.",
+    features: [
+      {
+        title: "Personalized Guidance",
+        description: "Get tailored advice for your career path",
+        icon: iconCheck,
+      },
+      {
+        title: "High Success Rates",
+        description: "95% pass rate across programs",
+        icon: iconChart,
+      },
+      {
+        title: "Experienced Mentors",
+        description: "Learn from industry experts",
+        icon: iconCheck,
+      },
+    ],
+    formTitle: "Get in touch",
+    submitButtonText: "Submit",
+    formName: "Get Personalized Recommendation",
+  },
+  "cpa-journey": {
+    title: "CPA Journey",
+    description:
+      "Provide your details and our expert counselor will connect with you shortly.",
+    features: [
+      {
+        title: "Personalized Guidance",
+        description: "Get tailored advice for your career path",
+        icon: iconCheck,
+      },
+      {
+        title: "High Success Rates",
+        description: "95% pass rate across programs",
+        icon: iconChart,
+      },
+      {
+        title: "Experienced Mentors",
+        description: "Learn from industry experts",
+        icon: iconCheck,
+      },
+    ],
+    formTitle: "Get in touch",
+    submitButtonText: "Submit",
+    formName: "CPA Journey",
+  },
+  "download-cpa-guide": {
+    title: "Download CPA Guide",
+    description:
+      "Provide your details and our expert counselor will connect with you shortly.",
+    features: [
+      {
+        title: "Personalized Guidance",
+        description: "Get tailored advice for your career path",
+        icon: iconCheck,
+      },
+      {
+        title: "High Success Rates",
+        description: "95% pass rate across programs",
+        icon: iconChart,
+      },
+      {
+        title: "Experienced Mentors",
+        description: "Learn from industry experts",
+        icon: iconCheck,
+      },
+    ],
+    formTitle: "Get in touch",
+    submitButtonText: "Submit",
+    formName: "Download CPA Guide",
+  },
+  "request-emi-plan": {
+    title: "Request EMI Plan",
+    description:
+      "Provide your details and our expert counselor will connect with you shortly.",
+    features: [
+      {
+        title: "Personalized Guidance",
+        description: "Get tailored advice for your career path",
+        icon: iconCheck,
+      },
+      {
+        title: "High Success Rates",
+        description: "95% pass rate across programs",
+        icon: iconChart,
+      },
+      {
+        title: "Experienced Mentors",
+        description: "Learn from industry experts",
+        icon: iconCheck,
+      },
+    ],
+    formTitle: "Get in touch",
+    submitButtonText: "Submit",
+    formName: "Request EMI Plan",
+  },
+  "get-personalized-study-plan": {
+    title: "Get Personalized Study Plan",
+    description:
+      "Provide your details and our expert counselor will connect with you shortly.",
+    features: [
+      {
+        title: "Personalized Guidance",
+        description: "Get tailored advice for your career path",
+        icon: iconCheck,
+      },
+      {
+        title: "High Success Rates",
+        description: "95% pass rate across programs",
+        icon: iconChart,
+      },
+      {
+        title: "Experienced Mentors",
+        description: "Learn from industry experts",
+        icon: iconCheck,
+      },
+    ],
+    formTitle: "Get in touch",
+    submitButtonText: "Submit",
+    formName: "Get Personalized Study Plan",
+  },
+  "start-placement-program": {
+    title: "Start Placement Program",
+    description:
+      "Provide your details and our expert counselor will connect with you shortly.",
+    features: [
+      {
+        title: "Personalized Guidance",
+        description: "Get tailored advice for your career path",
+        icon: iconCheck,
+      },
+      {
+        title: "High Success Rates",
+        description: "95% pass rate across programs",
+        icon: iconChart,
+      },
+      {
+        title: "Experienced Mentors",
+        description: "Learn from industry experts",
+        icon: iconCheck,
+      },
+    ],
+    formTitle: "Get in touch",
+    submitButtonText: "Submit",
+    formName: "Start Placement Program",
+  },
+  "talk-to-alumni": {
+    title: "Talk to Alumni",
+    description:
+      "Provide your details and our expert counselor will connect with you shortly.",
+    features: [
+      {
+        title: "Personalized Guidance",
+        description: "Get tailored advice for your career path",
+        icon: iconCheck,
+      },
+      {
+        title: "High Success Rates",
+        description: "95% pass rate across programs",
+        icon: iconChart,
+      },
+      {
+        title: "Experienced Mentors",
+        description: "Learn from industry experts",
+        icon: iconCheck,
+      },
+    ],
+    formTitle: "Get in touch",
+    submitButtonText: "Submit",
+    formName: "Talk to Alumni",
   },
 };
