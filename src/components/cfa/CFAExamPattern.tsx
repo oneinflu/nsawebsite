@@ -259,75 +259,64 @@ export default function CFAExamPattern() {
         </motion.div>
 
         {/* Main Content Grid */}
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+        <div className="flex lg:flex-cols-2 flex flex-col gap-8 lg:gap-12 items-start px-1">
           {/* Exam Details Table */}
-          <motion.div variants={itemVariants}>
-            <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6 sm:mb-8 text-center lg:text-left">
+          <motion.div variants={itemVariants} className="w-full flex flex-col items-center lg:items-start">
+            <h3 className="text-2xl sm:text-2xl font-bold text-gray-900 mb-6 sm:mb-8 text-center lg:text-left pr-12">
               Exam Structure & Format
             </h3>
 
-            <div className="bg-white/80 backdrop-blur-sm rounded-xl sm:rounded-2xl shadow-xl border border-gray-200">
-              {/* SCROLL WRAPPER */}
-              <div
-                className="overflow-x-auto overflow-y-visible scrollbar-hide"
-                style={{
-                  WebkitOverflowScrolling: "touch",
-                  overflowX: "auto",
-                  scrollSnapType: "x mandatory",
-                }}
-              >
-                <table
-                  className="w-full border-collapse"
-                  style={{ minWidth: "700px" }}
-                >
-                  <thead className="sticky top-0 z-10">
-                    <tr className="bg-gradient-to-r from-red-600 to-purple-600 text-white">
-                      <th className="px-3 sm:px-4 md:px-6 py-3 sm:py-4 text-left font-semibold text-xs sm:text-sm whitespace-nowrap min-w-[200px] snap-start">
+            <div className="bg-white rounded-2xl sm:rounded-3xl shadow-2xl border border-gray-200 overflow-hidden w-full max-w-md md:max-w-none">
+              <div className="overflow-x-auto md:overflow-visible">
+                <table className="w-full" style={{ minWidth: "600px" }}>
+                  <thead>
+                    <tr className="bg-gradient-to-r from-red-600 via-pink-600 to-purple-600 text-white">
+                      <th className="px-3 sm:px-4 md:px-6 py-3 sm:py-4 text-left font-semibold text-xs sm:text-sm md:text-base whitespace-nowrap md:whitespace-normal">
                         Exam
                       </th>
-                      <th className="px-3 sm:px-4 md:px-6 py-3 sm:py-4 text-left font-semibold text-xs sm:text-sm whitespace-nowrap min-w-[100px] snap-start">
+                      <th className="px-3 sm:px-4 md:px-6 py-3 sm:py-4 text-center font-semibold text-xs sm:text-sm md:text-base whitespace-nowrap">
                         Frequency
                       </th>
-                      <th className="px-3 sm:px-4 md:px-6 py-3 sm:py-4 text-left font-semibold text-xs sm:text-sm whitespace-nowrap min-w-[100px] snap-start">
+                      <th className="px-3 sm:px-4 md:px-6 py-3 sm:py-4 text-center font-semibold text-xs sm:text-sm md:text-base whitespace-nowrap">
                         Duration
                       </th>
-                      <th className="px-3 sm:px-4 md:px-6 py-3 sm:py-4 text-left font-semibold text-xs sm:text-sm whitespace-nowrap min-w-[150px] snap-start">
+                      <th className="px-3 sm:px-4 md:px-6 py-3 sm:py-4 text-center font-semibold text-xs sm:text-sm md:text-base whitespace-nowrap">
                         Format
                       </th>
                     </tr>
                   </thead>
-
                   <tbody>
                     {examLevels.map((exam, index) => (
                       <motion.tr
                         key={exam.level}
-                        className={`border-b border-gray-100 hover:bg-red-50/50 transition-colors ${
-                          index % 2 === 0 ? "bg-gray-50/30" : "bg-white/50"
+                        className={`border-b border-gray-100 last:border-b-0 ${
+                          index % 2 === 0 ? 'bg-gray-50' : 'bg-white'
                         }`}
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
                         transition={{ delay: index * 0.1 }}
                         viewport={{ once: true }}
                       >
-                        <td className="px-3 sm:px-4 md:px-6 py-3 sm:py-4 align-top whitespace-nowrap snap-start">
-                          <div className="font-semibold text-gray-900 text-sm sm:text-base whitespace-nowrap mb-1">
+                        <td className="px-4 sm:px-6 py-4 sm:py-5">
+                          <div className="font-bold text-gray-900 text-sm sm:text-lg mb-1 sm:mb-2">
                             {exam.level}
                           </div>
-                          <div className="text-xs sm:text-sm text-gray-600 max-w-[180px] sm:max-w-xs leading-tight">
+                          <div className="text-xs sm:text-sm text-gray-500 leading-relaxed">
                             {exam.description}
                           </div>
                         </td>
-
-                        <td className="px-3 sm:px-4 md:px-6 py-3 sm:py-4 text-gray-700 font-medium text-sm sm:text-base whitespace-nowrap align-top snap-start">
-                          {exam.frequency}
+                        <td className="px-4 sm:px-6 py-4 sm:py-5 text-center">
+                          <div className="text-sm sm:text-base font-semibold text-gray-900">
+                            {exam.frequency}
+                          </div>
                         </td>
-
-                        <td className="px-3 sm:px-4 md:px-6 py-3 sm:py-4 text-gray-700 font-medium text-sm sm:text-base whitespace-nowrap align-top snap-start">
-                          {exam.duration}
+                        <td className="px-4 sm:px-6 py-4 sm:py-5 text-center">
+                          <div className="text-sm sm:text-base font-semibold text-gray-900">
+                            {exam.duration}
+                          </div>
                         </td>
-
-                        <td className="px-3 sm:px-4 md:px-6 py-3 sm:py-4 align-top whitespace-nowrap snap-start">
-                          <span className="inline-flex items-center px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium bg-red-100 text-red-800 whitespace-nowrap">
+                        <td className="px-4 sm:px-6 py-4 sm:py-5 text-center">
+                          <span className="inline-flex items-center px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-semibold bg-red-50 text-red-700 border border-red-200">
                             {exam.format}
                           </span>
                         </td>
@@ -336,52 +325,20 @@ export default function CFAExamPattern() {
                   </tbody>
                 </table>
               </div>
-
-              {/* Scroll Hint for Mobile */}
-              <div className="md:hidden bg-gradient-to-r from-red-50 to-purple-50 px-3 py-2.5 text-center text-xs font-semibold text-red-700 border-t-2 border-red-200 flex items-center justify-center gap-2 sticky bottom-0">
-                <svg
-                  className="w-4 h-4 animate-bounce"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M13 5l7 7-7 7M5 5l7 7-7 7"
-                  />
-                </svg>
-                <span className="uppercase tracking-wide">
-                  Scroll Right for More
-                </span>
-                <svg
-                  className="w-4 h-4 animate-bounce"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M13 5l7 7-7 7M5 5l7 7-7 7"
-                  />
-                </svg>
-              </div>
             </div>
+
           </motion.div>
 
           {/* Progress Ring */}
           <motion.div
             variants={itemVariants}
-            className="flex flex-col items-center justify-center w-full mt-8 lg:mt-0"
+            className="flex flex-col items-center justify-center w-full mt-8 lg:mt-0 px-4"
           >
             <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6 sm:mb-8 text-center">
               Your Journey Progress
             </h3>
 
-            <div className="relative w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 mb-6 sm:mb-8 mx-auto">
+            <div className="relative w-56 h-56 sm:w-72 sm:h-72 lg:w-80 lg:h-80 mb-6 sm:mb-8">
               {/* Background Circle */}
               <svg
                 className="w-full h-full transform -rotate-90"
@@ -432,9 +389,9 @@ export default function CFAExamPattern() {
               </svg>
 
               {/* Center Content */}
-              <div className="absolute inset-0 flex flex-col items-center justify-center px-4">
+              <div className="absolute inset-0 flex flex-col items-center justify-center px-2">
                 <motion.div
-                  className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-red-600 to-purple-600 bg-clip-text text-transparent"
+                  className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-red-600 to-purple-600 bg-clip-text text-transparent"
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
                   transition={{ delay: 1, duration: 0.5 }}
@@ -442,7 +399,7 @@ export default function CFAExamPattern() {
                   {progressPercentage}%
                 </motion.div>
                 <div className="text-gray-600 text-center mt-2">
-                  <div className="font-semibold text-sm sm:text-base">
+                  <div className="font-semibold text-xs sm:text-sm lg:text-base">
                     Journey to Charter
                   </div>
                   <div className="text-xs sm:text-sm">
@@ -458,7 +415,7 @@ export default function CFAExamPattern() {
                 formType="download-syllabus"
                 variant="outline"
                 isSendOtp={true}
-                className="w-full sm:w-auto max-w-sm mx-auto"
+                className="w-full sm:w-auto max-w-sm"
               >
                 <span className="text-sm sm:text-base">
                   Download Exam Calendar 2025

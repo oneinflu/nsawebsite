@@ -17,18 +17,18 @@ export default function AboutHero() {
         <div className="absolute inset-0 bg-gradient-to-b from-white/60 via-white/70 to-white" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="grid lg:grid-cols-2 gap-10 items-center">
-          <div>
-            <h1 className="text-4xl sm:text-5xl font-bold text-slate-900 leading-tight">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20">
+        <div className="grid lg:grid-cols-2 gap-6 sm:gap-10 items-center">
+          <div className="text-center lg:text-left">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight">
               NorthStar Academy
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-red-600 via-purple-600 to-green-600">India&apos;s Premier Finance & Accounting Training Institute</span>
             </h1>
-            <p className="mt-6 text-lg text-slate-700 max-w-2xl">
-              India’s premier training institute for globally recognized certifications like CPA USA, CMA USA, ACCA, and EA. Mentor-led learning, structured curriculum, and career support to accelerate your goals.
+            <p className="mt-4 sm:mt-6 text-base sm:text-lg text-slate-700 max-w-2xl mx-auto lg:mx-0">
+              India's premier training institute for globally recognized certifications like CPA USA, CMA USA, ACCA, and EA. Mentor-led learning, structured curriculum, and career support to accelerate your goals.
             </p>
 
-            <div className="mt-8 flex flex-wrap gap-4">
+            <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 justify-center lg:justify-start">
               <LeadFormButton 
                 formType="general"
                 variant="primary"
@@ -59,15 +59,15 @@ export default function AboutHero() {
                 playsInline
               />
             </div>
-            <div className="p-6 grid grid-cols-3 gap-4">
+            <div className="p-4 sm:p-6 grid grid-cols-3 gap-3 sm:gap-4">
               {[
                 { label: 'Students Trained', value: '55,000+' },
                 { label: 'Average Pass Rate', value: '83%' },
                 { label: 'Countries Served', value: '34+' },
               ].map((stat, idx) => (
                 <div key={idx} className="text-center">
-                  <div className="text-2xl font-bold text-slate-900">{stat.value}</div>
-                  <div className="text-sm text-slate-600">{stat.label}</div>
+                  <div className="text-xl sm:text-2xl font-bold text-slate-900">{stat.value}</div>
+                  <div className="text-xs sm:text-sm text-slate-600">{stat.label}</div>
                 </div>
               ))}
             </div>

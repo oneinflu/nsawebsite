@@ -210,8 +210,8 @@ const PlacementReadiness = () => {
         </div>
 
         {/* Visual Process Flow */}
-        <div className="mb-16">
-          <div className="grid md:grid-cols-4 gap-8">
+        <div className="mb-10 sm:mb-16">
+          <div className="grid md:grid-cols-4 gap-6 sm:gap-8">
             {placementSteps.map((step, index) => {
               const Icon = step.icon;
               const isActive = activeStep === index;
@@ -235,17 +235,17 @@ const PlacementReadiness = () => {
                     </div>
                   )}
                   
-                  <div className={`relative z-10 bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border-2 ${
+                  <div className={`relative z-10 bg-white rounded-2xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all duration-300 border-2 ${
                     isActive ? 'border-red-500' : 'border-gray-100'
                   }`}>
-                    <div className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${step.color} flex items-center justify-center mb-4 mx-auto`}>
-                      <Icon className="w-8 h-8 text-white" />
+                    <div className={`w-12 h-12 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-r ${step.color} flex items-center justify-center mb-3 sm:mb-4 mx-auto`}>
+                      <Icon className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                     </div>
                     
-                    <h3 className="text-xl font-bold text-gray-900 mb-2 text-center">{step.title}</h3>
-                    <p className="text-gray-600 text-center mb-4">{step.description}</p>
+                    <h3 className="text-base sm:text-lg lg:text-xl font-bold text-gray-900 mb-2 text-center">{step.title}</h3>
+                    <p className="text-sm sm:text-base text-gray-600 text-center mb-3 sm:mb-4">{step.description}</p>
                     
-                    <div className={`text-center text-sm font-semibold bg-gradient-to-r ${step.color} bg-clip-text text-transparent`}>
+                    <div className={`text-center text-xs sm:text-sm font-semibold bg-gradient-to-r ${step.color} bg-clip-text text-transparent`}>
                       {step.stats}
                     </div>
                     
@@ -285,24 +285,24 @@ const PlacementReadiness = () => {
                         initial={{ opacity: 0, x: -10 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: index * 0.1 }}
-                        className="flex items-center gap-3"
+                        className="flex items-center gap-2 sm:gap-3"
                       >
-                        <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
-                        <span className="text-gray-700">{detail}</span>
+                        <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 flex-shrink-0" />
+                        <span className="text-sm sm:text-base text-gray-700">{detail}</span>
                       </motion.li>
                     ))}
                   </ul>
                 </div>
                 <div className="text-center">
-                  <div className={`w-32 h-32 rounded-full bg-gradient-to-r ${placementSteps[activeStep].color} flex items-center justify-center mx-auto mb-4`}>
+                  <div className={`w-24 h-24 sm:w-32 sm:h-32 rounded-full bg-gradient-to-r ${placementSteps[activeStep].color} flex items-center justify-center mx-auto mb-3 sm:mb-4`}>
                     {React.createElement(placementSteps[activeStep].icon, {
-                      className: "w-16 h-16 text-white"
+                      className: "w-12 h-12 sm:w-16 sm:h-16 text-white"
                     })}
                   </div>
-                  <div className="text-3xl font-bold text-gray-900 mb-2">
+                  <div className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
                     {placementSteps[activeStep].stats}
                   </div>
-                  <div className="text-gray-600">Success Rate</div>
+                  <div className="text-sm sm:text-base text-gray-600">Success Rate</div>
                 </div>
               </div>
             </motion.div>
@@ -310,8 +310,8 @@ const PlacementReadiness = () => {
         </div>
 
         {/* Company Logos Carousel */}
-        <div className="mb-16">
-          <h3 className="text-2xl font-bold text-center text-gray-900 mb-8">
+        <div className="mb-10 sm:mb-16">
+          <h3 className="text-xl sm:text-2xl font-bold text-center text-gray-900 mb-6 sm:mb-8">
             Our Alumni Work At
           </h3>
           <div className="relative overflow-hidden">

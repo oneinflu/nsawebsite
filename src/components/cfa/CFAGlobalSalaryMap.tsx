@@ -132,7 +132,7 @@ export default function CFAGlobalSalaryMap() {
 
   if (!isClient) {
     return (
-      <section className="py-20 bg-gradient-to-br from-slate-900 to-red-900">
+      <section className="sm:py-15 py-10 bg-gradient-to-br from-slate-900 to-red-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-white mb-4">
@@ -163,7 +163,7 @@ export default function CFAGlobalSalaryMap() {
         viewport={{ once: true }}
       >
         {/* Header */}
-        <motion.div className="text-center mb-16" variants={itemVariants}>
+        <motion.div className="text-center sm:mb-16 mb-10" variants={itemVariants}>
           <h2 className="text-4xl font-bold text-white mb-4">
             Global CFA Salary Comparison
           </h2>
@@ -239,7 +239,7 @@ export default function CFAGlobalSalaryMap() {
               Download our comprehensive PDF guide with detailed salary data, career progression paths, and market insights across 50+ countries.
             </p>
             
-            <LeadFormButton formType='download-placement-report' variant='outline' isSendOtp={true} className='mt-10'>
+            <LeadFormButton formType='download-placement-report' variant='outline' isSendOtp={true} className='sm:mt-10 mt-4'>
               <span>Get the 2025 Salary Guide (PDF)</span>
               
             </LeadFormButton>
